@@ -1,1 +1,21 @@
 @import "tailwindcss";
+
+@theme {
+  --color-brand-50: #f2f7ee;
+  --color-brand-100: #deedcf;
+  --color-brand-200: #bddba0;
+  --color-brand-300: #97c470;
+  --color-brand-400: #72ac44;
+  --color-brand-500: #4d8f25;
+  --color-brand-600: #336600;
+  --color-brand-700: #295200;
+  --color-brand-800: #1f3d00;
+  --color-brand-900: #142900;
+}
+
+/* Avenir Next logo font */
+.font-logo {
+  font-family: "Avenir Next", "Avenir", -apple-system, "Segoe UI", sans-serif;
+  font-weight: 800;
+  font-style: italic;
+}

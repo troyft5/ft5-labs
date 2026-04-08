@@ -18,7 +18,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
   return (
     <div className="flex flex-col w-full bg-white min-h-screen">
       <article className="px-6 py-24 max-w-3xl mx-auto w-full">
-        <Link href="/blog" className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-800 font-bold text-sm uppercase tracking-wider mb-8 transition-colors">
+        <Link href="/blog" className="inline-flex items-center gap-2 text-brand-600 hover:text-brand-800 font-bold text-sm uppercase tracking-wider mb-8 transition-colors">
           <ArrowLeft className="w-4 h-4" /> Back to Articles
         </Link>
         
@@ -32,7 +32,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
           </div>
         </header>
 
-        <div className="prose prose-lg prose-slate prose-headings:font-bold prose-headings:text-slate-900 prose-a:text-blue-600 max-w-none">
+        <div className="prose prose-lg prose-slate prose-headings:font-bold prose-headings:text-slate-900 prose-a:text-brand-600 max-w-none">
           <ReactMarkdown>{postData.content}</ReactMarkdown>
         </div>
       </article>

@@ -40,7 +40,7 @@ function DropdownMenu({ label, children }: { label: string; children: React.Reac
     <div ref={ref} className="relative" onMouseEnter={() => setOpen(true)} onMouseLeave={() => setOpen(false)}>
       <button
         onClick={() => setOpen(!open)}
-        className="flex items-center gap-1 text-sm font-semibold text-slate-600 hover:text-blue-600 transition-colors py-2"
+        className="flex items-center gap-1 text-sm font-semibold text-slate-600 hover:text-brand-600 transition-colors py-2"
       >
         {label}
         <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${open ? 'rotate-180' : ''}`} />
@@ -66,10 +66,10 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-3 group" onClick={() => setMobileOpen(false)}>
-          <div className="flex items-center justify-center w-10 h-10 bg-blue-600 text-white rounded-xl shadow-md group-hover:bg-blue-700 transition-colors">
+          <div className="flex items-center justify-center w-10 h-10 bg-brand-600 text-white rounded-xl shadow-md group-hover:bg-brand-700 transition-colors">
             <CreditCard className="w-5 h-5" />
           </div>
-          <span className="font-black text-xl tracking-tight text-slate-900">FinTech 5</span>
+          <span className="font-logo text-xl text-slate-900">FinTech 5</span>
         </Link>
 
         {/* Desktop Nav */}
@@ -80,9 +80,9 @@ export default function Navbar() {
                 <Link
                   key={s.href}
                   href={s.href}
-                  className="flex flex-col px-4 py-3 rounded-xl hover:bg-blue-50 transition-colors group"
+                  className="flex flex-col px-4 py-3 rounded-xl hover:bg-brand-50 transition-colors group"
                 >
-                  <span className="text-sm font-bold text-slate-800 group-hover:text-blue-600 transition-colors">{s.label}</span>
+                  <span className="text-sm font-bold text-slate-800 group-hover:text-brand-600 transition-colors">{s.label}</span>
                   <span className="text-xs text-slate-500 mt-0.5">{s.desc}</span>
                 </Link>
               ))}
@@ -95,7 +95,7 @@ export default function Navbar() {
                 <Link
                   key={i.href}
                   href={i.href}
-                  className="px-4 py-2.5 rounded-xl text-sm font-semibold text-slate-700 hover:bg-blue-50 hover:text-blue-600 transition-colors"
+                  className="px-4 py-2.5 rounded-xl text-sm font-semibold text-slate-700 hover:bg-brand-50 hover:text-brand-600 transition-colors"
                 >
                   {i.label}
                 </Link>
@@ -103,13 +103,13 @@ export default function Navbar() {
             </div>
           </DropdownMenu>
 
-          <Link href="/calculator" className="text-sm font-semibold text-slate-600 hover:text-blue-600 transition-colors">
+          <Link href="/calculator" className="text-sm font-semibold text-slate-600 hover:text-brand-600 transition-colors">
             Calculator
           </Link>
-          <Link href="/blog" className="text-sm font-semibold text-slate-600 hover:text-blue-600 transition-colors">
+          <Link href="/blog" className="text-sm font-semibold text-slate-600 hover:text-brand-600 transition-colors">
             Blog
           </Link>
-          <Link href="/contact-us" className="text-sm font-semibold text-slate-600 hover:text-blue-600 transition-colors">
+          <Link href="/contact-us" className="text-sm font-semibold text-slate-600 hover:text-brand-600 transition-colors">
             Contact
           </Link>
         </div>
@@ -118,13 +118,13 @@ export default function Navbar() {
         <div className="flex items-center gap-3">
           <Link
             href="/get-your-savings-estimate"
-            className="hidden md:inline-flex items-center gap-2 px-5 py-2.5 text-sm font-bold text-white bg-blue-600 hover:bg-blue-700 rounded-xl shadow-sm transition-all"
+            className="hidden md:inline-flex items-center gap-2 px-5 py-2.5 text-sm font-bold text-white bg-brand-600 hover:bg-brand-700 rounded-xl shadow-sm transition-all"
           >
             Get Estimate <ArrowRight className="w-4 h-4" />
           </Link>
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
-            className="md:hidden p-2 text-slate-600 hover:text-blue-600 transition-colors"
+            className="md:hidden p-2 text-slate-600 hover:text-brand-600 transition-colors"
           >
             {mobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
@@ -144,7 +144,7 @@ export default function Navbar() {
           {mobileSolutions && (
             <div className="pl-4 flex flex-col gap-1 pb-2">
               {solutions.map((s) => (
-                <Link key={s.href} href={s.href} className="py-2 text-sm text-slate-600 hover:text-blue-600 font-medium" onClick={() => setMobileOpen(false)}>
+                <Link key={s.href} href={s.href} className="py-2 text-sm text-slate-600 hover:text-brand-600 font-medium" onClick={() => setMobileOpen(false)}>
                   {s.label}
                 </Link>
               ))}
@@ -161,7 +161,7 @@ export default function Navbar() {
           {mobileIndustries && (
             <div className="pl-4 flex flex-col gap-1 pb-2">
               {industries.map((i) => (
-                <Link key={i.href} href={i.href} className="py-2 text-sm text-slate-600 hover:text-blue-600 font-medium" onClick={() => setMobileOpen(false)}>
+                <Link key={i.href} href={i.href} className="py-2 text-sm text-slate-600 hover:text-brand-600 font-medium" onClick={() => setMobileOpen(false)}>
                   {i.label}
                 </Link>
               ))}
@@ -174,7 +174,7 @@ export default function Navbar() {
 
           <Link
             href="/get-your-savings-estimate"
-            className="mt-4 flex items-center justify-center gap-2 py-3 text-sm font-bold text-white bg-blue-600 hover:bg-blue-700 rounded-xl transition-all"
+            className="mt-4 flex items-center justify-center gap-2 py-3 text-sm font-bold text-white bg-brand-600 hover:bg-brand-700 rounded-xl transition-all"
             onClick={() => setMobileOpen(false)}
           >
             Get Your Estimate <ArrowRight className="w-4 h-4" />

@@ -14,7 +14,7 @@ export const metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${inter.variable} scroll-smooth`}>
-      <body className="bg-slate-50 text-slate-900 font-sans antialiased selection:bg-blue-600 selection:text-white min-h-screen flex flex-col">
+      <body className="bg-slate-50 text-slate-900 font-sans antialiased selection:bg-brand-600 selection:text-white min-h-screen flex flex-col">
 
         <Navbar />
 
@@ -31,26 +31,26 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               {/* Brand */}
               <div className="md:col-span-2">
                 <Link href="/" className="flex items-center gap-3 mb-4">
-                  <div className="flex items-center justify-center w-9 h-9 bg-blue-600 text-white rounded-lg">
+                  <div className="flex items-center justify-center w-9 h-9 bg-brand-600 text-white rounded-lg">
                     <CreditCard className="w-4 h-4" />
                   </div>
-                  <span className="font-black text-lg text-white">FinTech 5</span>
+                  <span className="font-logo text-lg text-white">FinTech 5</span>
                 </Link>
                 <p className="text-sm leading-relaxed max-w-xs mb-6">
                   Payment Processing Consultants. We negotiate across 10+ processors to lower your rates, eliminate junk fees, and keep your cash flow protected.
                 </p>
                 <div className="flex flex-col gap-2 text-sm">
                   <a href="tel:6469417853" className="flex items-center gap-2 hover:text-white transition-colors">
-                    <Phone className="w-4 h-4 text-blue-500" /> (646)-941-7853
+                    <Phone className="w-4 h-4 text-brand-500" /> (646)-941-7853
                   </a>
                   <a href="tel:7323001072" className="flex items-center gap-2 hover:text-white transition-colors">
-                    <Phone className="w-4 h-4 text-blue-500" /> (732)-300-1072
+                    <Phone className="w-4 h-4 text-brand-500" /> (732)-300-1072
                   </a>
                   <a href="mailto:info@fintech5group.com" className="flex items-center gap-2 hover:text-white transition-colors">
-                    <Mail className="w-4 h-4 text-blue-500" /> info@fintech5group.com
+                    <Mail className="w-4 h-4 text-brand-500" /> info@fintech5group.com
                   </a>
                   <span className="flex items-center gap-2">
-                    <MapPin className="w-4 h-4 text-blue-500" /> NY & NJ — Serving clients nationwide
+                    <MapPin className="w-4 h-4 text-brand-500" /> NY & NJ — Serving clients nationwide
                   </span>
                 </div>
               </div>
