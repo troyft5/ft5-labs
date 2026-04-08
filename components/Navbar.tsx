@@ -2,7 +2,8 @@
 
 import Link from 'next/link'
 import { useState, useRef, useEffect } from 'react'
-import { CreditCard, ChevronDown, Menu, X, ArrowRight } from 'lucide-react'
+import { ChevronDown, Menu, X, ArrowRight } from 'lucide-react'
+import LogoMark, { LogoIcon } from '@/components/Logo'
 
 const solutions = [
   { label: 'In-Person Payments', href: '/solutions/in-person-payments', desc: 'Smart terminals & POS systems' },
@@ -40,14 +41,14 @@ function DropdownMenu({ label, children }: { label: string; children: React.Reac
     <div ref={ref} className="relative" onMouseEnter={() => setOpen(true)} onMouseLeave={() => setOpen(false)}>
       <button
         onClick={() => setOpen(!open)}
-        className="flex items-center gap-1 text-sm font-semibold text-slate-600 hover:text-brand-600 transition-colors py-2"
+        className="flex items-center gap-1 text-sm font-semibold text-slate-700 hover:text-brand-600 transition-colors py-2"
       >
         {label}
         <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${open ? 'rotate-180' : ''}`} />
       </button>
       {open && (
         <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2 z-50">
-          <div className="bg-white rounded-2xl shadow-xl border border-slate-100 overflow-hidden min-w-[220px]">
+          <div className="bg-white rounded-2xl shadow-2xl border border-slate-100 overflow-hidden min-w-[230px]">
             {children}
           </div>
         </div>
@@ -62,14 +63,12 @@ export default function Navbar() {
   const [mobileIndustries, setMobileIndustries] = useState(false)
 
   return (
-    <nav className="fixed top-0 w-full z-50 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-sm">
-      <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+    <nav className="fixed top-0 w-full z-50 bg-white/97 backdrop-blur-md border-b border-slate-200 shadow-sm">
+      <div className="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
+
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-3 group" onClick={() => setMobileOpen(false)}>
-          <div className="flex items-center justify-center w-10 h-10 bg-brand-600 text-white rounded-xl shadow-md group-hover:bg-brand-700 transition-colors">
-            <CreditCard className="w-5 h-5" />
-          </div>
-          <span className="font-logo text-xl text-slate-900">FinTech 5</span>
+        <Link href="/" className="flex items-center" onClick={() => setMobileOpen(false)}>
+          <LogoMark className="h-10 w-auto" showText={true} textColor="#0f1c0a" markColor="#336600" />
         </Link>
 
         {/* Desktop Nav */}
@@ -103,13 +102,13 @@ export default function Navbar() {
             </div>
           </DropdownMenu>
 
-          <Link href="/calculator" className="text-sm font-semibold text-slate-600 hover:text-brand-600 transition-colors">
+          <Link href="/calculator" className="text-sm font-semibold text-slate-700 hover:text-brand-600 transition-colors">
             Calculator
           </Link>
-          <Link href="/blog" className="text-sm font-semibold text-slate-600 hover:text-brand-600 transition-colors">
+          <Link href="/blog" className="text-sm font-semibold text-slate-700 hover:text-brand-600 transition-colors">
             Blog
           </Link>
-          <Link href="/contact-us" className="text-sm font-semibold text-slate-600 hover:text-brand-600 transition-colors">
+          <Link href="/contact-us" className="text-sm font-semibold text-slate-700 hover:text-brand-600 transition-colors">
             Contact
           </Link>
         </div>
@@ -134,7 +133,6 @@ export default function Navbar() {
       {/* Mobile Menu */}
       {mobileOpen && (
         <div className="md:hidden bg-white border-t border-slate-100 px-6 py-4 flex flex-col gap-1 shadow-lg max-h-[80vh] overflow-y-auto">
-          {/* Solutions */}
           <button
             onClick={() => setMobileSolutions(!mobileSolutions)}
             className="flex items-center justify-between py-3 text-sm font-bold text-slate-700 border-b border-slate-100"
@@ -151,7 +149,6 @@ export default function Navbar() {
             </div>
           )}
 
-          {/* Industries */}
           <button
             onClick={() => setMobileIndustries(!mobileIndustries)}
             className="flex items-center justify-between py-3 text-sm font-bold text-slate-700 border-b border-slate-100"
