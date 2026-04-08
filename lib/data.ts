@@ -54,3 +54,36 @@ export const industriesData = {
     features: ["Level 2 & 3 Processing", "Large Ticket Rates", "ERP Integrations"]
   }
 };
+
+export const solutionsData = {
+  "in-person-payments": {
+    title: "In-Person Payments",
+    subtitle: "Modern Point-of-Sale systems built for speed and reliability.",
+    content: "Whether you run a bustling restaurant or a high-volume retail store, your checkout counter is the heart of your business. We provide state-of-the-art smart terminals, dual-screen POS systems, and frictionless tap-to-pay infrastructure. Say goodbye to offline terminals and manual batching errors.",
+    features: ["Smart Terminals (Clover, Pax, Dejavoo)", "Offline Processing Mode", "Next-Day Funding"]
+  },
+  "mobile-payments": {
+    title: "Mobile Payment Solutions",
+    subtitle: "Take your business anywhere with secure mobile swipers.",
+    content: "For contractors, delivery services, and pop-up vendors, being tied to a counter isn't an option. Our mobile payment solutions turn any iOS or Android device into a secure, EMV-compliant payment terminal. Accept chip, swipe, and contactless payments from anywhere with an internet connection.",
+    features: ["Bluetooth Card Readers", "Digital Receipts", "Real-time Syncing"]
+  },
+  "online-payments": {
+    title: "Online Payments & E-Commerce",
+    subtitle: "Frictionless checkout experiences that convert browsers into buyers.",
+    content: "Cart abandonment is the silent killer of e-commerce. We integrate secure, high-converting payment gateways directly into your website. With support for digital wallets (Apple Pay, Google Pay), recurring billing, and advanced fraud tokenization, your online sales run on autopilot.",
+    features: ["API Integration", "Automated Recurring Billing", "Advanced Fraud Filters"]
+  },
+  "pricing-models": {
+    title: "Transparent Pricing Models",
+    subtitle: "No hidden fees. No confusing statements. Just honest pricing.",
+    content: "Stop guessing what you'll pay at the end of the month. We analyze your merchant statements and match you with the exact pricing model that maximizes your margins. We offer Interchange-Plus (the true wholesale rate), Flat-Rate, and compliant Dual-Pricing/Surcharge models.",
+    features: ["Interchange-Plus Pricing", "Cash Discount Programs", "Zero Hidden Fees"]
+  },
+  "free-placement": {
+    title: "Free Terminal Placement",
+    subtitle: "Upgrade your hardware without the upfront capital expense.",
+    content: "Stop leasing outdated credit card machines. We offer completely free, state-of-the-art terminal placements for qualifying businesses. Get the latest EMV and contactless technology shipped to your door, fully programmed, and ready to process out of the box—at zero cost to you.",
+    features: ["Free State-of-the-art Terminals", "Lifetime Replacement Warranty", "Free Programming"]
+  }
+};
