@@ -1,69 +1,108 @@
 import './globals.css'
 import { Inter } from 'next/font/google'
 import Link from 'next/link'
-import { CreditCard, Menu } from 'lucide-react'
+import { CreditCard, Phone, Mail, MapPin } from 'lucide-react'
+import Navbar from '@/components/Navbar'
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
 
 export const metadata = {
   title: 'FinTech 5 | Payment Processing Consultants',
-  description: 'Stop losing profits to payment processors.',
+  description: 'Stop overpaying on payment processing. FinTech 5 negotiates on your behalf across 10+ processors to lower your rates and eliminate hidden fees.',
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${inter.variable} scroll-smooth`}>
       <body className="bg-slate-50 text-slate-900 font-sans antialiased selection:bg-blue-600 selection:text-white min-h-screen flex flex-col">
-        
-        {/* Global Navigation */}
-        <nav className="fixed top-0 w-full z-50 px-6 py-4 border-b border-slate-200 bg-white/90 backdrop-blur-md">
-          <div className="max-w-7xl mx-auto flex items-center justify-between">
-            <Link href="/" className="flex items-center gap-3 group">
-              <div className="flex items-center justify-center w-10 h-10 bg-blue-600 text-white rounded-lg shadow-md group-hover:bg-blue-700 transition-colors">
-                <CreditCard className="w-5 h-5" />
-              </div>
-              <span className="font-black text-xl tracking-tight text-slate-900">FinTech 5</span>
-            </Link>
-            
-            <div className="hidden md:flex items-center gap-8 text-sm font-semibold text-slate-600">
-              <Link href="#solutions" className="hover:text-blue-600 transition-colors">Solutions</Link>
-              <Link href="#industries" className="hover:text-blue-600 transition-colors">Industries</Link>
-              <Link href="#resources" className="hover:text-blue-600 transition-colors">Resources</Link>
-            </div>
 
-            <Link href="#contact" className="hidden md:inline-flex px-6 py-2.5 text-sm font-bold text-white bg-blue-600 hover:bg-blue-700 rounded-lg shadow-sm transition-all">
-              Get Your Estimate
-            </Link>
-            
-            <button className="md:hidden text-slate-600">
-              <Menu className="w-6 h-6" />
-            </button>
-          </div>
-        </nav>
+        <Navbar />
 
-        {/* Dynamic Page Content */}
+        {/* Page Content */}
         <main className="flex-grow relative z-10 pt-20">
           {children}
         </main>
-        
-        {/* Simple Footer */}
-        <footer className="bg-slate-900 text-slate-400 py-12 px-6">
-           <div className="max-w-7xl mx-auto grid md:grid-cols-4 gap-8">
-             <div className="col-span-2">
-               <div className="flex items-center gap-3 mb-4">
-                  <div className="flex items-center justify-center w-8 h-8 bg-blue-600 text-white rounded-md">
+
+        {/* Footer */}
+        <footer className="bg-slate-900 text-slate-400 pt-16 pb-8 px-6">
+          <div className="max-w-7xl mx-auto">
+            <div className="grid md:grid-cols-5 gap-10 pb-12 border-b border-slate-800">
+              
+              {/* Brand */}
+              <div className="md:col-span-2">
+                <Link href="/" className="flex items-center gap-3 mb-4">
+                  <div className="flex items-center justify-center w-9 h-9 bg-blue-600 text-white rounded-lg">
                     <CreditCard className="w-4 h-4" />
                   </div>
                   <span className="font-black text-lg text-white">FinTech 5</span>
-               </div>
-               <p className="text-sm max-w-sm">Payment Processing Consultants. We design solutions that cut costs, strengthen security, and keep your payments running smoothly.</p>
-             </div>
-             <div>
-                <h4 className="text-white font-bold mb-4">Contact</h4>
-                <p className="text-sm">(646)-941-7853</p>
-                <p className="text-sm">info@fintech5group.com</p>
-             </div>
-           </div>
+                </Link>
+                <p className="text-sm leading-relaxed max-w-xs mb-6">
+                  Payment Processing Consultants. We negotiate across 10+ processors to lower your rates, eliminate junk fees, and keep your cash flow protected.
+                </p>
+                <div className="flex flex-col gap-2 text-sm">
+                  <a href="tel:6469417853" className="flex items-center gap-2 hover:text-white transition-colors">
+                    <Phone className="w-4 h-4 text-blue-500" /> (646)-941-7853
+                  </a>
+                  <a href="tel:7323001072" className="flex items-center gap-2 hover:text-white transition-colors">
+                    <Phone className="w-4 h-4 text-blue-500" /> (732)-300-1072
+                  </a>
+                  <a href="mailto:info@fintech5group.com" className="flex items-center gap-2 hover:text-white transition-colors">
+                    <Mail className="w-4 h-4 text-blue-500" /> info@fintech5group.com
+                  </a>
+                  <span className="flex items-center gap-2">
+                    <MapPin className="w-4 h-4 text-blue-500" /> NY & NJ — Serving clients nationwide
+                  </span>
+                </div>
+              </div>
+
+              {/* Solutions */}
+              <div>
+                <h4 className="text-white font-bold text-sm uppercase tracking-wider mb-4">Solutions</h4>
+                <ul className="flex flex-col gap-2 text-sm">
+                  <li><Link href="/solutions/in-person-payments" className="hover:text-white transition-colors">In-Person Payments</Link></li>
+                  <li><Link href="/solutions/mobile-payments" className="hover:text-white transition-colors">Mobile Payments</Link></li>
+                  <li><Link href="/solutions/online-payments" className="hover:text-white transition-colors">Online Payments</Link></li>
+                  <li><Link href="/solutions/pricing-models" className="hover:text-white transition-colors">Pricing Models</Link></li>
+                  <li><Link href="/solutions/free-placement" className="hover:text-white transition-colors">Free Terminal Placement</Link></li>
+                </ul>
+              </div>
+
+              {/* Industries */}
+              <div>
+                <h4 className="text-white font-bold text-sm uppercase tracking-wider mb-4">Industries</h4>
+                <ul className="flex flex-col gap-2 text-sm">
+                  <li><Link href="/industries/retail-payments" className="hover:text-white transition-colors">Retail</Link></li>
+                  <li><Link href="/industries/e-commerce" className="hover:text-white transition-colors">E-Commerce</Link></li>
+                  <li><Link href="/industries/healthcare" className="hover:text-white transition-colors">Healthcare</Link></li>
+                  <li><Link href="/industries/b2b" className="hover:text-white transition-colors">B2B Processing</Link></li>
+                  <li><Link href="/industries/high-risk" className="hover:text-white transition-colors">High-Risk Merchants</Link></li>
+                  <li><Link href="/industries/petroleum" className="hover:text-white transition-colors">Petroleum</Link></li>
+                  <li><Link href="/industries/cbd" className="hover:text-white transition-colors">CBD & Hemp</Link></li>
+                  <li><Link href="/industries/higher-education" className="hover:text-white transition-colors">Higher Education</Link></li>
+                  <li><Link href="/industries/service" className="hover:text-white transition-colors">Service Businesses</Link></li>
+                </ul>
+              </div>
+
+              {/* Resources */}
+              <div>
+                <h4 className="text-white font-bold text-sm uppercase tracking-wider mb-4">Resources</h4>
+                <ul className="flex flex-col gap-2 text-sm">
+                  <li><Link href="/blog" className="hover:text-white transition-colors">Insights Blog</Link></li>
+                  <li><Link href="/calculator" className="hover:text-white transition-colors">Fee Calculator</Link></li>
+                  <li><Link href="/get-your-savings-estimate" className="hover:text-white transition-colors">Get Your Estimate</Link></li>
+                  <li><Link href="/contact-us" className="hover:text-white transition-colors">Contact Us</Link></li>
+                  <li><Link href="/privacy-policy" className="hover:text-white transition-colors">Privacy Policy</Link></li>
+                  <li><Link href="/terms-of-service" className="hover:text-white transition-colors">Terms of Service</Link></li>
+                </ul>
+              </div>
+            </div>
+
+            {/* Bottom Bar */}
+            <div className="pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-slate-600">
+              <p>© {new Date().getFullYear()} FinTech 5 Group LLC. All rights reserved.</p>
+              <p className="text-center">Payment Processing Consulting — Not a payment processor. We are processor-agnostic advisors.</p>
+            </div>
+          </div>
         </footer>
       </body>
     </html>
