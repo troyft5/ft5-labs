@@ -1,5 +1,6 @@
-import { ArrowRight, CheckCircle2, ChevronRight, Shield, Phone, TrendingUp, Zap, Users, Star } from 'lucide-react'
+import { ArrowRight, ChevronRight, Shield, Phone, TrendingUp, Zap, Users, CheckCircle2, Star } from 'lucide-react'
 import Link from 'next/link'
+import HeroSection from '@/components/HeroSection'
 
 export const metadata = {
   title: 'FinTech 5 | Payment Processing Consultants — Stop Losing Profits',
@@ -27,114 +28,23 @@ const industries = [
 ]
 
 const differentiators = [
-  {
-    icon: <Shield className="w-6 h-6" />,
-    title: 'Processor-Agnostic',
-    body: "We're not owned by Square, Stripe, or any processor. We work exclusively for you — comparing 10+ options and recommending only what maximizes your margin.",
-  },
-  {
-    icon: <Phone className="w-6 h-6" />,
-    title: 'A Real Human Picks Up',
-    body: "Every FinTech 5 client gets a named, dedicated account representative. Not a ticket system. Not a chatbot. A person who knows your business.",
-  },
-  {
-    icon: <TrendingUp className="w-6 h-6" />,
-    title: 'Proven 10–18% Savings',
-    body: 'Our clients consistently unlock 10–18% cost reductions in year one. We audit your statement, identify every hidden fee, and negotiate on your behalf.',
-  },
-  {
-    icon: <Zap className="w-6 h-6" />,
-    title: 'Zero-Cost Consulting',
-    body: 'Our expertise is funded by processor partners, never by you. There are no consulting fees, no retainers, and no hidden agenda.',
-  },
-  {
-    icon: <Users className="w-6 h-6" />,
-    title: '30+ Years Combined Experience',
-    body: 'Founded by a family of fintech veterans who built complex payment systems for universities and enterprises before starting FinTech 5.',
-  },
-  {
-    icon: <CheckCircle2 className="w-6 h-6" />,
-    title: 'Full Compliance Coverage',
-    body: 'Durbin Amendment routing, state surcharge laws, PCI DSS, HIPAA for healthcare — compliance is built in, not bolted on.',
-  },
+  { icon: <Shield className="w-6 h-6" />, title: 'Processor-Agnostic', body: "We're not owned by Square, Stripe, or any processor. We work exclusively for you — comparing 10+ options and recommending only what maximizes your margin." },
+  { icon: <Phone className="w-6 h-6" />, title: 'A Real Human Picks Up', body: "Every FinTech 5 client gets a named, dedicated account representative. Not a ticket system. Not a chatbot. A person who knows your business." },
+  { icon: <TrendingUp className="w-6 h-6" />, title: 'Proven 10–18% Savings', body: 'Our clients consistently unlock 10–18% cost reductions in year one. We audit your statement, identify every hidden fee, and negotiate on your behalf.' },
+  { icon: <Zap className="w-6 h-6" />, title: 'Zero-Cost Consulting', body: 'Our expertise is funded by processor partners, never by you. No consulting fees, no retainers, and no hidden agenda.' },
+  { icon: <Users className="w-6 h-6" />, title: '30+ Years Combined Experience', body: 'Founded by a family of fintech veterans who built complex payment systems for universities and enterprises.' },
+  { icon: <CheckCircle2 className="w-6 h-6" />, title: 'Full Compliance Coverage', body: 'Durbin Amendment routing, state surcharge laws, PCI DSS, HIPAA for healthcare — compliance is built in, not bolted on.' },
 ]
 
 export default function Home() {
   return (
     <div className="flex flex-col w-full">
 
-      {/* ── HERO ─────────────────────────────────────────────── */}
-      <section className="relative bg-[#0a160a] overflow-hidden">
-        {/* Background texture */}
-        <div className="absolute inset-0 opacity-[0.04]" style={{backgroundImage: 'radial-gradient(circle at 1px 1px, #fff 1px, transparent 0)', backgroundSize: '32px 32px'}} />
-        {/* Green glow */}
-        <div className="absolute top-0 right-0 w-[600px] h-[600px] rounded-full bg-brand-600/10 blur-[120px] pointer-events-none" />
-        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full bg-brand-700/10 blur-[100px] pointer-events-none" />
+      {/* Animated hero + stats + marquee */}
+      <HeroSection />
 
-        <div className="relative max-w-7xl mx-auto px-6 py-28 md:py-36">
-          <div className="max-w-4xl">
-            <div className="inline-flex items-center gap-2 mb-8 px-4 py-2 bg-brand-600/10 text-brand-400 border border-brand-600/20 rounded-full text-xs font-bold uppercase tracking-widest">
-              <Star className="w-3.5 h-3.5 fill-brand-400" /> Payment Processing Consultants — NY & NJ
-            </div>
-
-            <h1 className="text-5xl md:text-7xl font-black tracking-tight text-white leading-[1.05] mb-8">
-              Stop Losing Profits<br />
-              <span className="text-brand-400">to Payment Processors.</span>
-            </h1>
-
-            <p className="text-xl text-slate-400 max-w-2xl leading-relaxed mb-10">
-              FinTech 5 connects you directly to 10+ Tier-1 processors while giving you the expert consulting and white-glove support that Stripe, Square, and PayPal never will. We cut costs, kill hidden fees, and stay on the phone with you.
-            </p>
-
-            <div className="flex flex-col sm:flex-row gap-4 mb-16">
-              <Link
-                href="/get-your-savings-estimate"
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 text-base font-bold text-white bg-brand-600 hover:bg-brand-700 rounded-xl shadow-lg shadow-brand-900/30 transition-all"
-              >
-                Get Your Free Savings Estimate <ArrowRight className="w-5 h-5" />
-              </Link>
-              <Link
-                href="/calculator"
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 text-base font-bold text-white border border-white/10 hover:border-white/25 hover:bg-white/5 rounded-xl transition-all"
-              >
-                Try the Fee Calculator <ChevronRight className="w-5 h-5" />
-              </Link>
-            </div>
-
-            {/* Trust signals */}
-            <div className="flex flex-wrap gap-6 items-center">
-              {[
-                '✓  Free, no-obligation analysis',
-                '✓  10+ processor quotes',
-                '✓  Zero consulting fees — ever',
-                '✓  Dedicated account rep',
-              ].map((s) => (
-                <span key={s} className="text-sm text-slate-500 font-medium">{s}</span>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── STATS BAR ────────────────────────────────────────── */}
-      <section className="bg-brand-600">
-        <div className="max-w-7xl mx-auto px-6 py-8 grid grid-cols-2 md:grid-cols-4 gap-6 text-center text-white">
-          {[
-            { n: '10+', label: 'Tier-1 Processor Partners' },
-            { n: '30+', label: 'Years Combined Experience' },
-            { n: '10–18%', label: 'Avg. Cost Reduction Year 1' },
-            { n: '$0', label: 'Consulting Fees — Ever' },
-          ].map((s) => (
-            <div key={s.label}>
-              <div className="text-3xl md:text-4xl font-black mb-1">{s.n}</div>
-              <div className="text-xs text-brand-100 uppercase tracking-wider font-semibold">{s.label}</div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* ── WHY NOT STRIPE ───────────────────────────────────── */}
-      <section className="px-6 py-24 bg-white">
+      {/* ── WHY NOT STRIPE ── */}
+      <section className="px-6 py-28 bg-white">
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-2 gap-16 items-center">
             <div>
@@ -142,17 +52,17 @@ export default function Home() {
                 The Problem
               </div>
               <h2 className="text-3xl md:text-5xl font-black text-slate-900 tracking-tight leading-tight mb-6">
-                Stripe and Square sold you simplicity.<br />
+                Stripe sold you simplicity.<br />
                 <span className="text-brand-600">You got isolation instead.</span>
               </h2>
               <p className="text-lg text-slate-600 leading-relaxed mb-6">
-                Aggregator platforms made payments easy to start — but as your volume grew, so did your fees. Account holds with no explanation. Flat rates that make no sense at scale. Support tickets that take three days to close. No one who knows your business.
+                Aggregator platforms made payments easy to start — but as your volume grew, so did your fees. Account holds with no explanation. Flat rates that make no sense at scale. Support tickets that take three days to close.
               </p>
               <p className="text-lg text-slate-600 leading-relaxed">
-                We founded FinTech 5 specifically to fix this model. You deserve the technology of a top-tier platform <em>and</em> a dedicated expert who actually picks up the phone.
+                We founded FinTech 5 to fix this. You deserve the technology of a top-tier platform <em>and</em> a dedicated expert who actually picks up the phone.
               </p>
             </div>
-            <div className="grid grid-cols-1 gap-4">
+            <div className="grid grid-cols-1 gap-3">
               {[
                 { bad: 'Flat 2.9% + $0.30 regardless of card type', good: 'Interchange-plus — pay the actual wholesale rate' },
                 { bad: 'Account freezes with no human to call', good: 'Dedicated rep on your account from day one' },
@@ -169,7 +79,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── HOW IT WORKS ─────────────────────────────────────── */}
+      {/* ── HOW IT WORKS ── */}
       <section className="px-6 py-24 bg-slate-50">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
@@ -177,52 +87,38 @@ export default function Home() {
             <p className="text-slate-500 text-lg max-w-xl mx-auto">Three steps. No risk. Usually done in 48 hours.</p>
           </div>
           <div className="grid md:grid-cols-3 gap-8 relative">
-            {/* Connecting line */}
             <div className="hidden md:block absolute top-10 left-[20%] right-[20%] h-px bg-gradient-to-r from-brand-200 via-brand-400 to-brand-200" />
             {[
-              { n: '01', title: 'Schedule a Free 15-Min Audit', body: 'Choose a convenient slot. We review your current setup, pricing model, and goals. No sales pitch — just an honest look at what you\'re paying.' },
-              { n: '02', title: 'We Analyze Your Statement', body: 'Our team performs a deep dive into your merchant statement — identifying every hidden fee, sub-optimal rate, and point of friction costing you money.' },
-              { n: '03', title: 'Receive Your Action Plan', body: 'A clear, data-driven report showing exactly how much you can save, which pricing model fits your business, and a step-by-step optimization plan.' },
+              { n: '01', title: 'Schedule a Free 15-Min Audit', body: "Choose a slot. We review your current setup, pricing model, and goals. No sales pitch — just an honest look at what you're paying." },
+              { n: '02', title: 'We Analyze Your Statement', body: 'Deep dive into your merchant statement — identifying every hidden fee, sub-optimal rate, and point of friction costing you money.' },
+              { n: '03', title: 'Receive Your Action Plan', body: 'A clear, data-driven report: how much you can save, which pricing model fits your business, and a step-by-step optimization plan.' },
             ].map((step) => (
-              <div key={step.n} className="relative bg-white rounded-2xl p-8 border border-slate-200 shadow-sm">
-                <div className="w-12 h-12 bg-brand-600 text-white rounded-xl flex items-center justify-center mb-6 font-black text-sm tracking-widest">
-                  {step.n}
-                </div>
+              <div key={step.n} className="relative bg-white rounded-2xl p-8 border border-slate-200 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300">
+                <div className="w-12 h-12 bg-brand-600 text-white rounded-xl flex items-center justify-center mb-6 font-black text-sm tracking-widest">{step.n}</div>
                 <h3 className="text-xl font-bold mb-3 text-slate-900">{step.title}</h3>
                 <p className="text-slate-600 leading-relaxed text-sm">{step.body}</p>
               </div>
             ))}
           </div>
           <div className="text-center mt-10">
-            <Link
-              href="/get-your-savings-estimate"
-              className="inline-flex items-center gap-2 px-8 py-4 text-base font-bold text-white bg-brand-600 hover:bg-brand-700 rounded-xl shadow-lg transition-all"
-            >
+            <Link href="/get-your-savings-estimate" className="inline-flex items-center gap-2 px-8 py-4 text-base font-bold text-white bg-brand-600 hover:bg-brand-700 rounded-xl shadow-lg transition-all hover:-translate-y-0.5">
               Schedule Your Free Audit <ArrowRight className="w-5 h-5" />
             </Link>
           </div>
         </div>
       </section>
 
-      {/* ── SOLUTIONS GRID ───────────────────────────────────── */}
+      {/* ── SOLUTIONS ── */}
       <section className="px-6 py-24 bg-white" id="solutions">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <div className="inline-flex items-center gap-2 mb-4 px-3 py-1.5 bg-brand-50 text-brand-700 border border-brand-100 rounded-full text-xs font-bold uppercase tracking-widest">
-              Solutions
-            </div>
-            <h2 className="text-3xl md:text-5xl font-black tracking-tight text-slate-900 mb-4">
-              Every Way You Take Payments. Covered.
-            </h2>
+            <div className="inline-flex items-center gap-2 mb-4 px-3 py-1.5 bg-brand-50 text-brand-700 border border-brand-100 rounded-full text-xs font-bold uppercase tracking-widest">Solutions</div>
+            <h2 className="text-3xl md:text-5xl font-black tracking-tight text-slate-900 mb-4">Every Way You Take Payments. Covered.</h2>
             <p className="text-slate-500 max-w-xl mx-auto">From the counter to the cloud — we build payment stacks that eliminate friction and maximize margin.</p>
           </div>
           <div className="grid md:grid-cols-3 gap-6">
             {solutions.map((s) => (
-              <Link
-                key={s.href}
-                href={s.href}
-                className="group bg-slate-50 hover:bg-brand-600 border border-slate-200 hover:border-brand-600 rounded-2xl p-8 transition-all duration-300"
-              >
+              <Link key={s.href} href={s.href} className="group bg-slate-50 hover:bg-brand-600 border border-slate-200 hover:border-brand-600 rounded-2xl p-8 transition-all duration-300 glow-hover hover:-translate-y-1">
                 <h3 className="text-lg font-bold text-slate-900 group-hover:text-white mb-3 transition-colors">{s.title}</h3>
                 <p className="text-sm text-slate-600 group-hover:text-brand-100 leading-relaxed mb-6 transition-colors">{s.desc}</p>
                 <div className="flex items-center gap-2 text-brand-600 group-hover:text-white text-sm font-bold transition-colors">
@@ -234,24 +130,18 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── WHY FINTECH 5 ────────────────────────────────────── */}
-      <section className="px-6 py-24 bg-[#0a160a]" id="why">
+      {/* ── WHY FINTECH 5 (dark) ── */}
+      <section className="px-6 py-24 bg-[#060d06]" id="why">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <div className="inline-flex items-center gap-2 mb-4 px-3 py-1.5 bg-brand-600/10 text-brand-400 border border-brand-600/20 rounded-full text-xs font-bold uppercase tracking-widest">
-              Why FinTech 5
-            </div>
-            <h2 className="text-3xl md:text-5xl font-black tracking-tight text-white mb-4">
-              Built Different. By Design.
-            </h2>
-            <p className="text-slate-400 max-w-xl mx-auto">We're not a processor. We're not a software company. We're the experts who negotiate on your side of the table.</p>
+            <div className="inline-flex items-center gap-2 mb-4 px-3 py-1.5 bg-brand-600/10 text-brand-400 border border-brand-600/20 rounded-full text-xs font-bold uppercase tracking-widest">Why FinTech 5</div>
+            <h2 className="text-3xl md:text-5xl font-black tracking-tight text-white mb-4">Built Different. By Design.</h2>
+            <p className="text-slate-400 max-w-xl mx-auto">We're not a processor. We're not a software company. We're the experts negotiating on your side of the table.</p>
           </div>
           <div className="grid md:grid-cols-3 gap-6">
             {differentiators.map((d) => (
-              <div key={d.title} className="bg-white/5 border border-white/10 rounded-2xl p-8 hover:bg-white/8 transition-colors">
-                <div className="w-10 h-10 bg-brand-600/20 text-brand-400 rounded-xl flex items-center justify-center mb-5">
-                  {d.icon}
-                </div>
+              <div key={d.title} className="glass rounded-2xl p-8 hover:bg-white/10 transition-colors hover:-translate-y-1 duration-300 group">
+                <div className="w-10 h-10 bg-brand-600/20 text-brand-400 rounded-xl flex items-center justify-center mb-5 group-hover:bg-brand-600/30 transition-colors">{d.icon}</div>
                 <h3 className="text-lg font-bold text-white mb-3">{d.title}</h3>
                 <p className="text-slate-400 text-sm leading-relaxed">{d.body}</p>
               </div>
@@ -260,25 +150,17 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── INDUSTRIES ───────────────────────────────────────── */}
+      {/* ── INDUSTRIES ── */}
       <section className="px-6 py-24 bg-white" id="industries">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
-            <div className="inline-flex items-center gap-2 mb-4 px-3 py-1.5 bg-brand-50 text-brand-700 border border-brand-100 rounded-full text-xs font-bold uppercase tracking-widest">
-              Industries
-            </div>
-            <h2 className="text-3xl md:text-5xl font-black tracking-tight text-slate-900 mb-4">
-              Payment Expertise Across Every Industry
-            </h2>
-            <p className="text-slate-500 max-w-xl mx-auto">From retail to high-risk, we've built specialized payment stacks for businesses operators just like yours.</p>
+            <div className="inline-flex items-center gap-2 mb-4 px-3 py-1.5 bg-brand-50 text-brand-700 border border-brand-100 rounded-full text-xs font-bold uppercase tracking-widest">Industries</div>
+            <h2 className="text-3xl md:text-5xl font-black tracking-tight text-slate-900 mb-4">Payment Expertise Across Every Industry</h2>
+            <p className="text-slate-500 max-w-xl mx-auto">From retail to high-risk, we've built specialized payment stacks for businesses just like yours.</p>
           </div>
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
             {industries.map((ind) => (
-              <Link
-                key={ind.href}
-                href={ind.href}
-                className="group flex items-center justify-between px-6 py-5 bg-slate-50 hover:bg-brand-600 border border-slate-200 hover:border-brand-600 rounded-2xl transition-all duration-300"
-              >
+              <Link key={ind.href} href={ind.href} className="group flex items-center justify-between px-6 py-5 bg-slate-50 hover:bg-brand-600 border border-slate-200 hover:border-brand-600 rounded-2xl transition-all duration-300 hover:-translate-y-0.5">
                 <span className="font-bold text-slate-800 group-hover:text-white transition-colors">{ind.name}</span>
                 <ChevronRight className="w-5 h-5 text-slate-400 group-hover:text-white group-hover:translate-x-1 transition-all" />
               </Link>
@@ -287,27 +169,34 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── FINAL CTA ────────────────────────────────────────── */}
+      {/* ── TESTIMONIAL / TRUST ── */}
+      <section className="px-6 py-20 bg-slate-50">
+        <div className="max-w-4xl mx-auto text-center">
+          <div className="flex justify-center gap-1 mb-6">
+            {[...Array(5)].map((_, i) => <Star key={i} className="w-5 h-5 fill-brand-500 text-brand-500" />)}
+          </div>
+          <blockquote className="text-2xl md:text-3xl font-bold text-slate-800 leading-relaxed mb-8">
+            &ldquo;FinTech 5 saved us over $14,000 in the first year alone. The audit took two days and we switched processors within a week. I wish we&apos;d found them sooner.&rdquo;
+          </blockquote>
+          <div className="text-slate-500 font-medium">— Business Owner, NJ Retail Chain</div>
+        </div>
+      </section>
+
+      {/* ── FINAL CTA ── */}
       <section className="px-6 py-24 bg-brand-600 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-[0.07]" style={{backgroundImage: 'radial-gradient(circle at 1px 1px, #fff 1px, transparent 0)', backgroundSize: '28px 28px'}} />
+        <div className="absolute inset-0 opacity-[0.07]" style={{ backgroundImage: 'radial-gradient(circle at 1px 1px, #fff 1px, transparent 0)', backgroundSize: '28px 28px' }} />
         <div className="relative max-w-3xl mx-auto text-center text-white">
           <h2 className="text-3xl md:text-5xl font-black tracking-tight mb-6">
             Find Out Exactly What You&apos;re Overpaying.<br />In 48 Hours. Free.
           </h2>
           <p className="text-brand-100 text-lg mb-10 max-w-xl mx-auto">
-            Upload your merchant statement and we&apos;ll return a line-by-line audit identifying every hidden fee, the right pricing model for your volume, and a competitive bid from 10+ processors.
+            Upload your merchant statement and we&apos;ll return a line-by-line audit with every hidden fee, the right pricing model for your volume, and competitive bids from 10+ processors.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link
-              href="/get-your-savings-estimate"
-              className="inline-flex items-center justify-center gap-2 px-8 py-4 text-base font-bold text-brand-700 bg-white hover:bg-brand-50 rounded-xl shadow-lg transition-all"
-            >
+            <Link href="/get-your-savings-estimate" className="inline-flex items-center justify-center gap-2 px-8 py-4 text-base font-bold text-brand-700 bg-white hover:bg-brand-50 rounded-xl shadow-lg transition-all hover:-translate-y-0.5">
               Get My Free Savings Estimate <ArrowRight className="w-5 h-5" />
             </Link>
-            <Link
-              href="/contact-us"
-              className="inline-flex items-center justify-center gap-2 px-8 py-4 text-base font-bold text-white border border-white/30 hover:border-white/60 rounded-xl transition-all"
-            >
+            <Link href="/contact-us" className="inline-flex items-center justify-center gap-2 px-8 py-4 text-base font-bold text-white border border-white/30 hover:border-white/60 rounded-xl transition-all">
               Talk to a Specialist
             </Link>
           </div>
