@@ -1,1 +1,3156 @@
 <!-- PASTE YOUR CUSTOM CALCULATOR HTML CODE HERE -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Processing Cost Analyzer | FinTech 5</title>
+    <style type="text/css">
+        @font-face {
+            font-family: Outfit;
+            font-style: normal;
+            font-weight: 400;
+            src: url(/cf-fonts/v/outfit/5.0.11/latin/wght/normal.woff2);
+            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: Outfit;
+            font-style: normal;
+            font-weight: 400;
+            src: url(/cf-fonts/v/outfit/5.0.11/latin-ext/wght/normal.woff2);
+            unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: Outfit;
+            font-style: normal;
+            font-weight: 500;
+            src: url(/cf-fonts/v/outfit/5.0.11/latin/wght/normal.woff2);
+            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: Outfit;
+            font-style: normal;
+            font-weight: 500;
+            src: url(/cf-fonts/v/outfit/5.0.11/latin-ext/wght/normal.woff2);
+            unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: Outfit;
+            font-style: normal;
+            font-weight: 600;
+            src: url(/cf-fonts/v/outfit/5.0.11/latin-ext/wght/normal.woff2);
+            unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: Outfit;
+            font-style: normal;
+            font-weight: 600;
+            src: url(/cf-fonts/v/outfit/5.0.11/latin/wght/normal.woff2);
+            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: Outfit;
+            font-style: normal;
+            font-weight: 700;
+            src: url(/cf-fonts/v/outfit/5.0.11/latin-ext/wght/normal.woff2);
+            unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: Outfit;
+            font-style: normal;
+            font-weight: 700;
+            src: url(/cf-fonts/v/outfit/5.0.11/latin/wght/normal.woff2);
+            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: Outfit;
+            font-style: normal;
+            font-weight: 800;
+            src: url(/cf-fonts/v/outfit/5.0.11/latin-ext/wght/normal.woff2);
+            unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: Outfit;
+            font-style: normal;
+            font-weight: 800;
+            src: url(/cf-fonts/v/outfit/5.0.11/latin/wght/normal.woff2);
+            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: DM Sans;
+            font-style: normal;
+            font-weight: 400;
+            src: url(/cf-fonts/v/dm-sans/5.0.18/latin/wght/normal.woff2);
+            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: DM Sans;
+            font-style: normal;
+            font-weight: 400;
+            src: url(/cf-fonts/v/dm-sans/5.0.18/latin-ext/wght/normal.woff2);
+            unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: DM Sans;
+            font-style: normal;
+            font-weight: 500;
+            src: url(/cf-fonts/v/dm-sans/5.0.18/latin/wght/normal.woff2);
+            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: DM Sans;
+            font-style: normal;
+            font-weight: 500;
+            src: url(/cf-fonts/v/dm-sans/5.0.18/latin-ext/wght/normal.woff2);
+            unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: DM Sans;
+            font-style: normal;
+            font-weight: 600;
+            src: url(/cf-fonts/v/dm-sans/5.0.18/latin/wght/normal.woff2);
+            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: DM Sans;
+            font-style: normal;
+            font-weight: 600;
+            src: url(/cf-fonts/v/dm-sans/5.0.18/latin-ext/wght/normal.woff2);
+            unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+            font-display: swap;
+        }
+    </style>
+    <style>
+        :root {
+            --green: #539600;
+            --green-dk: #3e7000;
+            --green-lt: rgba(83, 150, 0, 0.10);
+            --green-glow: rgba(83, 150, 0, 0.22);
+            --green-mid: rgba(83, 150, 0, 0.18);
+            --white: #ffffff;
+            --off: #f9fafb;
+            --border: #e4e7ec;
+            --border-dk: #d0d5dd;
+            --txt: #101828;
+            --txt-m: #344054;
+            --txt-l: #667085;
+            --txt-muted: #98a2b3;
+            --blue: #1d4ed8;
+            --blue-lt: rgba(29, 78, 216, 0.08);
+            --orange: #c05b00;
+            --orange-lt: rgba(192, 91, 0, 0.09);
+            --red: #b91c1c;
+            --red-lt: rgba(185, 28, 28, 0.08);
+            --gold: #b45309;
+            --gold-lt: rgba(180, 83, 9, 0.09);
+            --purple: #6d28d9;
+            --purple-lt: rgba(109, 40, 217, 0.09);
+            --teal: #0d7490;
+            --teal-lt: rgba(13, 116, 144, 0.09);
+            --shadow-sm: 0 1px 3px rgba(16, 24, 40, 0.08), 0 1px 2px rgba(16, 24, 40, 0.05);
+            --shadow-md: 0 4px 16px rgba(16, 24, 40, 0.10), 0 2px 6px rgba(16, 24, 40, 0.06);
+            --radius: 14px;
+            --radius-sm: 8px;
+            --radius-lg: 20px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: transparent;
+            color: var(--txt);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5 {
+            font-family: 'Outfit', sans-serif;
+        }
+
+        .wrap {
+            width: 100%;
+            max-width: 1040px;
+            margin: 0 auto;
+            padding: 0;
+        }
+
+        /* MODE SWITCHER */
+        .mode-bar {
+            display: flex;
+            gap: 0;
+            background: var(--off);
+            border: 1.5px solid var(--border);
+            border-radius: 12px;
+            padding: 4px;
+            margin-bottom: 1.75rem;
+        }
+
+        .mode-btn {
+            flex: 1;
+            padding: 0.75rem 1rem;
+            border: none;
+            background: transparent;
+            color: var(--txt-l);
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .mode-btn.active {
+            background: var(--white);
+            color: var(--green);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .mode-btn svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        /* PANEL */
+        .panel {
+            background: var(--white);
+            border: 1.5px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 2rem;
+            margin-bottom: 1.75rem;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .panel-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--txt);
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .panel-title svg {
+            width: 22px;
+            height: 22px;
+            color: var(--green);
+        }
+
+        /* GRID INPUTS */
+        .g3 {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 1.25rem;
+        }
+
+        .g2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.25rem;
+        }
+
+        .g1 {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.25rem;
+        }
+
+        @media(max-width:740px) {
+
+            .g3,
+            .g2 {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .divider {
+            border-top: 1px solid var(--border);
+            margin: 1.5rem 0;
+        }
+
+        .field {
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+        }
+
+        .lbl {
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: var(--txt-m);
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+
+        .lbl-note {
+            font-size: 0.75rem;
+            color: var(--txt-muted);
+            text-transform: none;
+            letter-spacing: 0;
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 400;
+        }
+
+        input[type=text],
+        input[type=number],
+        select {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            background: var(--white);
+            border: 1.5px solid var(--border);
+            border-radius: var(--radius-sm);
+            color: var(--txt);
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.05rem;
+            font-weight: 600;
+            transition: all 0.18s;
+            appearance: none;
+        }
+
+        input[type=text]:focus,
+        input[type=number]:focus,
+        select:focus {
+            outline: none;
+            border-color: var(--green);
+            box-shadow: 0 0 0 3px var(--green-glow);
+        }
+
+        input::placeholder {
+            color: var(--txt-muted);
+            font-weight: 400;
+            font-size: 0.95rem;
+        }
+
+        select {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%23667085' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 1rem center;
+            padding-right: 2.5rem;
+        }
+
+        /* SLIDER */
+        .slider-wrap {
+            margin-top: 0.4rem;
+        }
+
+        .range-slider {
+            width: 100%;
+            height: 6px;
+            -webkit-appearance: none;
+            appearance: none;
+            background: var(--border);
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        .range-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 20px;
+            height: 20px;
+            background: var(--green);
+            border-radius: 50%;
+            cursor: grab;
+            box-shadow: 0 2px 8px var(--green-glow);
+        }
+
+        .range-slider::-moz-range-thumb {
+            width: 20px;
+            height: 20px;
+            background: var(--green);
+            border-radius: 50%;
+            border: none;
+        }
+
+        .slider-labels {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 0.35rem;
+            font-size: 0.7rem;
+            color: var(--txt-muted);
+        }
+
+        /* TOGGLE */
+        .toggle-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .tog {
+            padding: 0.55rem 1rem;
+            background: var(--off);
+            border: 1.5px solid var(--border);
+            border-radius: 8px;
+            cursor: pointer;
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.88rem;
+            font-weight: 600;
+            color: var(--txt-l);
+            transition: all 0.18s;
+        }
+
+        .tog:hover {
+            border-color: var(--green);
+        }
+
+        .tog.on {
+            background: var(--green-lt);
+            border-color: var(--green);
+            color: var(--green);
+        }
+
+        .tog input {
+            display: none;
+        }
+
+        /* STATEMENT MODE SPECIAL */
+        .stmt-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.25rem;
+        }
+
+        @media(max-width:600px) {
+            .stmt-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .effective-rate-display {
+            background: var(--off);
+            border: 1.5px solid var(--border);
+            border-radius: var(--radius-sm);
+            padding: 0.875rem 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 0.75rem;
+        }
+
+        .erd-label {
+            font-size: 0.85rem;
+            color: var(--txt-l);
+        }
+
+        .erd-value {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: var(--txt);
+        }
+
+        .erd-value.bad {
+            color: var(--red);
+        }
+
+        .erd-value.ok {
+            color: var(--gold);
+        }
+
+        .erd-value.good {
+            color: var(--green);
+        }
+
+        /* BTN */
+        .btn-primary {
+            width: 100%;
+            padding: 0.95rem 2rem;
+            margin-top: 1.75rem;
+            background: var(--green);
+            border: none;
+            border-radius: 10px;
+            color: white;
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.05rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.6rem;
+        }
+
+        .btn-primary:hover {
+            background: var(--green-dk);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px var(--green-glow);
+        }
+
+        .btn-primary svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        .spin {
+            width: 18px;
+            height: 18px;
+            border: 2px solid rgba(255, 255, 255, 0.35);
+            border-left-color: white;
+            border-radius: 50%;
+            animation: spin 0.7s linear infinite;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .error-box {
+            background: var(--red-lt);
+            border: 1px solid var(--red);
+            color: var(--red);
+            padding: 0.75rem 1rem;
+            border-radius: var(--radius-sm);
+            font-size: 0.875rem;
+            margin-top: 0.875rem;
+            display: none;
+        }
+
+        /* RESULTS */
+        .results {
+            display: none;
+            opacity: 0;
+            transform: translateY(16px);
+            transition: all 0.45s ease;
+        }
+
+        .results.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(14px)
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0)
+            }
+        }
+
+        .au {
+            animation: fadeUp 0.4s ease forwards;
+            opacity: 0;
+        }
+
+        .d1 {
+            animation-delay: 0.05s
+        }
+
+        .d2 {
+            animation-delay: 0.10s
+        }
+
+        .d3 {
+            animation-delay: 0.15s
+        }
+
+        .d4 {
+            animation-delay: 0.20s
+        }
+
+        .d5 {
+            animation-delay: 0.25s
+        }
+
+        .d6 {
+            animation-delay: 0.30s
+        }
+
+        /* STATEMENT OVERPAYMENT BANNER */
+        .overpay-banner {
+            background: linear-gradient(135deg, #fef2f2 0%, #fff7ed 100%);
+            border: 2px solid var(--red);
+            border-radius: var(--radius-lg);
+            padding: 1.75rem 2rem;
+            margin-bottom: 1.75rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+        }
+
+        @media(min-width:600px) {
+            .overpay-banner {
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-between;
+            }
+        }
+
+        .ob-left {}
+
+        .ob-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.72rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--red);
+            background: var(--red-lt);
+            border: 1px solid var(--red);
+            border-radius: 100px;
+            padding: 0.25rem 0.75rem;
+            margin-bottom: 0.6rem;
+        }
+
+        .ob-headline {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: var(--txt);
+            line-height: 1.2;
+        }
+
+        .ob-sub {
+            font-size: 0.875rem;
+            color: var(--txt-l);
+            margin-top: 0.3rem;
+        }
+
+        .ob-numbers {
+            display: flex;
+            gap: 2rem;
+            flex-shrink: 0;
+        }
+
+        .ob-stat-val {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.75rem;
+            font-weight: 800;
+        }
+
+        .ob-stat-val.red {
+            color: var(--red);
+        }
+
+        .ob-stat-val.green {
+            color: var(--green);
+        }
+
+        .ob-stat-lbl {
+            font-size: 0.72rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--txt-muted);
+        }
+
+        /* BENCHMARK */
+        .benchmark-panel {
+            background: var(--blue-lt);
+            border: 1.5px solid var(--blue);
+            border-radius: var(--radius-lg);
+            padding: 1.5rem;
+            margin-bottom: 1.75rem;
+        }
+
+        .bench-head {
+            display: flex;
+            align-items: center;
+            gap: 0.875rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .bench-icon {
+            width: 42px;
+            height: 42px;
+            background: var(--blue);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .bench-icon svg {
+            width: 20px;
+            height: 20px;
+            color: white;
+        }
+
+        .bench-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--txt);
+        }
+
+        .bench-sub {
+            font-size: 0.82rem;
+            color: var(--txt-l);
+        }
+
+        .bench-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 0.875rem;
+        }
+
+        @media(max-width:600px) {
+            .bench-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        .bench-stat {
+            background: var(--white);
+            border-radius: 10px;
+            padding: 0.875rem 1rem;
+            text-align: center;
+            border: 1px solid var(--border);
+        }
+
+        .bench-stat-val {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.15rem;
+            font-weight: 800;
+            color: var(--blue);
+        }
+
+        .bench-stat-lbl {
+            font-size: 0.72rem;
+            color: var(--txt-l);
+            margin-top: 0.2rem;
+        }
+
+        .gauge-wrap {
+            margin-top: 1.25rem;
+            background: var(--white);
+            border-radius: 10px;
+            padding: 1.25rem;
+            border: 1px solid var(--border);
+        }
+
+        .gauge-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.75rem;
+        }
+
+        .gauge-label {
+            font-size: 0.875rem;
+            color: var(--txt-l);
+        }
+
+        .gauge-val {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 800;
+            color: var(--green);
+        }
+
+        .gauge-track {
+            height: 10px;
+            background: linear-gradient(90deg, #16a34a 0%, #ca8a04 50%, #dc2626 100%);
+            border-radius: 5px;
+            position: relative;
+        }
+
+        .gauge-pin {
+            position: absolute;
+            top: -6px;
+            width: 22px;
+            height: 22px;
+            background: var(--white);
+            border: 3px solid var(--txt);
+            border-radius: 50%;
+            transform: translateX(-50%);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+            transition: left 0.6s ease;
+        }
+
+        .gauge-rows {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 0.4rem;
+            font-size: 0.7rem;
+            color: var(--txt-muted);
+        }
+
+        .gauge-verdict {
+            margin-top: 0.875rem;
+            padding: 0.75rem 1rem;
+            background: var(--green-lt);
+            border-radius: 8px;
+            font-size: 0.875rem;
+            color: var(--txt-m);
+            text-align: center;
+        }
+
+        .gauge-verdict strong {
+            color: var(--green);
+        }
+
+        /* CHART */
+        .chart-panel {
+            background: var(--white);
+            border: 1.5px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 1.5rem;
+            margin-bottom: 1.75rem;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .chart-head {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+            gap: 0.875rem;
+        }
+
+        .chart-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--txt);
+        }
+
+        .chart-sub {
+            font-size: 0.8rem;
+            color: var(--txt-muted);
+            margin-top: 0.2rem;
+        }
+
+        .toggle-pill {
+            display: flex;
+            background: var(--off);
+            border-radius: 8px;
+            padding: 3px;
+        }
+
+        .pill-btn {
+            padding: 0.4rem 0.875rem;
+            border: none;
+            background: transparent;
+            color: var(--txt-muted);
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.82rem;
+            font-weight: 600;
+            cursor: pointer;
+            border-radius: 6px;
+            transition: all 0.18s;
+        }
+
+        .pill-btn.on {
+            background: var(--green);
+            color: white;
+        }
+
+        .chart-rows {
+            display: flex;
+            flex-direction: column;
+            gap: 0.875rem;
+        }
+
+        .chart-row {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .chart-row-lbl {
+            width: 120px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--txt-m);
+            flex-shrink: 0;
+        }
+
+        @media(max-width:500px) {
+            .chart-row-lbl {
+                width: 80px;
+                font-size: 0.78rem;
+            }
+        }
+
+        .chart-row-track {
+            flex: 1;
+            height: 42px;
+            background: var(--off);
+            border-radius: 8px;
+            position: relative;
+            overflow: visible;
+        }
+
+        .chart-bar {
+            height: 100%;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding-right: 0.875rem;
+            transition: width 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            min-width: 60px;
+        }
+
+        .chart-bar .bval {
+            font-size: 0.88rem;
+            font-weight: 700;
+            color: white;
+            white-space: nowrap;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+        }
+
+        .bar-flat {
+            background: linear-gradient(90deg, #818cf8, #6366f1);
+        }
+
+        .bar-ic {
+            background: linear-gradient(90deg, #fbbf24, #f59e0b);
+        }
+
+        .bar-tiered {
+            background: linear-gradient(90deg, #f87171, #ef4444);
+        }
+
+        .bar-ft5 {
+            background: linear-gradient(90deg, #5fad00, #3e7000);
+        }
+
+        .bar-current {
+            background: linear-gradient(90deg, #fb923c, #ea580c);
+        }
+
+        .bar-winner {
+            outline: 3px solid var(--green);
+            outline-offset: 1px;
+        }
+
+        .best-chip {
+            position: absolute;
+            right: 8px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: var(--green);
+            color: white;
+            font-size: 0.62rem;
+            font-weight: 800;
+            padding: 0.18rem 0.5rem;
+            border-radius: 4px;
+            white-space: nowrap;
+            letter-spacing: 0.04em;
+        }
+
+        .ft5-chip {
+            position: absolute;
+            right: 8px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: var(--green-dk);
+            color: white;
+            font-size: 0.62rem;
+            font-weight: 800;
+            padding: 0.18rem 0.5rem;
+            border-radius: 4px;
+            white-space: nowrap;
+            letter-spacing: 0.04em;
+        }
+
+        /* CARDS GRID */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.25rem;
+            margin-bottom: 1.75rem;
+        }
+
+        @media(max-width:740px) {
+            .cards-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .card {
+            background: var(--white);
+            border: 1.5px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 1.5rem;
+            position: relative;
+            transition: all 0.2s;
+        }
+
+        .card:hover {
+            box-shadow: var(--shadow-md);
+        }
+
+        .card.winner-card {
+            border-color: var(--green);
+            border-width: 2px;
+            background: var(--green-lt);
+        }
+
+        .card.winner-card::before {
+            content: 'BEST VALUE';
+            position: absolute;
+            top: -11px;
+            right: 1rem;
+            background: var(--green);
+            color: white;
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.68rem;
+            font-weight: 800;
+            padding: 0.22rem 0.75rem;
+            border-radius: 100px;
+            letter-spacing: 0.05em;
+        }
+
+        .card-head {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+        }
+
+        .card-icon {
+            width: 42px;
+            height: 42px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .card-icon svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        .ci-flat {
+            background: rgba(99, 102, 241, 0.12);
+            color: #6366f1;
+        }
+
+        .ci-ic {
+            background: rgba(245, 158, 11, 0.12);
+            color: #f59e0b;
+        }
+
+        .ci-tiered {
+            background: rgba(239, 68, 68, 0.12);
+            color: #ef4444;
+        }
+
+        .ci-ft5 {
+            background: var(--green-lt);
+            color: var(--green);
+        }
+
+        .card-name {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--txt);
+        }
+
+        .card-sub {
+            font-size: 0.78rem;
+            color: var(--txt-muted);
+        }
+
+        .card-body {
+            border-top: 1px solid var(--border);
+            padding-top: 1rem;
+        }
+
+        .card-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.4rem 0;
+        }
+
+        .card-row-lbl {
+            font-size: 0.875rem;
+            color: var(--txt-l);
+        }
+
+        .card-row-val {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 700;
+            font-size: 0.95rem;
+            color: var(--txt);
+        }
+
+        .card-row-val.hi {
+            color: var(--green);
+            font-size: 1.05rem;
+        }
+
+        .card-note {
+            margin-top: 0.875rem;
+            padding: 0.65rem 0.875rem;
+            background: var(--off);
+            border-radius: 7px;
+            font-size: 0.78rem;
+            color: var(--txt-l);
+        }
+
+        .card-badge {
+            margin-top: 0.875rem;
+            padding: 0.55rem 0.875rem;
+            background: var(--green-lt);
+            border-radius: 7px;
+            font-size: 0.8rem;
+            color: var(--green);
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .card-badge svg {
+            width: 14px;
+            height: 14px;
+            flex-shrink: 0;
+        }
+
+        /* FT5 SPECIAL CARD */
+        .ft5-card {
+            background: linear-gradient(135deg, var(--green-lt) 0%, rgba(83, 150, 0, 0.05) 100%);
+            border: 2px solid var(--green);
+            border-radius: var(--radius-lg);
+            padding: 1.5rem;
+            margin-bottom: 1.75rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .ft5-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 120px;
+            height: 120px;
+            background: radial-gradient(circle at top right, var(--green-glow), transparent 70%);
+            pointer-events: none;
+        }
+
+        .ft5-card-head {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .ft5-card-left {}
+
+        .ft5-card-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.72rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--green);
+            background: var(--green-lt);
+            border: 1px solid var(--green);
+            border-radius: 100px;
+            padding: 0.2rem 0.7rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .ft5-card-name {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 800;
+            color: var(--txt);
+        }
+
+        .ft5-card-desc {
+            font-size: 0.85rem;
+            color: var(--txt-l);
+            margin-top: 0.2rem;
+        }
+
+        .ft5-stats {
+            display: flex;
+            gap: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .ft5-stat-val {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: var(--green);
+        }
+
+        .ft5-stat-lbl {
+            font-size: 0.72rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--txt-muted);
+        }
+
+        .ft5-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin-top: 0.5rem;
+        }
+
+        @media(max-width:600px) {
+            .ft5-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .ft5-cell {
+            background: var(--white);
+            border-radius: 10px;
+            padding: 0.875rem 1rem;
+            border: 1px solid var(--border);
+            text-align: center;
+        }
+
+        .ft5-cell-val {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.15rem;
+            font-weight: 800;
+            color: var(--green);
+        }
+
+        .ft5-cell-lbl {
+            font-size: 0.72rem;
+            color: var(--txt-l);
+            margin-top: 0.2rem;
+        }
+
+        .ft5-disclaimer {
+            font-size: 0.72rem;
+            color: var(--txt-muted);
+            margin-top: 1rem;
+            font-style: italic;
+        }
+
+        /* 3-YEAR PROJECTION */
+        .projection-panel {
+            background: var(--white);
+            border: 1.5px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 1.5rem;
+            margin-bottom: 1.75rem;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .proj-bars {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.25rem;
+            margin-top: 1.25rem;
+        }
+
+        @media(max-width:500px) {
+            .proj-bars {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .proj-bar-wrap {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.875rem;
+        }
+
+        .proj-bar-outer {
+            width: 100%;
+            background: var(--off);
+            border-radius: 8px;
+            overflow: hidden;
+            position: relative;
+            height: 120px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+        }
+
+        .proj-bar-fill {
+            width: 100%;
+            border-radius: 8px;
+            transition: height 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            padding-top: 0.625rem;
+        }
+
+        .proj-bar-fill.y1 {
+            background: linear-gradient(180deg, rgba(83, 150, 0, 0.25), rgba(83, 150, 0, 0.7));
+        }
+
+        .proj-bar-fill.y2 {
+            background: linear-gradient(180deg, rgba(83, 150, 0, 0.35), rgba(83, 150, 0, 0.85));
+        }
+
+        .proj-bar-fill.y3 {
+            background: linear-gradient(180deg, rgba(83, 150, 0, 0.5), var(--green));
+        }
+
+        .proj-bar-val {
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.88rem;
+            font-weight: 800;
+            color: var(--white);
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+        }
+
+        .proj-bar-lbl {
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--txt-m);
+            text-align: center;
+        }
+
+        .proj-total {
+            margin-top: 1.25rem;
+            padding: 1rem 1.25rem;
+            background: linear-gradient(135deg, var(--green-lt), rgba(83, 150, 0, 0.05));
+            border: 1.5px solid var(--green);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 0.875rem;
+        }
+
+        .proj-total-label {
+            font-size: 0.9rem;
+            color: var(--txt-m);
+        }
+
+        .proj-total-val {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--green);
+        }
+
+        /* HIDDEN FEE SCANNER */
+        .fee-scanner {
+            background: var(--white);
+            border: 1.5px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 1.5rem;
+            margin-bottom: 1.75rem;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .fee-scanner-head {
+            display: flex;
+            align-items: center;
+            gap: 0.875rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .fee-scanner-icon {
+            width: 42px;
+            height: 42px;
+            background: var(--orange);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .fee-scanner-icon svg {
+            width: 20px;
+            height: 20px;
+            color: white;
+        }
+
+        .fee-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.625rem;
+        }
+
+        @media(max-width:540px) {
+            .fee-list {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .fee-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.75rem 0.875rem;
+            background: var(--off);
+            border: 1.5px solid var(--border);
+            border-radius: var(--radius-sm);
+            cursor: pointer;
+            transition: all 0.18s;
+            user-select: none;
+        }
+
+        .fee-item:hover {
+            border-color: var(--orange);
+        }
+
+        .fee-item.checked {
+            background: var(--orange-lt);
+            border-color: var(--orange);
+        }
+
+        .fee-checkbox {
+            width: 18px;
+            height: 18px;
+            border-radius: 4px;
+            border: 2px solid var(--border);
+            background: var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            transition: all 0.18s;
+        }
+
+        .fee-item.checked .fee-checkbox {
+            background: var(--orange);
+            border-color: var(--orange);
+        }
+
+        .fee-checkbox svg {
+            width: 11px;
+            height: 11px;
+            color: white;
+        }
+
+        .fee-item-name {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--txt-m);
+            flex: 1;
+        }
+
+        .fee-item-amount {
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.88rem;
+            font-weight: 700;
+            color: var(--txt-muted);
+        }
+
+        .fee-item.checked .fee-item-amount {
+            color: var(--orange);
+        }
+
+        .fee-total-bar {
+            margin-top: 1.25rem;
+            padding: 1rem 1.25rem;
+            background: var(--orange-lt);
+            border: 1.5px solid var(--orange);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            transition: all 0.3s;
+        }
+
+        .fee-total-label {
+            font-size: 0.875rem;
+            color: var(--txt-m);
+            font-weight: 600;
+        }
+
+        .fee-total-val {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.35rem;
+            font-weight: 800;
+            color: var(--orange);
+        }
+
+        .fee-total-sub {
+            font-size: 0.75rem;
+            color: var(--txt-l);
+            width: 100%;
+        }
+
+        /* PROFIT IMPACT */
+        .profit-panel {
+            background: var(--purple-lt);
+            border: 1.5px solid var(--purple);
+            border-radius: var(--radius-lg);
+            padding: 1.5rem;
+            margin-bottom: 1.75rem;
+        }
+
+        .profit-head {
+            display: flex;
+            align-items: center;
+            gap: 0.875rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .profit-icon {
+            width: 42px;
+            height: 42px;
+            background: var(--purple);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .profit-icon svg {
+            width: 20px;
+            height: 20px;
+            color: white;
+        }
+
+        .profit-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 1rem;
+        }
+
+        @media(max-width:600px) {
+            .profit-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .profit-cell {
+            background: var(--white);
+            border-radius: 10px;
+            padding: 1rem;
+            border: 1px solid var(--border);
+        }
+
+        .profit-cell-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            color: var(--txt-muted);
+            font-family: 'Outfit', sans-serif;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .profit-cell-val {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 800;
+        }
+
+        .profit-cell-val.neutral {
+            color: var(--purple);
+        }
+
+        .profit-cell-val.bad {
+            color: var(--red);
+        }
+
+        .profit-cell-val.good {
+            color: var(--green);
+        }
+
+        .profit-cell-sub {
+            font-size: 0.75rem;
+            color: var(--txt-l);
+            margin-top: 0.25rem;
+        }
+
+        /* VERTICAL INTEL */
+        .intel-panel {
+            background: var(--teal-lt);
+            border: 1.5px solid var(--teal);
+            border-radius: var(--radius-lg);
+            padding: 1.5rem;
+            margin-bottom: 1.75rem;
+        }
+
+        .intel-head {
+            display: flex;
+            align-items: center;
+            gap: 0.875rem;
+            margin-bottom: 1rem;
+        }
+
+        .intel-icon {
+            width: 42px;
+            height: 42px;
+            background: var(--teal);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .intel-icon svg {
+            width: 20px;
+            height: 20px;
+            color: white;
+        }
+
+        .intel-items {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .intel-item {
+            padding: 0.875rem 1rem;
+            background: var(--white);
+            border-radius: 10px;
+            border: 1px solid var(--border);
+            display: flex;
+            align-items: flex-start;
+            gap: 0.875rem;
+        }
+
+        .intel-bullet {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: var(--teal-lt);
+            border: 1.5px solid var(--teal);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .intel-bullet svg {
+            width: 13px;
+            height: 13px;
+            color: var(--teal);
+        }
+
+        .intel-text-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.88rem;
+            font-weight: 700;
+            color: var(--txt);
+        }
+
+        .intel-text-body {
+            font-size: 0.8rem;
+            color: var(--txt-l);
+            margin-top: 0.15rem;
+        }
+
+        .intel-badge {
+            margin-left: auto;
+            flex-shrink: 0;
+            padding: 0.2rem 0.6rem;
+            background: var(--teal-lt);
+            border: 1px solid var(--teal);
+            border-radius: 100px;
+            font-size: 0.68rem;
+            font-weight: 700;
+            color: var(--teal);
+            font-family: 'Outfit', sans-serif;
+            letter-spacing: 0.04em;
+        }
+
+        /* DUAL PRICING */
+        .dual-panel {
+            background: var(--gold-lt);
+            border: 1.5px solid var(--gold);
+            border-radius: var(--radius-lg);
+            padding: 1.5rem;
+            margin-bottom: 1.75rem;
+        }
+
+        .dual-head {
+            display: flex;
+            align-items: center;
+            gap: 0.875rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .dual-icon {
+            width: 42px;
+            height: 42px;
+            background: var(--gold);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .dual-icon svg {
+            width: 20px;
+            height: 20px;
+            color: white;
+        }
+
+        .dual-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0.875rem;
+            margin-bottom: 1.25rem;
+        }
+
+        @media(max-width:540px) {
+            .dual-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .dual-stat {
+            background: var(--white);
+            padding: 0.875rem;
+            border-radius: 10px;
+            text-align: center;
+            border: 1px solid var(--border);
+        }
+
+        .dual-stat-val {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 800;
+            color: var(--gold);
+        }
+
+        .dual-stat-lbl {
+            font-size: 0.72rem;
+            color: var(--txt-l);
+            margin-top: 0.2rem;
+        }
+
+        .dual-row2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.875rem;
+        }
+
+        @media(max-width:540px) {
+            .dual-row2 {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .pros-box,
+        .cons-box {
+            background: var(--white);
+            border-radius: 10px;
+            padding: 0.875rem;
+            border: 1px solid var(--border);
+        }
+
+        .pros-box h4,
+        .cons-box h4 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.78rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            margin-bottom: 0.625rem;
+        }
+
+        .pros-box h4 {
+            color: var(--green);
+        }
+
+        .cons-box h4 {
+            color: var(--orange);
+        }
+
+        .pros-box ul,
+        .cons-box ul {
+            list-style: none;
+        }
+
+        .pros-box li,
+        .cons-box li {
+            font-size: 0.78rem;
+            color: var(--txt-l);
+            padding: 0.2rem 0;
+            padding-left: 1.1rem;
+            position: relative;
+        }
+
+        .pros-box li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--green);
+            font-weight: 700;
+        }
+
+        .cons-box li::before {
+            content: '!';
+            position: absolute;
+            left: 0;
+            color: var(--orange);
+            font-weight: 700;
+        }
+
+        .fit-row {
+            margin-top: 1rem;
+            padding: 0.875rem;
+            background: var(--white);
+            border-radius: 10px;
+            border: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .fit-badge {
+            padding: 0.3rem 0.75rem;
+            border-radius: 100px;
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.72rem;
+            font-weight: 800;
+            letter-spacing: 0.04em;
+        }
+
+        .fit-good {
+            background: var(--green-lt);
+            color: var(--green);
+            border: 1px solid var(--green);
+        }
+
+        .fit-mod {
+            background: var(--orange-lt);
+            color: var(--orange);
+            border: 1px solid var(--orange);
+        }
+
+        .fit-poor {
+            background: var(--red-lt);
+            color: var(--red);
+            border: 1px solid var(--red);
+        }
+
+        .fit-text {
+            font-size: 0.8rem;
+            color: var(--txt-l);
+        }
+
+        /* B2B L2/L3 */
+        .b2b-panel {
+            background: linear-gradient(135deg, rgba(29, 78, 216, 0.07) 0%, rgba(109, 40, 217, 0.07) 100%);
+            border: 1.5px solid var(--blue);
+            border-radius: var(--radius-lg);
+            padding: 1.5rem;
+            margin-bottom: 1.75rem;
+        }
+
+        .b2b-head {
+            display: flex;
+            align-items: center;
+            gap: 0.875rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .b2b-icon {
+            width: 42px;
+            height: 42px;
+            background: var(--blue);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .b2b-icon svg {
+            width: 20px;
+            height: 20px;
+            color: white;
+        }
+
+        .b2b-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        @media(max-width:540px) {
+            .b2b-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .b2b-cell {
+            background: var(--white);
+            border-radius: 10px;
+            padding: 1rem;
+            border: 1px solid var(--border);
+        }
+
+        .b2b-cell-lbl {
+            font-size: 0.72rem;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            color: var(--txt-muted);
+            font-family: 'Outfit', sans-serif;
+            font-weight: 600;
+            margin-bottom: 0.4rem;
+        }
+
+        .b2b-cell-val {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 800;
+            color: var(--blue);
+        }
+
+        .b2b-cell-sub {
+            font-size: 0.75rem;
+            color: var(--txt-l);
+            margin-top: 0.25rem;
+        }
+
+        /* CTA */
+        .cta-panel {
+            background: linear-gradient(135deg, var(--green-lt) 0%, rgba(255, 255, 255, 0.8) 100%);
+            border: 2px solid var(--green);
+            border-radius: var(--radius-lg);
+            padding: 2rem;
+            text-align: center;
+            margin-bottom: 1.75rem;
+        }
+
+        .cta-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: var(--txt);
+            margin-bottom: 0.4rem;
+        }
+
+        .cta-sub {
+            font-size: 0.9rem;
+            color: var(--txt-l);
+            margin-bottom: 1.25rem;
+        }
+
+        .cta-feats {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.875rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-feat {
+            display: flex;
+            align-items: center;
+            gap: 0.35rem;
+            font-size: 0.82rem;
+            color: var(--txt-m);
+            font-weight: 500;
+        }
+
+        .cta-feat svg {
+            width: 15px;
+            height: 15px;
+            color: var(--green);
+        }
+
+        .cta-btns {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.875rem;
+            justify-content: center;
+        }
+
+        .cta-btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.9rem 1.75rem;
+            background: var(--green);
+            color: white;
+            font-family: 'Outfit', sans-serif;
+            font-size: 1rem;
+            font-weight: 700;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .cta-btn-primary:hover {
+            background: var(--green-dk);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px var(--green-glow);
+        }
+
+        .cta-btn-primary svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        /* FEE SCANNER CTA */
+        .fee-scanner-cta {
+            margin-top: 1.25rem;
+            padding: 1rem 1.25rem;
+            background: var(--orange-lt);
+            border: 1.5px solid var(--orange);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 0.875rem;
+        }
+
+        .fsc-text {
+            font-size: 0.875rem;
+            color: var(--txt-m);
+            font-weight: 600;
+        }
+
+        .fsc-sub {
+            font-size: 0.78rem;
+            color: var(--txt-l);
+            margin-top: 0.15rem;
+        }
+
+        .fsc-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.6rem 1.1rem;
+            background: var(--orange);
+            color: white;
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 700;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            text-decoration: none;
+            white-space: nowrap;
+            transition: all 0.18s;
+            flex-shrink: 0;
+        }
+
+        .fsc-btn:hover {
+            background: #a04a00;
+            transform: translateY(-1px);
+        }
+
+        .fsc-btn svg {
+            width: 13px;
+            height: 13px;
+        }
+
+        /* MOBILE */
+        @media(max-width:480px) {
+
+            .panel,
+            .benchmark-panel,
+            .chart-panel,
+            .ft5-card,
+            .projection-panel,
+            .fee-scanner,
+            .profit-panel,
+            .intel-panel,
+            .dual-panel,
+            .b2b-panel,
+            .cta-panel {
+                padding: 1.25rem 1rem;
+                border-radius: 14px;
+            }
+
+            .cards-grid .card {
+                padding: 1.25rem 1rem;
+            }
+
+            .ob-numbers {
+                flex-direction: column;
+                gap: 0.75rem;
+            }
+
+            .ft5-stats {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .ft5-card-head {
+                flex-direction: column;
+            }
+
+            .cta-btns {
+                flex-direction: column;
+            }
+
+            .cta-btn-primary {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap" data-iframe-height>
+
+        <!-- MODE BAR -->
+        <div class="mode-bar">
+            <button class="mode-btn active" id="modeEstimate"
+                onclick="if (!window.__cfRLUnblockHandlers) return false; switchMode('estimate')"
+                data-cf-modified-cf3670bad8c364d1b128fc71-="">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2">
+                    <rect x="3" y="3" width="18" height="18" rx="2" />
+                    <path d="M8 12h8" />
+                    <path d="M12 8v8" />
+                </svg>
+                Estimate My Costs
+            </button>
+            <button class="mode-btn" id="modeAnalyze"
+                onclick="if (!window.__cfRLUnblockHandlers) return false; switchMode('analyze')"
+                data-cf-modified-cf3670bad8c364d1b128fc71-="">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2">
+                    <path d="M3 3v18h18" />
+                    <path d="m19 9-5 5-4-4-3 3" />
+                </svg>
+                Analyze What I'm Paying
+            </button>
+        </div>
+
+        <!-- INPUT PANEL -->
+        <div class="panel">
+            <h2 class="panel-title">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2">
+                    <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+                </svg>
+                Your Business Profile
+            </h2>
+
+            <div class="g3">
+                <div class="field">
+                    <label class="lbl">Industry</label>
+                    <select id="industrySelect">
+                        <option value="retail">Retail / In-Store</option>
+                        <option value="restaurant">Restaurant / Food Service</option>
+                        <option value="ecommerce">E-Commerce / Online</option>
+                        <option value="service">Professional Services</option>
+                        <option value="healthcare">Healthcare / Medical</option>
+                        <option value="b2b">B2B / Wholesale</option>
+                        <option value="gas">Gas Station / Convenience</option>
+                        <option value="education">Education</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <div class="field">
+                    <label class="lbl">Monthly Card Sales</label>
+                    <input type="text" id="salesVolume" placeholder="$25,000" inputmode="numeric">
+                    <div class="slider-wrap">
+                        <input type="range" id="salesSlider" class="range-slider" min="5000" max="500000" step="1000"
+                            value="25000">
+                        <div class="slider-labels"><span>$5K</span><span>$500K+</span></div>
+                    </div>
+                </div>
+                <div class="field">
+                    <label class="lbl">Avg Transaction</label>
+                    <input type="text" id="avgTx" placeholder="$75" inputmode="numeric">
+                    <div class="slider-wrap">
+                        <input type="range" id="txSlider" class="range-slider" min="10" max="1000" step="5" value="75">
+                        <div class="slider-labels"><span>$10</span><span>$1,000</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="g2">
+                <div class="field">
+                    <label class="lbl">How do you accept cards?</label>
+                    <div class="toggle-group" id="cpGroup">
+                        <label class="tog on" data-v="in-person"><input type="radio" name="cp" value="in-person"
+                                checked>In-Person</label>
+                        <label class="tog" data-v="online"><input type="radio" name="cp" value="online">Online</label>
+                        <label class="tog" data-v="mixed"><input type="radio" name="cp" value="mixed">Mixed</label>
+                    </div>
+                </div>
+                <div class="field">
+                    <label class="lbl">Estimated Debit %</label>
+                    <input type="text" id="debitPct" placeholder="30%" inputmode="numeric">
+                    <div class="slider-wrap">
+                        <input type="range" id="debitSlider" class="range-slider" min="0" max="80" step="5" value="30">
+                        <div class="slider-labels"><span>0%</span><span>80%</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- STATEMENT ANALYSIS MODE EXTRA FIELDS -->
+            <div id="stmtFields" style="display:none">
+                <div class="divider"></div>
+                <div class="stmt-grid">
+                    <div class="field">
+                        <label class="lbl">Current Monthly Processing Fees <span class="lbl-note">From your last
+                                statement</span></label>
+                        <input type="text" id="currentFees" placeholder="$1,200" inputmode="numeric">
+                    </div>
+                    <div class="field">
+                        <label class="lbl">Current Processor <span class="lbl-note">Optional</span></label>
+                        <select id="currentProcessor">
+                            <option value="">Select processor (optional)</option>
+                            <option value="square">Square</option>
+                            <option value="stripe">Stripe</option>
+                            <option value="paypal">PayPal</option>
+                            <option value="toast">Toast</option>
+                            <option value="clover">Clover / Fiserv</option>
+                            <option value="worldpay">Worldpay</option>
+                            <option value="firstdata">First Data / CardConnect</option>
+                            <option value="elavon">Elavon / US Bank</option>
+                            <option value="chase">Chase Merchant Services</option>
+                            <option value="heartland">Heartland Payment Systems</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                </div>
+                <div id="effectiveRateDisplay" class="effective-rate-display" style="display:none">
+                    <span class="erd-label">Your Current Effective Rate</span>
+                    <span class="erd-value" id="erdVal">—</span>
+                </div>
+            </div>
+
+            <button class="btn-primary" id="calcBtn">
+                <span id="btnTxt">Analyze My Costs</span>
+                <span id="btnSpin" class="spin" style="display:none"></span>
+                <svg id="btnArrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2.5">
+                    <polyline points="9 18 15 12 9 6" />
+                </svg>
+            </button>
+            <div class="error-box" id="errBox"></div>
+        </div>
+
+        <!-- RESULTS -->
+        <div class="results" id="results">
+
+            <!-- Statement overpayment banner (only in analyze mode) -->
+            <div id="overpayBanner" class="overpay-banner au d1" style="display:none"></div>
+
+            <!-- Industry Benchmark -->
+            <div id="benchSection" class="benchmark-panel au d1"></div>
+
+            <!-- Comparison Chart -->
+            <div class="chart-panel au d2">
+                <div class="chart-head">
+                    <div>
+                        <div class="chart-title">Processing Cost Comparison</div>
+                        <div class="chart-sub">All pricing models + FinTech 5 competitive bid estimate</div>
+                    </div>
+                    <div class="toggle-pill">
+                        <button class="pill-btn on" data-v="monthly">Monthly</button>
+                        <button class="pill-btn" data-v="annual">Annual</button>
+                    </div>
+                </div>
+                <div class="chart-rows" id="chartRows"></div>
+            </div>
+
+            <!-- Result Cards -->
+            <div class="cards-grid au d3" id="cardsGrid"></div>
+
+            <!-- FinTech 5 Competitive Bid -->
+            <div class="ft5-card au d3" id="ft5Card"></div>
+
+            <!-- 3-Year Projection -->
+            <div class="projection-panel au d4" id="projPanel"></div>
+
+            <!-- Profitability Impact -->
+            <div class="profit-panel au d4" id="profitPanel"></div>
+
+            <!-- Hidden Fee Scanner -->
+            <div class="fee-scanner au d4" id="feeScanner">
+                <div class="fee-scanner-head">
+                    <div class="fee-scanner-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <circle cx="11" cy="11" r="8" />
+                            <path d="m21 21-4.35-4.35" />
+                            <path d="M11 8v3" />
+                            <path d="M11 14h.01" />
+                        </svg>
+                    </div>
+                    <div>
+                        <div class="panel-title" style="margin-bottom:0.1rem;">Hidden Fee Checklist</div>
+                        <div style="font-size:0.85rem;color:var(--txt-l);">Check any fees you recognize from your
+                            current statement. These add to your true cost above the processing rate.</div>
+                    </div>
+                </div>
+                <div class="fee-list" id="feeList"></div>
+                <div class="fee-scanner-cta" id="feeScannerCta" style="display:none"></div>
+            </div>
+
+            <!-- Vertical Intel -->
+            <div id="intelPanel" class="intel-panel au d5"></div>
+
+            <!-- B2B Level II/III (conditional) -->
+            <div id="b2bPanel" class="b2b-panel au d5" style="display:none"></div>
+
+            <!-- Dual Pricing -->
+            <div id="dualPanel" class="dual-panel au d5"></div>
+
+            <!-- CTA -->
+            <div class="cta-panel au d6">
+                <h3 class="cta-title">Ready for Real Numbers?</h3>
+                <p class="cta-sub">This analysis uses industry estimates. We'll get you actual quotes from 10+
+                    processors competing head-to-head for your account — at zero cost to you.</p>
+                <div class="cta-feats">
+                    <div class="cta-feat"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2">
+                            <polyline points="20 6 9 17 4 12" />
+                        </svg>Free, no-obligation analysis</div>
+                    <div class="cta-feat"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2">
+                            <polyline points="20 6 9 17 4 12" />
+                        </svg>10+ processor quotes</div>
+                    <div class="cta-feat"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2">
+                            <polyline points="20 6 9 17 4 12" />
+                        </svg>Processor-agnostic — we work for you</div>
+                    <div class="cta-feat"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2">
+                            <polyline points="20 6 9 17 4 12" />
+                        </svg>Upload your statement for precision analysis</div>
+                </div>
+                <div class="cta-btns">
+                    <a href="https://fintech5group.com/get-your-savings-estimate/" class="cta-btn-primary"
+                        id="ctaPrimary" target="_top">
+                        Get My Free Analysis
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2.5">
+                            <path d="M5 12h14" />
+                            <path d="m12 5 7 7-7 7" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+        </div><!-- /results -->
+
+        <div class="disclaimer">Interchange rates sourced from: Visa USA Interchange Reimbursement Fees (Oct 18, 2025),
+            Mastercard U.S. Region Rates (Apr 11, 2025), Discover 2025, and American Express OptBlue. Blended IC
+            calculated using industry-specific card mix models (regulated debit, exempt debit, consumer
+            standard/rewards/premium, commercial, Amex). Actual rates vary by card mix, processor agreement, ticket
+            size, and MCC qualification.</div>
+
+    </div><!-- /wrap -->
+
+    <script type="cf3670bad8c364d1b128fc71-text/javascript">
+// DATA
+const INDUSTRIES = {
+  retail:    { name:"Retail / In-Store",       avgRate:{low:2.2,mid:2.5,high:2.9}, avgTicket:45,  debitMix:35, netMargin:2.5,  dpFit:"good",     dpNote:"Retail is an excellent fit — customers already expect cash and card pricing.",             intel:["debit_pin","seasonal_volume"] },
+  restaurant:{ name:"Restaurant / Food Service", avgRate:{low:2.4,mid:2.7,high:3.1}, avgTicket:35,  debitMix:30, netMargin:4.0,  dpFit:"moderate", dpNote:"Works well, but tip adjustment rules require careful implementation to avoid downgrades.", intel:["tip_downgrade","amex_rates"] },
+  ecommerce: { name:"E-Commerce / Online",      avgRate:{low:2.7,mid:3.1,high:3.5}, avgTicket:85,  debitMix:20, netMargin:6.5,  dpFit:"poor",     dpNote:"Dual pricing doesn't work online — no cash option available. Focus on IC+ optimization.", intel:["avs_savings","level2_cnp","chargeback_rates"] },
+  service:   { name:"Professional Services",   avgRate:{low:2.4,mid:2.8,high:3.2}, avgTicket:250, debitMix:15, netMargin:17.0, dpFit:"good",     dpNote:"Excellent fit — clients on larger invoices readily understand card convenience fees.",      intel:["ach_alternative","level2_cnp"] },
+  healthcare:{ name:"Healthcare / Medical",    avgRate:{low:2.3,mid:2.6,high:3.0}, avgTicket:150, debitMix:25, netMargin:7.5,  dpFit:"moderate", dpNote:"Works well for copays, but insurance-funded transactions require careful handling.",        intel:["fsa_hsa","healthcare_mcc"] },
+  b2b:       { name:"B2B / Wholesale",         avgRate:{low:2.0,mid:2.4,high:2.8}, avgTicket:1500,debitMix:5,  netMargin:12.0, dpFit:"good",     dpNote:"Strong fit — B2B buyers expect and understand convenience fees on large purchases.",       intel:["level2","level3","ach_alternative"] },
+  gas:       { name:"Gas Station / Convenience",avgRate:{low:2.0,mid:2.3,high:2.6}, avgTicket:40,  debitMix:45, netMargin:2.0,  dpFit:"good",     dpNote:"Customers are highly familiar with cash vs card pricing at the pump and counter.",        intel:["fleet_cards","debit_routing","regulated_debit"] },
+  education: { name:"Education",               avgRate:{low:2.3,mid:2.6,high:3.0}, avgTicket:500, debitMix:20, netMargin:8.0,  dpFit:"moderate", dpNote:"Verify state regulations and card network rules before implementing surcharge programs.",   intel:["convenience_fee","level2_cnp"] },
+  other:     { name:"Other",                   avgRate:{low:2.4,mid:2.7,high:3.1}, avgTicket:75,  debitMix:30, netMargin:8.0,  dpFit:"moderate", dpNote:"Fit depends on your business model and ability to offer a cash payment alternative.",       intel:[] }
+};
+
+const INTEL_TIPS = {
+  debit_pin: { title:"PIN Debit Routing Opportunity", body:"Many retailers are overpaying on debit by not leveraging PIN debit routing. PIN debit routes over EFT networks (STAR, PULSE, NYCE) at flat fees vs. percentage-based interchange — often saving $0.10-0.30 per transaction.", badge:"Save $0.10-0.30/tx" },
+  seasonal_volume: { title:"Volume Tiering Negotiation", body:"Retail merchants with seasonal volume spikes can negotiate tiered rates that reward peak months. Bring 12-month statements to any negotiation — we do this for you.", badge:"Negotiate leverage" },
+  tip_downgrade: { title:"Tip Adjustment Interchange Risk", body:"If a final tipped amount exceeds the authorized amount by more than 20%, the transaction can downgrade from Qualified to Mid or Non-Qualified interchange — often adding 0.75-1.5% to that transaction's cost.", badge:"Common bleed source" },
+  amex_rates: { title:"Amex OptBlue vs. Direct", body:"Restaurants on Amex OptBlue through their processor typically pay 2.3-3.0%. Direct Amex contract merchants over $1M/year often get better rates. Ask us which applies.", badge:"Rate dependent" },
+  avs_savings: { title:"AVS & CVV Verification Required", body:"E-commerce transactions without AVS (Address Verification) and CVV can downgrade to higher interchange categories. Ensure your gateway is sending these fields on every transaction.", badge:"Prevent downgrades" },
+  level2_cnp: { title:"Level II Data for CNP Transactions", body:"Card-not-present commercial card transactions with Level II data (tax ID, customer code) can save 0.40-0.80% off interchange vs. standard e-commerce categories.", badge:"0.40-0.80% savings" },
+  chargeback_rates: { title:"Chargeback Threshold Management", body:"Visa's chargeback threshold is 1.0% of transactions (0.9% for Early Warning). Exceeding it triggers the VDMP program with additional fees of $10-25 per chargeback.", badge:"Risk management" },
+  ach_alternative: { title:"ACH as a Lower-Cost Alternative", body:"For recurring invoices or large transactions, ACH (bank transfer) costs $0.25-0.75 flat vs. 2-3% for cards. On a $5,000 invoice, that's $100-150 in savings per transaction.", badge:"Near-zero cost" },
+  fsa_hsa: { title:"FSA/HSA Cards — Special Interchange", body:"FSA and HSA debit cards process on healthcare-specific interchange categories (HC Regulated, HC Unregulated). Proper MCC coding (5047, 5912, 8011-8099) is required to access these rates.", badge:"MCC dependent" },
+  healthcare_mcc: { title:"MCC Coding Directly Impacts Rates", body:"Healthcare providers with incorrect MCC codes can pay 0.30-0.60% more than properly coded merchants. Common miscodes: billed as 7299 (services) instead of 8099 (healthcare).", badge:"Easy fix, big savings" },
+  level2: { title:"Level II Data — Corporate Cards", body:"B2B merchants sending Level II data on corporate and purchasing card transactions save 0.50-1.00% per transaction. Required fields: customer code, tax amount, PO number.", badge:"0.50-1.00% savings" },
+  level3: { title:"Level III Data — Government & Large PO", body:"Level III line-item data on government procurement and large corporate cards can reduce interchange by an additional 0.40-0.70% on top of Level II savings.", badge:"0.40-0.70% more" },
+  fleet_cards: { title:"Fleet Card Interchange Complexity", body:"WEX, Voyager, Mastercard Fleet, and Visa Fleet cards have specific interchange categories (2.15-2.50%) but require sending odometer, vehicle ID, and driver data. Missing these fields = downgrades.", badge:"Data required" },
+  debit_routing: { title:"Regulated Debit = Big Savings at the Pump", body:"Gas stations with high debit mix benefit significantly from Durbin-regulated debit routing ($0.21 + 0.05% per tx). At a $45 average ticket, that's approximately 0.52% effective rate vs. 1.5%+ unregulated.", badge:"High debit impact" },
+  regulated_debit: { title:"Durbin Amendment Compliance", body:"Debit cards from banks over $10B in assets are Durbin-regulated with a federal cap of $0.21 + 0.05%. Ensure your processor is routing these correctly — some processors keep the spread.", badge:"Federal cap: $0.21+0.05%" },
+  convenience_fee: { title:"Compliant Convenience Fee Programs", body:"Educational institutions can implement compliant card network convenience fee programs for tuition payments — but rules differ by state and card network. We navigate this for you.", badge:"State rules vary" }
+};
+
+const JUNK_FEES = [
+  { id:"pci",    name:"PCI Non-Compliance Fee",      range:"$20–$99/mo",   note:"Often charged even when you ARE compliant. Ask your processor for proof." },
+  { id:"stmt",   name:"Monthly Statement Fee",       range:"$7–$20/mo",    note:"Pure margin for the processor. No legitimate cost justification." },
+  { id:"annual", name:"Annual / Membership Fee",     range:"$99–$299/yr",  note:"Typically buried in Year 2 of a contract after initial waiver." },
+  { id:"batch",  name:"Daily Batch / Settlement Fee",range:"$0.10–$0.25/batch", note:"Charged per day you settle, regardless of transaction count." },
+  { id:"minmon", name:"Monthly Minimum Fee",         range:"$25–$50/mo",   note:"Triggered if your processing volume falls below a threshold." },
+  { id:"irs",    name:"IRS 1099-K Reporting Fee",    range:"$30–$60/yr",   note:"Processors charging for this are padding fees — it should be $0." },
+  { id:"gate",   name:"Bundled Gateway Fee",         range:"$15–$35/mo",   note:"Sometimes charged on top of your existing payment gateway subscription." },
+  { id:"regul",  name:"Regulatory / NABU / FANF Fee",range:"Varies",       note:"Pass-through fees that some processors mark up above actual cost." },
+  { id:"amex",   name:"Amex Separate Brand Fee",     range:"Varies",       note:"If you're on OptBlue, Amex fees should be bundled in your rate — not extra." },
+  { id:"etf",    name:"Early Termination Clause",    range:"$200–$800",    note:"Not a monthly fee — a buyout if you switch. Know your contract term." },
+];
+
+// STATE
+let mode = 'estimate';
+let view = 'monthly';
+let results = null;
+let checkedFees = new Set();
+
+// HELPERS
+const $ = id => document.getElementById(id);
+const fmt = n => '$' + Math.round(n).toLocaleString('en-US');
+const fmtD = n => '$' + n.toLocaleString('en-US', {minimumFractionDigits:0, maximumFractionDigits:0});
+const pct = n => n.toFixed(3) + '%';
+const parse = s => parseFloat((s+'').replace(/[$,%\s]/g, '')) || 0;
+
+function syncPair(input, slider, prefix) {
+  input.addEventListener('input', () => {
+    let v = parse(input.value);
+    if (prefix === '%') v = Math.min(80, Math.max(0, v));
+    input.value = prefix === '$' ? '$' + v.toLocaleString('en-US') : v + '%';
+    slider.value = v;
+    if (mode === 'analyze') updateEffectiveRate();
+  });
+  slider.addEventListener('input', () => {
+    input.value = prefix === '$' ? '$' + parseInt(slider.value).toLocaleString('en-US') : slider.value + '%';
+    if (mode === 'analyze') updateEffectiveRate();
+  });
+}
+
+// INIT
+syncPair($('salesVolume'), $('salesSlider'), '$');
+syncPair($('avgTx'), $('txSlider'), '$');
+syncPair($('debitPct'), $('debitSlider'), '%');
+$('salesVolume').value = '$25,000';
+$('avgTx').value = '$75';
+$('debitPct').value = '30%';
+
+document.querySelectorAll('.tog').forEach(t => {
+  t.addEventListener('click', () => {
+    t.closest('.toggle-group').querySelectorAll('.tog').forEach(x => x.classList.remove('on'));
+    t.classList.add('on');
+    t.querySelector('input').checked = true;
+    const isOnline = document.querySelector('input[name="cp"]:checked').value === 'online';
+    $('debitPct').value = isOnline ? '20%' : $('debitPct').value;
+    if (isOnline) $('debitSlider').value = 20;
+  });
+});
+
+document.querySelectorAll('.pill-btn').forEach(b => {
+  b.addEventListener('click', () => {
+    document.querySelectorAll('.pill-btn').forEach(x => x.classList.remove('on'));
+    b.classList.add('on');
+    view = b.dataset.v;
+    if (results) renderChart(results);
+  });
+});
+
+$('currentFees').addEventListener('input', () => {
+  let v = parse($('currentFees').value);
+  $('currentFees').value = '$' + v.toLocaleString('en-US');
+  updateEffectiveRate();
+});
+
+// MODE SWITCH
+function switchMode(m) {
+  mode = m;
+  $('modeEstimate').classList.toggle('active', m === 'estimate');
+  $('modeAnalyze').classList.toggle('active', m === 'analyze');
+  $('stmtFields').style.display = m === 'analyze' ? '' : 'none';
+  $('btnTxt').textContent = m === 'analyze' ? 'Analyze My Overpayment' : 'Analyze My Costs';
+}
+
+function updateEffectiveRate() {
+  const vol = parse($('salesVolume').value);
+  const fees = parse($('currentFees').value);
+  if (vol > 0 && fees > 0) {
+    const rate = (fees / vol) * 100;
+    const el = $('erdVal');
+    el.textContent = rate.toFixed(3) + '%';
+    el.className = 'erd-value ' + (rate > 3.2 ? 'bad' : rate > 2.5 ? 'ok' : 'good');
+    $('effectiveRateDisplay').style.display = 'flex';
+  } else {
+    $('effectiveRateDisplay').style.display = 'none';
+  }
+}
+
+// INTERCHANGE RATE ENGINE
+function icEffective(pct, perTx, avgTx, cap) {
+  let cost = pct + (perTx / avgTx * 100);
+  if (cap) cost = Math.min(cost, (cap / avgTx) * 100);
+  return cost;
+}
+
+const IC_CARD_MIX = {
+  retail:    [ 0.18, 0.19, 0.19, 0.21, 0.09, 0.08, 0.06 ],
+  restaurant:[ 0.14, 0.16, 0.17, 0.20, 0.11, 0.08, 0.14 ],
+  ecommerce: [ 0.09, 0.10, 0.20, 0.26, 0.14, 0.14, 0.07 ],
+  service:   [ 0.07, 0.07, 0.18, 0.23, 0.14, 0.22, 0.09 ],
+  healthcare:[ 0.12, 0.14, 0.20, 0.22, 0.11, 0.10, 0.11 ],
+  b2b:       [ 0.02, 0.03, 0.08, 0.13, 0.07, 0.58, 0.09 ],
+  gas:       [ 0.25, 0.24, 0.19, 0.16, 0.07, 0.05, 0.04 ],
+  education: [ 0.11, 0.12, 0.18, 0.23, 0.12, 0.15, 0.09 ],
+  other:     [ 0.15, 0.17, 0.19, 0.22, 0.10, 0.12, 0.05 ],
+};
+
+const IC_LOOKUP = {
+  regDbt_cp:  [0.05, 0.21, null], regDbt_cnp: [0.05, 0.21, null],
+  exmDbt_retail_cp: [0.93, 0.15, null], exmDbt_restaurant_cp: [1.19, 0.10, null],
+  exmDbt_gas_cp: [0.75, 0.16, 0.95], exmDbt_default_cp: [0.93, 0.15, null],
+  exmDbt_cnp: [1.65, 0.15, null],
+  ccStd_retail_cp: [1.56, 0.10, null], ccStd_restaurant_cp: [1.98, 0.07, null],
+  ccStd_gas_cp: [1.15, 0.25, 1.10], ccStd_healthcare_cp: [1.29, 0.05, null],
+  ccStd_education_cp: [1.29, 0.05, null], ccStd_b2b_cp: [1.56, 0.10, null],
+  ccStd_default_cp: [1.51, 0.10, null], ccStd_cnp: [1.97, 0.10, null],
+  ccRew_retail_cp: [1.70, 0.10, null], ccRew_restaurant_cp: [2.43, 0.07, null],
+  ccRew_gas_cp: [1.15, 0.25, 1.10], ccRew_healthcare_cp: [1.43, 0.05, null],
+  ccRew_education_cp: [1.43, 0.05, null], ccRew_default_cp: [1.73, 0.10, null],
+  ccRew_cnp: [2.15, 0.10, null],
+  ccPrem_retail_cp: [2.30, 0.10, null], ccPrem_restaurant_cp: [2.60, 0.07, null],
+  ccPrem_gas_cp: [1.15, 0.25, 1.10], ccPrem_healthcare_cp: [2.30, 0.10, null],
+  ccPrem_education_cp: [2.15, 0.10, null], ccPrem_default_cp: [2.30, 0.10, null],
+  ccPrem_cnp: [2.60, 0.10, null],
+  bizCrd_cp: [2.25, 0.10, null], bizCrd_cnp: [2.65, 0.10, null],
+  bizCrd_b2b_l2_cp: [2.00, 0.10, null], bizCrd_b2b_l2_cnp: [2.40, 0.10, null],
+  amex_retail: [1.60, 0.00, null], amex_restaurant: [1.60, 0.00, null],
+  amex_healthcare: [1.34, 0.00, null], amex_b2b: [1.60, 0.00, null],
+  amex_education: [1.60, 0.00, null], amex_default: [1.60, 0.00, null],
+};
+
+const ASSESSMENT_RATES = {
+  regDbt: 0.130, exmDbt: 0.130, ccStd: 0.145,
+  ccRew: 0.145, ccPrem: 0.145, bizCrd: 0.145, amex: 0.120,
+};
+
+function calcBlendedIC(industry, avgTx, entryMethod, userDebitPct) {
+  const isCP = entryMethod === 'in-person';
+  const isMixed = entryMethod === 'mixed';
+  const baseMix = IC_CARD_MIX[industry] || IC_CARD_MIX.other;
+  const userDebitFrac = userDebitPct / 100;
+  const assumedDebitFrac = baseMix[0] + baseMix[1];
+  let regDbtFrac, exmDbtFrac;
+  if (assumedDebitFrac > 0) {
+    const debitScale = userDebitFrac / assumedDebitFrac;
+    regDbtFrac = baseMix[0] * debitScale;
+    exmDbtFrac = baseMix[1] * debitScale;
+  } else {
+    regDbtFrac = userDebitFrac * 0.65;
+    exmDbtFrac = userDebitFrac * 0.35;
+  }
+  const ccFrac = 1 - userDebitFrac;
+  const creditSubtotal = baseMix[2] + baseMix[3] + baseMix[4] + baseMix[5] + baseMix[6];
+  const ccStdFrac  = creditSubtotal > 0 ? (baseMix[2] / creditSubtotal) * ccFrac : 0;
+  const ccRewFrac  = creditSubtotal > 0 ? (baseMix[3] / creditSubtotal) * ccFrac : 0;
+  const ccPremFrac = creditSubtotal > 0 ? (baseMix[4] / creditSubtotal) * ccFrac : 0;
+  const bizCrdFrac = creditSubtotal > 0 ? (baseMix[5] / creditSubtotal) * ccFrac : 0;
+  const amexFrac   = creditSubtotal > 0 ? (baseMix[6] / creditSubtotal) * ccFrac : 0;
+  const isBizL2 = (industry === 'b2b');
+
+  function getRate(cardType, cp) {
+    const method = cp ? 'cp' : 'cnp';
+    const keys = [`${cardType}_${industry}_${method}`, `${cardType}_default_${method}`, `${cardType}_${method}`];
+    for (const k of keys) if (IC_LOOKUP[k]) return IC_LOOKUP[k];
+    return [2.00, 0.10, null];
+  }
+
+  function blendedForCP(cp) {
+    const [rR, rT, rC] = getRate('regDbt', cp);
+    const [eR, eT, eC] = getRate('exmDbt', cp);
+    const [sR, sT, sC] = getRate('ccStd', cp);
+    const [wR, wT, wC] = getRate('ccRew', cp);
+    const [pR, pT, pC] = getRate('ccPrem', cp);
+    const bizKey = isBizL2 ? (cp ? 'bizCrd_b2b_l2_cp' : 'bizCrd_b2b_l2_cnp') : (cp ? 'bizCrd_cp' : 'bizCrd_cnp');
+    const [bR, bT, bC] = IC_LOOKUP[bizKey] || [2.25, 0.10, null];
+    const amexKey = `amex_${industry}`;
+    const [aR, aT, aC] = IC_LOOKUP[amexKey] || IC_LOOKUP['amex_default'];
+    const slots = [
+      { frac: regDbtFrac,  r: rR, t: rT, cap: rC, assess: ASSESSMENT_RATES.regDbt },
+      { frac: exmDbtFrac,  r: eR, t: eT, cap: eC, assess: ASSESSMENT_RATES.exmDbt },
+      { frac: ccStdFrac,   r: sR, t: sT, cap: sC, assess: ASSESSMENT_RATES.ccStd  },
+      { frac: ccRewFrac,   r: wR, t: wT, cap: wC, assess: ASSESSMENT_RATES.ccRew  },
+      { frac: ccPremFrac,  r: pR, t: pT, cap: pC, assess: ASSESSMENT_RATES.ccPrem },
+      { frac: bizCrdFrac,  r: bR, t: bT, cap: bC, assess: ASSESSMENT_RATES.bizCrd },
+      { frac: amexFrac,    r: aR, t: aT, cap: aC, assess: ASSESSMENT_RATES.amex   },
+    ];
+    let blendedIC = 0, blendedAssess = 0;
+    for (const s of slots) {
+      const eff = icEffective(s.r, s.t, avgTx, s.cap);
+      blendedIC    += s.frac * eff;
+      blendedAssess += s.frac * s.assess;
+    }
+    return { blendedIC, blendedAssess };
+  }
+
+  let result;
+  if (isMixed) {
+    const cp  = blendedForCP(true);
+    const cnp = blendedForCP(false);
+    result = { blendedIC: cp.blendedIC*0.55 + cnp.blendedIC*0.45, blendedAssess: cp.blendedAssess*0.55 + cnp.blendedAssess*0.45 };
+  } else {
+    result = blendedForCP(isCP);
+  }
+  return result;
+}
+
+// CALCULATION
+function calcAll(vol, avgTx, debitPct, cp, industry) {
+  const numTx = vol / avgTx;
+  const isOnline = cp === 'online';
+  const isMixed = cp === 'mixed';
+  const bench = INDUSTRIES[industry];
+  const icResult = calcBlendedIC(industry, avgTx, isOnline ? 'online' : isMixed ? 'mixed' : 'in-person', debitPct);
+  const effectiveIC = icResult.blendedIC;
+  const ASSESSMENT  = icResult.blendedAssess;
+
+  const flatPct = isOnline ? 2.9 : (isMixed ? 2.75 : 2.7);
+  const flatMo = (vol * flatPct/100) + (numTx * 0.30);
+  const flatEff = (flatMo / vol) * 100;
+
+  const icMarkup = vol < 25000 ? 0.75 : vol < 75000 ? 0.70 : vol < 150000 ? 0.65 : vol < 300000 ? 0.55 : 0.45;
+  const icPerTx = 0.10;
+  const icMonthly = 25;
+  const icMo = (vol * (effectiveIC + icMarkup + ASSESSMENT) / 100) + (numTx * icPerTx) + icMonthly;
+  const icEff = (icMo / vol) * 100;
+
+  const tq = isOnline ? 0.40 : 0.45;
+  const tmq = 0.35;
+  const tnq = 1 - tq - tmq;
+  const tieredMo =
+    (vol * tq * 1.89/100) + (numTx * tq * 0.19) +
+    (vol * tmq * 2.60/100) + (numTx * tmq * 0.25) +
+    (vol * tnq * 3.50/100) + (numTx * tnq * 0.30) + 40;
+  const tieredEff = (tieredMo / vol) * 100;
+
+  let ft5MarkupLow = vol < 25000 ? 0.55 : vol < 75000 ? 0.45 : vol < 150000 ? 0.35 : vol < 300000 ? 0.28 : 0.20;
+  let ft5MarkupHigh = ft5MarkupLow + 0.10;
+  const ft5PerTx = 0.10;
+  const ft5Monthly = 22.95;
+  const ft5MoLow = (vol * (effectiveIC + ft5MarkupLow + ASSESSMENT) / 100) + (numTx * ft5PerTx) + ft5Monthly;
+  const ft5MoHigh = (vol * (effectiveIC + ft5MarkupHigh + ASSESSMENT) / 100) + (numTx * ft5PerTx) + ft5Monthly;
+  const ft5MoMid = (ft5MoLow + ft5MoHigh) / 2;
+  const ft5RateLow = (ft5MoLow / vol) * 100;
+  const ft5RateHigh = (ft5MoHigh / vol) * 100;
+
+  const dualMo = 50;
+  const dualEff = (dualMo / vol) * 100;
+  const dualCustomer = vol * 0.04;
+
+  let currentMo = null, currentEff = null, overpayMo = null, overpayAnnual = null;
+  if (mode === 'analyze') {
+    const fees = parse($('currentFees').value);
+    if (fees > 0) {
+      currentMo = fees;
+      currentEff = (fees / vol) * 100;
+      overpayMo = currentMo - ft5MoMid;
+      overpayAnnual = overpayMo * 12;
+    }
+  }
+
+  const traditional = [
+    { key:'flat', mo:flatMo, eff:flatEff },
+    { key:'ic', mo:icMo, eff:icEff },
+    { key:'tiered', mo:tieredMo, eff:tieredEff }
+  ].sort((a,b) => a.mo - b.mo);
+  const winner = traditional[0];
+  const loser = traditional[2];
+
+  const annualVol = vol * 12;
+  const estAnnualProfit = annualVol * bench.netMargin / 100;
+  const processCostPctProfit = ((icMo * 12) / estAnnualProfit) * 100;
+  const ft5SaveAnnual = overpayAnnual !== null ? overpayAnnual : (loser.mo - ft5MoMid) * 12;
+  const ft5SavePctProfit = (ft5SaveAnnual / estAnnualProfit) * 100;
+
+  return {
+    vol, avgTx, debitPct, cp, industry, bench,
+    flat: { mo:flatMo, annual:flatMo*12, eff:flatEff },
+    ic: { mo:icMo, annual:icMo*12, eff:icEff, effectiveIC, ASSESSMENT, markup:icMarkup },
+    tiered: { mo:tieredMo, annual:tieredMo*12, eff:tieredEff, tq, tmq, tnq },
+    ft5: { moLow:ft5MoLow, moHigh:ft5MoHigh, moMid:ft5MoMid, rateLow:ft5RateLow, rateHigh:ft5RateHigh, markupLow:ft5MarkupLow, markupHigh:ft5MarkupHigh },
+    dual: { mo:dualMo, eff:dualEff, customer:dualCustomer, fit:bench.dpFit, note:bench.dpNote },
+    current: { mo:currentMo, eff:currentEff, overpayMo, overpayAnnual },
+    winner, loser,
+    profit: { margin:bench.netMargin, processCostPctProfit, ft5SaveAnnual, ft5SavePctProfit, estAnnualProfit }
+  };
+}
+
+// RENDERERS
+function renderOverpayBanner(r) {
+  const el = $('overpayBanner');
+  if (mode !== 'analyze' || !r.current.mo) { el.style.display='none'; return; }
+  el.style.display = '';
+  const op = Math.max(0, r.current.overpayMo);
+  const opA = Math.max(0, r.current.overpayAnnual);
+  const proc = $('currentProcessor').options[$('currentProcessor').selectedIndex].text;
+  const procNote = proc === 'Select processor (optional)' ? 'your current processor' : proc;
+  el.innerHTML = `
+    <div class="ob-left">
+      <div class="ob-tag"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg> Statement Analysis</div>
+      <div class="ob-headline">You may be overpaying<br>${fmt(opA)}/year with ${procNote}</div>
+      <div class="ob-sub">Based on your current effective rate of ${pct(r.current.eff)} vs. FinTech 5's estimated competitive bid</div>
+    </div>
+    <div class="ob-numbers">
+      <div><div class="ob-stat-val red">${fmt(op)}</div><div class="ob-stat-lbl">Monthly Overpayment</div></div>
+      <div><div class="ob-stat-val green">${pct(r.current.eff - r.ft5.rateLow)}</div><div class="ob-stat-lbl">Rate Reduction Est.</div></div>
+    </div>`;
+}
+
+function renderBenchmark(r) {
+  const b = r.bench;
+  const bestRate = r.winner.eff;
+  const markerPos = Math.min(98, Math.max(2, ((bestRate - (b.avgRate.low - 0.3)) / ((b.avgRate.high + 0.4) - (b.avgRate.low - 0.3))) * 100));
+  const rateRange = b.avgRate.high - b.avgRate.low;
+  const percentile = Math.max(0, Math.min(100, Math.round((1 - (bestRate - b.avgRate.low) / rateRange) * 100)));
+  const msg = percentile >= 70
+    ? `Your best estimated rate is <strong>better than ${percentile}%</strong> of ${b.name} businesses.`
+    : percentile >= 40
+    ? `Your rate is <strong>near the industry average</strong> for ${b.name}. Significant improvement is likely.`
+    : `Your estimated rate is <strong>in the costliest ${100-percentile}%</strong> of ${b.name} businesses.`;
+  $('benchSection').innerHTML = `
+    <div class="bench-head">
+      <div class="bench-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg></div>
+      <div><div class="bench-title">${b.name} — Industry Benchmarks</div><div class="bench-sub">How your estimated rate compares to industry</div></div>
+    </div>
+    <div class="bench-grid">
+      <div class="bench-stat"><div class="bench-stat-val">${b.avgRate.low}% – ${b.avgRate.high}%</div><div class="bench-stat-lbl">Industry Rate Range</div></div>
+      <div class="bench-stat"><div class="bench-stat-val">${b.avgRate.mid}%</div><div class="bench-stat-lbl">Industry Average</div></div>
+      <div class="bench-stat"><div class="bench-stat-val">$${b.avgTicket}</div><div class="bench-stat-lbl">Typical Avg Ticket</div></div>
+      <div class="bench-stat"><div class="bench-stat-val">${b.debitMix}%</div><div class="bench-stat-lbl">Typical Debit Mix</div></div>
+    </div>
+    <div class="gauge-wrap">
+      <div class="gauge-top"><span class="gauge-label">Your Best Estimated Rate (${r.winner.key === 'flat' ? 'Flat Rate' : r.winner.key === 'ic' ? 'Interchange Plus' : 'Tiered'})</span><span class="gauge-val">${pct(bestRate)}</span></div>
+      <div class="gauge-track"><div class="gauge-pin" style="left:${markerPos}%"></div></div>
+      <div class="gauge-rows"><span>Lower is better</span><span>Avg (${b.avgRate.mid}%)</span><span>Higher cost</span></div>
+      <div class="gauge-verdict">${msg}</div>
+    </div>`;
+}
+
+function renderChart(r) {
+  const mult = view === 'annual' ? 12 : 1;
+  const rows = [
+    { label:'Flat Rate',       cost:r.flat.mo*mult,   cls:'bar-flat',    key:'flat' },
+    { label:'Interchange+',    cost:r.ic.mo*mult,     cls:'bar-ic',      key:'ic' },
+    { label:'Tiered',          cost:r.tiered.mo*mult, cls:'bar-tiered',  key:'tiered' },
+    { label:'FT5 Bid Est.',    cost:r.ft5.moMid*mult, cls:'bar-ft5',     key:'ft5' }
+  ];
+  if (mode === 'analyze' && r.current.mo) {
+    rows.push({ label:'Currently Paying', cost:r.current.mo*mult, cls:'bar-current', key:'current' });
+  }
+  rows.sort((a, b) => b.cost - a.cost);
+  const maxCost = Math.max(...rows.map(x=>x.cost)) * 1.08;
+  $('chartRows').innerHTML = rows.map(row => {
+    const w = Math.max(18, (row.cost / maxCost) * 100);
+    const isTradWinner = row.key === r.winner.key;
+    const isFt5 = row.key === 'ft5';
+    return `
+      <div class="chart-row">
+        <div class="chart-row-lbl">${row.label}</div>
+        <div class="chart-row-track">
+          <div class="chart-bar ${row.cls} ${isTradWinner ? 'bar-winner' : ''}" style="width:${w}%">
+            <span class="bval">${fmt(row.cost)}</span>
+          </div>
+          ${isTradWinner ? `<span class="best-chip">BEST</span>` : ''}
+          ${isFt5 ? `<span class="ft5-chip">FT5 EST.</span>` : ''}
+        </div>
+      </div>`;
+  }).join('');
+}
+
+function renderCards(r) {
+  const cards = [
+    {
+      key:'flat', name:'Flat Rate', sub:'Same rate on every transaction, regardless of card type',
+      cls:'ci-flat', icon:`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M12 8v8"/><path d="M8 12h8"/></svg>`,
+      mo:r.flat.mo, annual:r.flat.annual, eff:r.flat.eff,
+      note:`Rate: ${r.cp==='online'?'2.9%':'2.7%'} + $0.30/tx. Simple, predictable, no monthly fee.`,
+      winner: r.winner.key === 'flat'
+    },
+    {
+      key:'ic', name:'Interchange Plus', sub:'Traditional processor model',
+      cls:'ci-ic', icon:`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>`,
+      mo:r.ic.mo, annual:r.ic.annual, eff:r.ic.eff,
+      note:`Blended IC ${pct(r.ic.effectiveIC)} + markup ${r.ic.markup.toFixed(2)}% + assessment ${pct(r.ic.ASSESSMENT)} + $0.10/tx + $25/mo`,
+      winner: r.winner.key === 'ic'
+    },
+    {
+      key:'tiered', name:'Tiered Pricing', sub:'Qualified / mid-qual / non-qual',
+      cls:'ci-tiered', icon:`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/></svg>`,
+      mo:r.tiered.mo, annual:r.tiered.annual, eff:r.tiered.eff,
+      note:`${Math.round(r.tiered.tq*100)}% qual / ${Math.round(r.tiered.tmq*100)}% mid-qual / ${Math.round(r.tiered.tnq*100)}% non-qual. Includes est. monthly fees.`,
+      winner: false
+    }
+  ];
+  $('cardsGrid').innerHTML = cards.map(c => `
+    <div class="card ${c.winner ? 'winner-card' : ''}">
+      <div class="card-head">
+        <div class="card-icon ${c.cls}">${c.icon}</div>
+        <div><div class="card-name">${c.name}</div><div class="card-sub">${c.sub}</div></div>
+      </div>
+      <div class="card-body">
+        <div class="card-row"><span class="card-row-lbl">Monthly Cost</span><span class="card-row-val">${fmt(c.mo)}</span></div>
+        <div class="card-row"><span class="card-row-lbl">Annual Cost</span><span class="card-row-val">${fmt(c.annual)}</span></div>
+        <div class="card-row"><span class="card-row-lbl">Eff. Rate</span><span class="card-row-val hi">${pct(c.eff)}</span></div>
+        <div class="card-note">${c.note}</div>
+        ${c.winner ? `<div class="card-badge"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Best of traditional models</div>` : ''}
+      </div>
+    </div>`).join('');
+}
+
+function renderFT5Card(r) {
+  const annSavVsIC = (r.ic.mo - r.ft5.moMid) * 12;
+  const mLow = r.ft5.markupLow.toFixed(2);
+  const mHigh = r.ft5.markupHigh.toFixed(2);
+  $('ft5Card').innerHTML = `
+    <div class="ft5-card-head">
+      <div class="ft5-card-left">
+        <div class="ft5-card-tag">
+          <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          FinTech 5 Competitive Bid
+        </div>
+        <div class="ft5-card-name">What 10+ Processors Competing Looks Like</div>
+        <div class="ft5-card-desc">Interchange never changes — we compress the processor's markup through competitive bidding. Market markup: ~${(r.ic.markup).toFixed(2)}%. FT5 target: ${mLow}–${mHigh}%</div>
+      </div>
+      <div class="ft5-stats">
+        <div><div class="ft5-stat-val">${fmt(r.ft5.moMid)}</div><div class="ft5-stat-lbl">Est. Monthly</div></div>
+        <div><div class="ft5-stat-val">${fmt(annSavVsIC)}</div><div class="ft5-stat-lbl">Est. Annual Savings vs. Market IC+</div></div>
+      </div>
+    </div>
+    <div class="ft5-grid">
+      <div class="ft5-cell"><div class="ft5-cell-val">${pct(r.ft5.rateLow)} – ${pct(r.ft5.rateHigh)}</div><div class="ft5-cell-lbl">Estimated Effective Rate Range</div></div>
+      <div class="ft5-cell"><div class="ft5-cell-val">${fmt(r.ft5.moLow)} – ${fmt(r.ft5.moHigh)}</div><div class="ft5-cell-lbl">Est. Monthly Range</div></div>
+      <div class="ft5-cell"><div class="ft5-cell-val">${fmt(annSavVsIC)} – ${fmt((r.ic.mo - r.ft5.moLow)*12)}</div><div class="ft5-cell-lbl">Est. Annual Savings Range</div></div>
+    </div>
+    <div class="ft5-disclaimer">
+      FinTech 5 is processor-agnostic. We create a competitive bidding situation across 10+ tier-one processors — interchange and assessments pass through at cost, and we target the lowest markup achievable for your volume and industry. These estimates use published interchange rates and real partner pricing. A free statement analysis delivers exact figures.
+    </div>`;
+}
+
+function renderProjection(r) {
+  const annSav = (r.ic.mo - r.ft5.moMid) * 12;
+  if (annSav <= 0) { $('projPanel').style.display='none'; return; }
+  $('projPanel').style.display = '';
+  const y1 = annSav, y2 = annSav * 2, y3 = annSav * 3;
+  const maxH = 110;
+  const h1 = Math.round((y1/y3)*maxH), h2 = Math.round((y2/y3)*maxH), h3 = maxH;
+  $('projPanel').innerHTML = `
+    <div class="panel-title" style="margin-bottom:0;">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+      Cumulative Savings Projection
+    </div>
+    <div style="font-size:0.85rem;color:var(--txt-l);margin-bottom:0;">Based on FinTech 5 competitive bid vs. Interchange Plus pricing</div>
+    <div class="proj-bars">
+      <div class="proj-bar-wrap">
+        <div class="proj-bar-outer" style="height:120px">
+          <div class="proj-bar-fill y1" style="height:${h1}px"><span class="proj-bar-val">${fmt(y1)}</span></div>
+        </div>
+        <div class="proj-bar-lbl">Year 1</div>
+      </div>
+      <div class="proj-bar-wrap">
+        <div class="proj-bar-outer" style="height:120px">
+          <div class="proj-bar-fill y2" style="height:${h2}px"><span class="proj-bar-val">${fmt(y2)}</span></div>
+        </div>
+        <div class="proj-bar-lbl">Year 2</div>
+      </div>
+      <div class="proj-bar-wrap">
+        <div class="proj-bar-outer" style="height:120px">
+          <div class="proj-bar-fill y3" style="height:${h3}px"><span class="proj-bar-val">${fmt(y3)}</span></div>
+        </div>
+        <div class="proj-bar-lbl">Year 3</div>
+      </div>
+    </div>
+    <div class="proj-total">
+      <span class="proj-total-label">3-Year Total Estimated Savings with FinTech 5</span>
+      <span class="proj-total-val">${fmt(y3)}</span>
+    </div>`;
+}
+
+function renderProfitPanel(r) {
+  const { margin, processCostPctProfit, ft5SaveAnnual, ft5SavePctProfit } = r.profit;
+  const costPctRev = (r.ic.mo * 12 / (r.vol * 12)) * 100;
+  $('profitPanel').innerHTML = `
+    <div class="profit-head">
+      <div class="profit-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
+      <div><div class="panel-title" style="margin-bottom:0;">Profitability Impact</div><div style="font-size:0.85rem;color:var(--txt-l);">${r.bench.name} typical net margin: ~${margin}%</div></div>
+    </div>
+    <div class="profit-grid">
+      <div class="profit-cell">
+        <div class="profit-cell-label">Processing Cost % of Revenue</div>
+        <div class="profit-cell-val neutral">${costPctRev.toFixed(2)}%</div>
+        <div class="profit-cell-sub">Every $100 in sales, ${fmtD(r.ic.mo * 12 / (r.vol * 12) * 100)}¢ goes to processor</div>
+      </div>
+      <div class="profit-cell">
+        <div class="profit-cell-label">Processing Cost % of Profit</div>
+        <div class="profit-cell-val bad">${processCostPctProfit.toFixed(1)}%</div>
+        <div class="profit-cell-sub">Processing eats ${processCostPctProfit.toFixed(1)}% of your estimated profit annually</div>
+      </div>
+      <div class="profit-cell">
+        <div class="profit-cell-label">FT5 Savings = Profit Increase</div>
+        <div class="profit-cell-val good">+${ft5SavePctProfit.toFixed(1)}%</div>
+        <div class="profit-cell-sub">Switching could grow your effective profit by ~${ft5SavePctProfit.toFixed(1)}%</div>
+      </div>
+    </div>`;
+}
+
+function renderFeeScanner() {
+  $('feeList').innerHTML = JUNK_FEES.map(f => `
+    <div class="fee-item ${checkedFees.has(f.id) ? 'checked' : ''}" data-id="${f.id}" onclick="toggleFee('${f.id}')">
+      <div class="fee-checkbox">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+      </div>
+      <div style="flex:1">
+        <div class="fee-item-name">${f.name}</div>
+        <div style="font-size:0.75rem;color:var(--txt-l);margin-top:0.1rem;">${f.note}</div>
+      </div>
+      <span class="fee-item-amount">${f.range}</span>
+    </div>`).join('');
+  updateFeeScanner();
+}
+
+function toggleFee(id) {
+  checkedFees.has(id) ? checkedFees.delete(id) : checkedFees.add(id);
+  renderFeeScanner();
+}
+
+function updateFeeScanner() {
+  const count = checkedFees.size;
+  const cta = $('feeScannerCta');
+  if (count >= 2) {
+    cta.style.display = 'flex';
+    const vol = parse($('salesVolume').value);
+    const ind = $('industrySelect').value;
+    const eff = results ? pct(results.ic.eff) : '';
+    const params = new URLSearchParams({ volume: vol, industry: ind, eff_rate: eff, fees_flagged: count });
+    cta.innerHTML = `
+      <div>
+        <div class="fsc-text">You flagged ${count} potential hidden fee${count>1?'s':''} on your account</div>
+        <div class="fsc-sub">Send us your statement — we'll identify the exact dollar amounts and what's negotiable.</div>
+      </div>
+      <a href="https://fintech5group.com/get-your-savings-estimate/?${params.toString()}" class="fsc-btn" target="_top">
+        Get a Free Statement Audit
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+      </a>`;
+  } else {
+    cta.style.display = 'none';
+  }
+}
+
+function renderIntel(r) {
+  const items = r.bench.intel;
+  if (!items.length) { $('intelPanel').style.display='none'; return; }
+  $('intelPanel').style.display = '';
+  $('intelPanel').innerHTML = `
+    <div class="intel-head">
+      <div class="intel-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></div>
+      <div><div class="panel-title" style="margin-bottom:0;">Industry Intelligence for ${r.bench.name}</div><div style="font-size:0.85rem;color:var(--txt-l);">Cost reduction opportunities specific to your industry</div></div>
+    </div>
+    <div class="intel-items">
+      ${items.map(k => {
+        const t = INTEL_TIPS[k];
+        if (!t) return '';
+        return `<div class="intel-item">
+          <div class="intel-bullet"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <div><div class="intel-text-title">${t.title}</div><div class="intel-text-body">${t.body}</div></div>
+          <div class="intel-badge">${t.badge}</div>
+        </div>`;
+      }).join('')}
+    </div>`;
+}
+
+function renderB2B(r) {
+  if (r.industry !== 'b2b') { $('b2bPanel').style.display='none'; return; }
+  $('b2bPanel').style.display = '';
+  const l2SaveMo = r.vol * 0.0075;
+  const l3SaveMo = r.vol * 0.0055;
+  $('b2bPanel').innerHTML = `
+    <div class="b2b-head">
+      <div class="b2b-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg></div>
+      <div><div class="panel-title" style="margin-bottom:0;">B2B Level II / III Savings Opportunity</div><div style="font-size:0.85rem;color:var(--txt-l);">Most B2B merchants are leaving serious money on the table</div></div>
+    </div>
+    <div class="b2b-grid">
+      <div class="b2b-cell"><div class="b2b-cell-lbl">Level II Savings Estimate</div><div class="b2b-cell-val">${fmt(l2SaveMo)}/mo</div><div class="b2b-cell-sub">Sending tax ID, PO number, customer code on corporate cards typically saves 0.50–1.00% off interchange</div></div>
+      <div class="b2b-cell"><div class="b2b-cell-lbl">Level III Savings Estimate</div><div class="b2b-cell-val">${fmt(l3SaveMo)}/mo</div><div class="b2b-cell-sub">Line-item detail on purchasing and government cards adds an additional 0.40–0.70% reduction</div></div>
+      <div class="b2b-cell"><div class="b2b-cell-lbl">Combined Annual Potential</div><div class="b2b-cell-val">${fmt((l2SaveMo+l3SaveMo)*12)}/yr</div><div class="b2b-cell-sub">If your processor or ERP isn't sending Level II/III data, you're likely not getting these rates</div></div>
+      <div class="b2b-cell"><div class="b2b-cell-lbl">ACH Alternative for Large Invoices</div><div class="b2b-cell-val">~$0.50/tx</div><div class="b2b-cell-sub">On a $5,000 invoice: ACH costs ~$0.50 vs. $75-125 for card. Not always practical but worth evaluating</div></div>
+    </div>`;
+}
+
+function renderDual(r) {
+  const cp = document.querySelector('input[name="cp"]:checked').value;
+  if (cp === 'online') {
+    $('dualPanel').innerHTML = `
+      <div class="dual-head">
+        <div class="dual-icon" style="background:#888"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8"/><path d="M12 18V6"/></svg></div>
+        <div><div class="panel-title" style="margin-bottom:0;">Dual Pricing / Cash Discount</div><div style="font-size:0.85rem;color:#888">Not applicable for online-only merchants</div></div>
+      </div>
+      <div style="padding:1rem;background:var(--off);border-radius:8px;font-size:0.875rem;color:var(--txt-l)">
+        Dual pricing requires presenting a physical cash option at point of sale. For e-commerce, focus on Level II data, gateway optimization, and processor rate negotiation instead.
+      </div>`;
+    $('dualPanel').style.borderColor='#ccc'; $('dualPanel').style.background='rgba(200,200,200,0.05)';
+    return;
+  }
+  $('dualPanel').style.borderColor=''; $('dualPanel').style.background='';
+  const d = r.dual;
+  const fitCls = d.fit === 'good' ? 'fit-good' : d.fit === 'moderate' ? 'fit-mod' : 'fit-poor';
+  const fitLabel = d.fit === 'good' ? 'Good Fit' : d.fit === 'moderate' ? 'May Work' : 'Not Ideal';
+  $('dualPanel').innerHTML = `
+    <div class="dual-head">
+      <div class="dual-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8"/><path d="M12 18V6"/></svg></div>
+      <div><div class="panel-title" style="margin-bottom:0;">Dual Pricing Alternative</div><div style="font-size:0.85rem;color:var(--txt-l);">Pass card-processing costs to card-paying customers</div></div>
+    </div>
+    <div class="dual-grid">
+      <div class="dual-stat"><div class="dual-stat-val">${fmt(d.mo)}/mo</div><div class="dual-stat-lbl">Your Cost to Merchant</div></div>
+      <div class="dual-stat"><div class="dual-stat-val">${pct(d.eff)}</div><div class="dual-stat-lbl">Your Effective Rate</div></div>
+      <div class="dual-stat"><div class="dual-stat-val">${fmt(d.customer)}/mo</div><div class="dual-stat-lbl">Customers Pay (4%)</div></div>
+    </div>
+    <div class="dual-row2">
+      <div class="pros-box"><h4><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Benefits</h4><ul><li>Near-zero processing costs</li><li>Keep 100% of your listed prices</li><li>Simple flat monthly program fee</li><li>Eliminates rate volatility</li></ul></div>
+      <div class="cons-box"><h4><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/></svg> Considerations</h4><ul><li>Customers see a card service fee</li><li>Requires proper signage (network rules)</li><li>Cash handling infrastructure needed</li><li>State regulations vary</li></ul></div>
+    </div>
+    <div class="fit-row">
+      <span class="fit-badge ${fitCls}">${fitLabel}</span>
+      <span class="fit-text">${d.note}</span>
+    </div>`;
+}
+
+// MAIN CALCULATE
+$('calcBtn').addEventListener('click', () => {
+  const vol = parse($('salesVolume').value);
+  const avgTx = parse($('avgTx').value);
+  const debitPct = parse($('debitPct').value);
+  const cp = document.querySelector('input[name="cp"]:checked').value;
+  const industry = $('industrySelect').value;
+
+  if (vol <= 0) { showErr('Please enter your monthly card sales volume.'); return; }
+  if (avgTx <= 0) { showErr('Please enter your average transaction amount.'); return; }
+  if (mode === 'analyze' && parse($('currentFees').value) <= 0) {
+    showErr('Please enter your current monthly processing fees to analyze your overpayment.'); return;
+  }
+
+  hideErr();
+  $('btnTxt').style.display='none';
+  $('btnSpin').style.display='block';
+  $('btnArrow').style.display='none';
+
+  setTimeout(() => {
+    results = calcAll(vol, avgTx, debitPct, cp, industry);
+
+    renderOverpayBanner(results);
+    renderBenchmark(results);
+    renderChart(results);
+    renderCards(results);
+    renderFT5Card(results);
+    renderProjection(results);
+    renderProfitPanel(results);
+    renderFeeScanner();
+    renderIntel(results);
+    renderB2B(results);
+    renderDual(results);
+
+    // Update CTA button URL with calculator context
+    const ctaParams = new URLSearchParams({
+      source: 'calculator',
+      industry: industry,
+      volume: vol,
+      avg_tx: avgTx,
+      card_method: cp,
+      est_rate: results.ic.eff.toFixed(3),
+      est_savings: Math.round((results.ic.mo - results.ft5.moMid) * 12)
+    });
+    if (mode === 'analyze' && results.current.mo) {
+      ctaParams.set('current_fees', results.current.mo);
+      ctaParams.set('current_rate', results.current.eff.toFixed(3));
+      ctaParams.set('overpay_annual', Math.round(results.current.overpayAnnual));
+    }
+    $('ctaPrimary').href = `https://fintech5group.com/get-your-savings-estimate/?${ctaParams.toString()}`;
+
+    const sec = $('results');
+    sec.style.display = 'block';
+    setTimeout(() => {
+      sec.classList.add('show');
+      sec.scrollIntoView({ behavior:'smooth', block:'start' });
+      if (window.parentIFrame) window.parentIFrame.size();
+    }, 30);
+    setTimeout(() => { if (window.parentIFrame) window.parentIFrame.size(); }, 600);
+
+    $('btnTxt').style.display='inline';
+    $('btnSpin').style.display='none';
+    $('btnArrow').style.display='block';
+    $('btnTxt').textContent = mode === 'analyze' ? 'Re-analyze' : 'Recalculate';
+  }, 500);
+});
+
+function showErr(msg) { const e=$('errBox'); e.textContent=msg; e.style.display='block'; }
+function hideErr() { $('errBox').style.display='none'; }
+</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/iframe-resizer/4.3.9/iframeResizer.contentWindow.min.js"
+        type="cf3670bad8c364d1b128fc71-text/javascript"></script>
+    <script src="/cdn-cgi/scripts/7d0fa10a/cloudflare-static/rocket-loader.min.js"
+        data-cf-settings="cf3670bad8c364d1b128fc71-|49" defer></script>
+    <script defer
+        src="https://static.cloudflareinsights.com/beacon.min.js/v8c78df7c7c0f484497ecbca7046644da1771523124516"
+        integrity="sha512-8DS7rgIrAmghBFwoOTujcf6D9rXvH8xm8JQ1Ja01h9QX8EzXldiszufYa4IFfKdLUKTTrnSFXLDkUEOTrZQ8Qg=="
+        data-cf-beacon='{"version":"2024.11.0","token":"7832cccff4f24ae7985642811aee511b","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}'
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

@@ -108,6 +108,9 @@ export default function Navbar() {
           <Link href="/blog" className="text-sm font-semibold text-slate-700 hover:text-brand-600 transition-colors">
             Blog
           </Link>
+          <Link href="/about-us" className="text-sm font-semibold text-slate-700 hover:text-brand-600 transition-colors">
+            About
+          </Link>
           <Link href="/contact-us" className="text-sm font-semibold text-slate-700 hover:text-brand-600 transition-colors">
             Contact
           </Link>
