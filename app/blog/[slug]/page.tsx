@@ -11,8 +11,9 @@ export async function generateStaticParams() {
   }))
 }
 
-export default function BlogPost({ params }: { params: { slug: string } }) {
-  const postData = getPostData(params.slug)
+export default async function BlogPost({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params
+  const postData = getPostData(slug)
 
   return (
     <div className="flex flex-col w-full bg-white min-h-screen">

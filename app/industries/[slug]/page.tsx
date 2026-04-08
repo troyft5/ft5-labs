@@ -3,8 +3,9 @@ import { notFound } from 'next/navigation'
 import { CheckCircle2, ArrowRight } from 'lucide-react'
 import Link from 'next/link'
 
-export default function IndustryPage({ params }: { params: { slug: string } }) {
-  const industry = industriesData[params.slug as keyof typeof industriesData]
+export default async function IndustryPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params
+  const industry = industriesData[slug as keyof typeof industriesData]
   if (!industry) return notFound()
 
   return (

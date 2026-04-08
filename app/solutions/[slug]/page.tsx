@@ -3,8 +3,9 @@ import { notFound } from 'next/navigation'
 import { CheckCircle2, ArrowRight } from 'lucide-react'
 import Link from 'next/link'
 
-export default function SolutionPage({ params }: { params: { slug: string } }) {
-  const solution = solutionsData[params.slug as keyof typeof solutionsData]
+export default async function SolutionPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params
+  const solution = solutionsData[slug as keyof typeof solutionsData]
   if (!solution) return notFound()
 
   return (
