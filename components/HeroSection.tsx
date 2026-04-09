@@ -1,7 +1,9 @@
 'use client'
 import { useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { ArrowRight, ChevronRight } from 'lucide-react'
+import ParticleCanvas from '@/components/ParticleCanvas'
 
 function Counter({ target, prefix = '', suffix = '', decimals = 0 }: { target: number; prefix?: string; suffix?: string; decimals?: number }) {
   const [count, setCount] = useState(0)
@@ -30,15 +32,84 @@ function Counter({ target, prefix = '', suffix = '', decimals = 0 }: { target: n
 const processors = ['Worldpay', 'First Data', 'TSYS', 'Heartland', 'Paysafe', 'Priority', 'NMI', 'Shift4', 'Clearent', 'Payroc', 'Elavon', 'Global Payments', 'Fiserv', 'Nuvei']
 
 export default function HeroSection() {
+  // Mouse parallax refs
+  const heroRef = useRef<HTMLElement>(null)
+  const headlineRef = useRef<HTMLDivElement>(null)
+  const cardsRef = useRef<HTMLDivElement>(null)
+  const blobsRef = useRef<HTMLDivElement>(null)
+  const rafRef = useRef<number>(0)
+  const mousePos = useRef({ x: 0, y: 0 })
+  const currentPos = useRef({ x: 0, y: 0 })
+
+  useEffect(() => {
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    if (prefersReduced) return
+
+    const hero = heroRef.current
+    if (!hero) return
+
+    const onMove = (e: MouseEvent) => {
+      const rect = hero.getBoundingClientRect()
+      // Normalized -0.5 → 0.5
+      mousePos.current = {
+        x: (e.clientX - rect.left) / rect.width - 0.5,
+        y: (e.clientY - rect.top) / rect.height - 0.5,
+      }
+    }
+
+    const onLeave = () => {
+      mousePos.current = { x: 0, y: 0 }
+    }
+
+    // Smooth lerp loop
+    function lerp(a: number, b: number, t: number) { return a + (b - a) * t }
+
+    function animate() {
+      currentPos.current.x = lerp(currentPos.current.x, mousePos.current.x, 0.05)
+      currentPos.current.y = lerp(currentPos.current.y, mousePos.current.y, 0.05)
+
+      const cx = currentPos.current.x
+      const cy = currentPos.current.y
+
+      // Headline: very subtle shift (slowest layer)
+      if (headlineRef.current) {
+        headlineRef.current.style.transform = `translate3d(${cx * -8}px, ${cy * -6}px, 0)`
+      }
+      // Cards: faster (closer layer)
+      if (cardsRef.current) {
+        cardsRef.current.style.transform = `translate3d(${cx * 22}px, ${cy * 18}px, 0)`
+      }
+      // Blobs: mid speed, opposite direction for depth illusion
+      if (blobsRef.current) {
+        blobsRef.current.style.transform = `translate3d(${cx * 30}px, ${cy * 25}px, 0)`
+      }
+
+      rafRef.current = requestAnimationFrame(animate)
+    }
+
+    hero.addEventListener('mousemove', onMove)
+    hero.addEventListener('mouseleave', onLeave)
+    animate()
+
+    return () => {
+      cancelAnimationFrame(rafRef.current)
+      hero.removeEventListener('mousemove', onMove)
+      hero.removeEventListener('mouseleave', onLeave)
+    }
+  }, [])
+
   return (
     <>
       {/* ─────────────────────────────────────────
-          HERO  —  Dark, bold, authoritative
+          HERO  —  Dark, bold, authoritative + Interactive
       ───────────────────────────────────────── */}
-      <section className="relative bg-[#0f1a0f] min-h-screen flex flex-col justify-center overflow-hidden">
+      <section ref={heroRef} className="relative bg-[#0f1a0f] min-h-screen flex flex-col justify-center overflow-hidden" style={{ cursor: 'default' }}>
 
-        {/* ── Morphing blob glow layer ── */}
-        <div className="absolute inset-0 overflow-hidden pointer-events-none" style={{ filter: 'blur(70px)' }}>
+        {/* ── Interactive particle canvas (replaces static grid) ── */}
+        <ParticleCanvas />
+
+        {/* ── Morphing blob glow layer — moves with mouse (slowest) ── */}
+        <div ref={blobsRef} className="absolute inset-0 overflow-hidden pointer-events-none" style={{ filter: 'blur(70px)', transition: 'transform 0s', willChange: 'transform' }}>
           {/* Blob 1 — large, top-left anchor */}
           <div
             className="absolute animate-morph-1"
@@ -55,21 +126,15 @@ export default function HeroSection() {
             style={{ width: '380px', height: '400px', top: '30%', left: '50%', background: 'radial-gradient(ellipse, rgba(163,230,53,0.25) 0%, rgba(78,144,0,0.1) 50%, transparent 75%)', animationDelay: '3s' }}
           />
         </div>
-        {/* Fine grid on top of blobs */}
-        <div className="absolute inset-0 pointer-events-none" style={{
-          backgroundImage: 'linear-gradient(rgba(78,144,0,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(78,144,0,0.05) 1px, transparent 1px)',
-          backgroundSize: '80px 80px',
-        }} />
 
         {/* Thin top accent line */}
-        <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#4e9000] to-transparent opacity-60" />
+        <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#4e9000] to-transparent opacity-60" style={{ zIndex: 2 }} />
 
-
-        <div className="relative max-w-7xl mx-auto px-6 lg:px-12 pt-32 pb-20 w-full">
+        <div className="relative max-w-7xl mx-auto px-6 lg:px-12 pt-32 pb-20 w-full" style={{ zIndex: 3 }}>
           <div className="grid lg:grid-cols-[1fr_420px] gap-16 items-center">
 
-            {/* ── LEFT ── */}
-            <div>
+            {/* ── LEFT: headline — moves opposite to cards (parallax depth) ── */}
+            <div ref={headlineRef} style={{ willChange: 'transform' }}>
               {/* Category label */}
               <div className="flex items-center gap-3 mb-8">
                 <div className="h-px w-8 bg-[#4e9000]" />
@@ -78,7 +143,7 @@ export default function HeroSection() {
                 </span>
               </div>
 
-              {/* Headline — their actual copy, elevated */}
+              {/* Headline */}
               <h1 className="text-5xl sm:text-6xl lg:text-[3.8rem] xl:text-[4.2rem] font-black tracking-tight text-white leading-[1.06] mb-8">
                 Stop losing profits<br />
                 to payment<br />
@@ -142,8 +207,23 @@ export default function HeroSection() {
               ))}
             </div>
 
-            {/* ── RIGHT: Floating UI cards (desktop only) ── */}
-            <div className="relative hidden lg:block h-[480px]">
+            {/* ── RIGHT: Floating UI cards + hero image (desktop only) ── */}
+            {/* This entire right column moves with the mouse at a faster rate */}
+            <div ref={cardsRef} className="relative hidden lg:block h-[480px]" style={{ willChange: 'transform' }}>
+
+              {/* Hero scene image — behind the cards */}
+              <div className="absolute inset-0 rounded-3xl overflow-hidden" style={{ zIndex: 0 }}>
+                <Image
+                  src="/hero-scene.png"
+                  alt="Payment processing consultant reviewing financial data"
+                  fill
+                  className="object-cover object-center"
+                  style={{ opacity: 0.35, filter: 'saturate(0.8) brightness(0.7)' }}
+                  priority
+                />
+                {/* Vignette over image */}
+                <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse at center, transparent 30%, rgba(15,26,15,0.85) 100%)' }} />
+              </div>
 
               {/* Card 1 — back, "Best Match" — rotated, top-left */}
               <div className="animate-float-1 absolute top-0 left-0 w-56 rounded-2xl p-4 shadow-2xl z-10"
@@ -250,7 +330,8 @@ export default function HeroSection() {
 
         {/* Bottom fade to next section */}
         <div className="absolute bottom-0 left-0 right-0 h-32 pointer-events-none" style={{
-          background: 'linear-gradient(to bottom, transparent, #080f08)'
+          background: 'linear-gradient(to bottom, transparent, #080f08)',
+          zIndex: 3,
         }} />
       </section>
 

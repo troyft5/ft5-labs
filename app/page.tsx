@@ -1,8 +1,11 @@
 import { ArrowRight, ChevronRight, Shield, Phone, TrendingUp, Zap, Users, CheckCircle2, Star, Quote, FileText, GitMerge, DollarSign, BookOpen, Clock } from 'lucide-react'
 import Link from 'next/link'
+import Image from 'next/image'
 import HeroSection from '@/components/HeroSection'
 import CostComparison from '@/components/CostComparison'
 import BidSimulation from '@/components/BidSimulation'
+import Tilt3DCard from '@/components/Tilt3DCard'
+import ScrollDepth3D from '@/components/ScrollDepth3D'
 import { getSortedPostsData } from '@/lib/blog'
 
 export const metadata = {
@@ -172,25 +175,27 @@ export default function Home() {
             <div className="absolute top-16 left-[calc(16%+2rem)] right-[calc(16%+2rem)] h-px hidden md:block" style={{ background: 'linear-gradient(90deg,transparent,rgba(78,144,0,0.3),rgba(78,144,0,0.3),transparent)', backgroundSize: '8px 1px' }} />
 
             {steps.map((step, i) => (
-              <div key={step.n} className="flex flex-col" style={{ animationDelay: `${i * 200}ms` }}>
-                {/* Step number + icon */}
-                <div className="flex items-center gap-4 mb-6">
-                  <div className="relative">
-                    <div className="w-16 h-16 rounded-2xl flex items-center justify-center text-white relative z-10" style={{ background: 'linear-gradient(135deg,#2d5500,#4e9000)', boxShadow: '0 8px 24px rgba(78,144,0,0.35)' }}>
-                      {step.icon}
+              <ScrollDepth3D key={step.n} delay={i * 120} intensity={0.7}>
+                <div className="flex flex-col h-full">
+                  {/* Step number + icon */}
+                  <div className="flex items-center gap-4 mb-6">
+                    <div className="relative">
+                      <div className="w-16 h-16 rounded-2xl flex items-center justify-center text-white relative z-10" style={{ background: 'linear-gradient(135deg,#2d5500,#4e9000)', boxShadow: '0 8px 24px rgba(78,144,0,0.35)' }}>
+                        {step.icon}
+                      </div>
+                      <div className="absolute -top-2 -right-2 text-[10px] font-black text-white px-1.5 py-0.5 rounded-md" style={{ background: '#0a1208', border: '1px solid rgba(78,144,0,0.3)', color: '#6fc200' }}>{step.n}</div>
                     </div>
-                    <div className="absolute -top-2 -right-2 text-[10px] font-black text-white px-1.5 py-0.5 rounded-md" style={{ background: '#0a1208', border: '1px solid rgba(78,144,0,0.3)', color: '#6fc200' }}>{step.n}</div>
+                  </div>
+
+                  <h3 className="text-xl font-black text-white mb-3">{step.title}</h3>
+                  <p className="text-slate-400 text-sm leading-relaxed flex-1 mb-5">{step.body}</p>
+
+                  <div className="inline-flex items-center gap-2 text-xs font-bold px-3 py-1.5 rounded-full self-start" style={{ background: 'rgba(78,144,0,0.1)', border: '1px solid rgba(78,144,0,0.2)', color: '#6fc200' }}>
+                    <CheckCircle2 className="w-3 h-3" />
+                    {step.badge}
                   </div>
                 </div>
-
-                <h3 className="text-xl font-black text-white mb-3">{step.title}</h3>
-                <p className="text-slate-400 text-sm leading-relaxed flex-1 mb-5">{step.body}</p>
-
-                <div className="inline-flex items-center gap-2 text-xs font-bold px-3 py-1.5 rounded-full self-start" style={{ background: 'rgba(78,144,0,0.1)', border: '1px solid rgba(78,144,0,0.2)', color: '#6fc200' }}>
-                  <CheckCircle2 className="w-3 h-3" />
-                  {step.badge}
-                </div>
-              </div>
+              </ScrollDepth3D>
             ))}
           </div>
         </div>
@@ -261,7 +266,7 @@ export default function Home() {
                 statLabel: 'Avg Response Time',
               },
             ].map(d => (
-              <div key={d.title} className="rounded-3xl p-8 flex flex-col gap-6 group transition-all duration-300 hover:-translate-y-1" style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)' }}>
+              <Tilt3DCard key={d.title} className="rounded-3xl p-8 flex flex-col gap-6 group transition-all duration-300" style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)' }}>
                 <div className="flex items-start justify-between">
                   <div className="w-14 h-14 rounded-2xl flex items-center justify-center" style={{ background: 'rgba(78,144,0,0.12)', border: '1px solid rgba(78,144,0,0.2)', color: '#6fc200' }}>
                     {d.icon}
@@ -275,7 +280,7 @@ export default function Home() {
                   <h3 className="text-xl font-black text-white mb-3">{d.title}</h3>
                   <p className="text-slate-400 text-sm leading-relaxed">{d.body}</p>
                 </div>
-              </div>
+              </Tilt3DCard>
             ))}
           </div>
 
@@ -314,7 +319,7 @@ export default function Home() {
           </div>
 
           {/* Feature quote */}
-          <div className="relative rounded-3xl p-10 md:p-14 text-center mb-8" style={{ background: 'rgba(78,144,0,0.07)', border: '1px solid rgba(78,144,0,0.2)' }}>
+          <Tilt3DCard className="relative rounded-3xl p-10 md:p-14 text-center mb-8" style={{ background: 'rgba(78,144,0,0.07)', border: '1px solid rgba(78,144,0,0.2)' }} intensity={0.5}>
             <div className="absolute top-8 left-8 opacity-20">
               <Quote className="w-12 h-12" style={{ color: '#4e9000' }} />
             </div>
@@ -329,12 +334,12 @@ export default function Home() {
                 💰 {testimonials[0].savings} saved
               </div>
             </div>
-          </div>
+          </Tilt3DCard>
 
           {/* Supporting cards */}
           <div className="grid md:grid-cols-2 gap-6">
             {testimonials.slice(1).map((t, i) => (
-              <div key={i} className="rounded-2xl p-8 flex flex-col" style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)' }}>
+              <Tilt3DCard key={i} className="rounded-2xl p-8 flex flex-col h-full" style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)' }}>
                 <Quote className="w-6 h-6 mb-4 shrink-0" style={{ color: 'rgba(78,144,0,0.4)' }} />
                 <blockquote className="text-slate-300 leading-relaxed flex-1 mb-6 font-medium">&ldquo;{t.quote}&rdquo;</blockquote>
                 <div className="flex items-center justify-between pt-4" style={{ borderTop: '1px solid rgba(255,255,255,0.08)' }}>
@@ -344,7 +349,7 @@ export default function Home() {
                   </div>
                   <div className="font-black text-lg" style={{ color: '#6fc200' }}>{t.savings}</div>
                 </div>
-              </div>
+              </Tilt3DCard>
             ))}
           </div>
         </div>
@@ -405,16 +410,26 @@ export default function Home() {
             </Link>
           </div>
           <div className="grid md:grid-cols-3 gap-5">
-            {posts.map((post) => (
+            {posts.map((post, idx) => (
               <Link
                 key={post.slug}
                 href={`/blog/${post.slug}`}
                 className="group flex flex-col rounded-2xl overflow-hidden transition-all duration-300 hover:-translate-y-1"
                 style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)' }}
               >
-                {/* Category header */}
-                <div className="px-6 py-4" style={{ borderBottom: '1px solid rgba(255,255,255,0.06)', background: 'rgba(78,144,0,0.06)' }}>
-                  <span className="text-[10px] font-bold uppercase tracking-widest" style={{ color: '#4e9000' }}>{post.category}</span>
+                {/* Cover image */}
+                <div className="relative h-36 overflow-hidden">
+                  <Image
+                    src={`/blog-cover-${idx + 1}.png`}
+                    alt={post.title}
+                    fill
+                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    style={{ opacity: 0.85 }}
+                  />
+                  <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, transparent 40%, rgba(10,18,8,0.9) 100%)' }} />
+                  <div className="absolute bottom-3 left-4">
+                    <span className="text-[10px] font-bold uppercase tracking-widest" style={{ color: '#6fc200' }}>{post.category}</span>
+                  </div>
                 </div>
                 <div className="flex flex-col flex-1 px-6 py-5">
                   <h3 className="text-base font-black text-white leading-snug mb-3 group-hover:text-[#8cd627] transition-colors line-clamp-2">{post.title}</h3>
