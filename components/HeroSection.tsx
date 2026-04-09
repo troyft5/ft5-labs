@@ -37,25 +37,33 @@ export default function HeroSection() {
       ───────────────────────────────────────── */}
       <section className="relative bg-[#0f1a0f] min-h-screen flex flex-col justify-center overflow-hidden">
 
-        {/* Layered background: green gradient wash (mirrors their photo-overlay brand aesthetic) */}
-        <div className="absolute inset-0 pointer-events-none">
-          {/* Deep green vignette from top-left */}
-          <div className="absolute inset-0" style={{
-            background: 'radial-gradient(ellipse 90% 70% at 0% 0%, rgba(78,144,0,0.25) 0%, transparent 65%)',
-          }} />
-          {/* Lighter bloom — bottom right */}
-          <div className="absolute inset-0" style={{
-            background: 'radial-gradient(ellipse 70% 60% at 100% 100%, rgba(78,144,0,0.12) 0%, transparent 60%)',
-          }} />
-          {/* Very subtle grid */}
-          <div className="absolute inset-0" style={{
-            backgroundImage: 'linear-gradient(rgba(78,144,0,0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(78,144,0,0.06) 1px, transparent 1px)',
-            backgroundSize: '80px 80px',
-          }} />
+        {/* ── Morphing blob glow layer ── */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none" style={{ filter: 'blur(70px)' }}>
+          {/* Blob 1 — large, top-left anchor */}
+          <div
+            className="absolute animate-morph-1"
+            style={{ width: '650px', height: '600px', top: '-10%', left: '-8%', background: 'radial-gradient(ellipse, rgba(78,144,0,0.55) 0%, rgba(78,144,0,0.2) 50%, transparent 75%)' }}
+          />
+          {/* Blob 2 — mid, bottom-right */}
+          <div
+            className="absolute animate-morph-2"
+            style={{ width: '550px', height: '580px', bottom: '-15%', right: '-10%', background: 'radial-gradient(ellipse, rgba(111,194,0,0.45) 0%, rgba(78,144,0,0.18) 50%, transparent 75%)', animationDelay: '7s' }}
+          />
+          {/* Blob 3 — small, centre-right, lighter */}
+          <div
+            className="absolute animate-morph-3"
+            style={{ width: '380px', height: '400px', top: '30%', left: '50%', background: 'radial-gradient(ellipse, rgba(163,230,53,0.25) 0%, rgba(78,144,0,0.1) 50%, transparent 75%)', animationDelay: '3s' }}
+          />
         </div>
+        {/* Fine grid on top of blobs */}
+        <div className="absolute inset-0 pointer-events-none" style={{
+          backgroundImage: 'linear-gradient(rgba(78,144,0,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(78,144,0,0.05) 1px, transparent 1px)',
+          backgroundSize: '80px 80px',
+        }} />
 
         {/* Thin top accent line */}
         <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#4e9000] to-transparent opacity-60" />
+
 
         <div className="relative max-w-7xl mx-auto px-6 lg:px-12 pt-32 pb-20 w-full">
           <div className="grid lg:grid-cols-[1fr_420px] gap-16 items-center">
