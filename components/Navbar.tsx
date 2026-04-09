@@ -75,15 +75,15 @@ export default function Navbar() {
         <Link href="/get-your-savings-estimate" className="underline underline-offset-2 hover:text-white transition-colors font-bold">see if yours changed →</Link>
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 py-2 flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-6 py-2 grid grid-cols-[auto_1fr_auto] items-center gap-8">
 
         {/* Logo */}
         <Link href="/" className="flex items-center shrink-0" onClick={() => setMobileOpen(false)}>
           <Image src="/Logos/FT5_White_Green.svg" alt="FinTech 5" width={130} height={100} className="h-9 w-auto" priority />
         </Link>
 
-        {/* Desktop nav */}
-        <div className="hidden md:flex items-center gap-5">
+        {/* Desktop nav — truly centered in the 1fr column */}
+        <div className="hidden md:flex items-center justify-center gap-5">
           <DropdownMenu label="Solutions" href="/solutions">
             <div className="p-1.5">
               {solutions.map(s => (
@@ -129,19 +129,19 @@ export default function Navbar() {
           <Link href="/contact-us" className="text-[13px] font-semibold text-slate-400 hover:text-white transition-colors">Contact</Link>
         </div>
 
-        {/* Desktop CTAs */}
-        <div className="hidden md:flex items-center gap-2.5">
-          <a href="tel:6469417853" className="flex items-center gap-1.5 text-[12px] font-semibold text-slate-500 hover:text-slate-300 transition-colors">
+        {/* Desktop CTAs — matched sizes */}
+        <div className="hidden md:flex items-center gap-2">
+          <a href="tel:6469417853" className="flex items-center gap-1.5 text-[12px] font-semibold text-slate-500 hover:text-slate-300 transition-colors mr-1">
             <Phone className="w-3 h-3" /> (646) 941-7853
           </a>
           <a href="https://app.fintech5group.com" target="_blank" rel="noopener noreferrer"
-            className="px-3 py-1.5 text-[12px] font-bold text-slate-500 hover:text-slate-200 border border-white/10 hover:border-white/25 rounded-lg transition-all">
+            className="px-4 py-2 text-[13px] font-bold text-slate-400 hover:text-white border border-white/10 hover:border-white/25 rounded-xl transition-all">
             Client Portal
           </a>
           <Link
             href="/get-your-savings-estimate"
-            className="inline-flex items-center gap-1.5 px-4 py-2 text-[13px] font-black text-white rounded-xl transition-all hover:-translate-y-0.5 hover:shadow-xl"
-            style={{ background: '#4e9000', boxShadow: '0 4px 14px rgba(78,144,0,0.4)' }}
+            className="inline-flex items-center gap-1.5 px-4 py-2 text-[13px] font-black text-white rounded-xl transition-all hover:-translate-y-0.5"
+            style={{ background: '#4e9000', boxShadow: '0 4px 14px rgba(78,144,0,0.35)' }}
           >
             Free Audit <ArrowRight className="w-3.5 h-3.5" />
           </Link>
