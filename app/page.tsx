@@ -57,7 +57,62 @@ export default function Home() {
   return (
     <div className="flex flex-col w-full">
 
+
       <HeroSection />
+
+      {/* ─────────────────────────────────────────
+          TRUST BAR — processor network + proof
+      ───────────────────────────────────────── */}
+      <section className="px-6 py-12 relative" style={{ background: '#070e07', borderTop: '1px solid rgba(255,255,255,0.06)', borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
+        <div className="max-w-5xl mx-auto">
+          <div className="flex flex-col gap-8">
+            {/* Top label */}
+            <div className="text-center">
+              <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-slate-600">We negotiate across 10+ tier-1 processors so you don&apos;t have to</p>
+            </div>
+
+            {/* Processor name badges */}
+            <div className="flex flex-wrap items-center justify-center gap-3">
+              {[
+                'Heartland', 'Chase Paymentech', 'Fiserv', 'Global Payments',
+                'TSYS', 'Worldpay', 'Elavon', 'Paysafe', 'Shift4', 'Nuvei',
+              ].map((p) => (
+                <div
+                  key={p}
+                  className="px-4 py-2 rounded-xl text-xs font-bold text-slate-500"
+                  style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)' }}
+                >
+                  {p}
+                </div>
+              ))}
+              <div
+                className="px-4 py-2 rounded-xl text-xs font-bold"
+                style={{ background: 'rgba(78,144,0,0.1)', border: '1px solid rgba(78,144,0,0.25)', color: '#6fc200' }}
+              >
+                + more bidding
+              </div>
+            </div>
+
+            {/* Divider */}
+            <div className="h-px w-full" style={{ background: 'linear-gradient(90deg,transparent,rgba(255,255,255,0.07),transparent)' }} />
+
+            {/* Stat strip */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+              {[
+                { stat: '$0',      label: 'Consulting fees — ever' },
+                { stat: '48 hrs',  label: 'Statement audit turnaround' },
+                { stat: '10–18%',  label: 'Average year-one savings' },
+                { stat: 'NY & NJ', label: 'Where we know the market' },
+              ].map((s) => (
+                <div key={s.label} className="text-center">
+                  <div className="text-2xl font-black text-white mb-1">{s.stat}</div>
+                  <div className="text-[11px] text-slate-600 uppercase tracking-wider">{s.label}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* ─────────────────────────────────────────
           COST REALITY
@@ -92,6 +147,7 @@ export default function Home() {
           </div>
         </div>
       </section>
+
 
       {/* ─────────────────────────────────────────
           HOW IT WORKS
