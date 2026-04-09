@@ -3,6 +3,7 @@ import { solutionsData } from '@/lib/data'
 import { ArrowRight, Monitor, Smartphone, Globe, BarChart3, Gift } from 'lucide-react'
 import { Metadata } from 'next'
 import Reveal from '@/components/Reveal'
+import ScrollDepth3D from '@/components/ScrollDepth3D'
 
 export const metadata: Metadata = {
   title: 'Payment Solutions | In-Person, Mobile, Online & More',
@@ -52,12 +53,14 @@ export default function SolutionsPage() {
             </div>
           </Reveal>
           <Reveal delay={80}>
-            <h1 className="text-5xl md:text-7xl font-black tracking-tight text-white leading-none mb-6 max-w-3xl">
-              How you take<br />payments is how<br />
-              <span style={{ background: 'linear-gradient(135deg,#9de84a,#4e9000)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
-                you grow.
-              </span>
-            </h1>
+            <ScrollDepth3D delay={80} intensity={0.8}>
+              <h1 className="text-5xl md:text-7xl font-black tracking-tight text-white leading-none mb-6 max-w-3xl">
+                How you take<br />payments is how<br />
+                <span style={{ background: 'linear-gradient(135deg,#9de84a,#4e9000)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
+                  you grow.
+                </span>
+              </h1>
+            </ScrollDepth3D>
           </Reveal>
           <Reveal delay={160}>
             <p className="text-xl text-slate-400 max-w-xl leading-relaxed mb-10">

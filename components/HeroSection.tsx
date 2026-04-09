@@ -1,7 +1,6 @@
 'use client'
 import { useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
-import Image from 'next/image'
 import { ArrowRight, ChevronRight } from 'lucide-react'
 import ParticleCanvas from '@/components/ParticleCanvas'
 
@@ -34,7 +33,6 @@ const processors = ['Worldpay', 'First Data', 'TSYS', 'Heartland', 'Paysafe', 'P
 export default function HeroSection() {
   // Mouse parallax refs
   const heroRef = useRef<HTMLElement>(null)
-  const headlineRef = useRef<HTMLDivElement>(null)
   const cardsRef = useRef<HTMLDivElement>(null)
   const blobsRef = useRef<HTMLDivElement>(null)
   const rafRef = useRef<number>(0)
@@ -71,10 +69,6 @@ export default function HeroSection() {
       const cx = currentPos.current.x
       const cy = currentPos.current.y
 
-      // Headline: very subtle shift (slowest layer)
-      if (headlineRef.current) {
-        headlineRef.current.style.transform = `translate3d(${cx * -8}px, ${cy * -6}px, 0)`
-      }
       // Cards: faster (closer layer)
       if (cardsRef.current) {
         cardsRef.current.style.transform = `translate3d(${cx * 22}px, ${cy * 18}px, 0)`
@@ -133,8 +127,8 @@ export default function HeroSection() {
         <div className="relative max-w-7xl mx-auto px-6 lg:px-12 pt-32 pb-20 w-full" style={{ zIndex: 3 }}>
           <div className="grid lg:grid-cols-[1fr_420px] gap-16 items-center">
 
-            {/* ── LEFT: headline — moves opposite to cards (parallax depth) ── */}
-            <div ref={headlineRef} style={{ willChange: 'transform' }}>
+            {/* ── LEFT: headline — static ── */}
+            <div>
               {/* Category label */}
               <div className="flex items-center gap-3 mb-8">
                 <div className="h-px w-8 bg-[#4e9000]" />
@@ -210,20 +204,6 @@ export default function HeroSection() {
             {/* ── RIGHT: Floating UI cards + hero image (desktop only) ── */}
             {/* This entire right column moves with the mouse at a faster rate */}
             <div ref={cardsRef} className="relative hidden lg:block h-[480px]" style={{ willChange: 'transform' }}>
-
-              {/* Hero scene image — behind the cards */}
-              <div className="absolute inset-0 rounded-3xl overflow-hidden" style={{ zIndex: 0 }}>
-                <Image
-                  src="/hero-scene.png"
-                  alt="Payment processing consultant reviewing financial data"
-                  fill
-                  className="object-cover object-center"
-                  style={{ opacity: 0.35, filter: 'saturate(0.8) brightness(0.7)' }}
-                  priority
-                />
-                {/* Vignette over image */}
-                <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse at center, transparent 30%, rgba(15,26,15,0.85) 100%)' }} />
-              </div>
 
               {/* Card 1 — back, "Best Match" — rotated, top-left */}
               <div className="animate-float-1 absolute top-0 left-0 w-56 rounded-2xl p-4 shadow-2xl z-10"

@@ -1,6 +1,7 @@
 import { Phone, Mail, MapPin, ArrowRight, Clock, CheckCircle2 } from 'lucide-react'
 import ContactForm from '@/components/ContactForm'
 import Reveal from '@/components/Reveal'
+import ScrollDepth3D from '@/components/ScrollDepth3D'
 
 const BG  = '#0f1a0f'
 const BG2 = '#0a1208'
@@ -41,10 +42,12 @@ export default function ContactPage() {
                 </div>
               </Reveal>
               <Reveal delay={80}>
-                <h1 className="text-5xl md:text-7xl font-black tracking-tight text-white leading-none mb-6">
-                  Talk to a<br />real person.<br />
-                  <span style={{ background: 'linear-gradient(135deg,#9de84a,#6fc200)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>No bots.</span>
-                </h1>
+                <ScrollDepth3D delay={80} intensity={0.8}>
+                  <h1 className="text-5xl md:text-7xl font-black tracking-tight text-white leading-none mb-6">
+                    Talk to a<br />real person.<br />
+                    <span style={{ background: 'linear-gradient(135deg,#9de84a,#6fc200)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>No bots.</span>
+                  </h1>
+                </ScrollDepth3D>
               </Reveal>
               <Reveal delay={160}>
                 <p className="text-xl text-slate-400 max-w-lg leading-relaxed">

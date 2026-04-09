@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { ArrowRight, Users, Shield, TrendingUp, Phone, Zap, CheckCircle2 } from 'lucide-react'
 import Reveal from '@/components/Reveal'
+import ScrollDepth3D from '@/components/ScrollDepth3D'
 
 export const metadata = {
   title: 'About Us | FinTech 5 — Payment Processing Consultants',
@@ -63,12 +64,14 @@ export default function AboutPage() {
           </Reveal>
 
           <Reveal delay={100}>
-            <h1 className="text-5xl md:text-7xl font-black tracking-tight text-white leading-[0.95] mb-8">
-              The expertise of<br />an institution.<br />
-              <span style={{ background: 'linear-gradient(135deg,#9de84a,#6fc200)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
-                The dedication<br />of a family.
-              </span>
-            </h1>
+            <ScrollDepth3D delay={100} intensity={0.8}>
+              <h1 className="text-5xl md:text-7xl font-black tracking-tight text-white leading-[0.95] mb-8">
+                The expertise of<br />an institution.<br />
+                <span style={{ background: 'linear-gradient(135deg,#9de84a,#6fc200)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
+                  The dedication<br />of a family.
+                </span>
+              </h1>
+            </ScrollDepth3D>
           </Reveal>
 
           <Reveal delay={200}>

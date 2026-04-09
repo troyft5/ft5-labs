@@ -170,7 +170,7 @@ export default function Navbar() {
             </div>
           </Dropdown>
 
-          <Dropdown label="Resources" width={260}>
+          <Dropdown label="Resources" href="/resources" width={260}>
             <div className="p-2">
               {resources.map(r => (
                 <Link
@@ -183,6 +183,16 @@ export default function Navbar() {
                   <span className="text-[11px] mt-0.5 text-slate-600">{r.desc}</span>
                 </Link>
               ))}
+              <div className="mt-1 pt-1 mx-1" style={{ borderTop: '1px solid rgba(255,255,255,0.07)' }}>
+                <Link href="/resources"
+                  className="flex items-center gap-2 px-3 py-2 text-xs font-bold rounded-xl transition-all whitespace-nowrap"
+                  style={{ color: '#6fc200' }}
+                  onMouseEnter={e => (e.currentTarget.style.background = 'rgba(78,144,0,0.08)')}
+                  onMouseLeave={e => (e.currentTarget.style.background = 'transparent')}
+                >
+                  View all resources <ArrowRight className="w-3 h-3" />
+                </Link>
+              </div>
             </div>
           </Dropdown>
 

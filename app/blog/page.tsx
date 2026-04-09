@@ -2,6 +2,7 @@ import { getSortedPostsData } from '@/lib/blog'
 import Link from 'next/link'
 import { Calendar, Clock, ArrowRight, BookOpen } from 'lucide-react'
 import Reveal from '@/components/Reveal'
+import ScrollDepth3D from '@/components/ScrollDepth3D'
 
 const BG  = '#0f1a0f'
 const BG2 = '#0a1208'
@@ -42,9 +43,11 @@ export default function BlogIndex() {
             </div>
           </Reveal>
           <Reveal delay={80}>
-            <h1 className="text-5xl md:text-6xl font-black tracking-tight text-white leading-none mb-6">
-              The FT5 Playbook
-            </h1>
+            <ScrollDepth3D delay={80} intensity={0.8}>
+              <h1 className="text-5xl md:text-6xl font-black tracking-tight text-white leading-none mb-6">
+                The FT5 Playbook
+              </h1>
+            </ScrollDepth3D>
           </Reveal>
           <Reveal delay={160}>
             <p className="text-xl text-slate-400 max-w-xl leading-relaxed">

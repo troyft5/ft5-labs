@@ -3,6 +3,7 @@ import { industriesData } from '@/lib/data'
 import { ArrowRight, ChevronRight } from 'lucide-react'
 import { Metadata } from 'next'
 import Reveal from '@/components/Reveal'
+import ScrollDepth3D from '@/components/ScrollDepth3D'
 
 export const metadata: Metadata = {
   title: 'Industries We Serve | Payment Solutions by Vertical',
@@ -53,12 +54,14 @@ export default function IndustriesPage() {
             </div>
           </Reveal>
           <Reveal delay={80}>
-            <h1 className="text-5xl md:text-7xl font-black tracking-tight text-white leading-none mb-6 max-w-3xl">
-              Every industry.<br />
-              <span style={{ background: 'linear-gradient(135deg,#9de84a,#4e9000)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
-                One network.
-              </span>
-            </h1>
+            <ScrollDepth3D delay={80} intensity={0.8}>
+              <h1 className="text-5xl md:text-7xl font-black tracking-tight text-white leading-none mb-6 max-w-3xl">
+                Every industry.<br />
+                <span style={{ background: 'linear-gradient(135deg,#9de84a,#4e9000)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
+                  One network.
+                </span>
+              </h1>
+            </ScrollDepth3D>
           </Reveal>
           <Reveal delay={160}>
             <p className="text-xl text-slate-400 max-w-xl leading-relaxed mb-10">
