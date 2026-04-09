@@ -184,6 +184,83 @@ export default function AboutPage() {
         </div>
       </section>
 
+      {/* ── INDUSTRIES WE SERVE ── */}
+      <section className="px-6 py-20 relative" style={{ background: BG }}>
+        <div className="absolute top-0 left-0 right-0 h-px" style={{ background: 'linear-gradient(90deg,transparent,rgba(78,144,0,0.2),transparent)' }} />
+        <div className="max-w-5xl mx-auto">
+          <Reveal>
+            <div className="flex items-center gap-3 mb-10">
+              <div className="h-px w-8" style={{ background: '#4e9000' }} />
+              <span className="text-[11px] font-bold uppercase tracking-[0.2em]" style={{ color: '#6fc200' }}>Our Verticals</span>
+            </div>
+          </Reveal>
+          <Reveal delay={60}>
+            <h2 className="text-3xl md:text-4xl font-black text-white mb-10 leading-tight">
+              Every industry. One playbook.<br />
+              <span style={{ color: '#6fc200' }}>Your rules.</span>
+            </h2>
+          </Reveal>
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+            {[
+              { name: 'Retail', href: '/industries/retail-payments', emoji: '🛍️' },
+              { name: 'E-Commerce', href: '/industries/e-commerce', emoji: '💳' },
+              { name: 'Service Business', href: '/industries/service', emoji: '✅' },
+              { name: 'Healthcare', href: '/industries/healthcare', emoji: '🏥' },
+              { name: 'Restaurants', href: '/industries/restaurant', emoji: '🍴' },
+              { name: 'Higher Education', href: '/industries/higher-education', emoji: '🎓' },
+              { name: 'Nonprofits', href: '/industries/nonprofit', emoji: '🤝' },
+              { name: 'Specialty Retail', href: '/industries/specialty-retail', emoji: '🛒' },
+            ].map((ind, i) => (
+              <Reveal key={ind.name} delay={i * 50}>
+                <Link href={ind.href} className="group flex items-center gap-3 rounded-xl p-4 transition-all hover:-translate-y-0.5" style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)' }}>
+                  <span className="text-xl">{ind.emoji}</span>
+                  <span className="text-sm font-bold text-slate-300 group-hover:text-white transition-colors">{ind.name}</span>
+                </Link>
+              </Reveal>
+            ))}
+          </div>
+          <Reveal delay={200}>
+            <div className="mt-6">
+              <Link href="/get-your-savings-estimate" className="inline-flex items-center gap-2 text-sm font-bold" style={{ color: '#6fc200' }}>
+                View all industries we serve <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* ── BEFORE YOU REACH OUT (FAQ) ── */}
+      <section className="px-6 py-20 relative" style={{ background: BG2 }}>
+        <div className="absolute top-0 left-0 right-0 h-px" style={{ background: 'linear-gradient(90deg,transparent,rgba(78,144,0,0.2),transparent)' }} />
+        <div className="max-w-5xl mx-auto">
+          <Reveal>
+            <div className="text-center mb-12">
+              <div className="flex items-center justify-center gap-3 mb-5">
+                <div className="h-px w-8" style={{ background: '#4e9000' }} />
+                <span className="text-[11px] font-bold uppercase tracking-[0.2em]" style={{ color: '#6fc200' }}>Common Questions</span>
+                <div className="h-px w-8" style={{ background: '#4e9000' }} />
+              </div>
+              <h2 className="text-3xl md:text-4xl font-black text-white">What merchants ask before working with us.</h2>
+            </div>
+          </Reveal>
+          <div className="grid md:grid-cols-2 gap-5">
+            {[
+              { q: 'How do you make money if you don\'t charge merchants?', a: 'The processor we place you with compensates us from their existing margin. Our incentive aligns with yours: we only receive compensation if we find you a deal that genuinely benefits you.' },
+              { q: 'What size businesses do you work with?', a: 'We work with merchants processing from $10,000 to several million per month. Our sweet spot is $30k–$500k, but there is no ceiling and no minimum to get started.' },
+              { q: 'What is your processor network?', a: 'We have established relationships with 10+ tier-1 processors including some of the largest acquiring banks and payment networks in the United States. We never steer you toward any single partner.' },
+              { q: 'What happens after the switch?', a: 'You get a dedicated account rep. We monitor your statements monthly, flag any rate creep, handle disputes, and renegotiate on your behalf when better options emerge. The relationship doesn\'t end at the signature.' },
+            ].map((item, i) => (
+              <Reveal key={i} delay={i * 70}>
+                <div className="rounded-2xl p-7" style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)' }}>
+                  <div className="font-black text-white mb-3 leading-snug">{item.q}</div>
+                  <p className="text-sm text-slate-400 leading-relaxed">{item.a}</p>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ── TRUST SIGNALS ── */}
       <section className="px-6 py-16 relative" style={{ background: BG2 }}>
         <div className="absolute top-0 left-0 right-0 h-px" style={{ background: 'linear-gradient(90deg,transparent,rgba(78,144,0,0.2),transparent)' }} />

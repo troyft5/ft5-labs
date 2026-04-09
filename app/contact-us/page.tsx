@@ -148,6 +148,104 @@ export default function ContactPage() {
         </div>
       </section>
 
+      {/* ── WHY MERCHANTS REACH OUT ── */}
+      <section className="px-6 py-20 relative" style={{ background: BG }}>
+        <div className="absolute top-0 left-0 right-0 h-px" style={{ background: 'linear-gradient(90deg,transparent,rgba(78,144,0,0.2),transparent)' }} />
+        <div className="max-w-5xl mx-auto">
+          <Reveal>
+            <div className="text-center mb-12">
+              <div className="flex items-center justify-center gap-3 mb-5">
+                <div className="h-px w-8" style={{ background: '#4e9000' }} />
+                <span className="text-[11px] font-bold uppercase tracking-[0.2em]" style={{ color: '#6fc200' }}>Common Scenarios</span>
+                <div className="h-px w-8" style={{ background: '#4e9000' }} />
+              </div>
+              <h2 className="text-3xl md:text-4xl font-black text-white mb-3">Why merchants call us.</h2>
+              <p className="text-slate-400 max-w-lg mx-auto text-sm">You don&apos;t need to know the right questions. Just start the conversation.</p>
+            </div>
+          </Reveal>
+          <Reveal delay={100}>
+            <div className="flex flex-wrap justify-center gap-3">
+              {[
+                'My rates keep going up', 'I can\'t read my statement', 'I just got a better offer from another processor',
+                'I want to know my true effective rate', 'I\'m opening a new location', 'Switching POS systems',
+                'I process over $50k/month', 'I need better support', 'I want to remove junk fees',
+                'I\'m launching an e-commerce store', 'I need interchange-plus pricing explained', 'I want a second opinion',
+              ].map(s => (
+                <div key={s} className="px-4 py-2.5 rounded-full text-sm font-medium" style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.1)', color: '#94a3b8' }}>
+                  {s}
+                </div>
+              ))}
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* ── PRE-ANSWERED QUESTIONS ── */}
+      <section className="px-6 py-20 relative" style={{ background: BG2 }}>
+        <div className="absolute top-0 left-0 right-0 h-px" style={{ background: 'linear-gradient(90deg,transparent,rgba(78,144,0,0.2),transparent)' }} />
+        <div className="max-w-5xl mx-auto">
+          <Reveal>
+            <div className="flex items-center gap-3 mb-10">
+              <div className="h-px w-8" style={{ background: '#4e9000' }} />
+              <span className="text-[11px] font-bold uppercase tracking-[0.2em]" style={{ color: '#6fc200' }}>Before You Reach Out</span>
+            </div>
+          </Reveal>
+          <div className="grid md:grid-cols-2 gap-5">
+            {[
+              { q: 'Do you respond to every inquiry?', a: 'Yes. Every form submission gets a personal response within 1 business day — no auto-replies, no ticket queues, no outsourced call centers.' },
+              { q: 'What information should I have ready?', a: 'A recent merchant statement is most useful, but you can start without one. We can run a preliminary estimate from just your monthly volume and industry.' },
+              { q: 'Do you work with businesses outside of NY and NJ?', a: 'Yes. While we\'re headquartered in New York and New Jersey, we serve merchants nationwide across all 50 states.' },
+              { q: 'How do you charge for your services?', a: 'We don\'t charge you anything. Our consulting is funded by the processor that wins your business. Your cost is always zero — and we never earn more by placing you somewhere that isn\'t right for you.' },
+            ].map((item, i) => (
+              <Reveal key={i} delay={i * 60}>
+                <div className="rounded-2xl p-6" style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)' }}>
+                  <div className="text-sm font-black text-white mb-3 leading-snug">{item.q}</div>
+                  <p className="text-sm text-slate-400 leading-relaxed">{item.a}</p>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── COMMITMENT PANEL ── */}
+      <section className="px-6 py-16 relative" style={{ background: BG }}>
+        <div className="absolute top-0 left-0 right-0 h-px" style={{ background: 'linear-gradient(90deg,transparent,rgba(78,144,0,0.2),transparent)' }} />
+        <div className="max-w-5xl mx-auto">
+          <Reveal>
+            <div className="rounded-2xl p-8 md:p-12" style={{ background: 'rgba(78,144,0,0.07)', border: '1px solid rgba(78,144,0,0.2)' }}>
+              <div className="grid md:grid-cols-2 gap-10 items-center">
+                <div>
+                  <h2 className="text-2xl md:text-3xl font-black text-white mb-6">Our commitment before you even say hello.</h2>
+                  <div className="flex flex-col gap-3">
+                    {[
+                      'No pitch on the first call — we listen first',
+                      'No fee unless we find you real savings',
+                      'No ownership stake in any processor we recommend',
+                      'Honest analysis even if the answer is \"stay where you are\"',
+                      'Dedicated point of contact for every account',
+                    ].map(item => (
+                      <div key={item} className="flex items-center gap-3 text-sm text-slate-300">
+                        <CheckCircle2 className="w-4 h-4 shrink-0" style={{ color: '#4e9000' }} />
+                        {item}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+                <div className="flex flex-col gap-4">
+                  <a href="/get-your-savings-estimate" className="flex items-center justify-center gap-2 px-8 py-4 font-black text-white rounded-xl transition-all hover:-translate-y-0.5" style={{ background: '#4e9000', boxShadow: '0 8px 24px rgba(78,144,0,0.35)' }}>
+                    Upload My Statement <ArrowRight className="w-5 h-5" />
+                  </a>
+                  <a href="tel:6469417853" className="flex items-center justify-center gap-2 px-8 py-4 font-bold text-slate-300 border border-white/10 hover:border-white/25 rounded-xl transition-all">
+                    Call (646) 941-7853
+                  </a>
+                </div>
+              </div>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
     </div>
   )
 }

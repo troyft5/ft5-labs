@@ -158,6 +158,132 @@ export default async function IndustryPage({ params }: { params: Promise<{ slug:
         </div>
       </section>
 
+      {/* ── THE FT5 PROCESS ── */}
+      <section className="px-6 py-24 relative" style={{ background: BG }}>
+        <div className="absolute top-0 left-0 right-0 h-px" style={{ background: 'linear-gradient(90deg,transparent,rgba(78,144,0,0.2),transparent)' }} />
+        <div className="max-w-5xl mx-auto">
+          <Reveal>
+            <div className="text-center mb-14">
+              <div className="flex items-center justify-center gap-3 mb-5">
+                <div className="h-px w-8" style={{ background: '#4e9000' }} />
+                <span className="text-[11px] font-bold uppercase tracking-[0.2em]" style={{ color: '#6fc200' }}>How It Works</span>
+                <div className="h-px w-8" style={{ background: '#4e9000' }} />
+              </div>
+              <h2 className="text-3xl md:text-4xl font-black text-white mb-3">Three steps to better rates.</h2>
+              <p className="text-slate-400 max-w-lg mx-auto text-sm">From statement to savings — with zero disruption and zero cost to you.</p>
+            </div>
+          </Reveal>
+          <div className="grid md:grid-cols-3 gap-6">
+            {[
+              { n: '01', title: 'Share your statement', body: 'Upload your most recent processing statement. We analyze every line item — interchange, processor markups, monthly minimums, and every fee in between.' },
+              { n: '02', title: 'We run a competitive bid', body: 'Your profile goes to 10+ tier-1 processors simultaneously in a blind bid. They compete. You don\'t negotiate — we do.' },
+              { n: '03', title: 'Choose and lock in savings', body: 'We present the winning offer with full transparency on every rate component. You decide. New rates are live within 5–10 business days.' },
+            ].map((step, i) => (
+              <Reveal key={step.n} delay={i * 100}>
+                <div className="rounded-2xl p-8 h-full" style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)' }}>
+                  <div className="text-5xl font-black mb-6 leading-none" style={{ color: 'rgba(78,144,0,0.22)' }}>{step.n}</div>
+                  <h3 className="text-lg font-black text-white mb-3">{step.title}</h3>
+                  <p className="text-sm text-slate-400 leading-relaxed">{step.body}</p>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── WHO BENEFITS ── */}
+      <section className="px-6 py-20 relative" style={{ background: BG2 }}>
+        <div className="absolute top-0 left-0 right-0 h-px" style={{ background: 'linear-gradient(90deg,transparent,rgba(78,144,0,0.2),transparent)' }} />
+        <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+          <Reveal direction="left">
+            <div>
+              <div className="flex items-center gap-3 mb-5">
+                <div className="h-px w-8" style={{ background: '#4e9000' }} />
+                <span className="text-[11px] font-bold uppercase tracking-[0.2em]" style={{ color: '#6fc200' }}>Who This Is For</span>
+              </div>
+              <h2 className="text-3xl font-black text-white mb-4 leading-tight">Built for any business that takes payments seriously.</h2>
+              <p className="text-slate-400 text-sm leading-relaxed">Whether you\'re a single-location operator or a multi-site enterprise, the same hidden fees are draining your margin. We fix that — at any scale, with zero upfront cost.</p>
+            </div>
+          </Reveal>
+          <Reveal direction="right" delay={100}>
+            <div className="flex flex-wrap gap-3">
+              {[
+                'Processing $10k–$50k/month', 'Processing $50k–$500k/month',
+                'Multi-location operators', 'High card-not-present volume',
+                'Currently on flat-rate pricing', 'No long-term contracts wanted',
+                'Need dedicated account support', 'Recently acquired a business',
+              ].map(tag => (
+                <div key={tag} className="px-4 py-2 rounded-full text-sm font-semibold" style={{ background: 'rgba(78,144,0,0.1)', border: '1px solid rgba(78,144,0,0.2)', color: '#8cd627' }}>
+                  {tag}
+                </div>
+              ))}
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* ── COMMON QUESTIONS ── */}
+      <section className="px-6 py-20 relative" style={{ background: BG }}>
+        <div className="absolute top-0 left-0 right-0 h-px" style={{ background: 'linear-gradient(90deg,transparent,rgba(78,144,0,0.2),transparent)' }} />
+        <div className="max-w-5xl mx-auto">
+          <Reveal>
+            <div className="flex items-center gap-3 mb-10">
+              <div className="h-px w-8" style={{ background: '#4e9000' }} />
+              <span className="text-[11px] font-bold uppercase tracking-[0.2em]" style={{ color: '#6fc200' }}>Common Questions</span>
+            </div>
+          </Reveal>
+          <div className="grid md:grid-cols-3 gap-5">
+            {[
+              { q: 'Do we need to change our hardware or software?', a: 'Usually not. Our processor partners support all major POS systems and payment gateways. We find the best option that works with your existing infrastructure.' },
+              { q: 'How quickly can we expect to see savings?', a: 'The audit takes 48 hours. If you choose to switch, new rates are typically live within 5–10 business days — some programs are same-week.' },
+              { q: 'What does FinTech 5 charge for this?', a: 'Nothing. Our consulting is funded entirely by the processor you select. You pay zero for the analysis, negotiation, and ongoing account support. No hidden charges.' },
+            ].map((item, i) => (
+              <Reveal key={i} delay={i * 80}>
+                <div className="rounded-2xl p-6 h-full" style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)' }}>
+                  <div className="text-sm font-black text-white mb-3 leading-snug">{item.q}</div>
+                  <p className="text-sm text-slate-400 leading-relaxed">{item.a}</p>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── RELATED INDUSTRIES ── */}
+      <section className="px-6 py-20 relative" style={{ background: BG2 }}>
+        <div className="absolute top-0 left-0 right-0 h-px" style={{ background: 'linear-gradient(90deg,transparent,rgba(78,144,0,0.2),transparent)' }} />
+        <div className="max-w-5xl mx-auto">
+          <Reveal>
+            <div className="flex items-end justify-between gap-4 mb-10">
+              <div>
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="h-px w-8" style={{ background: '#4e9000' }} />
+                  <span className="text-[11px] font-bold uppercase tracking-[0.2em]" style={{ color: '#6fc200' }}>Also Explore</span>
+                </div>
+                <h2 className="text-3xl font-black text-white">Adjacent verticals we serve.</h2>
+              </div>
+              <Link href="/get-your-savings-estimate" className="hidden md:flex items-center gap-2 text-sm font-bold text-slate-500 hover:text-white transition-colors">
+                Get Estimate <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
+          </Reveal>
+          <div className="grid md:grid-cols-3 gap-5">
+            {Object.entries(industriesData)
+              .filter(([s]) => s !== slug)
+              .slice(0, 3)
+              .map(([s, ind], i) => (
+                <Reveal key={s} delay={i * 70}>
+                  <Link href={`/industries/${s}`} className="group flex flex-col rounded-2xl p-6 h-full transition-all hover:-translate-y-1" style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)' }}>
+                    <h3 className="font-black text-white group-hover:text-[#8cd627] transition-colors mb-2">{ind.title}</h3>
+                    <p className="text-xs text-slate-500 leading-relaxed flex-1 mb-4">{ind.subtitle}</p>
+                    <div className="text-xs font-bold" style={{ color: '#4e9000' }}>Learn More →</div>
+                  </Link>
+                </Reveal>
+              ))}
+          </div>
+        </div>
+      </section>
+
       {/* ── CTA ── */}
       <section className="px-6 py-28 relative overflow-hidden" style={{ background: '#4e9000' }}>
         <div className="absolute inset-0 pointer-events-none" style={{ backgroundImage: 'linear-gradient(rgba(255,255,255,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.04) 1px,transparent 1px)', backgroundSize: '48px 48px' }} />

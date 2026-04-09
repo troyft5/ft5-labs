@@ -140,6 +140,125 @@ export default async function SolutionPage({ params }: { params: Promise<{ slug:
         </div>
       </section>
 
+      {/* ── EXPECTED RESULTS ── */}
+      <section className="px-6 py-20 relative" style={{ background: BG }}>
+        <div className="absolute top-0 left-0 right-0 h-px" style={{ background: 'linear-gradient(90deg,transparent,rgba(78,144,0,0.2),transparent)' }} />
+        <div className="max-w-5xl mx-auto">
+          <Reveal>
+            <div className="flex items-center gap-3 mb-10">
+              <div className="h-px w-8" style={{ background: '#4e9000' }} />
+              <span className="text-[11px] font-bold uppercase tracking-[0.2em]" style={{ color: '#6fc200' }}>What to Expect</span>
+            </div>
+          </Reveal>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-5">
+            {[
+              { val: '10–18%', label: 'Average savings in year one', detail: 'Consistently across all merchant categories' },
+              { val: '48 hrs', label: 'Audit turnaround', detail: 'From statement submission to full analysis' },
+              { val: '10+', label: 'Processors in our network', detail: 'Tier-1 banks and payment networks' },
+              { val: '$0', label: 'Cost to you', detail: 'Funded entirely by the selected processor' },
+            ].map((stat, i) => (
+              <Reveal key={stat.label} delay={i * 80}>
+                <div className="rounded-2xl p-6 h-full" style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(78,144,0,0.15)' }}>
+                  <div className="text-3xl font-black mb-2" style={{ color: '#6fc200' }}>{stat.val}</div>
+                  <div className="text-sm font-bold text-white mb-1">{stat.label}</div>
+                  <div className="text-xs text-slate-600 leading-relaxed">{stat.detail}</div>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── WHO THIS IS FOR ── */}
+      <section className="px-6 py-20 relative" style={{ background: BG2 }}>
+        <div className="absolute top-0 left-0 right-0 h-px" style={{ background: 'linear-gradient(90deg,transparent,rgba(78,144,0,0.2),transparent)' }} />
+        <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+          <Reveal direction="left">
+            <div>
+              <div className="flex items-center gap-3 mb-5">
+                <div className="h-px w-8" style={{ background: '#4e9000' }} />
+                <span className="text-[11px] font-bold uppercase tracking-[0.2em]" style={{ color: '#6fc200' }}>Ideal For</span>
+              </div>
+              <h2 className="text-3xl font-black text-white mb-4 leading-tight">Who gets the most from this solution.</h2>
+              <p className="text-slate-400 text-sm leading-relaxed">Every business is different. Here&apos;s the profile of merchants who see the strongest results from this particular solution — though we customize for every situation.</p>
+            </div>
+          </Reveal>
+          <Reveal direction="right" delay={100}>
+            <div className="flex flex-wrap gap-3">
+              {[
+                'Monthly volume $30k+', '$500k+ enterprise',
+                'Multi-location operators', 'E-commerce businesses',
+                'High average ticket ($75+)', 'Recurring billing',
+                'B2B / card-not-present heavy', 'Switching from flat-rate',
+              ].map(tag => (
+                <div key={tag} className="px-4 py-2 rounded-full text-sm font-semibold" style={{ background: 'rgba(78,144,0,0.1)', border: '1px solid rgba(78,144,0,0.2)', color: '#8cd627' }}>
+                  {tag}
+                </div>
+              ))}
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* ── COMMON QUESTIONS ── */}
+      <section className="px-6 py-20 relative" style={{ background: BG }}>
+        <div className="absolute top-0 left-0 right-0 h-px" style={{ background: 'linear-gradient(90deg,transparent,rgba(78,144,0,0.2),transparent)' }} />
+        <div className="max-w-5xl mx-auto">
+          <Reveal>
+            <div className="flex items-center gap-3 mb-10">
+              <div className="h-px w-8" style={{ background: '#4e9000' }} />
+              <span className="text-[11px] font-bold uppercase tracking-[0.2em]" style={{ color: '#6fc200' }}>Common Questions</span>
+            </div>
+          </Reveal>
+          <div className="grid md:grid-cols-3 gap-5">
+            {[
+              { q: 'Are there setup fees or minimums?', a: 'No setup fees and no volume minimums. We work with merchants at every scale, and our consulting is always free to you — funded by the selected processor.' },
+              { q: 'What if my current setup is already competitive?', a: 'We\'ll tell you. If your current processor is giving you a fair deal, we say so — and we never push a switch without clear evidence of meaningful savings.' },
+              { q: 'What happens if rates increase after switching?', a: 'Rate creep is common. As your ongoing account advocate, we monitor your statements monthly and address any unauthorized markups with the processor directly.' },
+            ].map((item, i) => (
+              <Reveal key={i} delay={i * 80}>
+                <div className="rounded-2xl p-6 h-full" style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)' }}>
+                  <div className="text-sm font-black text-white mb-3 leading-snug">{item.q}</div>
+                  <p className="text-sm text-slate-400 leading-relaxed">{item.a}</p>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── MORE SOLUTIONS ── */}
+      <section className="px-6 py-20 relative" style={{ background: BG2 }}>
+        <div className="absolute top-0 left-0 right-0 h-px" style={{ background: 'linear-gradient(90deg,transparent,rgba(78,144,0,0.2),transparent)' }} />
+        <div className="max-w-5xl mx-auto">
+          <Reveal>
+            <div className="flex items-end justify-between gap-4 mb-10">
+              <div>
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="h-px w-8" style={{ background: '#4e9000' }} />
+                  <span className="text-[11px] font-bold uppercase tracking-[0.2em]" style={{ color: '#6fc200' }}>More Solutions</span>
+                </div>
+                <h2 className="text-3xl font-black text-white">Other ways FT5 can help.</h2>
+              </div>
+            </div>
+          </Reveal>
+          <div className="grid md:grid-cols-3 gap-5">
+            {Object.entries(solutionsData)
+              .filter(([s]) => s !== slug)
+              .slice(0, 3)
+              .map(([s, sol], i) => (
+                <Reveal key={s} delay={i * 70}>
+                  <Link href={`/solutions/${s}`} className="group flex flex-col rounded-2xl p-6 h-full transition-all hover:-translate-y-1" style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)' }}>
+                    <h3 className="font-black text-white group-hover:text-[#8cd627] transition-colors mb-2">{sol.title}</h3>
+                    <p className="text-xs text-slate-500 leading-relaxed flex-1 mb-4">{sol.subtitle}</p>
+                    <div className="text-xs font-bold" style={{ color: '#4e9000' }}>Explore →</div>
+                  </Link>
+                </Reveal>
+              ))}
+          </div>
+        </div>
+      </section>
+
       {/* ── CTA ── */}
       <section className="px-6 py-28 relative overflow-hidden" style={{ background: '#4e9000' }}>
         <div className="absolute inset-0 pointer-events-none" style={{ backgroundImage: 'linear-gradient(rgba(255,255,255,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.04) 1px,transparent 1px)', backgroundSize: '48px 48px' }} />
