@@ -1,7 +1,7 @@
 'use client'
 import { useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
-import { ArrowRight, ChevronRight, TrendingDown, CheckCircle2, Zap, Shield } from 'lucide-react'
+import { ArrowRight, ChevronRight, TrendingDown, CheckCircle2, Zap, Shield, Lock } from 'lucide-react'
 
 function Counter({ target, prefix = '', suffix = '' }: { target: number; prefix?: string; suffix?: string }) {
   const [count, setCount] = useState(0)
@@ -29,190 +29,184 @@ function Counter({ target, prefix = '', suffix = '' }: { target: number; prefix?
 
 const processors = ['Worldpay', 'First Data', 'TSYS', 'Heartland', 'Paysafe', 'Priority', 'NMI', 'Shift4', 'Clearent', 'Payroc', 'Elavon', 'Global Payments', 'Fiserv', 'Nuvei']
 
+// Animated live ticker items
+const tickerItems = [
+  { merchant: 'Retail Chain — NJ', saved: '$14,200', rate: '→ 1.74%' },
+  { merchant: 'E-Commerce — NY', saved: '$9,800', rate: '→ 1.68%' },
+  { merchant: 'Healthcare Group — NJ', saved: '$11,400', rate: '→ 1.82%' },
+  { merchant: 'Restaurant Group — NY', saved: '$7,600', rate: '→ 1.71%' },
+  { merchant: 'Auto Dealer — NJ', saved: '$18,200', rate: '→ 1.65%' },
+]
+
 export default function HeroSection() {
+  const [tickerIdx, setTickerIdx] = useState(0)
+  const [fade, setFade] = useState(true)
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setFade(false)
+      setTimeout(() => {
+        setTickerIdx(i => (i + 1) % tickerItems.length)
+        setFade(true)
+      }, 400)
+    }, 3500)
+    return () => clearInterval(interval)
+  }, [])
+
+  const item = tickerItems[tickerIdx]
+
   return (
     <>
-      {/* ── HERO — bright, welcoming, Stripe-style ── */}
-      <section className="relative bg-white overflow-hidden min-h-screen flex items-center">
+      {/* ── HERO ── */}
+      <section className="relative bg-white overflow-hidden min-h-screen flex flex-col justify-center">
 
-        {/* ── Morphing blob background ── */}
-        <div className="absolute inset-0 overflow-hidden pointer-events-none" style={{ filter: 'blur(40px)' }}>
-          <div
-            className="absolute animate-morph-1"
-            style={{
-              width: '800px', height: '750px',
-              top: '-20%', right: '-15%',
-              background: 'radial-gradient(ellipse, rgba(134,239,172,0.50) 0%, rgba(74,222,128,0.25) 50%, transparent 75%)',
-            }}
-          />
-          <div
-            className="absolute animate-morph-2"
-            style={{
-              width: '700px', height: '700px',
-              bottom: '-20%', left: '-15%',
-              background: 'radial-gradient(ellipse, rgba(163,230,53,0.40) 0%, rgba(101,163,13,0.20) 50%, transparent 75%)',
-              animationDelay: '6s',
-            }}
-          />
-          <div
-            className="absolute animate-morph-3"
-            style={{
-              width: '500px', height: '550px',
-              top: '20%', left: '35%',
-              background: 'radial-gradient(ellipse, rgba(110,231,183,0.35) 0%, rgba(52,211,153,0.15) 50%, transparent 75%)',
-              animationDelay: '3s',
-            }}
-          />
-        </div>
-        {/* White wash — keeps it professional */}
-        <div className="absolute inset-0 bg-white/50 pointer-events-none" />
+        {/* Extremely subtle financial grid */}
+        <div className="absolute inset-0 pointer-events-none" style={{
+          backgroundImage: `linear-gradient(rgba(51,102,0,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(51,102,0,0.04) 1px, transparent 1px)`,
+          backgroundSize: '64px 64px',
+        }} />
 
-        <div className="relative w-full max-w-7xl mx-auto px-6 lg:px-10 pt-28 pb-16">
-          <div className="grid lg:grid-cols-[1fr_460px] gap-12 xl:gap-16 items-center">
+        {/* Very subtle right-side brand accent */}
+        <div className="absolute top-0 right-0 w-1/2 h-full pointer-events-none"
+          style={{ background: 'linear-gradient(135deg, transparent 60%, rgba(240,253,244,0.8) 100%)' }} />
 
-            {/* Left — Copy */}
-            <div className="max-w-2xl">
+        {/* Narrow green accent bar — left edge */}
+        <div className="absolute left-0 top-1/4 bottom-1/4 w-1 bg-gradient-to-b from-transparent via-brand-500 to-transparent opacity-40 pointer-events-none" />
 
-              {/* Badge */}
-              <div className="inline-flex items-center gap-2.5 mb-8 px-4 py-2 bg-brand-50 border border-brand-100 rounded-full text-[11px] font-bold uppercase tracking-widest text-brand-700 animate-fade-in">
+        <div className="relative w-full max-w-7xl mx-auto px-6 lg:px-12 pt-32 pb-16">
+          <div className="grid lg:grid-cols-[1fr_500px] gap-16 items-center">
+
+            {/* ── LEFT: Authority copy ── */}
+            <div>
+              {/* Live ticker badge */}
+              <div className="inline-flex items-center gap-3 mb-10 px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl">
                 <span className="relative flex h-2 w-2 shrink-0">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-500 opacity-50" />
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-500 opacity-60" />
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-brand-600" />
                 </span>
-                Trusted Payment Processing Consultants — NY & NJ
+                <span className="text-xs text-slate-500 font-medium">Recent client:</span>
+                <span
+                  className="text-xs font-bold text-slate-800 transition-opacity duration-400"
+                  style={{ opacity: fade ? 1 : 0 }}
+                >
+                  {item.merchant} — saved <span className="text-brand-600">{item.saved}/yr</span> at <span className="text-brand-600">{item.rate}</span>
+                </span>
               </div>
 
               {/* Headline */}
-              <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black tracking-tight text-slate-900 leading-[1.05] mb-7 animate-fade-in-up delay-100">
-                Stop paying more<br className="hidden sm:block" /> than you owe.<br />
-                <span className="text-brand-600">We fix that.</span>
+              <h1 className="text-5xl sm:text-6xl lg:text-[4rem] xl:text-[4.5rem] font-black tracking-tight text-slate-900 leading-[1.06] mb-7 animate-fade-in-up delay-100">
+                Your payment processor<br />
+                is overcharging you.<br />
+                <span className="text-brand-600">We prove it in 48 hours.</span>
               </h1>
 
-              <p className="text-lg md:text-xl text-slate-500 leading-relaxed mb-10 animate-fade-in-up delay-200 max-w-lg">
-                FinTech 5 connects you to 10+ Tier-1 processors and delivers the white-glove consulting support that Stripe, Square, and PayPal never will. We cut costs, kill hidden fees, and we pick up the phone.
+              <p className="text-lg text-slate-500 leading-relaxed mb-10 max-w-xl animate-fade-in-up delay-200">
+                FinTech 5 are independent payment processing consultants. We audit your merchant statement, compare quotes from 10+ Tier-1 processors, and put a real specialist on your account — at zero cost to you.
               </p>
 
               {/* CTAs */}
-              <div className="flex flex-wrap gap-4 mb-10 animate-fade-in-up delay-300">
+              <div className="flex flex-wrap gap-4 mb-12 animate-fade-in-up delay-300">
                 <Link
                   href="/get-your-savings-estimate"
-                  className="group inline-flex items-center gap-2 px-8 py-4 text-sm font-bold text-white bg-brand-600 hover:bg-brand-700 rounded-xl shadow-lg shadow-brand-200 transition-all duration-300 hover:-translate-y-0.5"
+                  className="group inline-flex items-center gap-2 px-8 py-4 text-sm font-bold text-white bg-brand-600 hover:bg-brand-700 rounded-xl shadow-lg shadow-brand-100 transition-all duration-200 hover:-translate-y-0.5"
                 >
-                  Get Free Savings Estimate
+                  Get My Free Savings Estimate
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </Link>
                 <Link
                   href="/calculator"
-                  className="inline-flex items-center gap-2 px-8 py-4 text-sm font-bold text-slate-700 bg-white border border-slate-200 hover:border-brand-300 hover:bg-brand-50 rounded-xl transition-all duration-300 hover:-translate-y-0.5 shadow-sm"
+                  className="inline-flex items-center gap-2 px-8 py-4 text-sm font-bold text-slate-700 bg-white border border-slate-200 hover:border-brand-300 hover:bg-brand-50 rounded-xl transition-all duration-200 hover:-translate-y-0.5 shadow-sm"
                 >
-                  Try the Calculator <ChevronRight className="w-4 h-4" />
+                  Rate Calculator <ChevronRight className="w-4 h-4" />
                 </Link>
               </div>
 
-              {/* Trust pills */}
-              <div className="flex flex-wrap gap-3 animate-fade-in-up delay-400">
+              {/* Trust grid */}
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 animate-fade-in-up delay-400">
                 {[
-                  { icon: <CheckCircle2 className="w-3.5 h-3.5 text-brand-600" />, text: 'Free — no consulting fees ever' },
-                  { icon: <CheckCircle2 className="w-3.5 h-3.5 text-brand-600" />, text: '10+ processor quotes in 48hrs' },
-                  { icon: <Shield className="w-3.5 h-3.5 text-brand-600" />, text: 'Dedicated account rep' },
+                  { icon: <CheckCircle2 className="w-4 h-4" />, text: 'No consulting fees' },
+                  { icon: <Shield className="w-4 h-4" />, text: 'Processor-agnostic' },
+                  { icon: <Zap className="w-4 h-4" />, text: '48hr audit turnaround' },
+                  { icon: <Lock className="w-4 h-4" />, text: 'No long-term contract' },
                 ].map((t) => (
-                  <div key={t.text} className="flex items-center gap-2 px-3 py-1.5 bg-white border border-slate-100 rounded-full text-xs text-slate-600 font-medium shadow-sm">
-                    {t.icon} {t.text}
+                  <div key={t.text} className="flex items-center gap-2 text-xs text-slate-500 font-medium">
+                    <span className="text-brand-600 shrink-0">{t.icon}</span> {t.text}
                   </div>
                 ))}
               </div>
             </div>
 
-            {/* Right — Card stack on light bg */}
-            <div className="relative h-[460px] lg:h-[520px] hidden lg:block">
-
-              {/* Card 1 — Main savings analysis */}
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-72 bg-white rounded-2xl p-5 shadow-2xl shadow-slate-200 border border-slate-100 z-20 animate-float-slow animate-fade-in delay-400">
-                <div className="flex items-center justify-between mb-4">
-                  <div className="flex items-center gap-2.5">
-                    <div className="w-8 h-8 bg-brand-600 rounded-lg flex items-center justify-center">
-                      <TrendingDown className="w-4 h-4 text-white" />
-                    </div>
-                    <div>
-                      <div className="text-[9px] text-slate-400 font-bold uppercase tracking-widest">Statement Analysis</div>
-                      <div className="text-slate-900 font-bold text-xs">Annual Savings Found</div>
-                    </div>
+            {/* ── RIGHT: Rate comparison table (authoritative data view) ── */}
+            <div className="hidden lg:block animate-fade-in delay-300">
+              <div className="bg-white rounded-2xl border border-slate-200 shadow-xl shadow-slate-100 overflow-hidden">
+                {/* Table header */}
+                <div className="px-6 py-4 border-b border-slate-100 flex items-center justify-between bg-slate-50">
+                  <div>
+                    <div className="text-[10px] text-slate-400 font-bold uppercase tracking-widest mb-0.5">Statement Analysis</div>
+                    <div className="text-sm font-black text-slate-900">Processor Rate Comparison</div>
                   </div>
-                  <span className="text-[9px] font-black px-1.5 py-0.5 bg-brand-50 text-brand-700 rounded-full border border-brand-100">LIVE</span>
+                  <div className="flex items-center gap-1.5 text-[10px] font-bold text-brand-600 bg-brand-50 border border-brand-100 px-2.5 py-1 rounded-full">
+                    <span className="w-1.5 h-1.5 rounded-full bg-brand-500 animate-pulse inline-block" />
+                    LIVE AUDIT
+                  </div>
                 </div>
-                <div className="text-[2.4rem] font-black text-slate-900 leading-none mb-1">$18,420</div>
-                <div className="text-[10px] text-slate-400 mb-4">In hidden fees & overcharges identified</div>
-                <div className="space-y-2.5">
+
+                {/* Current vs. optimal */}
+                <div className="px-6 py-4 border-b border-slate-100 bg-red-50/40">
+                  <div className="text-[10px] text-red-400 font-bold uppercase tracking-widest mb-2">Current Processor</div>
+                  <div className="flex items-center justify-between">
+                    <div className="text-slate-700 font-bold text-sm">Stripe (flat rate)</div>
+                    <div className="text-red-500 font-black text-lg">2.90% + $0.30</div>
+                  </div>
+                  <div className="text-[10px] text-red-400 mt-1">Est. annual cost at $500k volume: <span className="font-bold">$16,050</span></div>
+                </div>
+
+                {/* Processor list */}
+                <div className="divide-y divide-slate-50">
                   {[
-                    { l: 'Interchange savings', v: '$9,840', pct: '76%' },
-                    { l: 'PCI fee removed', v: '$1,200', pct: '36%' },
-                    { l: 'Pricing model switch', v: '$7,380', pct: '90%' },
-                  ].map(r => (
-                    <div key={r.l}>
-                      <div className="flex justify-between text-[10px] text-slate-400 mb-1">
-                        <span>{r.l}</span>
-                        <span className="text-brand-600 font-bold">{r.v}</span>
+                    { name: 'Heartland', rate: '1.74%', saving: '$5,800', best: true },
+                    { name: 'Worldpay', rate: '1.81%', saving: '$5,450', best: false },
+                    { name: 'First Data', rate: '1.88%', saving: '$5,100', best: false },
+                    { name: 'Elavon', rate: '1.92%', saving: '$4,900', best: false },
+                  ].map((p) => (
+                    <div key={p.name} className={`px-6 py-3.5 flex items-center justify-between ${p.best ? 'bg-brand-50/60' : ''}`}>
+                      <div className="flex items-center gap-3">
+                        {p.best && <div className="w-1.5 h-5 bg-brand-500 rounded-full" />}
+                        {!p.best && <div className="w-1.5 h-5 rounded-full" />}
+                        <div>
+                          <div className="text-sm font-bold text-slate-800">{p.name}</div>
+                          {p.best && <div className="text-[9px] font-bold text-brand-600 uppercase tracking-wider">Best match for your profile</div>}
+                        </div>
                       </div>
-                      <div className="w-full bg-slate-100 rounded-full h-1.5">
-                        <div className="bg-gradient-to-r from-brand-600 to-brand-400 h-1.5 rounded-full" style={{ width: r.pct }} />
+                      <div className="text-right">
+                        <div className={`font-black text-base ${p.best ? 'text-brand-600' : 'text-slate-600'}`}>{p.rate}</div>
+                        <div className="text-[10px] text-slate-400">saves <span className="font-bold text-brand-600">{p.saving}/yr</span></div>
                       </div>
                     </div>
                   ))}
                 </div>
-              </div>
 
-              {/* Card 2 — Processor match */}
-              <div className="absolute top-4 left-0 w-52 bg-white rounded-2xl p-4 shadow-xl shadow-slate-150 border border-slate-100 z-10 animate-float-med animate-slide-in-left delay-500">
-                <div className="flex items-center gap-1.5 mb-2.5">
-                  <span className="relative flex h-2 w-2">
-                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-500 opacity-50" />
-                    <span className="relative inline-flex rounded-full h-2 w-2 bg-brand-600" />
-                  </span>
-                  <span className="text-[9px] text-brand-600 font-bold uppercase tracking-widest">Best Match</span>
-                </div>
-                <div className="text-[10px] text-slate-400 mb-0.5">Optimal Processor</div>
-                <div className="text-slate-900 font-black text-lg mb-3">Heartland</div>
-                <div className="grid grid-cols-2 gap-1.5">
-                  <div className="bg-brand-50 rounded-lg p-2 text-center">
-                    <div className="text-[9px] text-slate-400">Eff. Rate</div>
-                    <div className="text-brand-700 font-black text-sm">1.74%</div>
-                  </div>
-                  <div className="bg-brand-50 rounded-lg p-2 text-center">
-                    <div className="text-[9px] text-slate-400">Monthly</div>
-                    <div className="text-brand-700 font-black text-sm">-$1,535</div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Card 3 — Audit complete */}
-              <div className="absolute bottom-16 right-2 w-52 bg-white rounded-2xl p-4 shadow-xl shadow-slate-150 border border-slate-100 z-10 animate-float-slow animate-slide-in-right delay-600">
-                <div className="flex items-center gap-2.5 mb-3">
-                  <div className="w-8 h-8 bg-brand-50 border border-brand-100 rounded-lg flex items-center justify-center shrink-0">
-                    <Zap className="w-3.5 h-3.5 text-brand-600" />
-                  </div>
+                {/* Footer CTA */}
+                <div className="px-6 py-4 bg-brand-600 flex items-center justify-between">
                   <div>
-                    <div className="text-slate-900 font-bold text-xs">Audit Complete</div>
-                    <div className="text-slate-400 text-[10px]">48hr turnaround ✓</div>
+                    <div className="text-white font-black text-sm">Total identifiable savings</div>
+                    <div className="text-brand-200 text-[10px]">Based on your current statement</div>
                   </div>
-                </div>
-                <div className="w-full bg-slate-100 rounded-full h-1.5">
-                  <div className="bg-gradient-to-r from-brand-600 to-brand-400 h-1.5 rounded-full w-full" />
+                  <div className="text-white font-black text-2xl">$5,800/yr</div>
                 </div>
               </div>
 
-              {/* Card 4 */}
-              <div className="absolute bottom-4 left-4 bg-white rounded-xl px-5 py-4 shadow-lg border border-slate-100 z-10 animate-fade-in delay-700">
-                <div className="text-3xl font-black text-slate-900">10+</div>
-                <div className="text-[10px] text-slate-400 font-medium mt-0.5">Processor Partners</div>
-              </div>
-
+              {/* Below card micro-label */}
+              <p className="text-center text-[11px] text-slate-400 mt-3 font-medium">
+                Sample analysis — your results will vary. <Link href="/get-your-savings-estimate" className="text-brand-600 underline underline-offset-2">Get yours free →</Link>
+              </p>
             </div>
           </div>
         </div>
       </section>
 
       {/* ── STATS BAR ── */}
-      <section className="bg-brand-600">
+      <section className="bg-slate-900">
         <div className="max-w-7xl mx-auto px-6 py-8 grid grid-cols-2 md:grid-cols-4 gap-6 text-white text-center">
           {[
             { n: 10, s: '+', l: 'Tier-1 Processor Partners' },
@@ -221,10 +215,10 @@ export default function HeroSection() {
             { n: 0, p: '$', s: '', l: 'Consulting Fees — Ever' },
           ].map((item) => (
             <div key={item.l}>
-              <div className="text-3xl md:text-4xl font-black mb-1.5">
+              <div className="text-3xl md:text-4xl font-black mb-1.5 text-brand-400">
                 <Counter target={item.n} prefix={item.p} suffix={item.s} />
               </div>
-              <div className="text-[11px] text-brand-100 uppercase tracking-wider font-semibold">{item.l}</div>
+              <div className="text-[11px] text-slate-400 uppercase tracking-wider font-semibold">{item.l}</div>
             </div>
           ))}
         </div>
