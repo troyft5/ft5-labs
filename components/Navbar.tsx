@@ -41,14 +41,14 @@ function DropdownMenu({ label, children }: { label: string; children: React.Reac
     <div ref={ref} className="relative" onMouseEnter={() => setOpen(true)} onMouseLeave={() => setOpen(false)}>
       <button
         onClick={() => setOpen(!open)}
-        className="flex items-center gap-1 text-sm font-semibold text-slate-600 hover:text-brand-600 transition-colors py-2"
+        className="flex items-center gap-1 text-sm font-semibold text-slate-300 hover:text-white transition-colors py-2"
       >
         {label}
         <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${open ? 'rotate-180' : ''}`} />
       </button>
       {open && (
         <div className="absolute top-full left-1/2 -translate-x-1/2 pt-3 z-50">
-          <div className="bg-white rounded-2xl shadow-xl border border-slate-100 overflow-hidden min-w-[230px]">
+          <div className="bg-[#0d1a0d] rounded-2xl shadow-2xl border border-white/10 overflow-hidden min-w-[230px]">
             {children}
           </div>
         </div>
@@ -70,7 +70,7 @@ export default function Navbar() {
   }, [])
 
   const navBg = scrolled
-    ? 'bg-white/95 backdrop-blur-xl border-b border-slate-100 shadow-sm'
+    ? 'bg-[#080f08]/95 backdrop-blur-xl border-b border-white/8 shadow-lg'
     : 'bg-transparent border-b border-transparent'
 
   return (
@@ -79,7 +79,7 @@ export default function Navbar() {
 
         {/* Logo — dark version for white navbar */}
         <Link href="/" className="flex items-center" onClick={() => setMobileOpen(false)}>
-          <Image src="/Logos/FT5_Black_Green.svg" alt="FinTech 5" width={110} height={80} className="h-9 w-auto" priority />
+          <Image src="/Logos/FT5_White_Green.svg" alt="FinTech 5" width={110} height={80} className="h-9 w-auto" priority />
         </Link>
 
         {/* Desktop Nav */}
@@ -105,10 +105,10 @@ export default function Navbar() {
             </div>
           </DropdownMenu>
 
-          <Link href="/calculator" className="text-sm font-semibold text-slate-600 hover:text-brand-600 transition-colors">Calculator</Link>
-          <Link href="/blog" className="text-sm font-semibold text-slate-600 hover:text-brand-600 transition-colors">Blog</Link>
-          <Link href="/about-us" className="text-sm font-semibold text-slate-600 hover:text-brand-600 transition-colors">About</Link>
-          <Link href="/contact-us" className="text-sm font-semibold text-slate-600 hover:text-brand-600 transition-colors">Contact</Link>
+          <Link href="/calculator" className="text-sm font-semibold text-slate-300 hover:text-white transition-colors">Calculator</Link>
+          <Link href="/blog" className="text-sm font-semibold text-slate-300 hover:text-white transition-colors">Blog</Link>
+          <Link href="/about-us" className="text-sm font-semibold text-slate-300 hover:text-white transition-colors">About</Link>
+          <Link href="/contact-us" className="text-sm font-semibold text-slate-300 hover:text-white transition-colors">Contact</Link>
         </div>
 
         {/* CTA + Mobile Toggle */}
