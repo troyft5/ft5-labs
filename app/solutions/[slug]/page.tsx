@@ -39,6 +39,21 @@ export default async function SolutionPage({ params }: { params: Promise<{ slug:
         {/* Circuit-board dot pattern */}
         <div className="absolute inset-0 pointer-events-none" style={{ backgroundImage: 'radial-gradient(rgba(78,144,0,0.12) 1px, transparent 1px)', backgroundSize: '28px 28px' }} />
         <div className="absolute bottom-0 left-0 right-0 h-40 pointer-events-none" style={{ background: 'linear-gradient(to top, #0a1208, transparent)' }} />
+        {/* Cascading watermark — solutions on the right */}
+        <div className="absolute right-0 top-16 flex flex-col items-end select-none pointer-events-none leading-none" aria-hidden="true">
+          {solution.title.split(' ').map((word, i) => (
+            <div
+              key={i}
+              className="text-[12vw] font-black uppercase leading-none"
+              style={{
+                color: `rgba(78,144,0,${0.06 - i * 0.01})`,
+                transform: `translateX(${i * 10}px)`,
+              }}
+            >
+              {word}
+            </div>
+          ))}
+        </div>
 
         <div className="relative max-w-5xl mx-auto">
           <Reveal>

@@ -36,9 +36,20 @@ export default async function IndustryPage({ params }: { params: Promise<{ slug:
       {/* ── HERO ── */}
       <section className="relative px-6 pt-44 pb-0 overflow-hidden" style={{ background: BG2 }}>
         <div className="absolute top-0 left-0 right-0 h-[2px]" style={{ background: 'linear-gradient(90deg,transparent,rgba(78,144,0,0.5),transparent)' }} />
-        {/* Giant watermark word */}
-        <div className="absolute right-0 top-24 text-[18vw] font-black leading-none select-none pointer-events-none uppercase" style={{ color: 'rgba(78,144,0,0.04)', userSelect: 'none' }}>
-          {industry.title.split(' ')[0]}
+        {/* Giant watermark — all title words cascading down */}
+        <div className="absolute right-0 top-16 flex flex-col items-end select-none pointer-events-none leading-none" aria-hidden="true">
+          {industry.title.split(' ').map((word, i) => (
+            <div
+              key={i}
+              className="text-[14vw] font-black uppercase leading-none"
+              style={{
+                color: `rgba(78,144,0,${0.045 - i * 0.008})`,
+                transform: `translateX(${i * 12}px)`,
+              }}
+            >
+              {word}
+            </div>
+          ))}
         </div>
 
         <div className="max-w-5xl mx-auto">
