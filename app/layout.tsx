@@ -44,6 +44,56 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en" className={`${inter.variable} scroll-smooth`}>
       <body className="bg-[#0f1a0f] text-slate-900 font-sans antialiased selection:bg-[#4e9000] selection:text-white min-h-screen flex flex-col">
 
+        {/* JSON-LD Structured Data */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@graph': [
+              {
+                '@type': 'LocalBusiness',
+                '@id': 'https://fintech5group.com/#business',
+                name: 'FinTech 5 Group',
+                alternateName: 'FT5',
+                description: 'Payment processing consultants. We negotiate across 10+ tier-1 processors to lower your rates and eliminate hidden fees — at zero cost to you.',
+                url: 'https://fintech5group.com',
+                telephone: '+1-646-941-7853',
+                email: 'info@fintech5group.com',
+                foundingDate: '2021',
+                areaServed: ['New York', 'New Jersey', 'United States'],
+                serviceType: 'Payment Processing Consulting',
+                priceRange: 'Free',
+                sameAs: ['https://app.fintech5group.com'],
+              },
+              {
+                '@type': 'FAQPage',
+                mainEntity: [
+                  {
+                    '@type': 'Question',
+                    name: 'How does FinTech 5 make money if consulting is free?',
+                    acceptedAnswer: { '@type': 'Answer', text: 'When a merchant selects a processor through FinTech 5, that processor compensates us from their margin. There is no charge to the merchant — ever.' },
+                  },
+                  {
+                    '@type': 'Question',
+                    name: 'Do I have to switch processors to work with FT5?',
+                    acceptedAnswer: { '@type': 'Answer', text: 'No. We first audit your existing relationship. If your current processor is competitive, we tell you. If they are not, we present alternatives — and you choose.' },
+                  },
+                  {
+                    '@type': 'Question',
+                    name: 'How long does a statement audit take?',
+                    acceptedAnswer: { '@type': 'Answer', text: 'Our standard turnaround is 48 hours. We analyze your statement line by line and return a full breakdown of every fee and a competitive comparison.' },
+                  },
+                  {
+                    '@type': 'Question',
+                    name: 'What is interchange-plus pricing?',
+                    acceptedAnswer: { '@type': 'Answer', text: 'Interchange-plus (IC+) pricing passes the card network interchange rate directly to the merchant, plus a fixed processor markup. It is the most transparent pricing model and typically the lowest cost for merchants processing over $15,000 per month.' },
+                  },
+                ],
+              },
+            ],
+          })}}
+        />
+
         <Navbar />
 
         <main className="flex-grow relative z-10">

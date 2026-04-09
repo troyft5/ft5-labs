@@ -1,116 +1,224 @@
 import Link from 'next/link'
-import { ArrowRight, Users, Shield, TrendingUp } from 'lucide-react'
-
-const BG  = '#0f1a0f'
-const BG2 = '#131f13'
+import { ArrowRight, Users, Shield, TrendingUp, Phone, Zap, CheckCircle2 } from 'lucide-react'
+import Reveal from '@/components/Reveal'
 
 export const metadata = {
   title: 'About Us | FinTech 5 — Payment Processing Consultants',
-  description: 'Founded by a family of financial technology veterans with 30+ years of combined experience. We fix the broken payment processing model.',
+  description: 'Founded by a family of financial technology veterans with 30+ years of combined experience. We built payment infrastructure for universities and enterprises — then decided to put that expertise to work for you.',
 }
+
+const BG  = '#0f1a0f'
+const BG2 = '#0a1208'
+
+const values = [
+  {
+    n: '01', icon: <Phone className="w-5 h-5" />,
+    title: 'We Answer the Phone',
+    body: 'Every FinTech 5 client gets a named account representative. Not a ticket system or a chatbot — a real person who knows your account and picks up when you call.',
+  },
+  {
+    n: '02', icon: <Shield className="w-5 h-5" />,
+    title: 'We Represent You, Not the Processor',
+    body: "We're not owned by any processing company. We have no quota to fill for any particular partner. Our only obligation is to the merchant sitting across from us.",
+  },
+  {
+    n: '03', icon: <Zap className="w-5 h-5" />,
+    title: 'Our Revenue Comes from Processors',
+    body: "When you select a processor through FT5, that processor compensates us — not you. Our consulting is free to merchants, full stop. No retainers, no consulting fees, no hidden charges.",
+  },
+  {
+    n: '04', icon: <TrendingUp className="w-5 h-5" />,
+    title: 'We Stay With You After the Switch',
+    body: "The relationship doesn't end at signing. We review your statements, catch rate creep, escalate billing disputes, and re-bid your account if a better option emerges.",
+  },
+]
+
+const timeline = [
+  { era: '30+ Years Ago', title: 'Built from the inside out', body: 'We spent decades building and managing payment infrastructure for universities, healthcare systems, and mid-market enterprises — seeing exactly how the money moved and where it was wasted.' },
+  { era: 'The Aggregator Era', title: 'Watched merchants get left behind', body: "When flat-rate aggregators promised simplicity, we watched the fine print. Convenience disguised cost. Each transaction, each batch, each 'service fee' added up. The merchants who needed help most got it least." },
+  { era: '2021 — FinTech 5 Founded', title: 'We decided to fix it', body: "Taking the institutional knowledge we'd built over decades and deploying it exclusively for merchants — we launched FinTech 5 with one rule: zero consulting fees, ever." },
+  { era: 'Today', title: 'Serving merchants across NY, NJ and beyond', body: 'Our network of 10+ tier-1 processor partners now competes for every client we represent. The expertise that once only Fortune 500 companies could access is now available to any serious business.' },
+]
 
 export default function AboutPage() {
   return (
-    <div className="flex flex-col w-full min-h-screen" style={{ background: BG }}>
+    <div className="flex flex-col w-full" style={{ background: BG }}>
 
-      {/* Hero */}
-      <section className="px-6 pt-40 pb-24 relative" style={{ background: BG2 }}>
-        <div className="absolute top-0 left-0 right-0 h-px" style={{ background: 'linear-gradient(90deg,transparent,rgba(78,144,0,0.3),transparent)' }} />
-        <div className="max-w-4xl mx-auto">
-          <div className="flex items-center gap-3 mb-6">
-            <div className="h-px w-8" style={{ background: '#4e9000' }} />
-            <span className="text-[11px] font-bold uppercase tracking-[0.2em]" style={{ color: '#6fc200' }}>Our Story</span>
-          </div>
-          <h1 className="text-4xl md:text-6xl font-black tracking-tight text-white mb-6 leading-tight">
-            The Expertise of an Institution.<br />
-            <span style={{ color: '#6fc200' }}>The Dedication of a Family.</span>
-          </h1>
-          <p className="text-xl text-slate-400 max-w-2xl leading-relaxed">
-            For decades, we saw the payment processing industry from the inside. We built complex systems for colleges and managed high-stakes accounts for major enterprises.
-          </p>
-        </div>
-      </section>
+      {/* ── HERO ── */}
+      <section className="relative px-6 pt-44 pb-28 overflow-hidden" style={{ background: BG2 }}>
+        <div className="absolute top-0 left-0 right-0 h-[2px]" style={{ background: 'linear-gradient(90deg,transparent,rgba(78,144,0,0.5),transparent)' }} />
 
-      {/* Stats bar */}
-      <section className="px-6 py-6" style={{ background: '#4e9000' }}>
-        <div className="max-w-4xl mx-auto grid grid-cols-3 gap-6 text-center">
-          {[
-            { val: '10+', label: 'Payment Partners' },
-            { val: '30+', label: 'Years Combined Experience' },
-            { val: '$0', label: 'Cost for Our Consulting' },
-          ].map(s => (
-            <div key={s.label}>
-              <div className="text-3xl font-black text-white">{s.val}</div>
-              <div className="text-sm mt-0.5" style={{ color: 'rgba(255,255,255,0.7)' }}>{s.label}</div>
+        {/* Background watermark */}
+        <div className="absolute right-0 bottom-0 text-[18rem] font-black leading-none select-none pointer-events-none" style={{ color: 'rgba(78,144,0,0.04)' }}>F5</div>
+
+        {/* Blob glow */}
+        <div className="absolute top-0 left-0 w-[600px] h-[500px] pointer-events-none" style={{ background: 'radial-gradient(ellipse, rgba(78,144,0,0.12) 0%, transparent 65%)', filter: 'blur(40px)' }} />
+
+        <div className="relative max-w-5xl mx-auto">
+          <Reveal>
+            <div className="flex items-center gap-3 mb-8">
+              <div className="h-px w-8" style={{ background: '#4e9000' }} />
+              <span className="text-[11px] font-bold uppercase tracking-[0.2em]" style={{ color: '#6fc200' }}>Founded 2021 · New York &amp; New Jersey</span>
             </div>
-          ))}
-        </div>
-      </section>
+          </Reveal>
 
-      {/* Origin story */}
-      <section className="px-6 py-20 relative" style={{ background: BG }}>
-        <div className="absolute top-0 left-0 right-0 h-px" style={{ background: 'linear-gradient(90deg,transparent,rgba(78,144,0,0.15),transparent)' }} />
-        <div className="max-w-3xl mx-auto">
-          <h2 className="text-3xl font-black text-white mb-8">Why We Built FinTech 5</h2>
-          <div className="flex flex-col gap-6 text-slate-400 text-lg leading-relaxed">
-            <p>
-              We understood the rules, the players, and the technology that powered it all. We built complex payment systems for colleges. We managed high-stakes merchant accounts for major enterprises. We knew exactly where the money went — and more importantly, where it didn&apos;t have to.
-            </p>
-            <p>
-              Then we watched as the aggregator revolution changed everything. Powerful platforms like Square, PayPal and Stripe sold a dream of simplicity. But we saw the reality it created for founders: frustration, isolation, and a constant, draining battle with the very systems that were supposed to make their lives easier.
-            </p>
-            <p className="text-white font-bold text-xl">
-              We founded FinTech 5 to fix this broken model.
-            </p>
-            <p>
-              Our mission is to bridge the gap between powerful, modern technology and the dedicated, expert human support that every serious business deserves. You shouldn&apos;t have to choose between a seamless customer experience and a profitable, transparent payment operation.
-            </p>
-            <p>With FinTech 5, you get both.</p>
-          </div>
-        </div>
-      </section>
+          <Reveal delay={100}>
+            <h1 className="text-5xl md:text-7xl font-black tracking-tight text-white leading-[0.95] mb-8">
+              The expertise of<br />an institution.<br />
+              <span style={{ background: 'linear-gradient(135deg,#9de84a,#6fc200)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
+                The dedication<br />of a family.
+              </span>
+            </h1>
+          </Reveal>
 
-      {/* Pillars */}
-      <section className="px-6 py-16 relative" style={{ background: BG2 }}>
-        <div className="absolute top-0 left-0 right-0 h-px" style={{ background: 'linear-gradient(90deg,transparent,rgba(78,144,0,0.2),transparent)' }} />
-        <div className="max-w-4xl mx-auto">
-          <div className="flex items-center justify-center gap-3 mb-10">
-            <div className="h-px w-8" style={{ background: '#4e9000' }} />
-            <span className="text-[11px] font-bold uppercase tracking-[0.2em]" style={{ color: '#6fc200' }}>What Sets Us Apart</span>
-            <div className="h-px w-8" style={{ background: '#4e9000' }} />
-          </div>
-          <div className="grid md:grid-cols-3 gap-5">
-            {[
-              { icon: <Users className="w-5 h-5" />, title: 'White-Glove Service', body: "Every FinTech 5 client gets a dedicated account representative — a real human who answers the phone. Not a ticket system. Not a chatbot." },
-              { icon: <Shield className="w-5 h-5" />, title: 'Processor-Agnostic', body: "We're not owned by any processor. We work for you — which means we compare 10+ options and recommend only what's best for your business." },
-              { icon: <TrendingUp className="w-5 h-5" />, title: 'Proven Savings', body: "Clients consistently unlock 10–18% cost reductions in year one. Our consulting is funded by processor partners — never by you." },
-            ].map((p) => (
-              <div key={p.title} className="rounded-2xl p-6" style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)' }}>
-                <div className="w-10 h-10 rounded-xl flex items-center justify-center mb-4" style={{ background: 'rgba(78,144,0,0.12)', border: '1px solid rgba(78,144,0,0.2)', color: '#6fc200' }}>
-                  {p.icon}
+          <Reveal delay={200}>
+            <p className="text-xl text-slate-400 max-w-2xl leading-relaxed mb-12">
+              We spent decades building payment infrastructure for universities and managing high-stakes merchant accounts for enterprises. We saw exactly where the money went — and where it didn&apos;t have to. Then we decided to put that knowledge to work for you.
+            </p>
+          </Reveal>
+
+          <Reveal delay={300}>
+            <div className="flex flex-wrap gap-8">
+              {[['30+', 'Years combined experience'], ['10+', 'Tier-1 processor partners'], ['$0', 'Consulting cost to you']].map(([val, label]) => (
+                <div key={label}>
+                  <div className="text-3xl font-black text-white">{val}</div>
+                  <div className="text-sm text-slate-500 mt-0.5">{label}</div>
                 </div>
-                <h3 className="font-black text-white mb-2">{p.title}</h3>
-                <p className="text-sm text-slate-400 leading-relaxed">{p.body}</p>
+              ))}
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* ── THE PROBLEM STRIP ── */}
+      <section className="px-6 py-20 relative" style={{ background: BG }}>
+        <div className="absolute top-0 left-0 right-0 h-px" style={{ background: 'linear-gradient(90deg,transparent,rgba(78,144,0,0.2),transparent)' }} />
+        <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-16 items-center">
+
+          <Reveal direction="left">
+            <div>
+              <div className="text-7xl md:text-8xl font-black leading-none mb-4" style={{ background: 'linear-gradient(135deg,#ef4444,#f97316)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
+                $18B+
               </div>
+              <div className="text-base text-slate-400 max-w-xs leading-relaxed">
+                In unnecessary payment processing fees are paid by US merchants every year — most of them without ever knowing.
+              </div>
+            </div>
+          </Reveal>
+
+          <Reveal direction="right" delay={150}>
+            <div className="flex flex-col gap-5 text-slate-400 leading-relaxed">
+              <p className="text-lg">The payment processing industry is intentionally complex. Tiered pricing, junk fees, regulatory markups, PCI surcharges — the model is designed to obscure the true cost of accepting a card.</p>
+              <p>Large enterprises employ internal compliance teams and payment operations staff to fight this. Small and mid-size businesses don&apos;t. That&apos;s the gap we exist to close.</p>
+              <p className="text-white font-bold text-lg">FinTech 5 brings enterprise-grade payment expertise to every business we work with — at zero cost to the merchant.</p>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* ── ORIGIN TIMELINE ── */}
+      <section className="px-6 py-24 relative" style={{ background: BG2 }}>
+        <div className="absolute top-0 left-0 right-0 h-px" style={{ background: 'linear-gradient(90deg,transparent,rgba(78,144,0,0.2),transparent)' }} />
+        <div className="max-w-3xl mx-auto">
+          <Reveal>
+            <div className="flex items-center gap-3 mb-16">
+              <div className="h-px w-8" style={{ background: '#4e9000' }} />
+              <span className="text-[11px] font-bold uppercase tracking-[0.2em]" style={{ color: '#6fc200' }}>Our History</span>
+            </div>
+          </Reveal>
+
+          <div className="relative">
+            {/* Vertical line */}
+            <div className="absolute left-0 top-3 bottom-3 w-px hidden md:block" style={{ background: 'linear-gradient(to bottom, rgba(78,144,0,0.5), transparent)' }} />
+
+            <div className="flex flex-col gap-14">
+              {timeline.map((item, i) => (
+                <Reveal key={item.era} delay={i * 100}>
+                  <div className="md:pl-10 relative">
+                    <div className="absolute -left-1.5 top-1.5 w-3 h-3 rounded-full hidden md:block" style={{ background: '#4e9000', boxShadow: '0 0 12px rgba(78,144,0,0.6)' }} />
+                    <div className="text-[11px] font-bold uppercase tracking-widest mb-2" style={{ color: '#4e9000' }}>{item.era}</div>
+                    <h3 className="text-xl font-black text-white mb-3">{item.title}</h3>
+                    <p className="text-slate-400 leading-relaxed">{item.body}</p>
+                  </div>
+                </Reveal>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── HOW WE OPERATE ── */}
+      <section className="px-6 py-24 relative" style={{ background: BG }}>
+        <div className="absolute top-0 left-0 right-0 h-px" style={{ background: 'linear-gradient(90deg,transparent,rgba(78,144,0,0.2),transparent)' }} />
+        <div className="max-w-5xl mx-auto">
+          <Reveal>
+            <div className="text-center mb-16">
+              <div className="flex items-center justify-center gap-3 mb-5">
+                <div className="h-px w-8" style={{ background: '#4e9000' }} />
+                <span className="text-[11px] font-bold uppercase tracking-[0.2em]" style={{ color: '#6fc200' }}>Our Commitments</span>
+                <div className="h-px w-8" style={{ background: '#4e9000' }} />
+              </div>
+              <h2 className="text-4xl md:text-5xl font-black tracking-tight text-white mb-4">Four rules we never break.</h2>
+              <p className="text-slate-400 max-w-lg mx-auto">The entire FinTech 5 model is built around these principles. They aren&apos;t values on a poster — they&apos;re the terms under which we operate.</p>
+            </div>
+          </Reveal>
+
+          <div className="grid md:grid-cols-2 gap-5">
+            {values.map((v, i) => (
+              <Reveal key={v.n} delay={i * 80}>
+                <div className="rounded-2xl p-8 h-full flex flex-col gap-5 hover:-translate-y-1 transition-all duration-300" style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)' }}>
+                  <div className="flex items-center gap-4">
+                    <div className="w-12 h-12 rounded-xl flex items-center justify-center shrink-0" style={{ background: 'rgba(78,144,0,0.12)', border: '1px solid rgba(78,144,0,0.2)', color: '#6fc200' }}>
+                      {v.icon}
+                    </div>
+                    <span className="text-3xl font-black" style={{ color: 'rgba(78,144,0,0.25)' }}>{v.n}</span>
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-black text-white mb-2">{v.title}</h3>
+                    <p className="text-slate-400 text-sm leading-relaxed">{v.body}</p>
+                  </div>
+                </div>
+              </Reveal>
             ))}
           </div>
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="px-6 py-20 relative overflow-hidden" style={{ background: '#4e9000' }}>
-        <div className="absolute inset-0 pointer-events-none" style={{ backgroundImage: 'linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px)', backgroundSize: '48px 48px' }} />
-        <div className="relative max-w-2xl mx-auto text-center">
-          <h2 className="text-2xl md:text-3xl font-black text-white mb-4">Talk to a Real Person Today</h2>
-          <p className="mb-8" style={{ color: 'rgba(255,255,255,0.75)' }}>No bots, no tickets. A dedicated payment specialist who knows your industry.</p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/get-your-savings-estimate" className="inline-flex items-center justify-center gap-2 px-8 py-4 font-bold rounded-xl transition-all hover:-translate-y-0.5" style={{ background: '#0f1a0f', color: '#6fc200' }}>
-              Get a Free Savings Estimate <ArrowRight className="w-5 h-5" />
-            </Link>
-            <Link href="/contact-us" className="inline-flex items-center justify-center gap-2 px-8 py-4 font-bold text-white border border-white/25 hover:border-white/50 rounded-xl transition-all">
-              Contact Us Directly
-            </Link>
-          </div>
+      {/* ── TRUST SIGNALS ── */}
+      <section className="px-6 py-16 relative" style={{ background: BG2 }}>
+        <div className="absolute top-0 left-0 right-0 h-px" style={{ background: 'linear-gradient(90deg,transparent,rgba(78,144,0,0.2),transparent)' }} />
+        <div className="max-w-5xl mx-auto">
+          <Reveal>
+            <div className="rounded-2xl p-8 md:p-12" style={{ background: 'rgba(78,144,0,0.07)', border: '1px solid rgba(78,144,0,0.2)' }}>
+              <div className="grid md:grid-cols-2 gap-10 items-center">
+                <div>
+                  <h2 className="text-2xl md:text-3xl font-black text-white mb-4">Working with FT5 is<br />risk-free by design.</h2>
+                  <div className="flex flex-col gap-3">
+                    {[
+                      'No contracts required — month-to-month always',
+                      'No consulting fees charged to merchants, ever',
+                      'No pressure to switch if your current rate is competitive',
+                      'No ownership stake in any processor partner',
+                      'Full transparency on every fee, every month',
+                    ].map(item => (
+                      <div key={item} className="flex items-center gap-3 text-sm text-slate-300">
+                        <CheckCircle2 className="w-4 h-4 shrink-0" style={{ color: '#4e9000' }} />
+                        {item}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+                <div className="flex flex-col gap-4">
+                  <Link href="/get-your-savings-estimate" className="flex items-center justify-center gap-2 px-8 py-4 font-black text-white rounded-xl transition-all hover:-translate-y-0.5" style={{ background: '#4e9000', boxShadow: '0 8px 24px rgba(78,144,0,0.35)' }}>
+                    Get a Free Savings Estimate <ArrowRight className="w-5 h-5" />
+                  </Link>
+                  <Link href="/contact-us" className="flex items-center justify-center gap-2 px-8 py-4 font-bold text-slate-300 border border-white/10 hover:border-white/25 rounded-xl transition-all">
+                    Talk to a Specialist
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </Reveal>
         </div>
       </section>
 
