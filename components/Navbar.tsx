@@ -3,6 +3,7 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { useState, useRef, useEffect } from 'react'
+import { usePathname } from 'next/navigation'
 import { ChevronDown, Menu, X, ArrowRight, Phone } from 'lucide-react'
 
 const solutions = [
@@ -32,8 +33,8 @@ const resources = [
   { label: 'Contact',   href: '/contact-us',  desc: 'Get in touch with us' },
 ]
 
-function Dropdown({ label, href, width = 280, children }: {
-  label: string; href?: string; width?: number; children: React.ReactNode
+function Dropdown({ label, href, width = 280, active = false, children }: {
+  label: string; href?: string; width?: number; active?: boolean; children: React.ReactNode
 }) {
   const [open, setOpen] = useState(false)
   const ref = useRef<HTMLDivElement>(null)
@@ -46,7 +47,11 @@ function Dropdown({ label, href, width = 280, children }: {
     <div ref={ref} className="relative" onMouseEnter={() => setOpen(true)} onMouseLeave={() => setOpen(false)}>
       <button
         onClick={() => setOpen(v => !v)}
-        className="flex items-center gap-1 text-sm font-semibold text-slate-400 hover:text-white transition-colors py-2 px-3.5 rounded-lg hover:bg-white/5 whitespace-nowrap"
+        className={`flex items-center gap-1 text-sm font-semibold transition-colors py-2 px-3.5 rounded-lg whitespace-nowrap ${
+          active
+            ? 'text-[#6fc200] bg-[rgba(78,144,0,0.08)]'
+            : 'text-slate-400 hover:text-white hover:bg-white/5'
+        }`}
       >
         {href
           ? <Link href={href} onClick={e => e.stopPropagation()} className="hover:text-white transition-colors">{label}</Link>
@@ -69,11 +74,25 @@ function Dropdown({ label, href, width = 280, children }: {
 }
 
 export default function Navbar() {
+  const pathname = usePathname()
   const [mobileOpen, setMobileOpen]         = useState(false)
   const [mobileSolutions, setMobileSolutions]   = useState(false)
   const [mobileIndustries, setMobileIndustries] = useState(false)
   const [mobileResources, setMobileResources]   = useState(false)
   const [scrolled, setScrolled]             = useState(false)
+
+  // Active nav helpers
+  const isActive = (href: string) => pathname === href
+  const isActivePrefix = (prefix: string) => pathname.startsWith(prefix)
+
+  const navLinkClass = (href: string, prefix?: string) => {
+    const active = prefix ? isActivePrefix(prefix) : isActive(href)
+    return `text-sm font-semibold transition-colors px-3.5 py-2 rounded-lg whitespace-nowrap ${
+      active
+        ? 'text-[#6fc200] bg-[rgba(78,144,0,0.08)]'
+        : 'text-slate-400 hover:text-white hover:bg-white/5'
+    }`
+  }
 
   useEffect(() => {
     const fn = () => setScrolled(window.scrollY > 20)
@@ -112,11 +131,11 @@ export default function Navbar() {
         {/* ── Desktop nav — auto-width, guaranteed center ── */}
         <div className="hidden md:flex items-center gap-1">
 
-          <Link href="/" className="text-sm font-semibold text-slate-400 hover:text-white transition-colors px-3.5 py-2 rounded-lg hover:bg-white/5">
+          <Link href="/" className={navLinkClass('/')}>
             Home
           </Link>
 
-          <Dropdown label="Solutions" href="/solutions" width={320}>
+          <Dropdown label="Solutions" href="/solutions" width={320} active={isActivePrefix('/solutions')}>
             <div className="p-2">
               {solutions.map(s => (
                 <Link
@@ -142,7 +161,7 @@ export default function Navbar() {
             </div>
           </Dropdown>
 
-          <Dropdown label="Industries" href="/industries" width={360}>
+          <Dropdown label="Industries" href="/industries" width={360} active={isActivePrefix('/industries')}>
             <div className="p-2">
               {/* 2-col grid — wide enough so nothing wraps */}
               <div className="grid grid-cols-2 gap-0.5">
@@ -170,7 +189,7 @@ export default function Navbar() {
             </div>
           </Dropdown>
 
-          <Dropdown label="Resources" href="/resources" width={260}>
+          <Dropdown label="Resources" href="/resources" width={260} active={isActivePrefix('/resources') || isActivePrefix('/blog') || isActivePrefix('/about') || isActive('/calculator') || isActive('/contact-us')}>
             <div className="p-2">
               {resources.map(r => (
                 <Link
@@ -198,14 +217,13 @@ export default function Navbar() {
 
           <Link
             href="/get-your-savings-estimate"
-            className="text-sm font-semibold px-3.5 py-2 rounded-lg transition-all whitespace-nowrap hover:bg-white/5"
-            style={{ color: '#6fc200' }}
+            className={navLinkClass('/get-your-savings-estimate')}
           >
             Get Estimate
           </Link>
         </div>
 
-        {/* ── Desktop CTAs — right edge of the 1fr zone ── */}
+        {/* ── Desktop CTAs — right edge ── */}
         <div className="hidden md:flex items-center justify-end gap-2.5">
           <a href="tel:6469417853" className="flex items-center gap-1.5 text-[12px] font-semibold text-slate-500 hover:text-slate-300 transition-colors whitespace-nowrap">
             <Phone className="w-3.5 h-3.5 shrink-0" /> (646) 941-7853
@@ -216,13 +234,6 @@ export default function Navbar() {
           >
             Client Portal
           </a>
-          <Link
-            href="/get-your-savings-estimate"
-            className="inline-flex items-center gap-2 px-4 py-2.5 text-sm font-black text-white rounded-xl transition-all hover:-translate-y-0.5 whitespace-nowrap"
-            style={{ background: '#4e9000', boxShadow: '0 4px 14px rgba(78,144,0,0.35)' }}
-          >
-            Free Audit <ArrowRight className="w-4 h-4" />
-          </Link>
         </div>
 
         {/* Mobile toggle */}
