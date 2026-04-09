@@ -11,7 +11,7 @@ export default function ContactPage() {
     <div className="flex flex-col w-full bg-white min-h-screen">
 
       {/* Hero */}
-      <section className="bg-[#060d06] text-white px-6 py-24">
+      <section className="bg-[#060d06] text-white px-6 pt-44 pb-24">
         <div className="max-w-4xl mx-auto">
           <div className="inline-flex items-center gap-2 mb-6 px-4 py-1.5 bg-brand-600/20 text-brand-300 border border-brand-600/30 rounded-full text-xs font-bold uppercase tracking-widest">
             Get in Touch

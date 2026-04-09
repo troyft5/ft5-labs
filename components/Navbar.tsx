@@ -70,8 +70,8 @@ export default function Navbar() {
   }, [])
 
   const navBg = scrolled
-    ? 'bg-[#060d06]/95 backdrop-blur-xl border-b border-white/8 shadow-xl shadow-black/20'
-    : 'bg-transparent border-b border-transparent'
+    ? 'bg-[#040b04]/98 backdrop-blur-xl border-b border-white/8 shadow-2xl shadow-black/30'
+    : 'bg-[#040b04]/80 backdrop-blur-md border-b border-white/5'
 
   return (
     <nav className={`fixed top-0 w-full z-50 transition-all duration-500 ${navBg}`}>
