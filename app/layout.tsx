@@ -15,7 +15,7 @@ export const metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${inter.variable} scroll-smooth`}>
-      <body className="bg-[#080f08] text-slate-900 font-sans antialiased selection:bg-[#4e9000] selection:text-white min-h-screen flex flex-col">
+      <body className="bg-[#0f1a0f] text-slate-900 font-sans antialiased selection:bg-[#4e9000] selection:text-white min-h-screen flex flex-col">
 
         <Navbar />
 

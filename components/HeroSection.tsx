@@ -35,7 +35,7 @@ export default function HeroSection() {
       {/* ─────────────────────────────────────────
           HERO  —  Dark, bold, authoritative
       ───────────────────────────────────────── */}
-      <section className="relative bg-[#080f08] min-h-screen flex flex-col justify-center overflow-hidden">
+      <section className="relative bg-[#0f1a0f] min-h-screen flex flex-col justify-center overflow-hidden">
 
         {/* Layered background: green gradient wash (mirrors their photo-overlay brand aesthetic) */}
         <div className="absolute inset-0 pointer-events-none">
@@ -199,7 +199,7 @@ export default function HeroSection() {
       </section>
 
       {/* ── PROCESSOR MARQUEE ── */}
-      <section className="bg-[#080f08] border-t border-white/5 overflow-hidden py-4">
+      <section className="bg-[#0f1a0f] border-t border-white/5 overflow-hidden py-4">
         <div className="flex gap-0 w-max animate-marquee">
           {[...processors, ...processors].map((p, i) => (
             <div key={i} className="flex items-center gap-8 px-8 text-[#2a3a1a] font-bold text-[11px] uppercase tracking-widest whitespace-nowrap">
