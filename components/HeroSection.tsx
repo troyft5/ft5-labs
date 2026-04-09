@@ -35,29 +35,37 @@ export default function HeroSection() {
       {/* ── HERO — bright, welcoming, Stripe-style ── */}
       <section className="relative bg-white overflow-hidden min-h-screen flex items-center">
 
-        {/* ── Background: subtle sweep + morphing blobs ── */}
-        <div
-          className="absolute inset-0 pointer-events-none animate-gradient-sweep"
-          style={{
-            background: 'linear-gradient(135deg, #ffffff 0%, #f4fdf7 25%, #ffffff 50%, #f0fdf4 75%, #ffffff 100%)',
-            backgroundSize: '300% 300%',
-          }}
-        />
-        {/* Morphing blobs — fluid organic shapes that slowly drift */}
-        <div className="absolute inset-0 overflow-hidden pointer-events-none" style={{ filter: 'blur(55px)' }}>
+        {/* ── Morphing blob background ── */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none" style={{ filter: 'blur(40px)' }}>
           <div
             className="absolute animate-morph-1"
-            style={{ width: '520px', height: '480px', top: '-8%', right: '-5%', background: 'radial-gradient(ellipse, rgba(134,239,172,0.28) 0%, rgba(74,222,128,0.14) 55%, transparent 80%)' }}
+            style={{
+              width: '800px', height: '750px',
+              top: '-20%', right: '-15%',
+              background: 'radial-gradient(ellipse, rgba(134,239,172,0.50) 0%, rgba(74,222,128,0.25) 50%, transparent 75%)',
+            }}
           />
           <div
             className="absolute animate-morph-2"
-            style={{ width: '460px', height: '500px', bottom: '-12%', left: '-8%', background: 'radial-gradient(ellipse, rgba(163,230,53,0.22) 0%, rgba(101,163,13,0.10) 55%, transparent 80%)', animationDelay: '8s' }}
+            style={{
+              width: '700px', height: '700px',
+              bottom: '-20%', left: '-15%',
+              background: 'radial-gradient(ellipse, rgba(163,230,53,0.40) 0%, rgba(101,163,13,0.20) 50%, transparent 75%)',
+              animationDelay: '6s',
+            }}
           />
           <div
             className="absolute animate-morph-3"
-            style={{ width: '380px', height: '420px', top: '25%', left: '38%', background: 'radial-gradient(ellipse, rgba(110,231,183,0.18) 0%, rgba(52,211,153,0.08) 55%, transparent 80%)', animationDelay: '4s' }}
+            style={{
+              width: '500px', height: '550px',
+              top: '20%', left: '35%',
+              background: 'radial-gradient(ellipse, rgba(110,231,183,0.35) 0%, rgba(52,211,153,0.15) 50%, transparent 75%)',
+              animationDelay: '3s',
+            }}
           />
         </div>
+        {/* White wash — keeps it professional */}
+        <div className="absolute inset-0 bg-white/50 pointer-events-none" />
 
         <div className="relative w-full max-w-7xl mx-auto px-6 lg:px-10 pt-28 pb-16">
           <div className="grid lg:grid-cols-[1fr_460px] gap-12 xl:gap-16 items-center">
