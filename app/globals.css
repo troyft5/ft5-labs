@@ -78,6 +78,14 @@
   100% { background-position: 0% 50%; }
 }
 
+/* ── Gradient sweep (hero bg) ── */
+@keyframes gradientSweep {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+.animate-gradient-sweep { animation: gradientSweep 20s ease infinite; }
+
 /* ── Marquee ── */
 @keyframes marquee {
   from { transform: translateX(0); }

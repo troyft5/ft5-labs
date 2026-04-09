@@ -35,33 +35,25 @@ export default function HeroSection() {
       {/* ── HERO — bright, welcoming, Stripe-style ── */}
       <section className="relative bg-white overflow-hidden min-h-screen flex items-center">
 
-        {/* ── Animated gradient mesh (Stripe-style) ── */}
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute inset-0" style={{ filter: 'blur(60px)' }}>
-            {/* Blob 1 — large vivid green, top-right */}
-            <div
-              className="absolute rounded-full animate-blob-1"
-              style={{ width: '700px', height: '700px', top: '-15%', right: '-10%', background: 'radial-gradient(circle, #86efac 0%, #4ade80 50%, transparent 80%)', opacity: 0.75 }}
-            />
-            {/* Blob 2 — lime green, bottom-left */}
-            <div
-              className="absolute rounded-full animate-blob-2"
-              style={{ width: '600px', height: '600px', bottom: '-20%', left: '-10%', background: 'radial-gradient(circle, #a3e635 0%, #65a30d 50%, transparent 80%)', opacity: 0.6, animationDelay: '3s' }}
-            />
-            {/* Blob 3 — yellow-green, center-right */}
-            <div
-              className="absolute rounded-full animate-blob-3"
-              style={{ width: '500px', height: '500px', top: '15%', left: '40%', background: 'radial-gradient(circle, #d9f99d 0%, #84cc16 50%, transparent 80%)', opacity: 0.55, animationDelay: '6s' }}
-            />
-            {/* Blob 4 — teal, top-left */}
-            <div
-              className="absolute rounded-full animate-blob-4"
-              style={{ width: '400px', height: '400px', top: '0%', left: '-5%', background: 'radial-gradient(circle, #6ee7b7 0%, #059669 50%, transparent 80%)', opacity: 0.45, animationDelay: '1.5s' }}
-            />
-          </div>
-          {/* Very light veil — just enough to keep text readable */}
-          <div className="absolute inset-0 bg-white/25" />
-        </div>
+        {/* ── Subtle animated background — professional grade ── */}
+        {/* Slow gradient sweep: white to near-white green tones only */}
+        <div
+          className="absolute inset-0 pointer-events-none animate-gradient-sweep"
+          style={{
+            background: 'linear-gradient(135deg, #ffffff 0%, #f4fdf7 25%, #ffffff 50%, #f0fdf4 75%, #ffffff 100%)',
+            backgroundSize: '300% 300%',
+          }}
+        />
+        {/* Single dignified glow — top right only, very soft */}
+        <div
+          className="absolute pointer-events-none"
+          style={{
+            width: '55vw', height: '65vh',
+            top: '-5%', right: '-8%',
+            background: 'radial-gradient(ellipse at 60% 40%, rgba(74,222,128,0.12) 0%, rgba(134,239,172,0.06) 45%, transparent 70%)',
+            filter: 'blur(50px)',
+          }}
+        />
 
         <div className="relative w-full max-w-7xl mx-auto px-6 lg:px-10 pt-28 pb-16">
           <div className="grid lg:grid-cols-[1fr_460px] gap-12 xl:gap-16 items-center">
