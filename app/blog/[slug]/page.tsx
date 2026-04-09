@@ -65,23 +65,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
             {post.excerpt}
           </p>
 
-          <div className="prose prose-lg max-w-none
-            prose-headings:text-white prose-headings:font-black prose-headings:tracking-tight
-            prose-h2:text-2xl prose-h2:mt-12 prose-h2:mb-5
-            prose-h3:text-xl prose-h3:mt-8 prose-h3:mb-4
-            prose-p:text-slate-400 prose-p:leading-relaxed prose-p:mb-5
-            prose-a:text-[#6fc200] prose-a:no-underline hover:prose-a:underline
-            prose-strong:text-white prose-strong:font-bold
-            prose-li:text-slate-400
-            prose-ul:text-slate-400 prose-ul:my-4 prose-ul:pl-6
-            prose-ol:text-slate-400 prose-ol:my-4
-            prose-blockquote:border-l-4 prose-blockquote:border-[#4e9000] prose-blockquote:text-slate-300 prose-blockquote:italic prose-blockquote:bg-transparent prose-blockquote:pl-6 prose-blockquote:py-1
-            prose-code:text-[#6fc200] prose-code:bg-white/5 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:text-sm
-            prose-table:border-collapse prose-th:text-white prose-th:font-bold prose-th:text-sm
-            prose-td:text-slate-400 prose-td:text-sm prose-td:border prose-td:border-white/10 prose-td:px-3 prose-td:py-2
-            prose-th:border prose-th:border-white/10 prose-th:px-3 prose-th:py-2 prose-th:bg-white/5
-            prose-hr:border-white/10
-          ">
+          <div className="article-body">
             <ReactMarkdown>{post.content}</ReactMarkdown>
           </div>
 

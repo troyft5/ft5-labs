@@ -344,3 +344,46 @@
   height: 1px;
   background: linear-gradient(90deg, transparent, rgba(78,144,0,0.4), transparent);
 }
+
+/* ── Blog article body — explicit colors, bypasses Tailwind prose modifiers ── */
+.article-body { color: #cbd5e1; font-size: 1.125rem; line-height: 1.85; }
+.article-body h1, .article-body h2, .article-body h3, .article-body h4, .article-body h5 {
+  color: #ffffff; font-weight: 900; letter-spacing: -0.025em; line-height: 1.2;
+}
+.article-body h2 { font-size: 1.75rem; margin-top: 3rem; margin-bottom: 1rem; }
+.article-body h3 { font-size: 1.375rem; margin-top: 2rem; margin-bottom: 0.75rem; }
+.article-body h4 { font-size: 1.125rem; margin-top: 1.5rem; margin-bottom: 0.5rem; }
+.article-body p  { color: #cbd5e1; margin-bottom: 1.4rem; }
+.article-body a  { color: #6fc200; text-decoration: none; transition: opacity 0.15s; }
+.article-body a:hover { opacity: 0.8; text-decoration: underline; }
+.article-body strong { color: #ffffff; font-weight: 700; }
+.article-body em { color: #e2e8f0; font-style: italic; }
+.article-body ul, .article-body ol { color: #cbd5e1; padding-left: 1.75rem; margin: 1.25rem 0; }
+.article-body li { margin-bottom: 0.5rem; }
+.article-body li::marker { color: #4e9000; }
+.article-body blockquote {
+  border-left: 3px solid #4e9000; padding-left: 1.5rem;
+  color: #e2e8f0; font-style: italic; margin: 2rem 0;
+}
+.article-body code:not(pre code) {
+  color: #6fc200; background: rgba(255,255,255,0.06);
+  padding: 0.1em 0.45em; border-radius: 5px; font-size: 0.875em;
+}
+.article-body pre {
+  background: #0a1208; border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 12px; padding: 1.25rem 1.5rem; overflow-x: auto;
+  margin: 1.75rem 0;
+}
+.article-body pre code { background: transparent; color: #e2e8f0; padding: 0; font-size: 0.9rem; }
+.article-body hr { border: none; border-top: 1px solid rgba(255,255,255,0.1); margin: 3rem 0; }
+.article-body table { border-collapse: collapse; width: 100%; margin: 1.75rem 0; }
+.article-body th {
+  color: #ffffff; font-weight: 700; font-size: 0.875rem;
+  border: 1px solid rgba(255,255,255,0.12); padding: 10px 14px;
+  background: rgba(255,255,255,0.06); text-align: left;
+}
+.article-body td {
+  color: #cbd5e1; font-size: 0.875rem;
+  border: 1px solid rgba(255,255,255,0.08); padding: 10px 14px;
+}
+.article-body img { border-radius: 12px; max-width: 100%; margin: 2rem auto; display: block; }
