@@ -74,10 +74,13 @@ export default function SchedulePage() {
           ) : (
             <div className="rounded-2xl p-16 text-center glass-card">
               <div className="text-4xl mb-4">📅</div>
-              <h3 className="text-lg font-black text-white mb-3">Scheduler coming soon</h3>
-              <p className="text-sm text-slate-500 mb-6">Set <code className="text-[#6fc200] text-xs">NEXT_PUBLIC_SCHEDULE_URL</code> in your environment to activate the booking widget.</p>
+              <h3 className="text-lg font-black text-white mb-3">Booking link coming soon</h3>
+              <p className="text-sm text-slate-500 mb-2 leading-relaxed">
+                Set your Google Calendar Appointment Schedule URL in <code className="text-[#6fc200] text-xs">NEXT_PUBLIC_SCHEDULE_URL</code> to activate booking.
+              </p>
+              <p className="text-xs text-slate-600 mb-6">Google Calendar → Appointment Schedules → Open Booking Page → Copy URL</p>
               <a href="tel:6469417853" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-black text-white" style={{ background: '#4e9000' }}>
-                Call us directly instead
+                Call us directly in the meantime
               </a>
             </div>
           )}
