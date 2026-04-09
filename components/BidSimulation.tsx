@@ -3,14 +3,14 @@ import { useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
 
 const BIDS = [
-  { name: 'Worldpay',          rate: 2.19, mo: 1861 },
-  { name: 'First Data / Fiserv', rate: 2.31, mo: 1964 },
-  { name: 'Elavon',            rate: 2.08, mo: 1768 },
-  { name: 'TSYS',              rate: 1.93, mo: 1641 },
-  { name: 'Heartland',         rate: 1.87, mo: 1590, best: true },
-  { name: 'Priority Commerce', rate: 2.14, mo: 1819 },
-  { name: 'Paysafe',           rate: 2.26, mo: 1921 },
-  { name: 'Global Payments',   rate: 2.37, mo: 2015 },
+  { name: 'Partner A',  rate: 2.19, mo: 1861 },
+  { name: 'Partner B',  rate: 2.31, mo: 1964 },
+  { name: 'Partner C',  rate: 2.08, mo: 1768 },
+  { name: 'Partner D',  rate: 1.93, mo: 1641 },
+  { name: 'Partner E',  rate: 1.87, mo: 1590, best: true },
+  { name: 'Partner F',  rate: 2.14, mo: 1819 },
+  { name: 'Partner G',  rate: 2.26, mo: 1921 },
+  { name: 'Partner H',  rate: 2.37, mo: 2015 },
 ]
 
 const BASE = 2618 // Square/Stripe at $85k/mo

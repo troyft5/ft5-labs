@@ -3,10 +3,10 @@ import { useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
 
 const BARS = [
-  { label: 'Square / Stripe',         sub: '2.6%–2.9% flat',  mo: 2618, yr: 31416, w: 100, color: '#64748b' },
-  { label: 'Tiered Pricing',           sub: 'Qual/MQ/NQ tiers', mo: 2238, yr: 26856, w: 85,  color: '#ef4444' },
-  { label: 'Interchange Plus (market)',sub: 'IC + 0.35%',       mo: 1893, yr: 22716, w: 72,  color: '#f59e0b' },
-  { label: 'FT5 Competitive Bid',      sub: 'IC + 0.10%–0.18%',mo: 1603, yr: 19236, w: 61,  color: '#4e9000', best: true },
+  { label: 'Flat Rate (typical)',       sub: '2.6%–2.9% flat',  mo: 2618, yr: 31416, w: 100, color: '#64748b' },
+  { label: 'Tiered Pricing (typical)',  sub: 'Qual/MQ/NQ tiers', mo: 2238, yr: 26856, w: 85,  color: '#ef4444' },
+  { label: 'Interchange Plus (market)', sub: 'IC + ~0.35%',      mo: 1893, yr: 22716, w: 72,  color: '#f59e0b' },
+  { label: 'FT5 Competitive Bid',       sub: 'IC + 0.10%–0.18%',mo: 1603, yr: 19236, w: 61,  color: '#4e9000', best: true },
 ]
 
 function fmt(n: number) { return '$' + n.toLocaleString() }
