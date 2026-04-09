@@ -71,7 +71,7 @@ export default function Navbar() {
 
   const navBg = scrolled
     ? 'bg-white/95 backdrop-blur-xl border-b border-slate-100 shadow-sm'
-    : 'bg-white/90 backdrop-blur-md border-b border-slate-100'
+    : 'bg-transparent border-b border-transparent'
 
   return (
     <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${navBg}`}>
