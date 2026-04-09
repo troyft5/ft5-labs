@@ -1,0 +1,106 @@
+import Link from 'next/link'
+import { Calendar, ArrowRight } from 'lucide-react'
+import { Metadata } from 'next'
+import Script from 'next/script'
+
+export const metadata: Metadata = {
+  title: 'Schedule a Free Rate Review | FinTech 5',
+  description: 'Book a free 15-minute call with a FinTech 5 payment specialist. We\'ll review your current rates, answer your questions, and tell you exactly how much you can save.',
+}
+
+const BG  = '#0f1a0f'
+const BG2 = '#0a1208'
+
+const CALENDLY_URL = process.env.NEXT_PUBLIC_CALENDLY_URL ?? 'https://calendly.com/fintech5group'
+
+export default function SchedulePage() {
+  return (
+    <div className="flex flex-col w-full min-h-screen" style={{ background: BG }}>
+
+      {/* ── HERO ── */}
+      <section className="relative px-6 pt-40 pb-16 overflow-hidden" style={{ background: BG2 }}>
+        <div className="absolute top-0 left-0 right-0 h-[2px]" style={{ background: 'linear-gradient(90deg,transparent,rgba(78,144,0,0.5),transparent)' }} />
+        <div className="absolute inset-0 pointer-events-none" style={{ backgroundImage: 'radial-gradient(rgba(78,144,0,0.08) 1px, transparent 1px)', backgroundSize: '32px 32px' }} />
+        <div className="absolute bottom-0 left-0 right-0 h-32 pointer-events-none" style={{ background: 'linear-gradient(to top, #0a1208, transparent)' }} />
+
+        <div className="relative max-w-3xl mx-auto text-center">
+          <div className="flex items-center justify-center gap-3 mb-6">
+            <div className="h-px w-8" style={{ background: '#4e9000' }} />
+            <span className="text-[11px] font-bold uppercase tracking-[0.2em]" style={{ color: '#6fc200' }}>Free 15-Minute Call</span>
+            <div className="h-px w-8" style={{ background: '#4e9000' }} />
+          </div>
+          <h1 className="text-4xl md:text-6xl font-black tracking-tight text-white leading-none mb-6">
+            Talk to a real<br />
+            <span style={{ background: 'linear-gradient(135deg,#9de84a,#4e9000)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
+              payment specialist.
+            </span>
+          </h1>
+          <p className="text-lg text-slate-400 max-w-lg mx-auto leading-relaxed mb-10">
+            No sales pitch. We&apos;ll review your current rates, answer your questions live, and tell you honestly whether we can save you money.
+          </p>
+
+          {/* Quick trust bar */}
+          <div className="flex flex-wrap items-center justify-center gap-8 text-xs text-slate-600">
+            {[
+              { icon: '⏱', text: '15 minutes' },
+              { icon: '💸', text: 'Completely free' },
+              { icon: '🚫', text: 'No pitch or pressure' },
+              { icon: '📊', text: 'Bring your statement' },
+            ].map(item => (
+              <div key={item.text} className="flex items-center gap-2">
+                <span>{item.icon}</span>
+                <span className="font-semibold">{item.text}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── CALENDLY EMBED ── */}
+      <section className="px-6 py-12 relative" style={{ background: BG }}>
+        <div className="absolute top-0 left-0 right-0 h-px" style={{ background: 'linear-gradient(90deg,transparent,rgba(78,144,0,0.2),transparent)' }} />
+        <div className="max-w-3xl mx-auto">
+          {/* Calendly inline widget */}
+          <div
+            className="calendly-inline-widget w-full rounded-2xl overflow-hidden"
+            data-url={`${CALENDLY_URL}?hide_gdpr_banner=1&background_color=0f1a0f&text_color=ffffff&primary_color=4e9000`}
+            style={{ minHeight: '700px' }}
+          />
+          <Script src="https://assets.calendly.com/assets/external/widget.js" strategy="afterInteractive" />
+        </div>
+      </section>
+
+      {/* ── PREP TIPS ── */}
+      <section className="px-6 py-16 relative" style={{ background: BG2 }}>
+        <div className="absolute top-0 left-0 right-0 h-px" style={{ background: 'linear-gradient(90deg,transparent,rgba(78,144,0,0.2),transparent)' }} />
+        <div className="max-w-3xl mx-auto">
+          <div className="flex items-center gap-3 mb-8">
+            <div className="h-px w-8" style={{ background: '#4e9000' }} />
+            <span className="text-[11px] font-bold uppercase tracking-[0.2em]" style={{ color: '#6fc200' }}>To get the most from your call</span>
+          </div>
+          <div className="grid md:grid-cols-3 gap-5">
+            {[
+              { icon: '📄', title: 'Have a statement ready', body: 'Your most recent merchant processing statement — even on your phone — lets us give you real numbers on the spot.' },
+              { icon: '💳', title: 'Know your volume', body: 'Monthly card processing volume and rough transaction count. Ballpark is fine.' },
+              { icon: '❓', title: 'Bring your questions', body: 'Confused about your rate structure, pricing model, or hardware costs? We\'ll break it all down live.' },
+            ].map(item => (
+              <div key={item.title} className="rounded-2xl p-6" style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)' }}>
+                <div className="text-2xl mb-3">{item.icon}</div>
+                <h3 className="font-black text-white text-sm mb-2">{item.title}</h3>
+                <p className="text-xs text-slate-500 leading-relaxed">{item.body}</p>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-8 pt-8 flex items-center justify-between gap-6 flex-wrap" style={{ borderTop: '1px solid rgba(255,255,255,0.07)' }}>
+            <p className="text-sm text-slate-600">Prefer email? We also respond within 1 business day.</p>
+            <Link href="/contact-us" className="inline-flex items-center gap-2 text-sm font-bold transition-colors" style={{ color: '#6fc200' }}>
+              Contact us instead <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  )
+}

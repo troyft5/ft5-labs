@@ -2,6 +2,8 @@ import { getPostData, getSortedPostsData } from '@/lib/blog'
 import ReactMarkdown from 'react-markdown'
 import Link from 'next/link'
 import { ArrowLeft, Calendar, Clock, ArrowRight, BookOpen } from 'lucide-react'
+import ReadingProgress from '@/components/ReadingProgress'
+import NewsletterForm from '@/components/NewsletterForm'
 
 const BG  = '#0f1a0f'
 const BG2 = '#0a1208'
@@ -28,6 +30,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
 
   return (
     <div className="flex flex-col w-full" style={{ background: BG }}>
+      <ReadingProgress />
 
       {/* ── ARTICLE HEADER ── */}
       <div className="px-6 pt-36 pb-12 relative" style={{ background: BG2 }}>
@@ -79,6 +82,14 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
             <Link href="/get-your-savings-estimate" className="shrink-0 inline-flex items-center gap-2 px-6 py-3.5 text-sm font-black text-white rounded-xl transition-all hover:-translate-y-0.5" style={{ background: '#4e9000', boxShadow: '0 8px 20px rgba(78,144,0,0.3)' }}>
               Get Free Estimate <ArrowRight className="w-4 h-4" />
             </Link>
+          </div>
+
+          {/* Newsletter capture stripe */}
+          <div className="my-12 rounded-2xl p-8" style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)' }}>
+            <div className="text-[10px] font-bold uppercase tracking-widest mb-2" style={{ color: '#6fc200' }}>Monthly Rate Intelligence</div>
+            <h3 className="text-lg font-black text-white mb-2">Get notified when interchange rates change.</h3>
+            <p className="text-sm text-slate-500 mb-5">We track Visa, Mastercard, and Amex rate tables every quarter and alert our list when something shifts — free, no spam.</p>
+            <NewsletterForm />
           </div>
 
           {/* Back nav */}

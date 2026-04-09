@@ -6,6 +6,9 @@ import Navbar from '@/components/Navbar'
 import Image from 'next/image'
 import Script from 'next/script'
 import { Analytics } from '@vercel/analytics/next'
+import MobileCTA from '@/components/MobileCTA'
+import ScrollToTop from '@/components/ScrollToTop'
+import CookieConsent from '@/components/CookieConsent'
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
 
@@ -44,6 +47,19 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={`${inter.variable} scroll-smooth`}>
       <body className="bg-[#0f1a0f] text-slate-900 font-sans antialiased selection:bg-[#4e9000] selection:text-white min-h-screen flex flex-col">
+
+        {/* ── Global film grain overlay — the Plaid premium feel ── */}
+        <div
+          aria-hidden="true"
+          className="pointer-events-none fixed inset-0 z-[999]"
+          style={{
+            backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E")`,
+            backgroundRepeat: 'repeat',
+            backgroundSize: '192px 192px',
+            opacity: 0.028,
+            mixBlendMode: 'overlay',
+          }}
+        />
 
         {/* JSON-LD Structured Data */}
         <script
@@ -100,6 +116,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <main className="flex-grow relative z-10">
           {children}
         </main>
+
+        <MobileCTA />
+        <ScrollToTop />
+        <CookieConsent />
 
         {/* Google Analytics 4 — set NEXT_PUBLIC_GA_ID in env */}
         {process.env.NEXT_PUBLIC_GA_ID && (
