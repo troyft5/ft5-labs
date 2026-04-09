@@ -3,7 +3,7 @@ import { Inter } from 'next/font/google'
 import Link from 'next/link'
 import { Phone, Mail, MapPin } from 'lucide-react'
 import Navbar from '@/components/Navbar'
-import LogoMark from '@/components/Logo'
+import Image from 'next/image'
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
 
@@ -31,7 +31,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               {/* Brand */}
               <div className="md:col-span-2">
                 <Link href="/" className="inline-block mb-5">
-                  <LogoMark className="h-10 w-auto" showText={true} textColor="#ffffff" markColor="#336600" />
+                  <Image src="/Logos/FT5_White_Green.svg" alt="FinTech 5" width={130} height={95} className="h-10 w-auto" />
                 </Link>
                 <p className="text-sm leading-relaxed max-w-xs mb-6 text-slate-400">
                   Payment Processing Consultants. We negotiate across 10+ processors to lower your rates, eliminate junk fees, and protect your cash flow.

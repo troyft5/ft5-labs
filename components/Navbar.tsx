@@ -1,9 +1,9 @@
 'use client'
 
 import Link from 'next/link'
+import Image from 'next/image'
 import { useState, useRef, useEffect } from 'react'
 import { ChevronDown, Menu, X, ArrowRight } from 'lucide-react'
-import LogoMark from '@/components/Logo'
 
 const solutions = [
   { label: 'In-Person Payments', href: '/solutions/in-person-payments', desc: 'Smart terminals & POS systems' },
@@ -79,7 +79,7 @@ export default function Navbar() {
 
         {/* Logo */}
         <Link href="/" className="flex items-center" onClick={() => setMobileOpen(false)}>
-          <LogoMark className="h-9 w-auto" showText={true} textColor="#ffffff" markColor="#336600" />
+          <Image src="/Logos/FT5_White_Green.svg" alt="FinTech 5" width={110} height={80} className="h-9 w-auto" priority />
         </Link>
 
         {/* Desktop Nav */}
