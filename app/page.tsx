@@ -71,26 +71,23 @@ export default function Home() {
               <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-slate-600">We negotiate across 10+ tier-1 processors so you don&apos;t have to</p>
             </div>
 
-            {/* Processor name badges */}
+            {/* Trust chips — no named processors */}
             <div className="flex flex-wrap items-center justify-center gap-3">
               {[
-                'Heartland', 'Chase Paymentech', 'Fiserv', 'Global Payments',
-                'TSYS', 'Worldpay', 'Elavon', 'Paysafe', 'Shift4', 'Nuvei',
-              ].map((p) => (
+                { label: '10+ Tier-1 Processors',    note: 'bidding for your business' },
+                { label: 'Interchange-Plus Pricing',  note: '100% pass-through, no markup' },
+                { label: 'Blind Competitive Bids',    note: 'processors don\'t see each other' },
+                { label: 'Zero Consulting Fees',      note: 'we\'re paid by the processor you choose' },
+              ].map((chip) => (
                 <div
-                  key={p}
-                  className="px-4 py-2 rounded-xl text-xs font-bold text-slate-500"
+                  key={chip.label}
+                  className="flex flex-col items-center px-5 py-3 rounded-xl"
                   style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)' }}
                 >
-                  {p}
+                  <span className="text-xs font-black text-slate-300 whitespace-nowrap">{chip.label}</span>
+                  <span className="text-[10px] text-slate-600 mt-0.5 whitespace-nowrap">{chip.note}</span>
                 </div>
               ))}
-              <div
-                className="px-4 py-2 rounded-xl text-xs font-bold"
-                style={{ background: 'rgba(78,144,0,0.1)', border: '1px solid rgba(78,144,0,0.25)', color: '#6fc200' }}
-              >
-                + more bidding
-              </div>
             </div>
 
             {/* Divider */}
