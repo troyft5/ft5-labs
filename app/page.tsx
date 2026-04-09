@@ -152,20 +152,20 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── WHY FINTECH 5 (dark noise) ── */}
-      <section className="px-6 py-24 bg-[#030906] noise" id="why">
+      {/* ── WHY FINTECH 5 (light) ── */}
+      <section className="px-6 py-24 bg-slate-50" id="why">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <div className="inline-flex items-center gap-2 mb-4 px-3 py-1.5 bg-brand-600/10 text-brand-400 border border-brand-600/20 rounded-full text-xs font-bold uppercase tracking-widest">Why FinTech 5</div>
-            <h2 className="text-4xl md:text-5xl font-black tracking-tight text-white mb-4">Built Different.<br />By Design.</h2>
-            <p className="text-slate-400 max-w-xl mx-auto text-lg">We&apos;re not a processor. We&apos;re not a software company. We&apos;re the experts who sit on your side of the table.</p>
+            <div className="inline-flex items-center gap-2 mb-4 px-3 py-1.5 bg-brand-50 text-brand-700 border border-brand-100 rounded-full text-xs font-bold uppercase tracking-widest">Why FinTech 5</div>
+            <h2 className="text-4xl md:text-5xl font-black tracking-tight text-slate-900 mb-4">Built Different.<br />By Design.</h2>
+            <p className="text-slate-500 max-w-xl mx-auto text-lg">We&apos;re not a processor. We&apos;re not a software company. We&apos;re the experts who sit on your side of the table.</p>
           </div>
           <div className="grid md:grid-cols-3 gap-5">
-            {differentiators.map((d, i) => (
-              <div key={d.title} className={`glass rounded-2xl p-8 hover:bg-white/10 transition-all duration-300 hover:-translate-y-2 group cursor-default ${i === 0 ? 'md:col-span-1 border-brand-600/20' : ''}`}>
-                <div className="w-12 h-12 bg-brand-600/15 text-brand-400 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-brand-600/25 transition-colors border border-brand-600/20">{d.icon}</div>
-                <h3 className="text-lg font-black text-white mb-3">{d.title}</h3>
-                <p className="text-slate-400 text-sm leading-relaxed">{d.body}</p>
+            {differentiators.map((d) => (
+              <div key={d.title} className="bg-white rounded-2xl p-8 border border-slate-100 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group cursor-default">
+                <div className="w-12 h-12 bg-brand-50 text-brand-600 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-brand-600 group-hover:text-white transition-all border border-brand-100 group-hover:border-brand-600">{d.icon}</div>
+                <h3 className="text-lg font-black text-slate-900 mb-3">{d.title}</h3>
+                <p className="text-slate-500 text-sm leading-relaxed">{d.body}</p>
               </div>
             ))}
           </div>
