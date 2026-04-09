@@ -16,18 +16,29 @@ export default function Estimate() {
     firstName: '', lastName: '', email: '', phone: '', business: '',
     volume: 'Under $10,000', industry: 'Retail', notes: '',
   })
+  const [file, setFile] = useState<File | null>(null)
 
   const set = (k: string) => (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) =>
     setForm(prev => ({ ...prev, [k]: e.target.value }))
+
+  const handleFile = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setFile(e.target.files?.[0] ?? null)
+  }
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setStatus('loading')
     try {
+      let fileData: { name: string; content: string; type: string } | null = null
+      if (file) {
+        const buffer = await file.arrayBuffer()
+        const base64 = btoa(String.fromCharCode(...new Uint8Array(buffer)))
+        fileData = { name: file.name, content: base64, type: file.type }
+      }
       const res = await fetch('/api/estimate', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(form),
+        body: JSON.stringify({ ...form, fileData }),
       })
       setStatus(res.ok ? 'success' : 'error')
     } catch {
@@ -118,6 +129,29 @@ export default function Estimate() {
                 <div>
                   <label className={labelClass}>Tell us about your current processor (optional)</label>
                   <textarea rows={3} placeholder="E.g. 'We use Stripe at 2.9% + $0.30 and process ~$80k/month...'" value={form.notes} onChange={set('notes')} className={`${inputClass} resize-none`} style={inputStyle} />
+                </div>
+
+                {/* Statement upload */}
+                <div>
+                  <label className={labelClass}>Upload Your Merchant Statement <span className="text-slate-600 font-normal">(optional — PDF, image, or spreadsheet)</span></label>
+                  <label
+                    className="flex flex-col items-center justify-center w-full py-8 rounded-xl cursor-pointer transition-all"
+                    style={{ background: 'rgba(255,255,255,0.03)', border: `2px dashed ${file ? 'rgba(78,144,0,0.5)' : 'rgba(255,255,255,0.1)'}` }}
+                  >
+                    <input type="file" accept=".pdf,.csv,.xls,.xlsx,.png,.jpg,.jpeg" onChange={handleFile} className="hidden" />
+                    {file ? (
+                      <div className="text-center">
+                        <div className="text-sm font-bold mb-1" style={{ color: '#6fc200' }}>✓ {file.name}</div>
+                        <div className="text-xs text-slate-500">Click to change file</div>
+                      </div>
+                    ) : (
+                      <div className="text-center">
+                        <div className="text-2xl mb-2">📄</div>
+                        <div className="text-sm font-bold text-slate-300 mb-1">Drop your statement here or click to browse</div>
+                        <div className="text-xs text-slate-500">PDF, XLS, CSV, or image — max 10MB</div>
+                      </div>
+                    )}
+                  </label>
                 </div>
 
                 {status === 'error' && (

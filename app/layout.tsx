@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { Phone, Mail, MapPin } from 'lucide-react'
 import Navbar from '@/components/Navbar'
 import Image from 'next/image'
+import Script from 'next/script'
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
 
@@ -48,6 +49,34 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <main className="flex-grow relative z-10">
           {children}
         </main>
+
+        {/* Google Analytics 4 — set NEXT_PUBLIC_GA_ID in env */}
+        {process.env.NEXT_PUBLIC_GA_ID && (
+          <>
+            <Script src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_ID}`} strategy="afterInteractive" />
+            <Script id="ga4" strategy="afterInteractive">{`
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', '${process.env.NEXT_PUBLIC_GA_ID}', { page_path: window.location.pathname });
+            `}</Script>
+          </>
+        )}
+
+        {/* Tawk.to live chat — set NEXT_PUBLIC_TAWK_ID in env (format: PROPERTYID/WIDGETID) */}
+        {process.env.NEXT_PUBLIC_TAWK_ID && (
+          <Script id="tawk" strategy="afterInteractive">{`
+            var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+            (function(){
+              var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+              s1.async=true;
+              s1.src='https://embed.tawk.to/${process.env.NEXT_PUBLIC_TAWK_ID}';
+              s1.charset='UTF-8';
+              s1.setAttribute('crossorigin','*');
+              s0.parentNode.insertBefore(s1,s0);
+            })();
+          `}</Script>
+        )}
 
         {/* Footer */}
         <footer className="bg-[#0f1c0a] text-slate-400 pt-16 pb-8 px-6">

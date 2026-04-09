@@ -127,7 +127,22 @@ export default function HeroSection() {
               </div>
             </div>
 
-            {/* ── RIGHT: Floating UI cards ── */}
+            {/* ── RIGHT: Mobile stats (mobile only) ── */}
+            <div className="lg:hidden grid grid-cols-2 gap-3 mt-2 mb-8">
+              {[
+                { val: '10+', label: 'Tier-1 Processors' },
+                { val: '10–18%', label: 'Avg. Cost Reduction' },
+                { val: '$0', label: 'Consulting Fees' },
+                { val: '48hr', label: 'Audit Turnaround' },
+              ].map(s => (
+                <div key={s.label} className="rounded-xl p-4" style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)' }}>
+                  <div className="text-2xl font-black" style={{ color: '#6fc200' }}>{s.val}</div>
+                  <div className="text-xs text-slate-400 mt-0.5">{s.label}</div>
+                </div>
+              ))}
+            </div>
+
+            {/* ── RIGHT: Floating UI cards (desktop only) ── */}
             <div className="relative hidden lg:block h-[480px]">
 
               {/* Card 1 — back, "Best Match" — rotated, top-left */}
