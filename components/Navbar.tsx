@@ -13,6 +13,13 @@ const solutions = [
   { label: 'Free Terminal Placement',href: '/solutions/free-placement',     desc: 'Clover hardware at zero cost' },
 ]
 
+const resources = [
+  { label: 'Calculator',  href: '/calculator',  desc: 'Estimate your processing fees' },
+  { label: 'Blog',        href: '/blog',         desc: 'Payment industry insights' },
+  { label: 'About Us',   href: '/about-us',     desc: 'Our team and mission' },
+  { label: 'Contact',    href: '/contact-us',   desc: 'Get in touch with us' },
+]
+
 const industries = [
   { label: 'Retail',             href: '/industries/retail-payments' },
   { label: 'E-Commerce',         href: '/industries/e-commerce' },
@@ -56,6 +63,7 @@ export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false)
   const [mobileSolutions, setMobileSolutions] = useState(false)
   const [mobileIndustries, setMobileIndustries] = useState(false)
+  const [mobileResources, setMobileResources] = useState(false)
   const [scrolled, setScrolled] = useState(false)
 
   useEffect(() => {
@@ -75,19 +83,20 @@ export default function Navbar() {
         <Link href="/get-your-savings-estimate" className="underline underline-offset-2 hover:text-white transition-colors font-bold">see if yours changed →</Link>
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 py-2 grid grid-cols-[auto_1fr_auto] items-center gap-8">
+      {/* ── Main bar: relative container so we can absolutely-center the nav ── */}
+      <div className="relative max-w-7xl mx-auto px-6 py-2 flex items-center justify-between">
 
-        {/* Logo */}
-        <Link href="/" className="flex items-center shrink-0" onClick={() => setMobileOpen(false)}>
+        {/* Logo — left */}
+        <Link href="/" className="flex items-center shrink-0 z-10" onClick={() => setMobileOpen(false)}>
           <Image src="/Logos/FT5_White_Green.svg" alt="FinTech 5" width={130} height={100} className="h-9 w-auto" priority />
         </Link>
 
-        {/* Desktop nav — truly centered in the 1fr column */}
-        <div className="hidden md:flex items-center justify-center gap-5">
+        {/* Desktop nav — absolutely centered on the bar */}
+        <div className="hidden md:flex absolute left-1/2 -translate-x-1/2 items-center gap-5">
           <DropdownMenu label="Solutions" href="/solutions">
             <div className="p-1.5">
               {solutions.map(s => (
-                <Link key={s.href} href={s.href} className="flex flex-col px-3 py-2.5 rounded-xl transition-all group" style={{ borderBottom: 'none' }}
+                <Link key={s.href} href={s.href} className="flex flex-col px-3 py-2.5 rounded-xl transition-all group"
                   onMouseEnter={e => (e.currentTarget.style.background = 'rgba(255,255,255,0.06)')}
                   onMouseLeave={e => (e.currentTarget.style.background = 'transparent')}>
                   <span className="text-[13px] font-bold text-slate-200 group-hover:text-white transition-colors">{s.label}</span>
@@ -105,7 +114,7 @@ export default function Navbar() {
           </DropdownMenu>
 
           <DropdownMenu label="Industries" href="/industries">
-            <div className="p-1.5 grid grid-cols-1">
+            <div className="p-1.5">
               {industries.map(i => (
                 <Link key={i.href} href={i.href} className="px-3 py-2 rounded-xl text-[13px] font-semibold text-slate-400 hover:text-white transition-all"
                   onMouseEnter={e => (e.currentTarget.style.background = 'rgba(255,255,255,0.06)')}
@@ -123,15 +132,23 @@ export default function Navbar() {
             </div>
           </DropdownMenu>
 
-          <Link href="/calculator" className="text-[13px] font-semibold text-slate-400 hover:text-white transition-colors">Calculator</Link>
-          <Link href="/blog" className="text-[13px] font-semibold text-slate-400 hover:text-white transition-colors">Blog</Link>
-          <Link href="/about-us" className="text-[13px] font-semibold text-slate-400 hover:text-white transition-colors">About</Link>
-          <Link href="/contact-us" className="text-[13px] font-semibold text-slate-400 hover:text-white transition-colors">Contact</Link>
+          <DropdownMenu label="Resources">
+            <div className="p-1.5">
+              {resources.map(r => (
+                <Link key={r.href} href={r.href} className="flex flex-col px-3 py-2.5 rounded-xl transition-all group"
+                  onMouseEnter={e => (e.currentTarget.style.background = 'rgba(255,255,255,0.06)')}
+                  onMouseLeave={e => (e.currentTarget.style.background = 'transparent')}>
+                  <span className="text-[13px] font-bold text-slate-200 group-hover:text-white transition-colors">{r.label}</span>
+                  <span className="text-[11px] mt-0.5" style={{ color: '#4a6a30' }}>{r.desc}</span>
+                </Link>
+              ))}
+            </div>
+          </DropdownMenu>
         </div>
 
-        {/* Desktop CTAs — matched sizes */}
-        <div className="hidden md:flex items-center gap-2">
-          <a href="tel:6469417853" className="flex items-center gap-1.5 text-[12px] font-semibold text-slate-500 hover:text-slate-300 transition-colors mr-1">
+        {/* Desktop CTAs — right, z-10 so they sit above the absolute nav */}
+        <div className="hidden md:flex items-center gap-2 z-10">
+          <a href="tel:6469417853" className="flex items-center gap-1.5 text-[12px] font-semibold text-slate-500 hover:text-slate-300 transition-colors mr-2">
             <Phone className="w-3 h-3" /> (646) 941-7853
           </a>
           <a href="https://app.fintech5group.com" target="_blank" rel="noopener noreferrer"
@@ -148,7 +165,7 @@ export default function Navbar() {
         </div>
 
         {/* Mobile toggle */}
-        <button onClick={() => setMobileOpen(!mobileOpen)} className="md:hidden p-2 text-slate-400 hover:text-white transition-colors">
+        <button onClick={() => setMobileOpen(!mobileOpen)} className="md:hidden p-2 text-slate-400 hover:text-white transition-colors z-10">
           {mobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
         </button>
       </div>
@@ -178,9 +195,16 @@ export default function Navbar() {
             </div>
           )}
 
-          {[['Calculator', '/calculator'], ['Blog', '/blog'], ['About', '/about-us'], ['Contact', '/contact-us']].map(([l, h]) => (
-            <Link key={h} href={h} className="py-3 text-sm font-bold text-slate-400 hover:text-white transition-colors" style={{ borderBottom: '1px solid rgba(255,255,255,0.07)' }} onClick={() => setMobileOpen(false)}>{l}</Link>
-          ))}
+          <button onClick={() => setMobileResources(!mobileResources)} className="flex items-center justify-between py-3 text-sm font-bold text-slate-300" style={{ borderBottom: '1px solid rgba(255,255,255,0.07)' }}>
+            Resources <ChevronDown className={`w-4 h-4 text-slate-600 transition-transform ${mobileResources ? 'rotate-180' : ''}`} />
+          </button>
+          {mobileResources && (
+            <div className="pl-4 flex flex-col gap-1 pb-2">
+              {resources.map(r => (
+                <Link key={r.href} href={r.href} className="py-2 text-sm text-slate-500 hover:text-slate-200 font-medium transition-colors" onClick={() => setMobileOpen(false)}>{r.label}</Link>
+              ))}
+            </div>
+          )}
 
           <Link href="/get-your-savings-estimate" className="mt-4 flex items-center justify-center gap-2 py-3.5 text-sm font-black text-white rounded-xl transition-all" style={{ background: '#4e9000' }} onClick={() => setMobileOpen(false)}>
             Get Your Free Audit <ArrowRight className="w-4 h-4" />
