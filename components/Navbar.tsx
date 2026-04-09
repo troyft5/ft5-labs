@@ -25,7 +25,7 @@ const industries = [
   { label: 'B2B Processing',     href: '/industries/b2b' },
 ]
 
-function DropdownMenu({ label, children }: { label: string; children: React.ReactNode }) {
+function DropdownMenu({ label, href, children }: { label: string; href?: string; children: React.ReactNode }) {
   const [open, setOpen] = useState(false)
   const ref = useRef<HTMLDivElement>(null)
   useEffect(() => {
@@ -36,7 +36,9 @@ function DropdownMenu({ label, children }: { label: string; children: React.Reac
   return (
     <div ref={ref} className="relative" onMouseEnter={() => setOpen(true)} onMouseLeave={() => setOpen(false)}>
       <button onClick={() => setOpen(!open)} className="flex items-center gap-1 text-sm font-semibold text-slate-400 hover:text-white transition-colors py-2">
-        {label}
+        {href ? (
+          <Link href={href} className="hover:text-white transition-colors" onClick={e => e.stopPropagation()}>{label}</Link>
+        ) : label}
         <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${open ? 'rotate-180' : ''}`} />
       </button>
       {open && (
@@ -82,28 +84,42 @@ export default function Navbar() {
 
         {/* Desktop nav */}
         <div className="hidden md:flex items-center gap-6">
-          <DropdownMenu label="Solutions">
+          <DropdownMenu label="Solutions" href="/solutions">
             <div className="p-2">
               {solutions.map(s => (
                 <Link key={s.href} href={s.href} className="flex flex-col px-4 py-3 rounded-xl transition-all group" style={{ borderBottom: 'none' }}
-                  onMouseEnter={e => (e.currentTarget.style.background = 'rgba(255,255,255,0.06)') }
-                  onMouseLeave={e => (e.currentTarget.style.background = 'transparent') }>
+                  onMouseEnter={e => (e.currentTarget.style.background = 'rgba(255,255,255,0.06)')}
+                  onMouseLeave={e => (e.currentTarget.style.background = 'transparent')}>
                   <span className="text-sm font-bold text-slate-200 group-hover:text-white transition-colors">{s.label}</span>
                   <span className="text-xs mt-0.5" style={{ color: '#4a6a30' }}>{s.desc}</span>
                 </Link>
               ))}
+              <div style={{ borderTop: '1px solid rgba(255,255,255,0.07)' }} className="mt-1 pt-1">
+                <Link href="/solutions" className="flex items-center gap-2 px-4 py-2.5 text-xs font-bold rounded-xl transition-all" style={{ color: '#6fc200' }}
+                  onMouseEnter={e => (e.currentTarget.style.background = 'rgba(78,144,0,0.08)')}
+                  onMouseLeave={e => (e.currentTarget.style.background = 'transparent')}>
+                  View all solutions <ArrowRight className="w-3 h-3" />
+                </Link>
+              </div>
             </div>
           </DropdownMenu>
 
-          <DropdownMenu label="Industries">
+          <DropdownMenu label="Industries" href="/industries">
             <div className="p-2 grid grid-cols-1">
               {industries.map(i => (
                 <Link key={i.href} href={i.href} className="px-4 py-2.5 rounded-xl text-sm font-semibold text-slate-400 hover:text-white transition-all"
-                  onMouseEnter={e => (e.currentTarget.style.background = 'rgba(255,255,255,0.06)') }
-                  onMouseLeave={e => (e.currentTarget.style.background = 'transparent') }>
+                  onMouseEnter={e => (e.currentTarget.style.background = 'rgba(255,255,255,0.06)')}
+                  onMouseLeave={e => (e.currentTarget.style.background = 'transparent')}>
                   {i.label}
                 </Link>
               ))}
+              <div style={{ borderTop: '1px solid rgba(255,255,255,0.07)' }} className="mt-1 pt-1">
+                <Link href="/industries" className="flex items-center gap-2 px-4 py-2.5 text-xs font-bold rounded-xl transition-all" style={{ color: '#6fc200' }}
+                  onMouseEnter={e => (e.currentTarget.style.background = 'rgba(78,144,0,0.08)')}
+                  onMouseLeave={e => (e.currentTarget.style.background = 'transparent')}>
+                  View all industries <ArrowRight className="w-3 h-3" />
+                </Link>
+              </div>
             </div>
           </DropdownMenu>
 
