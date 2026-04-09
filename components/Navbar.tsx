@@ -101,16 +101,16 @@ export default function Navbar() {
         </Link>
       </div>
 
-      {/* ── Main bar ── */}
-      <div className="relative max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
+      {/* ── Main bar: 1fr | auto | 1fr — true centering with no overlap ── */}
+      <div className="max-w-7xl mx-auto px-6 py-3 grid grid-cols-[1fr_auto_1fr] items-center gap-6">
 
-        {/* Logo */}
-        <Link href="/" className="flex items-center shrink-0 z-10" onClick={closeMenu}>
+        {/* Logo — left edge of the 1fr zone */}
+        <Link href="/" className="flex items-center shrink-0" onClick={closeMenu}>
           <Image src="/Logos/FT5_White_Green.svg" alt="FinTech 5" width={150} height={120} className="h-11 w-auto" priority />
         </Link>
 
-        {/* ── Desktop nav — absolutely centered ── */}
-        <div className="hidden md:flex absolute left-1/2 -translate-x-1/2 items-center gap-2">
+        {/* ── Desktop nav — auto-width, guaranteed center ── */}
+        <div className="hidden md:flex items-center gap-1">
 
           <Link href="/" className="text-sm font-semibold text-slate-400 hover:text-white transition-colors px-3.5 py-2 rounded-lg hover:bg-white/5">
             Home
@@ -195,20 +195,20 @@ export default function Navbar() {
           </Link>
         </div>
 
-        {/* ── Desktop CTAs ── */}
-        <div className="hidden md:flex items-center gap-3 z-10">
-          <a href="tel:6469417853" className="flex items-center gap-2 text-[13px] font-semibold text-slate-500 hover:text-slate-300 transition-colors mr-2 whitespace-nowrap">
+        {/* ── Desktop CTAs — right edge of the 1fr zone ── */}
+        <div className="hidden md:flex items-center justify-end gap-2.5">
+          <a href="tel:6469417853" className="flex items-center gap-1.5 text-[12px] font-semibold text-slate-500 hover:text-slate-300 transition-colors whitespace-nowrap">
             <Phone className="w-3.5 h-3.5 shrink-0" /> (646) 941-7853
           </a>
           <a
             href="https://app.fintech5group.com" target="_blank" rel="noopener noreferrer"
-            className="px-5 py-2.5 text-sm font-bold text-slate-400 hover:text-white border border-white/10 hover:border-white/25 rounded-xl transition-all whitespace-nowrap"
+            className="px-4 py-2.5 text-sm font-bold text-slate-400 hover:text-white border border-white/10 hover:border-white/25 rounded-xl transition-all whitespace-nowrap"
           >
             Client Portal
           </a>
           <Link
             href="/get-your-savings-estimate"
-            className="inline-flex items-center gap-2 px-5 py-2.5 text-sm font-black text-white rounded-xl transition-all hover:-translate-y-0.5 whitespace-nowrap"
+            className="inline-flex items-center gap-2 px-4 py-2.5 text-sm font-black text-white rounded-xl transition-all hover:-translate-y-0.5 whitespace-nowrap"
             style={{ background: '#4e9000', boxShadow: '0 4px 14px rgba(78,144,0,0.35)' }}
           >
             Free Audit <ArrowRight className="w-4 h-4" />
@@ -216,7 +216,7 @@ export default function Navbar() {
         </div>
 
         {/* Mobile toggle */}
-        <button onClick={() => setMobileOpen(v => !v)} className="md:hidden p-2 text-slate-400 hover:text-white transition-colors z-10">
+        <button onClick={() => setMobileOpen(v => !v)} className="md:hidden col-start-3 flex justify-end p-2 text-slate-400 hover:text-white transition-colors">
           {mobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
         </button>
       </div>
