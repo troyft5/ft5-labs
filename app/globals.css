@@ -90,6 +90,28 @@
 .dark-card { border-color: rgba(255,255,255,0.08); transition: border-color 0.3s, transform 0.3s; }
 .dark-card:hover { border-color: rgba(78,144,0,0.4); }
 
+/* ── Floating card animations ── */
+@keyframes float1 {
+  0%, 100% { transform: translateY(0px) rotate(-5deg); }
+  50%       { transform: translateY(-14px) rotate(-5deg); }
+}
+@keyframes float2 {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-10px); }
+}
+@keyframes float3 {
+  0%, 100% { transform: translateY(0px) rotate(2deg); }
+  50%       { transform: translateY(-8px) rotate(2deg); }
+}
+@keyframes float4 {
+  0%, 100% { transform: translateY(0px) rotate(-2deg); }
+  50%       { transform: translateY(-12px) rotate(-2deg); }
+}
+.animate-float-1 { animation: float1 5s ease-in-out infinite; }
+.animate-float-2 { animation: float2 6s ease-in-out infinite; animation-delay: 1s; }
+.animate-float-3 { animation: float3 4.5s ease-in-out infinite; animation-delay: 2s; }
+.animate-float-4 { animation: float4 5.5s ease-in-out infinite; animation-delay: 0.5s; }
+
 /* ── Marquee ── */
 @keyframes marquee {
   from { transform: translateX(0); }

@@ -127,58 +127,91 @@ export default function HeroSection() {
               </div>
             </div>
 
-            {/* ── RIGHT: Savings breakdown card ── */}
-            <div className="relative hidden lg:block">
-              {/* Glow behind card */}
-              <div className="absolute inset-0 rounded-3xl blur-2xl opacity-20" style={{ background: '#4e9000' }} />
+            {/* ── RIGHT: Floating UI cards ── */}
+            <div className="relative hidden lg:block h-[480px]">
 
-              <div className="relative rounded-2xl overflow-hidden border border-white/10" style={{ background: 'rgba(255,255,255,0.04)', backdropFilter: 'blur(16px)' }}>
-                {/* Card header */}
-                <div className="px-6 py-4 border-b border-white/8 flex justify-between items-center">
-                  <div>
-                    <div className="text-[9px] text-slate-500 uppercase tracking-widest font-bold mb-0.5">Real Client • NJ Retail Chain</div>
-                    <div className="text-sm font-black text-white">Annual Savings Identified</div>
+              {/* Card 1 — back, "Best Match" — rotated, top-left */}
+              <div className="animate-float-1 absolute top-0 left-0 w-56 rounded-2xl p-4 shadow-2xl z-10"
+                style={{ background: 'rgba(15,26,15,0.85)', backdropFilter: 'blur(16px)', border: '1px solid rgba(255,255,255,0.1)' }}>
+                <div className="flex items-center gap-2 mb-3">
+                  <span className="w-2 h-2 rounded-full bg-[#4e9000]" />
+                  <span className="text-[9px] font-black uppercase tracking-widest text-[#6fc200]">Best Match</span>
+                </div>
+                <div className="text-[10px] text-slate-500 mb-1">Optimal Processor</div>
+                <div className="text-base font-black text-white mb-3">Heartland</div>
+                <div className="grid grid-cols-2 gap-2">
+                  <div className="rounded-lg p-2" style={{ background: 'rgba(78,144,0,0.12)', border: '1px solid rgba(78,144,0,0.2)' }}>
+                    <div className="text-[9px] text-slate-500 mb-1">Eff. Rate</div>
+                    <div className="text-sm font-black" style={{ color: '#6fc200' }}>1.74%</div>
                   </div>
-                  <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-full border text-[9px] font-black uppercase tracking-wider" style={{ borderColor: 'rgba(78,144,0,0.4)', color: '#6fc200', background: 'rgba(78,144,0,0.08)' }}>
-                    <span className="w-1.5 h-1.5 rounded-full animate-pulse inline-block" style={{ background: '#4e9000' }} />
-                    Verified
+                  <div className="rounded-lg p-2" style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)' }}>
+                    <div className="text-[9px] text-slate-500 mb-1">Monthly</div>
+                    <div className="text-sm font-black text-white">$985</div>
                   </div>
                 </div>
+              </div>
 
-                {/* Big number */}
-                <div className="px-6 py-8 text-center border-b border-white/8">
-                  <div className="text-[3.5rem] font-black text-white leading-none mb-1">$18,420</div>
-                  <div className="text-[11px] text-slate-500">saved in year one • effective rate dropped 1.16%</div>
+              {/* Card 2 — main, center, "$18,420" */}
+              <div className="animate-float-2 absolute top-12 left-16 right-0 rounded-2xl shadow-2xl z-20"
+                style={{ background: 'rgba(15,26,15,0.92)', backdropFilter: 'blur(20px)', border: '1px solid rgba(78,144,0,0.25)' }}>
+                {/* Header */}
+                <div className="px-5 py-4 flex items-center justify-between" style={{ borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
+                  <div className="flex items-center gap-2.5">
+                    <div className="w-8 h-8 rounded-xl flex items-center justify-center text-white text-sm" style={{ background: '#4e9000' }}>↓</div>
+                    <div>
+                      <div className="text-[9px] text-slate-500 uppercase tracking-widest">Statement Analysis</div>
+                      <div className="text-xs font-black text-white">Annual Savings Found</div>
+                    </div>
+                  </div>
+                  <div className="px-2 py-0.5 rounded-full text-[9px] font-black uppercase" style={{ background: 'rgba(78,144,0,0.15)', color: '#6fc200', border: '1px solid rgba(78,144,0,0.3)' }}>Live</div>
                 </div>
-
+                {/* Amount */}
+                <div className="px-5 py-5" style={{ borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
+                  <div className="text-4xl font-black text-white mb-1">$18,420</div>
+                  <div className="text-[10px] text-slate-500">In hidden fees & overcharges identified</div>
+                </div>
                 {/* Line items */}
-                <div className="divide-y divide-white/5">
+                <div className="px-5 py-4 flex flex-col gap-3">
                   {[
-                    { label: 'Interchange optimization', amount: '$9,840', pct: 76 },
-                    { label: 'PCI compliance fee removed', amount: '$1,200', pct: 22 },
-                    { label: 'Pricing model switch', amount: '$7,380', pct: 90 },
-                  ].map(row => (
-                    <div key={row.label} className="px-6 py-4">
-                      <div className="flex justify-between items-center mb-2">
-                        <span className="text-[11px] text-slate-400 font-medium">{row.label}</span>
-                        <span className="text-[11px] font-black" style={{ color: '#6fc200' }}>{row.amount}</span>
+                    { label: 'Interchange savings', amt: '$9,840', pct: 76 },
+                    { label: 'PCI fee removed', amt: '$1,200', pct: 20 },
+                    { label: 'Pricing model switch', amt: '$7,380', pct: 90 },
+                  ].map(r => (
+                    <div key={r.label}>
+                      <div className="flex justify-between text-[10px] mb-1">
+                        <span className="text-slate-400">{r.label}</span>
+                        <span className="font-bold" style={{ color: '#6fc200' }}>{r.amt}</span>
                       </div>
-                      <div className="w-full h-1 bg-white/8 rounded-full overflow-hidden">
-                        <div className="h-full rounded-full" style={{ width: `${row.pct}%`, background: 'linear-gradient(90deg, #4e9000, #6fc200)' }} />
+                      <div className="h-1 rounded-full overflow-hidden" style={{ background: 'rgba(255,255,255,0.06)' }}>
+                        <div className="h-full rounded-full" style={{ width: `${r.pct}%`, background: 'linear-gradient(90deg,#4e9000,#6fc200)' }} />
                       </div>
                     </div>
                   ))}
                 </div>
-
-                {/* Card footer */}
-                <div className="px-6 py-4 flex items-center justify-between" style={{ background: 'rgba(78,144,0,0.12)' }}>
-                  <span className="text-[11px] text-slate-400">What does your statement show?</span>
-                  <Link href="/get-your-savings-estimate" className="text-[11px] font-black flex items-center gap-1 hover:opacity-80 transition-opacity" style={{ color: '#6fc200' }}>
-                    Find out free <ArrowRight className="w-3 h-3" />
-                  </Link>
-                </div>
               </div>
+
+              {/* Card 3 — "Audit Complete" badge, bottom-right */}
+              <div className="animate-float-3 absolute bottom-8 right-0 rounded-xl px-4 py-3 flex items-center gap-3 z-30 shadow-xl"
+                style={{ background: 'rgba(15,26,15,0.9)', backdropFilter: 'blur(16px)', border: '1px solid rgba(78,144,0,0.2)' }}>
+                <div className="w-7 h-7 rounded-lg flex items-center justify-center shrink-0" style={{ background: 'rgba(78,144,0,0.2)' }}>
+                  <span style={{ color: '#6fc200', fontSize: 14 }}>⚡</span>
+                </div>
+                <div>
+                  <div className="text-xs font-black text-white">Audit Complete</div>
+                  <div className="text-[9px] text-slate-500">48hr turnaround ✓</div>
+                </div>
+                <div className="ml-2 w-16 h-1 rounded-full" style={{ background: 'linear-gradient(90deg,#4e9000,#6fc200)' }} />
+              </div>
+
+              {/* Card 4 — "10+ Partners" mini, bottom-left */}
+              <div className="animate-float-4 absolute bottom-0 left-0 rounded-2xl px-5 py-4 z-30 shadow-xl"
+                style={{ background: 'rgba(15,26,15,0.88)', backdropFilter: 'blur(16px)', border: '1px solid rgba(255,255,255,0.09)' }}>
+                <div className="text-2xl font-black text-white mb-0.5">10+</div>
+                <div className="text-[10px] text-slate-500">Processor Partners</div>
+              </div>
+
             </div>
+
 
           </div>
 
