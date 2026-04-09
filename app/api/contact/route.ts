@@ -1,10 +1,10 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { Resend } from 'resend'
 
-const resend = new Resend(process.env.RESEND_API_KEY)
 const TO = 'info@fintech5group.com'
 
 export async function POST(req: NextRequest) {
+  const resend = new Resend(process.env.RESEND_API_KEY ?? 'missing')
   try {
     const { firstName, lastName, email, phone, businessType, message } = await req.json()
 
