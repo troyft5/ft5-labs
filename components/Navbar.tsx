@@ -46,7 +46,7 @@ function Dropdown({ label, href, width = 280, children }: {
     <div ref={ref} className="relative" onMouseEnter={() => setOpen(true)} onMouseLeave={() => setOpen(false)}>
       <button
         onClick={() => setOpen(v => !v)}
-        className="flex items-center gap-1 text-[13px] font-semibold text-slate-400 hover:text-white transition-colors py-2 whitespace-nowrap"
+        className="flex items-center gap-1 text-sm font-semibold text-slate-400 hover:text-white transition-colors py-2 px-3.5 rounded-lg hover:bg-white/5 whitespace-nowrap"
       >
         {href
           ? <Link href={href} onClick={e => e.stopPropagation()} className="hover:text-white transition-colors">{label}</Link>
@@ -102,17 +102,17 @@ export default function Navbar() {
       </div>
 
       {/* ── Main bar ── */}
-      <div className="relative max-w-7xl mx-auto px-6 py-2 flex items-center justify-between">
+      <div className="relative max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
 
         {/* Logo */}
         <Link href="/" className="flex items-center shrink-0 z-10" onClick={closeMenu}>
-          <Image src="/Logos/FT5_White_Green.svg" alt="FinTech 5" width={130} height={100} className="h-9 w-auto" priority />
+          <Image src="/Logos/FT5_White_Green.svg" alt="FinTech 5" width={150} height={120} className="h-11 w-auto" priority />
         </Link>
 
         {/* ── Desktop nav — absolutely centered ── */}
-        <div className="hidden md:flex absolute left-1/2 -translate-x-1/2 items-center gap-1">
+        <div className="hidden md:flex absolute left-1/2 -translate-x-1/2 items-center gap-2">
 
-          <Link href="/" className="text-[13px] font-semibold text-slate-400 hover:text-white transition-colors px-3 py-2 rounded-lg hover:bg-white/5">
+          <Link href="/" className="text-sm font-semibold text-slate-400 hover:text-white transition-colors px-3.5 py-2 rounded-lg hover:bg-white/5">
             Home
           </Link>
 
@@ -188,7 +188,7 @@ export default function Navbar() {
 
           <Link
             href="/get-your-savings-estimate"
-            className="text-[13px] font-semibold px-3 py-2 rounded-lg transition-all whitespace-nowrap hover:bg-white/5"
+            className="text-sm font-semibold px-3.5 py-2 rounded-lg transition-all whitespace-nowrap hover:bg-white/5"
             style={{ color: '#6fc200' }}
           >
             Get Estimate
@@ -196,22 +196,22 @@ export default function Navbar() {
         </div>
 
         {/* ── Desktop CTAs ── */}
-        <div className="hidden md:flex items-center gap-2 z-10">
-          <a href="tel:6469417853" className="flex items-center gap-1.5 text-[12px] font-semibold text-slate-500 hover:text-slate-300 transition-colors mr-2 whitespace-nowrap">
-            <Phone className="w-3 h-3 shrink-0" /> (646) 941-7853
+        <div className="hidden md:flex items-center gap-3 z-10">
+          <a href="tel:6469417853" className="flex items-center gap-2 text-[13px] font-semibold text-slate-500 hover:text-slate-300 transition-colors mr-2 whitespace-nowrap">
+            <Phone className="w-3.5 h-3.5 shrink-0" /> (646) 941-7853
           </a>
           <a
             href="https://app.fintech5group.com" target="_blank" rel="noopener noreferrer"
-            className="px-4 py-2 text-[13px] font-bold text-slate-400 hover:text-white border border-white/10 hover:border-white/25 rounded-xl transition-all whitespace-nowrap"
+            className="px-5 py-2.5 text-sm font-bold text-slate-400 hover:text-white border border-white/10 hover:border-white/25 rounded-xl transition-all whitespace-nowrap"
           >
             Client Portal
           </a>
           <Link
             href="/get-your-savings-estimate"
-            className="inline-flex items-center gap-1.5 px-4 py-2 text-[13px] font-black text-white rounded-xl transition-all hover:-translate-y-0.5 whitespace-nowrap"
+            className="inline-flex items-center gap-2 px-5 py-2.5 text-sm font-black text-white rounded-xl transition-all hover:-translate-y-0.5 whitespace-nowrap"
             style={{ background: '#4e9000', boxShadow: '0 4px 14px rgba(78,144,0,0.35)' }}
           >
-            Free Audit <ArrowRight className="w-3.5 h-3.5" />
+            Free Audit <ArrowRight className="w-4 h-4" />
           </Link>
         </div>
 
