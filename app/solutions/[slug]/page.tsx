@@ -36,17 +36,19 @@ export default async function SolutionPage({ params }: { params: Promise<{ slug:
       {/* ── HERO ── */}
       <section className="relative px-6 pt-44 pb-20 overflow-hidden" style={{ background: BG2 }}>
         <div className="absolute top-0 left-0 right-0 h-[2px]" style={{ background: 'linear-gradient(90deg,transparent,rgba(78,144,0,0.5),transparent)' }} />
-        <div className="absolute top-0 left-0 w-[500px] h-[400px] pointer-events-none" style={{ background: 'radial-gradient(ellipse, rgba(78,144,0,0.1) 0%, transparent 65%)', filter: 'blur(40px)' }} />
+        {/* Circuit-board dot pattern */}
+        <div className="absolute inset-0 pointer-events-none" style={{ backgroundImage: 'radial-gradient(rgba(78,144,0,0.12) 1px, transparent 1px)', backgroundSize: '28px 28px' }} />
+        <div className="absolute bottom-0 left-0 right-0 h-40 pointer-events-none" style={{ background: 'linear-gradient(to top, #0a1208, transparent)' }} />
 
-        <div className="max-w-5xl mx-auto">
+        <div className="relative max-w-5xl mx-auto">
           <Reveal>
-            <div className="flex items-center gap-3 mb-6">
-              <div className="h-px w-8" style={{ background: '#4e9000' }} />
-              <span className="text-[11px] font-bold uppercase tracking-[0.2em]" style={{ color: '#6fc200' }}>Payment Solutions</span>
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-8" style={{ background: 'rgba(78,144,0,0.12)', border: '1px solid rgba(78,144,0,0.25)' }}>
+              <div className="w-1.5 h-1.5 rounded-full" style={{ background: '#6fc200' }} />
+              <span className="text-[11px] font-bold uppercase tracking-[0.2em]" style={{ color: '#6fc200' }}>Payment Solution</span>
             </div>
           </Reveal>
           <Reveal delay={80}>
-            <h1 className="text-5xl md:text-6xl font-black tracking-tight text-white leading-none mb-6">
+            <h1 className="text-5xl md:text-7xl font-black tracking-tight text-white leading-none mb-6 max-w-3xl">
               {solution.title}
             </h1>
           </Reveal>
@@ -84,59 +86,58 @@ export default async function SolutionPage({ params }: { params: Promise<{ slug:
         </section>
       )}
 
-      {/* ── SOLUTION + FEATURES ── */}
-      <section className="px-6 py-20 relative" style={{ background: BG2 }}>
+      {/* ── SOLUTION + HOW IT WORKS (connected flow) ── */}
+      <section className="px-6 py-24 relative" style={{ background: BG2 }}>
         <div className="absolute top-0 left-0 right-0 h-px" style={{ background: 'linear-gradient(90deg,transparent,rgba(78,144,0,0.2),transparent)' }} />
         <div className="max-w-5xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-16">
+          <Reveal>
+            <div className="flex items-center gap-3 mb-5">
+              <div className="h-px w-8" style={{ background: '#4e9000' }} />
+              <span className="text-[11px] font-bold uppercase tracking-[0.2em]" style={{ color: '#6fc200' }}>How We Do It</span>
+            </div>
+          </Reveal>
+          <Reveal delay={60}>
+            <h2 className="text-3xl md:text-4xl font-black text-white mb-4 leading-tight max-w-2xl">Built for how your business actually operates.</h2>
+            <p className="text-slate-400 leading-relaxed text-lg mb-16 max-w-2xl">{solution.content}</p>
+          </Reveal>
 
-            {/* Content */}
-            <Reveal direction="left">
-              <div>
-                <div className="flex items-center gap-3 mb-5">
-                  <div className="h-px w-8" style={{ background: '#4e9000' }} />
-                  <span className="text-[11px] font-bold uppercase tracking-[0.2em]" style={{ color: '#6fc200' }}>How We Do It</span>
+          {/* Features as two-col table */}
+          <div className="grid md:grid-cols-2 gap-0 mb-16" style={{ border: '1px solid rgba(255,255,255,0.06)', borderRadius: '16px', overflow: 'hidden' }}>
+            {solution.features.map((feature, i) => (
+              <Reveal key={i} delay={i * 40}>
+                <div className="flex items-center gap-4 px-6 py-4" style={{
+                  borderBottom: i < solution.features.length - 2 ? '1px solid rgba(255,255,255,0.06)' : 'none',
+                  borderRight: i % 2 === 0 ? '1px solid rgba(255,255,255,0.06)' : 'none',
+                  background: i % 2 === 0 ? 'rgba(255,255,255,0.015)' : 'transparent'
+                }}>
+                  <CheckCircle2 className="w-4 h-4 shrink-0" style={{ color: '#4e9000' }} />
+                  <span className="text-sm text-slate-300 font-medium">{feature}</span>
                 </div>
-                <h2 className="text-3xl font-black text-white mb-6 leading-tight">Built for how your business actually operates.</h2>
-                <p className="text-slate-400 leading-relaxed text-lg mb-8">{solution.content}</p>
-
-                {howItWorks.length > 0 && (
-                  <div className="flex flex-col gap-4">
-                    <div className="text-[11px] font-bold uppercase tracking-widest mb-2" style={{ color: '#6fc200' }}>How It Works</div>
-                    {howItWorks.map((step, i) => (
-                      <div key={i} className="flex items-start gap-4">
-                        <div className="w-8 h-8 rounded-full text-white flex items-center justify-center text-sm font-black shrink-0" style={{ background: '#4e9000' }}>{i + 1}</div>
-                        <p className="text-slate-400 pt-1 text-sm leading-relaxed">{step}</p>
-                      </div>
-                    ))}
-                  </div>
-                )}
-              </div>
-            </Reveal>
-
-            {/* Features */}
-            <Reveal direction="right" delay={100}>
-              <div>
-                <div className="text-[11px] font-bold uppercase tracking-[0.2em] mb-6" style={{ color: '#6fc200' }}>What&apos;s Included</div>
-                <div className="flex flex-col gap-2.5 mb-8">
-                  {solution.features.map((feature, i) => (
-                    <div key={i} className="flex items-start gap-3 px-4 py-3.5 rounded-xl" style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)' }}>
-                      <CheckCircle2 className="w-4 h-4 shrink-0 mt-0.5" style={{ color: '#4e9000' }} />
-                      <span className="text-sm text-slate-300 font-medium">{feature}</span>
-                    </div>
-                  ))}
-                </div>
-
-                <div className="rounded-2xl p-6" style={{ background: 'rgba(78,144,0,0.08)', border: '1px solid rgba(78,144,0,0.2)' }}>
-                  <div className="flex items-center gap-3 mb-2">
-                    <Zap className="w-4 h-4" style={{ color: '#6fc200' }} />
-                    <span className="text-sm font-black text-white">48-hour audit turnaround</span>
-                  </div>
-                  <p className="text-xs text-slate-400 leading-relaxed">Send us your statement and we&apos;ll analyze every line item and return a full competitive comparison.</p>
-                </div>
-              </div>
-            </Reveal>
+              </Reveal>
+            ))}
           </div>
+
+          {/* Connected step flow */}
+          {howItWorks.length > 0 && (
+            <Reveal delay={100}>
+              <div className="text-[11px] font-bold uppercase tracking-widest mb-8" style={{ color: '#6fc200' }}>How It Works</div>
+              <div className="flex flex-col md:flex-row gap-0 md:gap-0">
+                {howItWorks.map((step, i) => (
+                  <div key={i} className="flex md:flex-col flex-1 gap-4 md:gap-0">
+                    <div className="flex md:flex-col items-center gap-4 md:gap-0">
+                      <div className="w-9 h-9 rounded-full flex items-center justify-center text-sm font-black text-white shrink-0" style={{ background: '#4e9000' }}>{i + 1}</div>
+                      {i < howItWorks.length - 1 && (
+                        <div className="flex-1 md:hidden h-px" style={{ background: 'rgba(78,144,0,0.3)' }} />
+                      )}
+                    </div>
+                    <div className="pb-8 md:pt-5 md:pr-8">
+                      <p className="text-sm text-slate-400 leading-relaxed">{step}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </Reveal>
+          )}
         </div>
       </section>
 

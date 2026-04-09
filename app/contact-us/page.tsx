@@ -30,26 +30,53 @@ export default function ContactPage() {
       {/* ── HERO ── */}
       <section className="relative px-6 pt-44 pb-20 overflow-hidden" style={{ background: BG2 }}>
         <div className="absolute top-0 left-0 right-0 h-[2px]" style={{ background: 'linear-gradient(90deg,transparent,rgba(78,144,0,0.5),transparent)' }} />
-        <div className="absolute top-0 right-0 w-[500px] h-[400px] pointer-events-none" style={{ background: 'radial-gradient(ellipse, rgba(78,144,0,0.1) 0%, transparent 65%)', filter: 'blur(40px)' }} />
 
         <div className="max-w-5xl mx-auto">
-          <Reveal>
-            <div className="flex items-center gap-3 mb-6">
-              <div className="h-px w-8" style={{ background: '#4e9000' }} />
-              <span className="text-[11px] font-bold uppercase tracking-[0.2em]" style={{ color: '#6fc200' }}>Get in Touch</span>
+          <div className="grid md:grid-cols-2 gap-12 items-end">
+            <div>
+              <Reveal>
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="h-px w-8" style={{ background: '#4e9000' }} />
+                  <span className="text-[11px] font-bold uppercase tracking-[0.2em]" style={{ color: '#6fc200' }}>Get in Touch</span>
+                </div>
+              </Reveal>
+              <Reveal delay={80}>
+                <h1 className="text-5xl md:text-7xl font-black tracking-tight text-white leading-none mb-6">
+                  Talk to a<br />real person.<br />
+                  <span style={{ background: 'linear-gradient(135deg,#9de84a,#6fc200)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>No bots.</span>
+                </h1>
+              </Reveal>
+              <Reveal delay={160}>
+                <p className="text-xl text-slate-400 max-w-lg leading-relaxed">
+                  Reach out directly or fill out the form below — a dedicated payment specialist responds within one business day.
+                </p>
+              </Reveal>
             </div>
-          </Reveal>
-          <Reveal delay={80}>
-            <h1 className="text-5xl md:text-7xl font-black tracking-tight text-white leading-none mb-6">
-              Talk to a<br />real person.<br />
-              <span style={{ background: 'linear-gradient(135deg,#9de84a,#6fc200)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>No bots.</span>
-            </h1>
-          </Reveal>
-          <Reveal delay={160}>
-            <p className="text-xl text-slate-400 max-w-xl leading-relaxed">
-              Reach out directly or fill out the form below — a dedicated payment specialist responds within one business day.
-            </p>
-          </Reveal>
+
+            {/* Giant phone number — the signature element */}
+            <Reveal direction="right" delay={120}>
+              <div className="flex flex-col gap-5">
+                <a href="tel:6469417853" className="group flex flex-col">
+                  <span className="text-[11px] font-bold uppercase tracking-[0.2em] mb-3" style={{ color: '#6fc200' }}>Call us directly</span>
+                  <span className="text-4xl md:text-5xl font-black text-white group-hover:text-[#8cd627] transition-colors tracking-tight">(646) 941-7853</span>
+                  <span className="text-sm text-slate-600 mt-2">Mon – Fri, 9am – 6pm ET</span>
+                </a>
+                <div className="h-px" style={{ background: 'rgba(255,255,255,0.07)' }} />
+                <a href="mailto:info@fintech5group.com" className="group">
+                  <span className="text-[11px] font-bold uppercase tracking-[0.2em] mb-2 block" style={{ color: '#6fc200' }}>Email us</span>
+                  <span className="text-lg font-bold text-slate-300 group-hover:text-white transition-colors">info@fintech5group.com</span>
+                </a>
+                <div className="h-px" style={{ background: 'rgba(255,255,255,0.07)' }} />
+                <div>
+                  <span className="text-[11px] font-bold uppercase tracking-[0.2em] mb-2 block" style={{ color: '#6fc200' }}>Response time</span>
+                  <div className="flex items-center gap-2">
+                    <div className="w-2 h-2 rounded-full" style={{ background: '#6fc200' }} />
+                    <span className="text-sm font-bold text-white">Within 1 business day, always</span>
+                  </div>
+                </div>
+              </div>
+            </Reveal>
+          </div>
         </div>
       </section>
 
@@ -109,35 +136,46 @@ export default function ContactPage() {
         </div>
       </section>
 
-      {/* ── WHAT HAPPENS NEXT ── */}
+      {/* ── WHAT HAPPENS NEXT — vertical timeline ── */}
       <section className="px-6 py-20 relative" style={{ background: BG2 }}>
         <div className="absolute top-0 left-0 right-0 h-px" style={{ background: 'linear-gradient(90deg,transparent,rgba(78,144,0,0.2),transparent)' }} />
         <div className="max-w-5xl mx-auto">
           <Reveal>
-            <div className="text-center mb-14">
-              <div className="flex items-center justify-center gap-3 mb-5">
-                <div className="h-px w-8" style={{ background: '#4e9000' }} />
-                <span className="text-[11px] font-bold uppercase tracking-[0.2em]" style={{ color: '#6fc200' }}>What happens next</span>
-                <div className="h-px w-8" style={{ background: '#4e9000' }} />
-              </div>
-              <h2 className="text-3xl md:text-4xl font-black text-white">No guessing. Here&apos;s the process.</h2>
+            <div className="flex items-center gap-3 mb-4">
+              <div className="h-px w-8" style={{ background: '#4e9000' }} />
+              <span className="text-[11px] font-bold uppercase tracking-[0.2em]" style={{ color: '#6fc200' }}>What Happens Next</span>
             </div>
+            <h2 className="text-3xl md:text-4xl font-black text-white mb-16">No guessing. Here&apos;s the timeline.</h2>
           </Reveal>
 
-          <div className="grid md:grid-cols-3 gap-6">
-            {nextSteps.map((step, i) => (
-              <Reveal key={step.n} delay={i * 100}>
-                <div className="rounded-2xl p-8 h-full" style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)' }}>
-                  <div className="text-4xl font-black mb-5" style={{ color: 'rgba(78,144,0,0.3)' }}>{step.n}</div>
-                  <h3 className="font-black text-white mb-3">{step.title}</h3>
-                  <p className="text-sm text-slate-400 leading-relaxed">{step.body}</p>
-                </div>
-              </Reveal>
-            ))}
+          <div className="relative">
+            {/* Vertical connecting line */}
+            <div className="absolute left-[18px] top-5 bottom-5 w-px" style={{ background: 'linear-gradient(180deg, #4e9000, rgba(78,144,0,0.1))' }} />
+
+            <div className="flex flex-col gap-12">
+              {nextSteps.map((step, i) => (
+                <Reveal key={step.n} delay={i * 100}>
+                  <div className="flex gap-8 items-start">
+                    {/* Dot on the line */}
+                    <div className="w-9 h-9 rounded-full flex items-center justify-center font-black text-sm text-white shrink-0 relative z-10" style={{ background: '#4e9000', boxShadow: '0 0 0 4px #0a1208, 0 0 0 5px rgba(78,144,0,0.3)' }}>
+                      {i + 1}
+                    </div>
+                    <div className="flex-1 pt-1">
+                      <div className="flex items-center gap-3 mb-2">
+                        <h3 className="text-xl font-black text-white">{step.title}</h3>
+                        {i === 0 && <span className="text-[10px] font-bold uppercase tracking-widest px-2 py-1 rounded-full" style={{ background: 'rgba(78,144,0,0.15)', color: '#6fc200' }}>Starts today</span>}
+                        {i === nextSteps.length - 1 && <span className="text-[10px] font-bold uppercase tracking-widest px-2 py-1 rounded-full" style={{ background: 'rgba(78,144,0,0.15)', color: '#6fc200' }}>You decide</span>}
+                      </div>
+                      <p className="text-slate-400 leading-relaxed">{step.body}</p>
+                    </div>
+                  </div>
+                </Reveal>
+              ))}
+            </div>
           </div>
 
           <Reveal delay={300}>
-            <div className="mt-8 flex items-center justify-center gap-8 flex-wrap pt-8" style={{ borderTop: '1px solid rgba(255,255,255,0.07)' }}>
+            <div className="mt-12 flex items-center gap-8 flex-wrap pt-8" style={{ borderTop: '1px solid rgba(255,255,255,0.07)' }}>
               {['No contracts required', 'No consulting fees', 'No-pressure conversation'].map(item => (
                 <div key={item} className="flex items-center gap-2 text-sm text-slate-500">
                   <CheckCircle2 className="w-4 h-4" style={{ color: '#4e9000' }} /> {item}

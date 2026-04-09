@@ -36,76 +36,71 @@ export default async function IndustryPage({ params }: { params: Promise<{ slug:
       {/* ── HERO ── */}
       <section className="relative px-6 pt-44 pb-0 overflow-hidden" style={{ background: BG2 }}>
         <div className="absolute top-0 left-0 right-0 h-[2px]" style={{ background: 'linear-gradient(90deg,transparent,rgba(78,144,0,0.5),transparent)' }} />
-        <div className="absolute top-0 right-0 w-[500px] h-[400px] pointer-events-none" style={{ background: 'radial-gradient(ellipse, rgba(78,144,0,0.1) 0%, transparent 65%)', filter: 'blur(40px)' }} />
+        {/* Giant watermark word */}
+        <div className="absolute right-0 top-24 text-[18vw] font-black leading-none select-none pointer-events-none uppercase" style={{ color: 'rgba(78,144,0,0.04)', userSelect: 'none' }}>
+          {industry.title.split(' ')[0]}
+        </div>
 
         <div className="max-w-5xl mx-auto">
           <Reveal>
             <div className="flex items-center gap-3 mb-6">
               <div className="h-px w-8" style={{ background: '#4e9000' }} />
               <span className="text-[11px] font-bold uppercase tracking-[0.2em]" style={{ color: '#6fc200' }}>Industry Solutions</span>
-              <div className="h-px w-8" style={{ background: '#4e9000' }} />
             </div>
           </Reveal>
 
-          <div className="grid lg:grid-cols-[3fr_2fr] gap-12 items-end pb-16">
-            <div>
-              <Reveal delay={80}>
-                <h1 className="text-5xl md:text-6xl font-black tracking-tight text-white leading-none mb-6">
-                  {industry.title}
-                </h1>
-              </Reveal>
-              <Reveal delay={160}>
-                <p className="text-xl text-slate-400 leading-relaxed max-w-xl">{industry.subtitle}</p>
-              </Reveal>
-              <Reveal delay={240}>
-                <div className="flex flex-wrap gap-4 mt-8">
-                  <Link href="/get-your-savings-estimate" className="inline-flex items-center gap-2 px-6 py-3.5 text-sm font-black text-white rounded-xl transition-all hover:-translate-y-0.5" style={{ background: '#4e9000', boxShadow: '0 8px 24px rgba(78,144,0,0.35)' }}>
-                    {cta} <ArrowRight className="w-4 h-4" />
-                  </Link>
-                  <Link href="/calculator" className="inline-flex items-center gap-2 px-6 py-3.5 text-sm font-bold text-slate-400 hover:text-white border border-white/10 hover:border-white/25 rounded-xl transition-all">
-                    Fee Calculator <ChevronRight className="w-4 h-4" />
-                  </Link>
-                </div>
-              </Reveal>
-            </div>
+          <Reveal delay={80}>
+            <h1 className="text-5xl md:text-7xl font-black tracking-tight text-white leading-none mb-8 max-w-3xl">
+              {industry.title}
+            </h1>
+          </Reveal>
 
-            {/* Stats column */}
-            {stats.length > 0 && (
-              <Reveal delay={200} direction="right">
-                <div className="flex flex-col gap-3">
-                  {stats.map((s, i) => (
-                    <div key={i} className="rounded-2xl px-6 py-5" style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(78,144,0,0.2)' }}>
-                      <div className="text-3xl font-black mb-1" style={{ color: '#6fc200' }}>{s.value}</div>
-                      <div className="text-xs text-slate-500 uppercase tracking-wider font-semibold">{s.label}</div>
-                    </div>
-                  ))}
-                </div>
-              </Reveal>
-            )}
-          </div>
+          <Reveal delay={140}>
+            <p className="text-xl text-slate-400 leading-relaxed max-w-xl mb-10">{industry.subtitle}</p>
+          </Reveal>
+
+          {/* Stats as inline big numbers */}
+          {stats.length > 0 && (
+            <Reveal delay={180}>
+              <div className="flex flex-wrap gap-x-12 gap-y-4 mb-12 pl-1">
+                {stats.map((s, i) => (
+                  <div key={i}>
+                    <div className="text-4xl md:text-5xl font-black leading-none" style={{ color: '#6fc200' }}>{s.value}</div>
+                    <div className="text-[11px] text-slate-500 uppercase tracking-widest mt-1">{s.label}</div>
+                  </div>
+                ))}
+              </div>
+            </Reveal>
+          )}
+
+          <Reveal delay={240}>
+            <div className="flex flex-wrap gap-4 pb-16">
+              <Link href="/get-your-savings-estimate" className="inline-flex items-center gap-2 px-6 py-3.5 text-sm font-black text-white rounded-xl transition-all hover:-translate-y-0.5" style={{ background: '#4e9000', boxShadow: '0 8px 24px rgba(78,144,0,0.35)' }}>
+                {cta} <ArrowRight className="w-4 h-4" />
+              </Link>
+              <Link href="/calculator" className="inline-flex items-center gap-2 px-6 py-3.5 text-sm font-bold text-slate-400 hover:text-white border border-white/10 hover:border-white/25 rounded-xl transition-all">
+                Fee Calculator <ChevronRight className="w-4 h-4" />
+              </Link>
+            </div>
+          </Reveal>
         </div>
 
-        {/* Bottom separator */}
         <div className="absolute bottom-0 left-0 right-0 h-px" style={{ background: 'linear-gradient(90deg,transparent,rgba(78,144,0,0.2),transparent)' }} />
       </section>
 
-      {/* ── CHALLENGE ── */}
+      {/* ── CHALLENGE ── — full-bleed pull-quote style */}
       {challenge && (
-        <section className="px-6 py-20 relative" style={{ background: BG }}>
-          <div className="max-w-5xl mx-auto">
-            <div className="grid md:grid-cols-[auto_1fr] gap-8 items-start">
-              <Reveal direction="left">
-                <div className="md:pt-1">
-                  <div className="w-14 h-14 rounded-2xl flex items-center justify-center" style={{ background: 'rgba(251,191,36,0.08)', border: '1px solid rgba(251,191,36,0.2)' }}>
-                    <AlertTriangle className="w-7 h-7" style={{ color: '#f59e0b' }} />
-                  </div>
-                </div>
-              </Reveal>
-              <Reveal delay={100}>
-                <div>
-                  <div className="text-[11px] font-bold uppercase tracking-[0.2em] mb-3" style={{ color: '#f59e0b' }}>The Challenge</div>
-                  <p className="text-lg md:text-xl text-slate-300 leading-relaxed font-medium">{challenge}</p>
-                </div>
+        <section className="relative overflow-hidden" style={{ background: BG }}>
+          <div className="absolute top-0 left-0 right-0 h-px" style={{ background: 'linear-gradient(90deg,transparent,rgba(78,144,0,0.15),transparent)' }} />
+          <div className="flex">
+            {/* Thick amber left bar */}
+            <div className="w-1.5 shrink-0" style={{ background: 'linear-gradient(180deg,#f59e0b,#d97706)' }} />
+            <div className="flex-1 px-8 md:px-16 py-20">
+              <Reveal>
+                <div className="text-[11px] font-bold uppercase tracking-[0.2em] mb-6" style={{ color: '#f59e0b' }}>The Challenge</div>
+                <p className="text-2xl md:text-3xl text-slate-200 leading-snug font-semibold max-w-4xl" style={{ fontStyle: 'italic' }}>
+                  &ldquo;{challenge}&rdquo;
+                </p>
               </Reveal>
             </div>
           </div>
@@ -140,14 +135,14 @@ export default async function IndustryPage({ params }: { params: Promise<{ slug:
               </div>
             </Reveal>
 
-            {/* Features */}
+            {/* Features — numbered ribbons */}
             <Reveal direction="right" delay={100}>
               <div>
                 <div className="text-[11px] font-bold uppercase tracking-[0.2em] mb-6" style={{ color: '#6fc200' }}>What&apos;s Included</div>
-                <div className="flex flex-col gap-3">
+                <div className="flex flex-col gap-0">
                   {industry.features.map((feature, i) => (
-                    <div key={i} className="flex items-start gap-3 px-4 py-3.5 rounded-xl" style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)' }}>
-                      <CheckCircle2 className="w-4 h-4 shrink-0 mt-0.5" style={{ color: '#4e9000' }} />
+                    <div key={i} className="flex items-center gap-5 py-4" style={{ borderBottom: i < industry.features.length - 1 ? '1px solid rgba(255,255,255,0.06)' : 'none' }}>
+                      <span className="text-[11px] font-black w-7 shrink-0 text-right" style={{ color: 'rgba(78,144,0,0.5)' }}>{String(i + 1).padStart(2, '0')}</span>
                       <span className="text-sm text-slate-300 font-medium">{feature}</span>
                     </div>
                   ))}
