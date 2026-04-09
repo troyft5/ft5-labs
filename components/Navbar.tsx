@@ -113,6 +113,14 @@ export default function Navbar() {
 
         {/* CTA + Mobile Toggle */}
         <div className="flex items-center gap-3">
+          <a
+            href="https://app.fintech5group.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hidden md:inline-flex items-center gap-1.5 px-4 py-2 text-xs font-bold text-slate-400 hover:text-white border border-white/10 hover:border-white/25 rounded-lg transition-all"
+          >
+            Client Portal
+          </a>
           <Link
             href="/get-your-savings-estimate"
             className="hidden md:inline-flex items-center gap-2 px-5 py-2.5 text-sm font-bold text-white bg-brand-600 hover:bg-brand-700 rounded-xl shadow-md shadow-brand-100 transition-all duration-200 hover:-translate-y-0.5"
