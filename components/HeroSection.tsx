@@ -37,31 +37,30 @@ export default function HeroSection() {
 
         {/* ── Animated gradient mesh (Stripe-style) ── */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          {/* Blurred blob container — the blur blends all blobs together */}
-          <div className="absolute inset-0" style={{ filter: 'blur(72px)' }}>
-            {/* Blob 1 — large bright green, top-right */}
+          <div className="absolute inset-0" style={{ filter: 'blur(60px)' }}>
+            {/* Blob 1 — large vivid green, top-right */}
             <div
               className="absolute rounded-full animate-blob-1"
-              style={{ width: 600, height: 600, top: '-10%', right: '-5%', background: 'radial-gradient(circle, #b7e07a 0%, #72ac44 60%, transparent 100%)', opacity: 0.45 }}
+              style={{ width: '700px', height: '700px', top: '-15%', right: '-10%', background: 'radial-gradient(circle, #86efac 0%, #4ade80 50%, transparent 80%)', opacity: 0.75 }}
             />
-            {/* Blob 2 — medium mint, bottom-left */}
+            {/* Blob 2 — lime green, bottom-left */}
             <div
               className="absolute rounded-full animate-blob-2"
-              style={{ width: 500, height: 500, bottom: '-15%', left: '-8%', background: 'radial-gradient(circle, #a3e635 0%, #4d8f25 60%, transparent 100%)', opacity: 0.3, animationDelay: '3s' }}
+              style={{ width: '600px', height: '600px', bottom: '-20%', left: '-10%', background: 'radial-gradient(circle, #a3e635 0%, #65a30d 50%, transparent 80%)', opacity: 0.6, animationDelay: '3s' }}
             />
-            {/* Blob 3 — warm yellow-green, center */}
+            {/* Blob 3 — yellow-green, center-right */}
             <div
               className="absolute rounded-full animate-blob-3"
-              style={{ width: 400, height: 400, top: '20%', left: '45%', background: 'radial-gradient(circle, #d9f99d 0%, #86efac 60%, transparent 100%)', opacity: 0.35, animationDelay: '6s' }}
+              style={{ width: '500px', height: '500px', top: '15%', left: '40%', background: 'radial-gradient(circle, #d9f99d 0%, #84cc16 50%, transparent 80%)', opacity: 0.55, animationDelay: '6s' }}
             />
-            {/* Blob 4 — teal accent, top-left */}
+            {/* Blob 4 — teal, top-left */}
             <div
               className="absolute rounded-full animate-blob-4"
-              style={{ width: 350, height: 350, top: '5%', left: '5%', background: 'radial-gradient(circle, #6ee7b7 0%, #34d399 60%, transparent 100%)', opacity: 0.2, animationDelay: '1.5s' }}
+              style={{ width: '400px', height: '400px', top: '0%', left: '-5%', background: 'radial-gradient(circle, #6ee7b7 0%, #059669 50%, transparent 80%)', opacity: 0.45, animationDelay: '1.5s' }}
             />
           </div>
-          {/* White veil to keep it soft, not neon */}
-          <div className="absolute inset-0 bg-white/55" />
+          {/* Very light veil — just enough to keep text readable */}
+          <div className="absolute inset-0 bg-white/25" />
         </div>
 
         <div className="relative w-full max-w-7xl mx-auto px-6 lg:px-10 pt-28 pb-16">
