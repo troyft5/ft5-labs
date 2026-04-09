@@ -1,7 +1,9 @@
-import { ArrowRight, ChevronRight, Shield, Phone, TrendingUp, Zap, Users, CheckCircle2, Star, Quote, FileText, GitMerge, DollarSign } from 'lucide-react'
+import { ArrowRight, ChevronRight, Shield, Phone, TrendingUp, Zap, Users, CheckCircle2, Star, Quote, FileText, GitMerge, DollarSign, BookOpen, Clock } from 'lucide-react'
 import Link from 'next/link'
 import HeroSection from '@/components/HeroSection'
 import CostComparison from '@/components/CostComparison'
+import BidSimulation from '@/components/BidSimulation'
+import { getSortedPostsData } from '@/lib/blog'
 
 export const metadata = {
   title: 'FinTech 5 | Payment Processing Consultants — Stop Losing Profits',
@@ -51,6 +53,7 @@ const steps = [
 ]
 
 export default function Home() {
+  const posts = getSortedPostsData().slice(0, 3)
   return (
     <div className="flex flex-col w-full">
 
@@ -141,8 +144,35 @@ export default function Home() {
       </section>
 
       {/* ─────────────────────────────────────────
-          WHY FT5 — mixed grid differentiators
+          BID SIMULATION — what step 02 looks like
       ───────────────────────────────────────── */}
+      <section className="px-6 py-28 relative" style={{ background: BG2 }}>
+        <div className="absolute top-0 left-0 right-0 h-px" style={{ background: 'linear-gradient(90deg,transparent,rgba(78,144,0,0.3),transparent)' }} />
+        <div className="max-w-5xl mx-auto">
+          <div className="grid lg:grid-cols-[1fr_3fr] gap-16 items-start">
+            <div className="lg:sticky lg:top-36">
+              <div className="flex items-center gap-3 mb-5">
+                <div className="h-px w-8" style={{ background: '#4e9000' }} />
+                <span className="text-[11px] font-bold uppercase tracking-[0.2em]" style={{ color: '#6fc200' }}>Step 02 In Action</span>
+              </div>
+              <h2 className="text-4xl md:text-5xl font-black tracking-tight text-white leading-tight mb-5">
+                This is what competing{' '}
+                <span style={{ background: 'linear-gradient(135deg,#9de84a,#6fc200)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>looks like.</span>
+              </h2>
+              <p className="text-slate-400 leading-relaxed text-sm mb-6">We submit your statement to every major tier-1 processor simultaneously. They compete. You win. No negotiation required on your end.</p>
+              <div className="flex flex-col gap-2">
+                {['Blind bidding — processors don\'t see competitor rates', '100% pass-through on interchange & assessments', 'We\'re compensated by the selected processor — not you'].map(item => (
+                  <div key={item} className="flex items-start gap-2.5 text-sm text-slate-500">
+                    <span className="text-[#4e9000] mt-0.5 shrink-0">✓</span> {item}
+                  </div>
+                ))}
+              </div>
+            </div>
+            <BidSimulation />
+          </div>
+        </div>
+      </section>
+
       <section className="px-6 py-28 relative" style={{ background: BG2 }}>
         <div className="absolute top-0 left-0 right-0 h-px" style={{ background: 'linear-gradient(90deg,transparent,rgba(78,144,0,0.2),transparent)' }} />
 
@@ -297,6 +327,51 @@ export default function Home() {
                   <div className="text-[11px] mt-0.5" style={{ color: '#4e9000' }}>{ind.savings}</div>
                 </div>
                 <ChevronRight className="w-4 h-4 text-slate-600 group-hover:text-[#6fc200] group-hover:translate-x-1 transition-all" />
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ─────────────────────────────────────────
+          BLOG PREVIEW
+      ───────────────────────────────────────── */}
+      <section className="px-6 py-28 relative" style={{ background: BG }}>
+        <div className="absolute top-0 left-0 right-0 h-px" style={{ background: 'linear-gradient(90deg,transparent,rgba(78,144,0,0.2),transparent)' }} />
+        <div className="max-w-5xl mx-auto">
+          <div className="flex items-end justify-between gap-4 mb-12">
+            <div>
+              <div className="flex items-center gap-3 mb-5">
+                <div className="h-px w-8" style={{ background: '#4e9000' }} />
+                <span className="text-[11px] font-bold uppercase tracking-[0.2em]" style={{ color: '#6fc200' }}>Knowledge Base</span>
+              </div>
+              <h2 className="text-3xl md:text-4xl font-black tracking-tight text-white">The FT5 Playbook</h2>
+            </div>
+            <Link href="/blog" className="hidden sm:flex items-center gap-2 text-sm font-bold text-slate-500 hover:text-white transition-colors">
+              All Articles <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
+          <div className="grid md:grid-cols-3 gap-5">
+            {posts.map((post) => (
+              <Link
+                key={post.slug}
+                href={`/blog/${post.slug}`}
+                className="group flex flex-col rounded-2xl overflow-hidden transition-all duration-300 hover:-translate-y-1"
+                style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)' }}
+              >
+                {/* Category header */}
+                <div className="px-6 py-4" style={{ borderBottom: '1px solid rgba(255,255,255,0.06)', background: 'rgba(78,144,0,0.06)' }}>
+                  <span className="text-[10px] font-bold uppercase tracking-widest" style={{ color: '#4e9000' }}>{post.category}</span>
+                </div>
+                <div className="flex flex-col flex-1 px-6 py-5">
+                  <h3 className="text-base font-black text-white leading-snug mb-3 group-hover:text-[#8cd627] transition-colors line-clamp-2">{post.title}</h3>
+                  <p className="text-slate-500 text-sm leading-relaxed flex-1 line-clamp-2">{post.excerpt}</p>
+                  <div className="flex items-center gap-3 mt-5 pt-4" style={{ borderTop: '1px solid rgba(255,255,255,0.07)' }}>
+                    <Clock className="w-3.5 h-3.5 text-slate-700" />
+                    <span className="text-xs text-slate-600">{post.readTime}</span>
+                    <span className="ml-auto text-xs font-bold" style={{ color: '#4e9000' }}>Read →</span>
+                  </div>
+                </div>
               </Link>
             ))}
           </div>

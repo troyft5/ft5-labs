@@ -19,7 +19,7 @@ export function getSortedPostsData() {
     
     return {
       slug,
-      ...(matterResult.data as { title: string; date: string; excerpt: string })
+      ...(matterResult.data as { title: string; date: string; excerpt: string; category: string; readTime: string })
     }
   })
   
@@ -35,6 +35,6 @@ export function getPostData(slug: string) {
   return {
     slug,
     content: matterResult.content,
-    ...(matterResult.data as { title: string; date: string; excerpt: string })
+    ...(matterResult.data as { title: string; date: string; excerpt: string; category: string; readTime: string })
   }
 }
