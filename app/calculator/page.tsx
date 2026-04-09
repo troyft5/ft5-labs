@@ -1,13 +1,15 @@
-"use client"
+'use client'
 
 import { Calculator as CalcIcon } from 'lucide-react'
 import { useEffect, useRef } from 'react'
+
+const BG = '#0f1a0f'
+const BG2 = '#131f13'
 
 export default function Calculator() {
   const iframeRef = useRef<HTMLIFrameElement>(null)
 
   useEffect(() => {
-    // Simple script to ensure the iframe resizes correctly if the content changes height
     const handleMessage = (event: MessageEvent) => {
       if (event.data.type === 'resize' && iframeRef.current) {
         iframeRef.current.style.height = `${event.data.height}px`
@@ -18,28 +20,42 @@ export default function Calculator() {
   }, [])
 
   return (
-    <div className="flex flex-col w-full bg-slate-50 min-h-screen">
-      <section className="px-6 py-24 max-w-6xl mx-auto w-full">
-        <div className="text-center mb-12">
-          <div className="inline-flex items-center justify-center w-16 h-16 bg-brand-100 text-brand-600 rounded-2xl mb-6 shadow-sm">
-            <CalcIcon className="w-8 h-8" />
-          </div>
-          <h1 className="text-4xl md:text-5xl font-black tracking-tight mb-4 text-slate-900">
-            Processing Fee <span className="text-brand-600">Calculator</span>
-          </h1>
-          <p className="text-lg text-slate-600">See exactly how much you are losing to hidden markup fees every month.</p>
-        </div>
+    <div className="flex flex-col w-full min-h-screen" style={{ background: BG }}>
 
-        <div className="w-full bg-transparent rounded-3xl overflow-hidden shadow-xl border border-slate-200">
-          <iframe 
-            ref={iframeRef}
-            src="/calculator/index.html" 
-            className="w-full border-none min-h-[1200px]"
-            title="FinTech 5 Payment Processing Calculator"
-            scrolling="yes"
-          />
+      {/* Hero */}
+      <section className="px-6 pt-40 pb-16 relative" style={{ background: BG2 }}>
+        <div className="absolute top-0 left-0 right-0 h-px" style={{ background: 'linear-gradient(90deg,transparent,rgba(78,144,0,0.3),transparent)' }} />
+        <div className="max-w-4xl mx-auto text-center">
+          <div className="flex items-center justify-center gap-3 mb-5">
+            <div className="h-px w-8" style={{ background: '#4e9000' }} />
+            <span className="text-[11px] font-bold uppercase tracking-[0.2em]" style={{ color: '#6fc200' }}>Free Tool</span>
+            <div className="h-px w-8" style={{ background: '#4e9000' }} />
+          </div>
+          <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl mb-6" style={{ background: 'rgba(78,144,0,0.15)', border: '1px solid rgba(78,144,0,0.25)' }}>
+            <CalcIcon className="w-7 h-7" style={{ color: '#6fc200' }} />
+          </div>
+          <h1 className="text-4xl md:text-5xl font-black tracking-tight mb-4 text-white">
+            Processing Fee <span style={{ color: '#6fc200' }}>Calculator</span>
+          </h1>
+          <p className="text-lg text-slate-400">See exactly how much you are losing to hidden markup fees every month.</p>
         </div>
       </section>
+
+      {/* Calculator iframe */}
+      <section className="px-6 py-12" style={{ background: BG }}>
+        <div className="max-w-6xl mx-auto">
+          <div className="w-full rounded-2xl overflow-hidden" style={{ border: '1px solid rgba(255,255,255,0.08)' }}>
+            <iframe
+              ref={iframeRef}
+              src="/calculator/index.html"
+              className="w-full border-none min-h-[1200px]"
+              title="FinTech 5 Payment Processing Calculator"
+              scrolling="yes"
+            />
+          </div>
+        </div>
+      </section>
+
     </div>
   )
 }
