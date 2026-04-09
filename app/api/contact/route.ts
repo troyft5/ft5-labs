@@ -1,52 +1,33 @@
 import { NextRequest, NextResponse } from 'next/server'
+import { Resend } from 'resend'
 
-// HubSpot submission endpoint
-// Set HUBSPOT_PORTAL_ID and HUBSPOT_CONTACT_FORM_ID in your .env.local
-const PORTAL_ID   = process.env.HUBSPOT_PORTAL_ID
-const FORM_ID     = process.env.HUBSPOT_CONTACT_FORM_ID
+const resend = new Resend(process.env.RESEND_API_KEY)
+const TO = 'info@fintech5group.com'
 
 export async function POST(req: NextRequest) {
   try {
-    const body = await req.json()
-    const { firstName, lastName, email, phone, businessType, message } = body
+    const { firstName, lastName, email, phone, businessType, message } = await req.json()
 
     if (!firstName || !email || !message) {
       return NextResponse.json({ error: 'Missing required fields.' }, { status: 400 })
     }
 
-    // If HubSpot credentials are configured, submit there
-    if (PORTAL_ID && FORM_ID) {
-      const hsRes = await fetch(
-        `https://api.hsforms.com/submissions/v3/integration/submit/${PORTAL_ID}/${FORM_ID}`,
-        {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            fields: [
-              { name: 'firstname',    value: firstName },
-              { name: 'lastname',     value: lastName || '' },
-              { name: 'email',        value: email },
-              { name: 'phone',        value: phone || '' },
-              { name: 'company',      value: businessType || '' },
-              { name: 'message',      value: message },
-            ],
-            context: {
-              pageUri: 'https://fintech5group.com/contact-us',
-              pageName: 'Contact Us',
-            },
-          }),
-        }
-      )
-
-      if (!hsRes.ok) {
-        const err = await hsRes.text()
-        console.error('HubSpot error:', err)
-        return NextResponse.json({ error: 'Failed to submit to CRM.' }, { status: 502 })
-      }
-    }
-
-    // Always log on server for visibility
-    console.log('[Contact form submission]', { firstName, lastName, email, phone, businessType })
+    await resend.emails.send({
+      from: 'FinTech 5 Website <no-reply@fintech5group.com>',
+      to: TO,
+      replyTo: email,
+      subject: `New Contact: ${firstName} ${lastName || ''}`.trim(),
+      html: `
+        <h2>New Contact Form Submission</h2>
+        <table cellpadding="6" style="font-family:sans-serif;font-size:14px;">
+          <tr><td><strong>Name</strong></td><td>${firstName} ${lastName || ''}</td></tr>
+          <tr><td><strong>Email</strong></td><td><a href="mailto:${email}">${email}</a></td></tr>
+          <tr><td><strong>Phone</strong></td><td>${phone || '—'}</td></tr>
+          <tr><td><strong>Industry</strong></td><td>${businessType || '—'}</td></tr>
+          <tr><td><strong>Message</strong></td><td>${message}</td></tr>
+        </table>
+      `,
+    })
 
     return NextResponse.json({ success: true })
   } catch (err) {
