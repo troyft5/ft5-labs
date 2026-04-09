@@ -3,21 +3,36 @@
 import { useState } from 'react'
 import { Calculator, ArrowRight, ShieldCheck } from 'lucide-react'
 
-const BG = '#0f1a0f'
+const BG  = '#0f1a0f'
 const BG2 = '#131f13'
 
-const inputClass = "w-full rounded-xl px-4 py-3 text-white text-sm font-medium outline-none transition-all focus:ring-1"
+const inputClass = "w-full rounded-xl px-4 py-3 text-white text-sm font-medium outline-none transition-all focus:ring-1 placeholder:text-slate-600"
 const inputStyle = { background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)' }
-const inputFocusStyle = { '--tw-ring-color': '#4e9000' } as React.CSSProperties
 const labelClass = "text-sm font-bold text-slate-400 mb-1.5 block"
 
 export default function Estimate() {
-  const [status, setStatus] = useState<'idle' | 'loading' | 'success'>('idle')
+  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
+  const [form, setForm] = useState({
+    firstName: '', lastName: '', email: '', phone: '', business: '',
+    volume: 'Under $10,000', industry: 'Retail', notes: '',
+  })
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const set = (k: string) => (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) =>
+    setForm(prev => ({ ...prev, [k]: e.target.value }))
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setStatus('loading')
-    setTimeout(() => setStatus('success'), 1500)
+    try {
+      const res = await fetch('/api/estimate', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(form),
+      })
+      setStatus(res.ok ? 'success' : 'error')
+    } catch {
+      setStatus('error')
+    }
   }
 
   return (
@@ -52,50 +67,49 @@ export default function Estimate() {
                   <ShieldCheck className="w-10 h-10" style={{ color: '#6fc200' }} />
                 </div>
                 <h3 className="text-2xl font-black mb-2 text-white">Request Received</h3>
-                <p className="text-slate-400">Our consultants are reviewing your details and will reach out shortly.</p>
+                <p className="text-slate-400">Our consultants are reviewing your details and will reach out within one business day.</p>
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="flex flex-col gap-6">
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
                     <label className={labelClass}>First Name *</label>
-                    <input type="text" required className={inputClass} style={{ ...inputStyle, ...inputFocusStyle }} placeholder="John" />
+                    <input type="text" required placeholder="John" value={form.firstName} onChange={set('firstName')} className={inputClass} style={inputStyle} />
                   </div>
                   <div>
                     <label className={labelClass}>Last Name *</label>
-                    <input type="text" required className={inputClass} style={{ ...inputStyle, ...inputFocusStyle }} placeholder="Smith" />
+                    <input type="text" required placeholder="Smith" value={form.lastName} onChange={set('lastName')} className={inputClass} style={inputStyle} />
                   </div>
                 </div>
 
                 <div>
                   <label className={labelClass}>Business Name *</label>
-                  <input type="text" required className={inputClass} style={{ ...inputStyle, ...inputFocusStyle }} placeholder="Acme Corp" />
+                  <input type="text" required placeholder="Acme Corp" value={form.business} onChange={set('business')} className={inputClass} style={inputStyle} />
                 </div>
 
                 <div>
                   <label className={labelClass}>Email Address *</label>
-                  <input type="email" required className={inputClass} style={{ ...inputStyle, ...inputFocusStyle }} placeholder="john@business.com" />
+                  <input type="email" required placeholder="john@business.com" value={form.email} onChange={set('email')} className={inputClass} style={inputStyle} />
                 </div>
 
                 <div>
                   <label className={labelClass}>Phone Number</label>
-                  <input type="tel" className={inputClass} style={{ ...inputStyle, ...inputFocusStyle }} placeholder="(555) 000-0000" />
+                  <input type="tel" placeholder="(555) 000-0000" value={form.phone} onChange={set('phone')} className={inputClass} style={inputStyle} />
                 </div>
 
                 <div>
                   <label className={labelClass}>Estimated Monthly Processing Volume</label>
-                  <select className={inputClass} style={{ ...inputStyle, ...inputFocusStyle }}>
-                    <option style={{ background: '#0f1a0f' }}>Under $10,000</option>
-                    <option style={{ background: '#0f1a0f' }}>$10,000 – $50,000</option>
-                    <option style={{ background: '#0f1a0f' }}>$50,000 – $250,000</option>
-                    <option style={{ background: '#0f1a0f' }}>$250,000+</option>
+                  <select value={form.volume} onChange={set('volume')} className={inputClass} style={inputStyle}>
+                    {['Under $10,000','$10,000 – $50,000','$50,000 – $250,000','$250,000+'].map(o => (
+                      <option key={o} style={{ background: '#0f1a0f' }}>{o}</option>
+                    ))}
                   </select>
                 </div>
 
                 <div>
                   <label className={labelClass}>Industry</label>
-                  <select className={inputClass} style={{ ...inputStyle, ...inputFocusStyle }}>
-                    {['Retail', 'E-Commerce', 'Healthcare', 'Restaurant / Food Service', 'B2B / Professional Services', 'Petroleum / Gas', 'High-Risk', 'Other'].map(o => (
+                  <select value={form.industry} onChange={set('industry')} className={inputClass} style={inputStyle}>
+                    {['Retail','E-Commerce','Healthcare','Restaurant / Food Service','B2B / Professional Services','Petroleum / Gas','High-Risk','Other'].map(o => (
                       <option key={o} style={{ background: '#0f1a0f' }}>{o}</option>
                     ))}
                   </select>
@@ -103,13 +117,14 @@ export default function Estimate() {
 
                 <div>
                   <label className={labelClass}>Tell us about your current processor (optional)</label>
-                  <textarea
-                    rows={3}
-                    className={`${inputClass} resize-none`}
-                    style={{ ...inputStyle, ...inputFocusStyle }}
-                    placeholder="E.g. 'We use Stripe at 2.9% + $0.30 and process ~$80k/month...'"
-                  />
+                  <textarea rows={3} placeholder="E.g. 'We use Stripe at 2.9% + $0.30 and process ~$80k/month...'" value={form.notes} onChange={set('notes')} className={`${inputClass} resize-none`} style={inputStyle} />
                 </div>
+
+                {status === 'error' && (
+                  <div className="text-sm rounded-xl px-4 py-3" style={{ background: 'rgba(185,28,28,0.1)', border: '1px solid rgba(185,28,28,0.3)', color: '#fca5a5' }}>
+                    Something went wrong. Please try again or call us at (646) 941-7853.
+                  </div>
+                )}
 
                 <button
                   type="submit"
@@ -117,8 +132,7 @@ export default function Estimate() {
                   className="w-full py-4 mt-2 text-white font-bold rounded-xl transition-all hover:opacity-90 disabled:opacity-60 flex items-center justify-center gap-2"
                   style={{ background: '#4e9000', boxShadow: '0 8px 24px rgba(78,144,0,0.3)' }}
                 >
-                  {status === 'loading' ? 'Submitting…' : 'Request My Free Estimate'}
-                  {status !== 'loading' && <ArrowRight className="w-5 h-5" />}
+                  {status === 'loading' ? 'Submitting…' : <>Request My Free Estimate <ArrowRight className="w-5 h-5" /></>}
                 </button>
 
                 <p className="text-center text-xs text-slate-500">No consulting fees. No obligation. No pressure.</p>

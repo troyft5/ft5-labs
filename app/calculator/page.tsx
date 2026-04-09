@@ -1,18 +1,20 @@
 'use client'
 
 import { Calculator as CalcIcon } from 'lucide-react'
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
-const BG = '#0f1a0f'
+const BG  = '#0f1a0f'
 const BG2 = '#131f13'
 
 export default function Calculator() {
   const iframeRef = useRef<HTMLIFrameElement>(null)
+  const [iframeHeight, setIframeHeight] = useState(900)
 
   useEffect(() => {
     const handleMessage = (event: MessageEvent) => {
-      if (event.data.type === 'resize' && iframeRef.current) {
-        iframeRef.current.style.height = `${event.data.height}px`
+      if (event.data?.type === 'resize' && typeof event.data.height === 'number') {
+        // Add a small buffer so nothing gets clipped
+        setIframeHeight(event.data.height + 32)
       }
     }
     window.addEventListener('message', handleMessage)
@@ -41,18 +43,21 @@ export default function Calculator() {
         </div>
       </section>
 
-      {/* Calculator iframe */}
-      <section className="px-6 py-12" style={{ background: BG }}>
-        <div className="max-w-6xl mx-auto">
-          <div className="w-full rounded-2xl overflow-hidden" style={{ border: '1px solid rgba(255,255,255,0.08)' }}>
-            <iframe
-              ref={iframeRef}
-              src="/calculator/index.html"
-              className="w-full border-none min-h-[1200px]"
-              title="FinTech 5 Payment Processing Calculator"
-              scrolling="yes"
-            />
-          </div>
+      {/* Calculator — seamlessly embedded, no internal scroll */}
+      <section className="px-0 py-0" style={{ background: BG }}>
+        <div className="max-w-5xl mx-auto px-6 py-10">
+          <iframe
+            ref={iframeRef}
+            src="/calculator/index.html"
+            className="w-full border-none block"
+            title="FinTech 5 Payment Processing Calculator"
+            scrolling="no"
+            style={{
+              height: iframeHeight,
+              overflow: 'hidden',
+              display: 'block',
+            }}
+          />
         </div>
       </section>
 

@@ -2152,6 +2152,59 @@
             }
         }
     </style>
+    <!-- DARK THEME OVERRIDE -->
+    <style>
+        :root {
+            --white: #182818;
+            --off:   #131f13;
+            --border:    rgba(255,255,255,0.09);
+            --border-dk: rgba(255,255,255,0.14);
+            --txt:   #e8f0e8;
+            --txt-m: #b8ccb8;
+            --txt-l: #7a9a7a;
+            --txt-muted: #4e6a4e;
+            --shadow-sm: 0 1px 4px rgba(0,0,0,0.5);
+            --shadow-md: 0 4px 20px rgba(0,0,0,0.6);
+        }
+        body { background: #0f1a0f !important; }
+        input[type=text], input[type=number], select {
+            background: rgba(255,255,255,0.05) !important;
+            color: #e8f0e8 !important;
+            border-color: rgba(255,255,255,0.1) !important;
+        }
+        input::placeholder { color: #4e6a4e; }
+        select option { background: #182818; color: #e8f0e8; }
+        .mode-bar { background: #131f13 !important; border-color: rgba(255,255,255,0.08) !important; }
+        .mode-btn { color: #7a9a7a !important; }
+        .mode-btn.active { background: rgba(255,255,255,0.08) !important; }
+        .tog { background: rgba(255,255,255,0.04) !important; border-color: rgba(255,255,255,0.08) !important; color: #7a9a7a !important; }
+        .tog.on { background: rgba(78,144,0,0.15) !important; border-color: var(--green) !important; color: var(--green) !important; }
+        .panel { background: #1a2a1a !important; border-color: rgba(255,255,255,0.08) !important; }
+        .effective-rate-display { background: rgba(255,255,255,0.05) !important; border-color: rgba(255,255,255,0.09) !important; }
+        .overpay-banner { background: linear-gradient(135deg,rgba(185,28,28,0.12),rgba(192,91,0,0.1)) !important; }
+        .benchmark-panel { background: rgba(29,78,216,0.07) !important; border-color: rgba(29,78,216,0.25) !important; }
+        .bench-stat { background: rgba(255,255,255,0.05) !important; border-color: rgba(255,255,255,0.08) !important; }
+        .gauge-wrap { background: rgba(255,255,255,0.04) !important; border-color: rgba(255,255,255,0.08) !important; }
+        .gauge-pin { background: #1a2a1a !important; border-color: rgba(255,255,255,0.4) !important; }
+        .gauge-verdict { background: rgba(78,144,0,0.10) !important; }
+        .chart-panel { background: #1a2a1a !important; border-color: rgba(255,255,255,0.08) !important; }
+        .chart-row-track { background: rgba(255,255,255,0.05) !important; }
+        .toggle-pill { background: rgba(255,255,255,0.06) !important; }
+        .pill-btn { color: #4e6a4e !important; }
+        .card { background: #1a2a1a !important; border-color: rgba(255,255,255,0.08) !important; }
+        .card.winner-card { background: rgba(78,144,0,0.10) !important; border-color: #4e9000 !important; }
+        .profit-panel { background: rgba(109,40,217,0.06) !important; border-color: rgba(109,40,217,0.2) !important; }
+        .profit-cell { background: rgba(255,255,255,0.04) !important; border-color: rgba(255,255,255,0.08) !important; }
+        .intel-panel { background: rgba(13,116,144,0.07) !important; border-color: rgba(13,116,144,0.2) !important; }
+        .intel-item { background: rgba(255,255,255,0.04) !important; border-color: rgba(255,255,255,0.07) !important; }
+        .dual-panel { background: rgba(180,83,9,0.08) !important; border-color: rgba(180,83,9,0.22) !important; }
+        .dual-cell { background: rgba(255,255,255,0.04) !important; border-color: rgba(255,255,255,0.07) !important; }
+        .fee-item { background: rgba(255,255,255,0.03) !important; border-color: rgba(255,255,255,0.08) !important; }
+        .fee-item.checked { background: rgba(78,144,0,0.10) !important; border-color: rgba(78,144,0,0.3) !important; }
+        .fee-checkbox { background: transparent !important; border-color: rgba(255,255,255,0.15) !important; }
+        .fee-item.checked .fee-checkbox { background: var(--green) !important; border-color: var(--green) !important; }
+        .range-slider { background: rgba(255,255,255,0.1) !important; }
+    </style>
 </head>
 
 <body>
@@ -3142,15 +3195,27 @@ $('calcBtn').addEventListener('click', () => {
 function showErr(msg) { const e=$('errBox'); e.textContent=msg; e.style.display='block'; }
 function hideErr() { $('errBox').style.display='none'; }
 </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/iframe-resizer/4.3.9/iframeResizer.contentWindow.min.js"
-        type="cf3670bad8c364d1b128fc71-text/javascript"></script>
-    <script src="/cdn-cgi/scripts/7d0fa10a/cloudflare-static/rocket-loader.min.js"
-        data-cf-settings="cf3670bad8c364d1b128fc71-|49" defer></script>
-    <script defer
-        src="https://static.cloudflareinsights.com/beacon.min.js/v8c78df7c7c0f484497ecbca7046644da1771523124516"
-        integrity="sha512-8DS7rgIrAmghBFwoOTujcf6D9rXvH8xm8JQ1Ja01h9QX8EzXldiszufYa4IFfKdLUKTTrnSFXLDkUEOTrZQ8Qg=="
-        data-cf-beacon='{"version":"2024.11.0","token":"7832cccff4f24ae7985642811aee511b","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}'
-        crossorigin="anonymous"></script>
+    <script>
+      // Auto-resize: notify parent iframe of document height (no internal scrollbar)
+      (function() {
+        function sendHeight() {
+          var h = Math.max(
+            document.body.scrollHeight,
+            document.documentElement.scrollHeight,
+            document.body.offsetHeight,
+            document.documentElement.offsetHeight
+          );
+          window.parent.postMessage({ type: 'resize', height: h }, '*');
+        }
+        // Fire on load, on DOM changes, and after animations settle
+        window.addEventListener('load', sendHeight);
+        if (window.ResizeObserver) {
+          new ResizeObserver(sendHeight).observe(document.body);
+        }
+        // Fallback polling for dynamic content
+        setInterval(sendHeight, 300);
+      })();
+    </script>
 </body>
 
 </html>

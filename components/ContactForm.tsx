@@ -7,18 +7,34 @@ const inputClass = "w-full px-4 py-3 rounded-xl text-sm focus:outline-none trans
 const labelClass = "block text-[10px] font-bold uppercase tracking-widest text-slate-500 mb-2"
 
 export default function ContactForm() {
-  const [submitted, setSubmitted] = useState(false)
-  const [loading, setLoading] = useState(false)
+  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
+  const [formData, setFormData] = useState({
+    firstName: '', lastName: '', email: '', phone: '', businessType: '', message: '',
+  })
+
+  const set = (k: string) => (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) =>
+    setFormData(prev => ({ ...prev, [k]: e.target.value }))
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
-    setLoading(true)
-    await new Promise(r => setTimeout(r, 1000))
-    setLoading(false)
-    setSubmitted(true)
+    setStatus('loading')
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      })
+      if (res.ok) {
+        setStatus('success')
+      } else {
+        setStatus('error')
+      }
+    } catch {
+      setStatus('error')
+    }
   }
 
-  if (submitted) {
+  if (status === 'success') {
     return (
       <div className="rounded-2xl p-10 text-center" style={{ background: 'rgba(78,144,0,0.1)', border: '1px solid rgba(78,144,0,0.25)' }}>
         <div className="text-4xl mb-4" style={{ color: '#6fc200' }}>✓</div>
@@ -32,25 +48,25 @@ export default function ContactForm() {
     <form onSubmit={handleSubmit} className="flex flex-col gap-5">
       <div className="grid grid-cols-2 gap-4">
         <div>
-          <label className={labelClass}>First Name</label>
-          <input required type="text" placeholder="John" className={inputClass} style={inputStyle} />
+          <label className={labelClass}>First Name *</label>
+          <input required type="text" placeholder="John" value={formData.firstName} onChange={set('firstName')} className={inputClass} style={inputStyle} />
         </div>
         <div>
           <label className={labelClass}>Last Name</label>
-          <input required type="text" placeholder="Smith" className={inputClass} style={inputStyle} />
+          <input type="text" placeholder="Smith" value={formData.lastName} onChange={set('lastName')} className={inputClass} style={inputStyle} />
         </div>
       </div>
       <div>
-        <label className={labelClass}>Business Email</label>
-        <input required type="email" placeholder="john@yourbusiness.com" className={inputClass} style={inputStyle} />
+        <label className={labelClass}>Business Email *</label>
+        <input required type="email" placeholder="john@yourbusiness.com" value={formData.email} onChange={set('email')} className={inputClass} style={inputStyle} />
       </div>
       <div>
         <label className={labelClass}>Phone Number</label>
-        <input type="tel" placeholder="(555) 555-5555" className={inputClass} style={inputStyle} />
+        <input type="tel" placeholder="(555) 555-5555" value={formData.phone} onChange={set('phone')} className={inputClass} style={inputStyle} />
       </div>
       <div>
         <label className={labelClass}>Business Type</label>
-        <select className={inputClass} style={inputStyle}>
+        <select value={formData.businessType} onChange={set('businessType')} className={inputClass} style={inputStyle}>
           <option value="" style={{ background: '#0f1a0f' }}>Select your industry...</option>
           {['Retail','E-Commerce','Healthcare','Service Business','B2B','Higher Education','Petroleum','High-Risk','CBD & Hemp','Other'].map(o => (
             <option key={o} style={{ background: '#0f1a0f' }}>{o}</option>
@@ -58,16 +74,21 @@ export default function ContactForm() {
         </select>
       </div>
       <div>
-        <label className={labelClass}>Message</label>
-        <textarea required rows={4} placeholder="Tell us about your current payment setup and what you're looking to improve..." className={`${inputClass} resize-none`} style={inputStyle} />
+        <label className={labelClass}>Message *</label>
+        <textarea required rows={4} placeholder="Tell us about your current payment setup and what you're looking to improve..." value={formData.message} onChange={set('message')} className={`${inputClass} resize-none`} style={inputStyle} />
       </div>
+      {status === 'error' && (
+        <div className="text-sm rounded-xl px-4 py-3" style={{ background: 'rgba(185,28,28,0.1)', border: '1px solid rgba(185,28,28,0.3)', color: '#fca5a5' }}>
+          Something went wrong. Please try again or call us at (646) 941-7853.
+        </div>
+      )}
       <button
         type="submit"
-        disabled={loading}
+        disabled={status === 'loading'}
         className="w-full py-4 text-base font-bold text-white disabled:opacity-60 rounded-xl transition-all flex items-center justify-center gap-2 hover:-translate-y-0.5"
         style={{ background: '#4e9000', boxShadow: '0 8px 24px rgba(78,144,0,0.3)' }}
       >
-        {loading ? 'Sending...' : <><span>Send Message</span><ArrowRight className="w-5 h-5" /></>}
+        {status === 'loading' ? 'Sending...' : <><span>Send Message</span><ArrowRight className="w-5 h-5" /></>}
       </button>
       <p className="text-xs text-slate-500 text-center">We respond within 1 business day. No spam, ever.</p>
     </form>

@@ -8,8 +8,34 @@ import Image from 'next/image'
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
 
 export const metadata = {
-  title: 'FinTech 5 | Payment Processing Consultants',
+  metadataBase: new URL('https://fintech5group.com'),
+  title: {
+    default: 'FinTech 5 | Payment Processing Consultants',
+    template: '%s | FinTech 5',
+  },
   description: 'Stop overpaying on payment processing. FinTech 5 negotiates on your behalf across 10+ processors to lower your rates and eliminate hidden fees.',
+  keywords: ['payment processing consultant', 'merchant services', 'lower processing fees', 'interchange optimization', 'payment processing NY NJ', 'FinTech 5'],
+  authors: [{ name: 'FinTech 5 Group' }],
+  openGraph: {
+    type: 'website',
+    locale: 'en_US',
+    url: 'https://fintech5group.com',
+    siteName: 'FinTech 5',
+    title: 'FinTech 5 | Payment Processing Consultants',
+    description: 'We negotiate across 10+ processors to lower your rates, eliminate junk fees, and protect your cash flow. Free consulting — no cost to you.',
+    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'FinTech 5 — Payment Processing Consultants' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'FinTech 5 | Payment Processing Consultants',
+    description: 'Stop overpaying on payment processing. Free consulting — we negotiate for you.',
+    images: ['/og-image.png'],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true, 'max-image-preview': 'large' },
+  },
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
