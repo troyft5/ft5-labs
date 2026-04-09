@@ -1,7 +1,6 @@
 import Link from 'next/link'
-import { Calendar, ArrowRight } from 'lucide-react'
+import { ArrowRight } from 'lucide-react'
 import { Metadata } from 'next'
-import Script from 'next/script'
 
 export const metadata: Metadata = {
   title: 'Schedule a Free Rate Review | FinTech 5',
@@ -11,7 +10,7 @@ export const metadata: Metadata = {
 const BG  = '#0f1a0f'
 const BG2 = '#0a1208'
 
-const CALENDLY_URL = process.env.NEXT_PUBLIC_CALENDLY_URL ?? 'https://calendly.com/fintech5group'
+const SCHEDULE_URL = process.env.NEXT_PUBLIC_SCHEDULE_URL ?? ''
 
 export default function SchedulePage() {
   return (
@@ -60,13 +59,28 @@ export default function SchedulePage() {
       <section className="px-6 py-12 relative" style={{ background: BG }}>
         <div className="absolute top-0 left-0 right-0 h-px" style={{ background: 'linear-gradient(90deg,transparent,rgba(78,144,0,0.2),transparent)' }} />
         <div className="max-w-3xl mx-auto">
-          {/* Calendly inline widget */}
-          <div
-            className="calendly-inline-widget w-full rounded-2xl overflow-hidden"
-            data-url={`${CALENDLY_URL}?hide_gdpr_banner=1&background_color=0f1a0f&text_color=ffffff&primary_color=4e9000`}
-            style={{ minHeight: '700px' }}
-          />
-          <Script src="https://assets.calendly.com/assets/external/widget.js" strategy="afterInteractive" />
+          {SCHEDULE_URL ? (
+            <div className="rounded-2xl overflow-hidden product-frame">
+              <iframe
+                src={SCHEDULE_URL}
+                width="100%"
+                height="700"
+                frameBorder="0"
+                title="Schedule a meeting"
+                className="block w-full"
+                style={{ minHeight: '700px', background: '#0f1a0f' }}
+              />
+            </div>
+          ) : (
+            <div className="rounded-2xl p-16 text-center glass-card">
+              <div className="text-4xl mb-4">📅</div>
+              <h3 className="text-lg font-black text-white mb-3">Scheduler coming soon</h3>
+              <p className="text-sm text-slate-500 mb-6">Set <code className="text-[#6fc200] text-xs">NEXT_PUBLIC_SCHEDULE_URL</code> in your environment to activate the booking widget.</p>
+              <a href="tel:6469417853" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-black text-white" style={{ background: '#4e9000' }}>
+                Call us directly instead
+              </a>
+            </div>
+          )}
         </div>
       </section>
 
