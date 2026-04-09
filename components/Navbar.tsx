@@ -79,7 +79,7 @@ export default function Navbar() {
 
         {/* Logo — dark version for white navbar */}
         <Link href="/" className="flex items-center" onClick={() => setMobileOpen(false)}>
-          <Image src="/Logos/FT5_White_Green.svg" alt="FinTech 5" width={110} height={80} className="h-9 w-auto" priority />
+          <Image src="/Logos/FT5_White_Green.svg" alt="FinTech 5" width={160} height={120} className="h-14 w-auto" priority />
         </Link>
 
         {/* Desktop Nav */}
