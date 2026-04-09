@@ -35,8 +35,7 @@ export default function HeroSection() {
       {/* ── HERO — bright, welcoming, Stripe-style ── */}
       <section className="relative bg-white overflow-hidden min-h-screen flex items-center">
 
-        {/* ── Subtle animated background — professional grade ── */}
-        {/* Slow gradient sweep: white to near-white green tones only */}
+        {/* ── Background: subtle sweep + morphing blobs ── */}
         <div
           className="absolute inset-0 pointer-events-none animate-gradient-sweep"
           style={{
@@ -44,16 +43,21 @@ export default function HeroSection() {
             backgroundSize: '300% 300%',
           }}
         />
-        {/* Single dignified glow — top right only, very soft */}
-        <div
-          className="absolute pointer-events-none"
-          style={{
-            width: '55vw', height: '65vh',
-            top: '-5%', right: '-8%',
-            background: 'radial-gradient(ellipse at 60% 40%, rgba(74,222,128,0.12) 0%, rgba(134,239,172,0.06) 45%, transparent 70%)',
-            filter: 'blur(50px)',
-          }}
-        />
+        {/* Morphing blobs — fluid organic shapes that slowly drift */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none" style={{ filter: 'blur(55px)' }}>
+          <div
+            className="absolute animate-morph-1"
+            style={{ width: '520px', height: '480px', top: '-8%', right: '-5%', background: 'radial-gradient(ellipse, rgba(134,239,172,0.28) 0%, rgba(74,222,128,0.14) 55%, transparent 80%)' }}
+          />
+          <div
+            className="absolute animate-morph-2"
+            style={{ width: '460px', height: '500px', bottom: '-12%', left: '-8%', background: 'radial-gradient(ellipse, rgba(163,230,53,0.22) 0%, rgba(101,163,13,0.10) 55%, transparent 80%)', animationDelay: '8s' }}
+          />
+          <div
+            className="absolute animate-morph-3"
+            style={{ width: '380px', height: '420px', top: '25%', left: '38%', background: 'radial-gradient(ellipse, rgba(110,231,183,0.18) 0%, rgba(52,211,153,0.08) 55%, transparent 80%)', animationDelay: '4s' }}
+          />
+        </div>
 
         <div className="relative w-full max-w-7xl mx-auto px-6 lg:px-10 pt-28 pb-16">
           <div className="grid lg:grid-cols-[1fr_460px] gap-12 xl:gap-16 items-center">

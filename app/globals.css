@@ -92,7 +92,35 @@
   to   { transform: translateX(-50%); }
 }
 
-/* ── Blob / mesh gradient animations ── */
+/* ── Morphing blob animations ── */
+/* Blobs morph shape AND drift in slow arcs simultaneously */
+@keyframes morph1 {
+  0%   { transform: translate(0px, 0px) scale(1);    border-radius: 60% 40% 70% 30% / 50% 65% 35% 50%; }
+  20%  { transform: translate(-80px, 60px) scale(1.06); border-radius: 40% 60% 50% 70% / 65% 35% 65% 35%; }
+  40%  { transform: translate(60px, 100px) scale(0.94); border-radius: 70% 30% 40% 60% / 35% 65% 50% 50%; }
+  60%  { transform: translate(100px, -40px) scale(1.08); border-radius: 50% 50% 60% 40% / 60% 40% 70% 30%; }
+  80%  { transform: translate(-40px, -80px) scale(0.96); border-radius: 30% 70% 45% 55% / 45% 55% 40% 60%; }
+  100% { transform: translate(0px, 0px) scale(1);    border-radius: 60% 40% 70% 30% / 50% 65% 35% 50%; }
+}
+@keyframes morph2 {
+  0%   { transform: translate(0px, 0px) scale(1);    border-radius: 40% 60% 30% 70% / 55% 45% 60% 40%; }
+  25%  { transform: translate(90px, -70px) scale(1.1); border-radius: 65% 35% 55% 45% / 40% 60% 35% 65%; }
+  50%  { transform: translate(-70px, -100px) scale(0.9); border-radius: 35% 65% 70% 30% / 60% 40% 55% 45%; }
+  75%  { transform: translate(-100px, 60px) scale(1.05); border-radius: 55% 45% 40% 60% / 30% 70% 45% 55%; }
+  100% { transform: translate(0px, 0px) scale(1);    border-radius: 40% 60% 30% 70% / 55% 45% 60% 40%; }
+}
+@keyframes morph3 {
+  0%   { transform: translate(0px, 0px) scale(1);    border-radius: 50% 50% 60% 40% / 40% 60% 50% 50%; }
+  33%  { transform: translate(70px, 80px) scale(1.08); border-radius: 65% 35% 45% 55% / 55% 45% 65% 35%; }
+  66%  { transform: translate(-60px, 50px) scale(0.93); border-radius: 35% 65% 60% 40% / 65% 35% 40% 60%; }
+  100% { transform: translate(0px, 0px) scale(1);    border-radius: 50% 50% 60% 40% / 40% 60% 50% 50%; }
+}
+
+.animate-morph-1 { animation: morph1 22s ease-in-out infinite; }
+.animate-morph-2 { animation: morph2 28s ease-in-out infinite; }
+.animate-morph-3 { animation: morph3 18s ease-in-out infinite; }
+
+/* ── Blob / mesh gradient animations (legacy) ── */
 @keyframes blob1 {
   0%, 100% { transform: translate(0px, 0px) scale(1); }
   25%       { transform: translate(-60px, 50px) scale(1.08); }
