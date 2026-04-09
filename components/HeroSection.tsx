@@ -139,17 +139,13 @@ export default function HeroSection() {
 
               {/* Headline */}
               <h1 className="text-5xl sm:text-6xl lg:text-[3.8rem] xl:text-[4.2rem] font-black tracking-tight text-white leading-[1.06] mb-8">
-                Stop losing profits<br />
-                to payment<br />
-                <span style={{ color: '#6fc200' }}>processors.</span>
+                We negotiate<br />
+                your payment rates.<br />
+                <span style={{ color: '#6fc200' }}>You keep the savings.</span>
               </h1>
 
-              <p className="text-lg text-slate-400 leading-relaxed mb-4 max-w-lg">
-                FinTech 5 blends 30+ years of combined expertise with access to 10+ leading processors — building payment stacks that eliminate hidden fees, streamline checkout, and reclaim your margins.
-              </p>
-
-              <p className="text-base text-slate-500 leading-relaxed mb-10 max-w-md font-medium">
-                We make processors compete for your business. At zero cost to you.
+              <p className="text-lg text-slate-400 leading-relaxed mb-10 max-w-lg">
+                Send us your merchant statement. In 48 hours we&apos;ll return a line-by-line audit with every hidden fee identified and competitive bids from 10+ processors — at zero cost to you.
               </p>
 
               {/* CTAs */}
@@ -159,7 +155,7 @@ export default function HeroSection() {
                   className="group inline-flex items-center gap-2.5 px-8 py-4 text-sm font-black text-white rounded-xl transition-all duration-200 hover:-translate-y-0.5 hover:opacity-90"
                   style={{ background: '#4e9000', boxShadow: '0 8px 24px rgba(78,144,0,0.35)' }}
                 >
-                  Schedule Your Free Savings Audit
+                  Get Your Free Audit
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </Link>
                 <Link
@@ -186,19 +182,39 @@ export default function HeroSection() {
               </div>
             </div>
 
-            {/* ── RIGHT: Mobile stats (mobile only) ── */}
-            <div className="lg:hidden grid grid-cols-2 gap-3 mt-2 mb-8">
-              {[
-                { val: '10+', label: 'Tier-1 Processors' },
-                { val: '10–18%', label: 'Avg. Cost Reduction' },
-                { val: '$0', label: 'Consulting Fees' },
-                { val: '48hr', label: 'Audit Turnaround' },
-              ].map(s => (
-                <div key={s.label} className="rounded-xl p-4" style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)' }}>
-                  <div className="text-2xl font-black" style={{ color: '#6fc200' }}>{s.val}</div>
-                  <div className="text-xs text-slate-400 mt-0.5">{s.label}</div>
+            {/* ── RIGHT: Mobile impact block (mobile only) ── */}
+            <div className="lg:hidden mt-2 mb-8">
+              {/* Big savings number */}
+              <div className="rounded-2xl p-6 mb-3" style={{ background: 'rgba(78,144,0,0.08)', border: '1px solid rgba(78,144,0,0.25)' }}>
+                <div className="text-[11px] font-bold uppercase tracking-[0.18em] mb-2" style={{ color: '#6fc200' }}>Real client result — NJ</div>
+                <div className="text-5xl font-black text-white mb-1">$18,400</div>
+                <div className="text-sm text-slate-400">in hidden fees found in 48 hours</div>
+                <div className="mt-4 h-px" style={{ background: 'linear-gradient(90deg, rgba(78,144,0,0.5), transparent)' }} />
+                <div className="mt-3 flex flex-col gap-2">
+                  {[
+                    { label: 'Interchange savings', amt: '$9,840' },
+                    { label: 'PCI fee removed', amt: '$1,200' },
+                    { label: 'Pricing model switch', amt: '$7,360' },
+                  ].map(r => (
+                    <div key={r.label} className="flex justify-between text-xs">
+                      <span className="text-slate-500">{r.label}</span>
+                      <span className="font-bold" style={{ color: '#6fc200' }}>{r.amt}</span>
+                    </div>
+                  ))}
                 </div>
-              ))}
+              </div>
+              {/* Proof pills */}
+              <div className="grid grid-cols-2 gap-2">
+                {[
+                  { val: '$0', label: 'Consulting Fees' },
+                  { val: '48hr', label: 'Audit Turnaround' },
+                ].map(s => (
+                  <div key={s.label} className="rounded-xl p-3.5" style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)' }}>
+                    <div className="text-2xl font-black" style={{ color: '#6fc200' }}>{s.val}</div>
+                    <div className="text-xs text-slate-500 mt-0.5">{s.label}</div>
+                  </div>
+                ))}
+              </div>
             </div>
 
             {/* ── RIGHT: Floating UI cards + hero image (desktop only) ── */}

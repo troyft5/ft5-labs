@@ -83,6 +83,41 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 sameAs: ['https://app.fintech5group.com'],
               },
               {
+                '@type': 'LocalBusiness',
+                '@id': 'https://fintech5group.com/#aggregate-rating',
+                name: 'FinTech 5 Group',
+                aggregateRating: {
+                  '@type': 'AggregateRating',
+                  ratingValue: '5',
+                  reviewCount: '3',
+                  bestRating: '5',
+                  worstRating: '1',
+                },
+                review: [
+                  {
+                    '@type': 'Review',
+                    author: { '@type': 'Organization', name: 'Regional Retail Chain' },
+                    reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5' },
+                    reviewBody: 'FinTech 5 identified $18,400 in fees we didn\'t know we were paying. The audit took 48 hours. The savings are permanent.',
+                    datePublished: '2025-11-01',
+                  },
+                  {
+                    '@type': 'Review',
+                    author: { '@type': 'Organization', name: 'E-Commerce Founder, NY' },
+                    reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5' },
+                    reviewBody: 'We had been on tiered pricing for 6 years. Nobody told us. One statement analysis and we were switched to IC+ within a week.',
+                    datePublished: '2025-09-15',
+                  },
+                  {
+                    '@type': 'Review',
+                    author: { '@type': 'Organization', name: 'Healthcare Practice, NJ' },
+                    reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5' },
+                    reviewBody: 'My rep answers the phone every single time. That alone is worth more than the rate savings — though those are real too.',
+                    datePublished: '2025-10-20',
+                  },
+                ],
+              },
+              {
                 '@type': 'FAQPage',
                 mainEntity: [
                   {
@@ -223,7 +258,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                   {[
                     ['Insights Blog', '/blog'],
                     ['Fee Calculator', '/calculator'],
-                    ['Get Your Estimate', '/get-your-savings-estimate'],
+                    ['Get Your Free Audit', '/get-your-savings-estimate'],
                     ['Contact Us', '/contact-us'],
                     ['Privacy Policy', '/privacy-policy'],
                     ['Terms of Service', '/terms-of-service'],
@@ -240,7 +275,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                     href="/get-your-savings-estimate"
                     className="inline-flex items-center gap-1.5 text-xs font-bold text-white bg-brand-600 hover:bg-brand-700 px-4 py-2 rounded-lg transition-all"
                   >
-                    Get Started →
+                    Get Your Free Audit →
                   </Link>
                 </div>
               </div>

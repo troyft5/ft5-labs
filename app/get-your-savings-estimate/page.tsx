@@ -184,15 +184,10 @@ export default function Estimate() {
 
                     <div className="h-px" style={{ background: 'rgba(255,255,255,0.06)' }} />
 
-                    <div className="grid md:grid-cols-2 gap-5">
-                      <div>
-                        <label className={labelClass}>First Name *</label>
-                        <input type="text" required placeholder="John" value={form.firstName} onChange={set('firstName')} className={inputClass} style={inputStyle} />
-                      </div>
-                      <div>
-                        <label className={labelClass}>Last Name</label>
-                        <input type="text" placeholder="Smith" value={form.lastName} onChange={set('lastName')} className={inputClass} style={inputStyle} />
-                      </div>
+                    {/* Primary required fields — highest visual weight */}
+                    <div>
+                      <label className={labelClass}>Your Name *</label>
+                      <input type="text" required placeholder="First name" value={form.firstName} onChange={set('firstName')} className={inputClass} style={inputStyle} />
                     </div>
 
                     <div>
@@ -200,20 +195,14 @@ export default function Estimate() {
                       <input type="text" required placeholder="Acme Corp" value={form.business} onChange={set('business')} className={inputClass} style={inputStyle} />
                     </div>
 
-                    <div className="grid md:grid-cols-2 gap-5">
-                      <div>
-                        <label className={labelClass}>Email Address *</label>
-                        <input type="email" required placeholder="john@business.com" value={form.email} onChange={set('email')} className={inputClass} style={inputStyle} />
-                      </div>
-                      <div>
-                        <label className={labelClass}>Phone Number</label>
-                        <input type="tel" placeholder="(555) 000-0000" value={form.phone} onChange={set('phone')} className={inputClass} style={inputStyle} />
-                      </div>
+                    <div>
+                      <label className={labelClass}>Email Address *</label>
+                      <input type="email" required placeholder="you@business.com" value={form.email} onChange={set('email')} className={inputClass} style={inputStyle} />
                     </div>
 
                     <div className="grid md:grid-cols-2 gap-5">
                       <div>
-                        <label className={labelClass}>Monthly Processing Volume</label>
+                        <label className={labelClass}>Monthly Volume</label>
                         <select value={form.volume} onChange={set('volume')} className={inputClass} style={inputStyle}>
                           {['Under $10,000','$10,000 – $50,000','$50,000 – $250,000','$250,000+'].map(o => (
                             <option key={o} style={{ background: '#0f1a0f' }}>{o}</option>
@@ -230,10 +219,23 @@ export default function Estimate() {
                       </div>
                     </div>
 
-                    <div>
-                      <label className={labelClass}>About your current processor (optional)</label>
-                      <textarea rows={3} placeholder="E.g. 'We use Stripe at 2.9% + $0.30 and process ~$80k/month...'" value={form.notes} onChange={set('notes')} className={`${inputClass} resize-none`} style={inputStyle} />
-                    </div>
+                    {/* Secondary optional fields — visually de-emphasized */}
+                    <details className="group">
+                      <summary className="cursor-pointer text-xs font-bold text-slate-600 hover:text-slate-400 transition-colors select-none list-none flex items-center gap-2">
+                        <span className="text-[#4e9000] group-open:rotate-90 transition-transform inline-block">›</span>
+                        Add phone or notes <span className="font-normal text-slate-700">(optional — speeds up your analysis)</span>
+                      </summary>
+                      <div className="flex flex-col gap-5 mt-4">
+                        <div>
+                          <label className={labelClass}>Phone Number</label>
+                          <input type="tel" placeholder="(555) 000-0000" value={form.phone} onChange={set('phone')} className={inputClass} style={inputStyle} />
+                        </div>
+                        <div>
+                          <label className={labelClass}>Current processor / notes</label>
+                          <textarea rows={3} placeholder="E.g. 'We use Stripe at 2.9% + $0.30 and process ~$80k/month...'" value={form.notes} onChange={set('notes')} className={`${inputClass} resize-none`} style={inputStyle} />
+                        </div>
+                      </div>
+                    </details>
 
                     {status === 'error' && (
                       <div className="text-sm rounded-xl px-4 py-3" style={{ background: 'rgba(185,28,28,0.1)', border: '1px solid rgba(185,28,28,0.3)', color: '#fca5a5' }}>
@@ -253,7 +255,7 @@ export default function Estimate() {
                           Sending your request...
                         </>
                       ) : (
-                        <>Get My Free Savings Analysis <ArrowRight className="w-5 h-5" /></>
+                        <>Get Your Free Audit <ArrowRight className="w-5 h-5" /></>
                       )}
                     </button>
 

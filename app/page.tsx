@@ -1,4 +1,4 @@
-import { ArrowRight, ChevronRight, Shield, Phone, TrendingUp, Zap, Users, CheckCircle2, Star, Quote, FileText, GitMerge, DollarSign, BookOpen, Clock } from 'lucide-react'
+import { ArrowRight, ChevronRight, Shield, Phone, TrendingUp, Zap, Users, CheckCircle2, Star, Quote, FileText, GitMerge, DollarSign, Clock } from 'lucide-react'
 import Link from 'next/link'
 import Image from 'next/image'
 import HeroSection from '@/components/HeroSection'
@@ -38,19 +38,19 @@ const steps = [
   {
     n: '01', icon: <FileText className="w-6 h-6" />,
     title: 'Send Your Statement',
-    body: 'Upload your current processing statement or provide a few numbers. We read it so you don\'t have to. No obligation, no cost.',
+    body: 'Upload your merchant statement or enter a few numbers. We analyze every line — interchange, markup, junk fees — and flag what you shouldn\'t be paying.',
     badge: '48-hr turnaround',
   },
   {
     n: '02', icon: <GitMerge className="w-6 h-6" />,
-    title: 'We Negotiate for You',
-    body: 'We take your data to 10+ competing tier-1 processors and run a blind competitive bid. Interchange and assessments pass through at cost.',
+    title: 'We Go to Market for You',
+    body: 'We submit your data to 10+ tier-1 processors simultaneously. They bid blind — they can\'t see each other\'s offers. You get their best number, not their opening one.',
     badge: '10+ processors bid',
   },
   {
     n: '03', icon: <DollarSign className="w-6 h-6" />,
-    title: 'Savings Locked In',
-    body: 'You choose the best offer. New rates are locked in — no annual hikes. We stay on as your dedicated account advocate.',
+    title: 'You Pick. We Lock It In.',
+    body: 'Choose the winning bid. We handle the switch. Rates are contractually locked — no annual creep. Your dedicated rep stays on the account permanently.',
     badge: 'Avg. $8,400/yr saved',
   },
 ]
@@ -160,11 +160,6 @@ export default function Home() {
 
         <div className="max-w-5xl mx-auto relative">
           <div className="text-center mb-20">
-            <div className="flex items-center justify-center gap-3 mb-5">
-              <div className="h-px w-8" style={{ background: '#4e9000' }} />
-              <span className="text-[11px] font-bold uppercase tracking-[0.2em]" style={{ color: '#6fc200' }}>The Process</span>
-              <div className="h-px w-8" style={{ background: '#4e9000' }} />
-            </div>
             <h2 className="text-4xl md:text-5xl font-black tracking-tight text-white mb-4">Three steps.<br />Permanent savings.</h2>
             <p className="text-slate-400 max-w-lg mx-auto">We handle everything. You just review the offer and say yes.</p>
           </div>
@@ -253,15 +248,15 @@ export default function Home() {
             {[
               {
                 icon: <Shield className="w-7 h-7" />,
-                title: 'Processor-Agnostic',
-                body: "We're not owned by Square, Stripe, Heartland, or any processor. We compare 10+ tier-1 options and recommend only what maximizes your margin — full stop.",
+                title: 'No Ownership. No Bias.',
+                body: "We don't own a piece of Square, Stripe, Heartland, or any processor. That means we recommend what's actually best for your margin — not what pays us more.",
                 stat: '10+',
                 statLabel: 'Processors Compared',
               },
               {
                 icon: <Phone className="w-7 h-7" />,
-                title: 'A Real Human Picks Up',
-                body: "Every FinTech 5 client gets a named, dedicated account representative. Not a ticket system. Not a chatbot. A person who knows your account and answers the phone.",
+                title: 'Call Us. We Answer.',
+                body: "Every client gets a named rep who knows their account. No ticket queue. No offshore support. No chatbot. You call, we pick up.",
                 stat: '< 2min',
                 statLabel: 'Avg Response Time',
               },
@@ -316,6 +311,7 @@ export default function Home() {
               {[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4" style={{ fill: '#4e9000', color: '#4e9000' }} />)}
             </div>
             <h2 className="text-4xl md:text-5xl font-black tracking-tight text-white mb-4">Real Businesses.<br />Real Savings.</h2>
+            <p className="text-slate-500 text-sm mt-3">Clients are kept confidential at their request — savings figures are verified.</p>
           </div>
 
           {/* Feature quote */}
@@ -363,11 +359,6 @@ export default function Home() {
 
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-14">
-            <div className="flex items-center justify-center gap-3 mb-5">
-              <div className="h-px w-8" style={{ background: '#4e9000' }} />
-              <span className="text-[11px] font-bold uppercase tracking-[0.2em]" style={{ color: '#6fc200' }}>Industries</span>
-              <div className="h-px w-8" style={{ background: '#4e9000' }} />
-            </div>
             <h2 className="text-4xl md:text-5xl font-black tracking-tight text-white mb-4">Expertise across<br />every vertical.</h2>
             <p className="text-slate-400 max-w-xl mx-auto">From retail to high-risk, we&apos;ve built specialized payment stacks for businesses just like yours.</p>
           </div>
@@ -471,7 +462,7 @@ export default function Home() {
               className="inline-flex items-center justify-center gap-2.5 px-10 py-5 text-base font-black rounded-2xl transition-all hover:-translate-y-1 group"
               style={{ background: '#0a1208', color: '#6fc200', boxShadow: '0 8px 40px rgba(0,0,0,0.4)' }}
             >
-              Get My Free Savings Estimate <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              Get Your Free Audit <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </Link>
             <Link
               href="/contact-us"

@@ -219,7 +219,7 @@ export default function Navbar() {
             href="/get-your-savings-estimate"
             className={navLinkClass('/get-your-savings-estimate')}
           >
-            Get Estimate
+            Free Audit
           </Link>
         </div>
 
@@ -284,11 +284,11 @@ export default function Navbar() {
           )}
 
           <Link href="/get-your-savings-estimate" className="py-3 text-sm font-bold transition-colors" style={{ borderBottom: '1px solid rgba(255,255,255,0.07)', color: '#6fc200' }} onClick={closeMenu}>
-            Get Your Estimate →
+            Get Your Free Audit →
           </Link>
 
           <Link href="/get-your-savings-estimate" className="mt-4 flex items-center justify-center gap-2 py-3.5 text-sm font-black text-white rounded-xl" style={{ background: '#4e9000' }} onClick={closeMenu}>
-            Free Audit <ArrowRight className="w-4 h-4" />
+            Get Your Free Audit <ArrowRight className="w-4 h-4" />
           </Link>
           <a href="tel:6469417853" className="mt-2 flex items-center justify-center gap-2 py-3 text-sm font-semibold text-slate-500 hover:text-slate-300 transition-colors">
             <Phone className="w-4 h-4" /> (646) 941-7853

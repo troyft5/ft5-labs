@@ -142,9 +142,15 @@
   100% { transform: translate(0px, 0px) scale(1);    border-radius: 50% 50% 60% 40% / 40% 60% 50% 50%; }
 }
 
-.animate-morph-1 { animation: morph1 22s ease-in-out infinite; }
-.animate-morph-2 { animation: morph2 28s ease-in-out infinite; }
-.animate-morph-3 { animation: morph3 18s ease-in-out infinite; }
+/* Disable expensive border-radius morph on mobile — only run on desktop */
+@media (max-width: 1023px) {
+  .animate-morph-1, .animate-morph-2, .animate-morph-3 { animation: none; }
+}
+@media (min-width: 1024px) {
+  .animate-morph-1 { animation: morph1 22s ease-in-out infinite; }
+  .animate-morph-2 { animation: morph2 28s ease-in-out infinite; }
+  .animate-morph-3 { animation: morph3 18s ease-in-out infinite; }
+}
 
 /* ── Blob / mesh gradient animations (legacy) ── */
 @keyframes blob1 {

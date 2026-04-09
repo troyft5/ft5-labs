@@ -1,6 +1,6 @@
 'use client'
 
-import { Calculator as CalcIcon, ShieldCheck, TrendingDown, Clock, ArrowRight } from 'lucide-react'
+import { ShieldCheck, TrendingDown, Clock, ArrowRight } from 'lucide-react'
 import { useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
 
@@ -79,9 +79,38 @@ export default function Calculator() {
             src="/calculator/index.html"
             className="w-full border-none block rounded-2xl overflow-hidden"
             title="FinTech 5 Payment Processing Calculator"
-            scrolling="no"
             style={{ height: iframeHeight, overflow: 'hidden', display: 'block' }}
           />
+        </div>
+      </section>
+
+      {/* ── POST-CALCULATOR CONVERSION HOOK — highest-intent moment ── */}
+      <section className="px-6 py-10 relative" style={{ background: BG }}>
+        <div className="max-w-5xl mx-auto">
+          <div className="rounded-2xl p-8 md:p-10 flex flex-col md:flex-row items-center justify-between gap-8"
+            style={{ background: 'rgba(78,144,0,0.1)', border: '1px solid rgba(78,144,0,0.3)' }}>
+            <div>
+              <div className="text-[11px] font-bold uppercase tracking-[0.18em] mb-2" style={{ color: '#6fc200' }}>
+                Your estimate is ready — want the exact number?
+              </div>
+              <h2 className="text-2xl md:text-3xl font-black text-white leading-tight mb-2">
+                Send us your statement.<br />We&apos;ll find what they&apos;re hiding.
+              </h2>
+              <p className="text-slate-400 text-sm">
+                The calculator is an estimate. A real audit gives you exact figures — plus competitive bids from 10+ processors. Takes 48 hours. Costs nothing.
+              </p>
+            </div>
+            <div className="flex flex-col gap-3 shrink-0 w-full md:w-auto">
+              <Link
+                href="/get-your-savings-estimate"
+                className="inline-flex items-center justify-center gap-2.5 px-8 py-4 text-sm font-black text-white rounded-xl whitespace-nowrap transition-all hover:-translate-y-0.5"
+                style={{ background: '#4e9000', boxShadow: '0 8px 24px rgba(78,144,0,0.4)' }}
+              >
+                Get Your Free Audit <ArrowRight className="w-4 h-4" />
+              </Link>
+              <p className="text-center text-[11px] text-slate-600">No signup. No obligation. No sales pressure.</p>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -95,7 +124,7 @@ export default function Calculator() {
               <h2 className="text-2xl font-black text-white mb-4">Get real numbers from real bids.</h2>
               <p className="text-slate-400 text-sm leading-relaxed mb-6">The calculator gives you a competitive estimate. For exact rates with 10+ processors competing for your business, upload your statement and we&apos;ll do the full analysis — free.</p>
               <Link href="/get-your-savings-estimate" className="inline-flex items-center gap-2 px-6 py-3.5 text-sm font-black text-white rounded-xl transition-all hover:-translate-y-0.5" style={{ background: '#4e9000', boxShadow: '0 8px 20px rgba(78,144,0,0.3)' }}>
-                Get My Free Statement Audit <ArrowRight className="w-4 h-4" />
+                Get Your Free Audit <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
             <div className="rounded-2xl p-8" style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)' }}>
@@ -190,7 +219,7 @@ export default function Calculator() {
             </div>
             <div className="flex flex-col gap-4">
               <Link href="/get-your-savings-estimate" className="flex items-center justify-center gap-2 px-8 py-4 font-black rounded-xl transition-all hover:-translate-y-1" style={{ background: '#0a1208', color: '#6fc200', boxShadow: '0 8px 40px rgba(0,0,0,0.4)' }}>
-                Get My Free Statement Audit <ArrowRight className="w-5 h-5" />
+                Get Your Free Audit <ArrowRight className="w-5 h-5" />
               </Link>
               <Link href="/contact-us" className="flex items-center justify-center gap-2 px-8 py-4 font-bold text-white border border-white/30 hover:border-white/60 rounded-xl transition-all">
                 Talk to a Specialist
