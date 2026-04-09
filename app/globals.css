@@ -86,6 +86,10 @@
 }
 .animate-gradient-sweep { animation: gradientSweep 20s ease infinite; }
 
+/* ── Dark card hover border ── */
+.dark-card { border-color: rgba(255,255,255,0.08); transition: border-color 0.3s, transform 0.3s; }
+.dark-card:hover { border-color: rgba(78,144,0,0.4); }
+
 /* ── Marquee ── */
 @keyframes marquee {
   from { transform: translateX(0); }

@@ -152,10 +152,8 @@ export default function Home() {
               <Link
                 key={s.href}
                 href={s.href}
-                className={`group rounded-2xl p-8 transition-all duration-300 hover:-translate-y-1 ${i === 0 ? 'md:col-span-2' : ''}`}
-                style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)' }}
-                onMouseEnter={e => (e.currentTarget.style.borderColor = 'rgba(78,144,0,0.4)')}
-                onMouseLeave={e => (e.currentTarget.style.borderColor = 'rgba(255,255,255,0.08)')}
+                className={`dark-card group rounded-2xl p-8 transition-all duration-300 hover:-translate-y-1 ${i === 0 ? 'md:col-span-2' : ''}`}
+                style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid' }}
               >
                 <h3 className="text-lg font-black text-white mb-3 group-hover:text-[#6fc200] transition-colors">{s.title}</h3>
                 <p className="text-sm text-slate-400 leading-relaxed mb-6">{s.desc}</p>
@@ -245,10 +243,8 @@ export default function Home() {
               <Link
                 key={ind.href}
                 href={ind.href}
-                className="group flex items-center justify-between px-6 py-5 rounded-2xl transition-all duration-300 hover:-translate-y-0.5"
-                style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)' }}
-                onMouseEnter={e => (e.currentTarget.style.borderColor = 'rgba(78,144,0,0.35)')}
-                onMouseLeave={e => (e.currentTarget.style.borderColor = 'rgba(255,255,255,0.08)')}
+                className="dark-card group flex items-center justify-between px-6 py-5 rounded-2xl transition-all duration-300 hover:-translate-y-0.5"
+                style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid' }}
               >
                 <span className="font-bold text-slate-300 group-hover:text-white transition-colors">{ind.name}</span>
                 <ChevronRight className="w-4 h-4 text-slate-600 group-hover:text-[#6fc200] group-hover:translate-x-1 transition-all" />
