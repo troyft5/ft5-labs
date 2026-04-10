@@ -96,7 +96,7 @@ export default function Estimate() {
                 </span>
               </h1>
               <p className="text-lg text-slate-400 leading-relaxed max-w-md">
-                Upload your merchant statement — or just fill in the details. Our consultants return a full fee breakdown and competitive comparison in 24 hours.
+                Upload your merchant statement — or just fill in the details. Our consultants return a full fee breakdown and competitive comparison same day or less.
               </p>
             </div>
 
@@ -340,7 +340,7 @@ export default function Estimate() {
                   {[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-current" style={{ color: '#f59e0b' }} />)}
                 </div>
                 <p className="text-sm text-slate-300 italic leading-relaxed mb-3">
-                  &ldquo;They analyzed our statement in 24 hours and found we were paying nearly 60 basis points above market rate. Switched in two weeks.&rdquo;
+                  &ldquo;They analyzed our statement same day or less and found we were paying nearly 60 basis points above market rate. Switched in two weeks.&rdquo;
                 </p>
                 <div className="text-xs text-slate-600 font-bold">— Retail merchant, New Jersey</div>
               </div>

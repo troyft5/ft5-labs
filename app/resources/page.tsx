@@ -39,9 +39,9 @@ const resources = [
     tag: 'Most Popular',
     href: '/get-your-savings-estimate',
     color: '#f59e0b',
-    desc: 'Upload your merchant statement and get a full line-by-line analysis with competitive bids from 10+ processors — returned in 24 hours. No cost.',
+    desc: 'Upload your merchant statement and get a full line-by-line analysis with competitive bids from 10+ processors — returned same day or less. No cost.',
     cta: 'Get My Audit',
-    stat: '24hr Turnaround',
+    stat: 'Same-Day Turnaround',
   },
   {
     icon: <Users className="w-7 h-7" />,
@@ -269,7 +269,7 @@ export default function ResourcesPage() {
           <div className="text-[10px] font-bold uppercase tracking-widest mb-4" style={{ color: 'rgba(255,255,255,0.6)' }}>Ready to see your numbers?</div>
           <h2 className="text-4xl font-black text-white mb-4 leading-tight">The audit is free.<br />The savings are permanent.</h2>
           <p style={{ color: 'rgba(255,255,255,0.75)' }} className="text-lg mb-8 max-w-xl mx-auto">
-            Upload your statement — or just your contact info — and we&apos;ll return a full savings analysis with competitive bids in 24 hours.
+            Upload your statement — or just your contact info — and we&apos;ll return a full savings analysis with competitive bids same day or less.
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
             <Link href="/get-your-savings-estimate" className="inline-flex items-center gap-2 px-10 py-4 font-black rounded-xl transition-all hover:-translate-y-1" style={{ background: '#0a1208', color: '#6fc200', boxShadow: '0 8px 40px rgba(0,0,0,0.4)' }}>

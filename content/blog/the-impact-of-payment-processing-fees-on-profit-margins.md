@@ -40,6 +40,6 @@ Consider a restaurant doing $50,000/month in card volume on a 2.9% flat rate. Th
 
 1. **Request an interchange-plus restatement.** Ask your current processor to show you what you paid in interchange, assessments, and markup separately.
 2. **Get your effective rate.** Divide total processing fees by total volume. If it's above 2.2%, you're almost certainly overpaying.
-3. **Get competitive quotes.** Most merchants never shop processors. A single audit from FinTech 5 returns quotes from 10+ providers in 24 hours.
+3. **Get competitive quotes.** Most merchants never shop processors. A single audit from FinTech 5 returns quotes from 10+ providers same day or less.
 
 Processing fees aren't fixed costs. They're negotiable — if you know what you're looking for.

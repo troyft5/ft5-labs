@@ -222,7 +222,7 @@ export default function SolutionsPage() {
           <div className="text-[10px] font-bold uppercase tracking-widest mb-4" style={{ color: 'rgba(255,255,255,0.6)' }}>Not sure which solution fits?</div>
           <h2 className="text-4xl font-black text-white mb-4 leading-tight">We&apos;ll figure it out together — in one call.</h2>
           <p style={{ color: 'rgba(255,255,255,0.75)' }} className="text-lg mb-8 max-w-xl mx-auto">
-            Submit your statement or just your contact info. We&apos;ll map out the right solution stack and return your savings analysis within 24 hours.
+            Submit your statement or just your contact info. We&apos;ll map out the right solution stack and return your savings analysis within 24 hours or less.
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
             <Link href="/get-your-savings-estimate" className="inline-flex items-center gap-2 px-10 py-4 font-black rounded-xl transition-all hover:-translate-y-1" style={{ background: '#0a1208', color: '#6fc200', boxShadow: '0 8px 40px rgba(0,0,0,0.4)' }}>

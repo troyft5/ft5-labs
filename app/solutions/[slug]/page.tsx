@@ -286,7 +286,7 @@ export default async function SolutionPage({ params }: { params: Promise<{ slug:
               <span style={{ color: 'rgba(255,255,255,0.6)' }}>Free. No obligation.</span>
             </h2>
             <p className="text-lg mb-10 max-w-xl mx-auto" style={{ color: 'rgba(255,255,255,0.75)' }}>
-              Our consulting is 100% free — funded by our processor partners, not by you. Get a data-driven analysis in 24 hours.
+              Our consulting is 100% free — funded by our processor partners, not by you. Get a data-driven analysis same day or less.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/get-your-savings-estimate" className="inline-flex items-center justify-center gap-2 px-9 py-4 text-base font-black rounded-xl hover:-translate-y-1 transition-all" style={{ background: '#0a1208', color: '#6fc200', boxShadow: '0 8px 40px rgba(0,0,0,0.4)' }}>

@@ -130,7 +130,7 @@ export default function BlogIndex() {
                 </div>
                 <div>
                   <div className="font-black text-white mb-1">Ready to see your numbers?</div>
-                  <div className="text-sm text-slate-400">Run a free analysis — get your actual savings estimate in 24 hours.</div>
+                  <div className="text-sm text-slate-400">Run a free analysis — get your actual savings estimate same day or less.</div>
                 </div>
               </div>
               <Link href="/get-your-savings-estimate" className="shrink-0 inline-flex items-center gap-2 px-6 py-3.5 text-sm font-black text-white rounded-xl transition-all hover:-translate-y-0.5" style={{ background: '#4e9000', boxShadow: '0 8px 20px rgba(78,144,0,0.3)' }}>
@@ -198,7 +198,7 @@ export default function BlogIndex() {
               <Link href="/get-your-savings-estimate" className="group flex flex-col rounded-2xl p-8 transition-all hover:-translate-y-1" style={{ background: 'rgba(78,144,0,0.08)', border: '1px solid rgba(78,144,0,0.2)' }}>
                 <div className="text-3xl mb-4">📋</div>
                 <h3 className="text-xl font-black text-white group-hover:text-[#8cd627] transition-colors mb-3">Free Statement Audit</h3>
-                <p className="text-slate-500 text-sm leading-relaxed flex-1 mb-5">Upload your merchant statement and get a full line-by-line analysis with competitive bids from 10+ processors in 24 hours. No consulting fee. Ever.</p>
+                <p className="text-slate-500 text-sm leading-relaxed flex-1 mb-5">Upload your merchant statement and get a full line-by-line analysis with competitive bids from 10+ processors same day or less. No consulting fee. Ever.</p>
                 <div className="inline-flex items-center gap-2 text-sm font-bold" style={{ color: '#4e9000' }}>Get My Free Audit <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" /></div>
               </Link>
             </Reveal>

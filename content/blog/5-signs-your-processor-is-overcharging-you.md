@@ -73,6 +73,6 @@ You have two options:
 
 **Option 2:** Have a third party audit your statement and bring competitive bids. This is what FinTech 5 does — at zero cost to you, funded by the processors we work with.
 
-The audit takes 24 hours. The average savings we identify: $8,400 per year.
+The audit is same day or less. The average savings we identify: $8,400 per year.
 
 [Request your free audit →](/get-your-savings-estimate)

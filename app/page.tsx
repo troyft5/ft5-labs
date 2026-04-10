@@ -29,7 +29,7 @@ const industries = [
 ]
 
 const testimonials = [
-  { quote: "FinTech 5 identified $18,400 in fees we didn't know we were paying. The audit took 24 hours. The savings are permanent.", name: 'Regional Retail Chain', location: 'NJ', savings: '$18,400/yr' },
+  { quote: "FinTech 5 identified $18,400 in fees we didn't know we were paying. The audit was same day. The savings are permanent.", name: 'Regional Retail Chain', location: 'NJ', savings: '$18,400/yr' },
   { quote: "We had been on tiered pricing for 6 years. Nobody told us. One statement analysis and we were switched to IC+ within a week.", name: 'E-Commerce Founder', location: 'NY', savings: '$9,800/yr' },
   { quote: "My rep answers the phone every single time. That alone is worth more than the rate savings — though those are real too.", name: 'Healthcare Practice', location: 'NJ', savings: '$11,400/yr' },
 ]
@@ -451,7 +451,7 @@ export default function Home() {
           </div>
           <h2 className="text-5xl md:text-7xl font-black tracking-tight mb-6 leading-[0.95]">
             Find out what<br />you&apos;re overpaying.<br />
-            <span style={{ color: 'rgba(255,255,255,0.55)' }}>In 24 hours. Free.</span>
+            <span style={{ color: 'rgba(255,255,255,0.55)' }}>Back to you same day or less. Free.</span>
           </h2>
           <p className="text-xl mb-12 max-w-xl mx-auto leading-relaxed" style={{ color: 'rgba(255,255,255,0.7)' }}>
             Upload your merchant statement and we&apos;ll return a line-by-line audit with every hidden fee identified and competitive bids from 10+ processors.

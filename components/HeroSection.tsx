@@ -188,7 +188,7 @@ export default function HeroSection() {
               <div className="rounded-2xl p-6 mb-3" style={{ background: 'rgba(78,144,0,0.08)', border: '1px solid rgba(78,144,0,0.25)' }}>
                 <div className="text-[11px] font-bold uppercase tracking-[0.18em] mb-2" style={{ color: '#6fc200' }}>Real client result — NJ</div>
                 <div className="text-5xl font-black text-white mb-1">$18,400</div>
-                <div className="text-sm text-slate-400">in hidden fees found in 24 hours</div>
+                <div className="text-sm text-slate-400">in hidden fees identified — same day or less</div>
                 <div className="mt-4 h-px" style={{ background: 'linear-gradient(90deg, rgba(78,144,0,0.5), transparent)' }} />
                 <div className="mt-3 flex flex-col gap-2">
                   {[
@@ -289,7 +289,7 @@ export default function HeroSection() {
                 </div>
                 <div>
                   <div className="text-xs font-black text-white">Audit Complete</div>
-                  <div className="text-[9px] text-slate-500">24hr turnaround ✓</div>
+                  <div className="text-[9px] text-slate-500">same-day turnaround ✓</div>
                 </div>
                 <div className="ml-2 w-16 h-1 rounded-full" style={{ background: 'linear-gradient(90deg,#4e9000,#6fc200)' }} />
               </div>

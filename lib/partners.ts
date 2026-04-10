@@ -16,7 +16,7 @@ export const partnersData: Record<string, PartnerData> = {
     type: 'CPA Firm',
     tagline: 'Your accounting team referred you to FinTech 5 because they know there\'s a better way.',
     heroMessage: 'If you\'re paying more than 2% effective rate, you\'re paying too much. Your CPA team already ran the math.',
-    incentive: 'Free priority audit — 24hr turnaround for Smith & Associates clients.',
+    incentive: 'Free priority audit — same-day turnaround for Smith & Associates clients.',
   },
   'apex-insurance': {
     name: 'Apex Insurance Group',

@@ -256,7 +256,7 @@ export default async function GlossaryTermPage({ params }: { params: Promise<{ s
               <span style={{ color: 'rgba(255,255,255,0.65)' }}>Find out if your processor knows you know.</span>
             </h2>
             <p style={{ color: 'rgba(255,255,255,0.75)' }} className="text-lg mb-10 max-w-xl mx-auto">
-              Upload your statement. We&apos;ll show you every fee by name, what each one costs you annually, and what you&apos;d pay with a competitive processor. 24 hours. Free.
+              Upload your statement. We&apos;ll show you every fee by name, what each one costs you annually, and what you&apos;d pay with a competitive processor. same day or less — free.
             </p>
             <Link href="/get-your-savings-estimate" className="inline-flex items-center justify-center gap-2 px-10 py-4 font-black rounded-xl transition-all hover:-translate-y-1" style={{ background: '#0a1208', color: '#6fc200', boxShadow: '0 8px 40px rgba(0,0,0,0.4)' }}>
               Get My Free Statement Audit <ArrowRight className="w-5 h-5" />

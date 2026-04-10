@@ -147,7 +147,7 @@ export default function PartnerPage({ params }: { params: { slug: string } }) {
                     </div>
                     <h2 className="text-2xl font-black text-white mb-3 section-heading">Request Received</h2>
                     <p className="text-slate-400 text-sm max-w-sm mx-auto mb-6 leading-relaxed">
-                      Our team will reach out within 24 hours with your full savings analysis. {partner.company} will be notified that you connected with us.
+                      Our team will reach out within 24 hours or less with your full savings analysis. {partner.company} will be notified that you connected with us.
                     </p>
                     <div className="flex flex-col sm:flex-row gap-3 justify-center">
                       <Link href="/blog" className="inline-flex items-center gap-2 px-5 py-3 text-sm font-bold text-slate-400 border border-white/10 rounded-xl hover:border-white/25 transition-all">
@@ -342,7 +342,7 @@ export default function PartnerPage({ params }: { params: { slug: string } }) {
             Referred by {partner.company}
           </div>
           <h2 className="text-4xl font-black text-white mb-4 leading-tight section-heading">
-            Submit above — we&apos;ll get back to you in 24 hours or less.
+            Submit above — we&apos;ll get back to you in same day or less.
           </h2>
           <p className="text-lg mb-8 max-w-xl mx-auto" style={{ color: 'rgba(255,255,255,0.75)' }}>
             Questions first? Call <a href="tel:6469417853" className="font-black underline">(646) 941-7853</a> or email <a href="mailto:info@fintech5group.com" className="font-black underline">info@fintech5group.com</a>.

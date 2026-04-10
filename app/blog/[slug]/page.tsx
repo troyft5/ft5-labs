@@ -92,7 +92,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
               {/* Inline CTA box */}
               <div className="my-16 rounded-2xl p-8 flex flex-col md:flex-row items-start md:items-center gap-6" style={{ background: 'rgba(78,144,0,0.08)', border: '1px solid rgba(78,144,0,0.25)' }}>
                 <div className="flex-1">
-                  <div className="text-[10px] font-bold uppercase tracking-widest mb-2" style={{ color: '#6fc200' }}>Free Analysis — 24hr Turnaround</div>
+                  <div className="text-[10px] font-bold uppercase tracking-widest mb-2" style={{ color: '#6fc200' }}>Free Analysis — Same-Day Turnaround</div>
                   <div className="text-white font-black text-lg mb-1">See what this means for your business.</div>
                   <p className="text-sm text-slate-400">Upload your merchant statement and we&apos;ll return a line-by-line audit with competitive bids. No consulting fees — ever.</p>
                 </div>

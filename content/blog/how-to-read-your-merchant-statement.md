@@ -74,6 +74,6 @@ Anything above these ranges warrants a closer look.
 3. Identify any fee names you don't recognize
 4. Run your numbers through the [FinTech 5 fee calculator](/calculator)
 
-Or skip the manual work entirely — send us your statement and we'll return a line-by-line audit within 24 hours, at zero cost.
+Or skip the manual work entirely — send us your statement and we'll return a line-by-line audit within 24 hours or less, at zero cost.
 
 [Get your free statement audit →](/get-your-savings-estimate)
