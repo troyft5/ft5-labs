@@ -462,7 +462,7 @@ export default function CalculatorWidget() {
                 {showIntel ? <ChevronUp className="w-4 h-4 text-slate-500" /> : <ChevronDown className="w-4 h-4 text-slate-500" />}
               </button>
               {showIntel && (
-                <div className="flex flex-col divide-y" style={{ borderTop: '1px solid rgba(255,255,255,0.06)', divideColor: 'rgba(255,255,255,0.04)' }}>
+                <div className="flex flex-col divide-y" style={{ borderTop: '1px solid rgba(255,255,255,0.06)' }}>
                   {results.intelTips.map(t => (
                     <div key={t.key} className="flex items-start gap-4 p-5" style={{ background: 'rgba(255,255,255,0.01)' }}>
                       <div className="w-5 h-5 rounded-full shrink-0 mt-0.5 flex items-center justify-center" style={{ background: 'rgba(78,144,0,0.2)' }}>

@@ -5,7 +5,6 @@ import { Phone, Mail, MapPin } from 'lucide-react'
 import Navbar from '@/components/Navbar'
 import Image from 'next/image'
 import Script from 'next/script'
-import { Analytics } from '@vercel/analytics/next'
 import MobileCTA from '@/components/MobileCTA'
 import ScrollToTop from '@/components/ScrollToTop'
 import CookieConsent from '@/components/CookieConsent'
@@ -183,8 +182,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             })();
           `}</Script>
         )}
-
-        <Analytics />
 
         {/* Footer */}
         <footer className="bg-[#0f1c0a] text-slate-400 pt-16 pb-8 px-6">
