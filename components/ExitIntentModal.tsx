@@ -10,22 +10,17 @@ export default function ExitIntentModal() {
   const [hasFired, setHasFired] = useState(false)
 
   useEffect(() => {
-    // Only fire on desktop (mouse movements). Mobile exit intent is tricky and often annoying.
-    const handleMouseLeave = (e: MouseEvent) => {
-      // If mouse leaves the top of the window, they are likely going for the url bar or 'back' button
-      if (e.clientY <= 0 && !hasFired) {
+    // Only fire on desktop. Mobile exit intent requires different heuristics (e.g. fast scrolling up).
+    const handleMouseOut = (e: MouseEvent) => {
+      // Fire if mouse moves up out of the viewport (clientY < 10) and leaves the document (relatedTarget is null)
+      if (e.clientY < 10 && (e.relatedTarget === null || (e.relatedTarget as HTMLElement).nodeName === 'HTML') && !hasFired) {
         setIsOpen(true)
         setHasFired(true)
-        // Set cookie or local storage so we don't bother them again this session
-        sessionStorage.setItem('exit_intent_fired', 'true')
       }
     }
 
-    if (!sessionStorage.getItem('exit_intent_fired')) {
-      document.addEventListener('mouseleave', handleMouseLeave)
-    }
-
-    return () => document.removeEventListener('mouseleave', handleMouseLeave)
+    document.addEventListener('mouseout', handleMouseOut)
+    return () => document.removeEventListener('mouseout', handleMouseOut)
   }, [hasFired])
 
   if (!isOpen) return null
