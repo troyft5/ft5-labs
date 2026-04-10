@@ -1,0 +1,69 @@
+{
+  "Navbar": {
+    "solutions": "Solutions",
+    "industries": "Industries",
+    "resources": "Resources",
+    "about": "About",
+    "getAudit": "Get Free Audit",
+    "callUs": "Call Us",
+    "solutionsDesc": {
+      "inPerson": "In-Person Payments",
+      "mobile": "Mobile Payments",
+      "online": "Online Payments",
+      "pricing": "Pricing Models",
+      "terminal": "Free Terminal Placement"
+    },
+    "industriesDesc": {
+      "retail": "Retail",
+      "ecommerce": "E-Commerce",
+      "healthcare": "Healthcare",
+      "service": "Service Businesses",
+      "education": "Higher Education",
+      "petroleum": "Petroleum & C-Stores",
+      "highRisk": "High-Risk Merchants",
+      "cbd": "CBD & Hemp",
+      "b2b": "B2B Processing"
+    },
+    "resourcesDesc": {
+      "calculator": "Calculator",
+      "process": "Process",
+      "glossary": "Glossary",
+      "blog": "Blog",
+      "security": "Data Security",
+      "contact": "Contact"
+    }
+  },
+  "Hero": {
+    "badge": "Free Statement Analysis",
+    "titleLine1": "Stop losing your",
+    "titleLine2": "profit to",
+    "titleHighlight": "hidden fees.",
+    "subtitle": "You're likely overpaying by 30-60%. We negotiate across 10+ Tier-1 processors to lock in permanent savings — at zero cost to you.",
+    "ctaPrimary": "Get Your Free Audit",
+    "ctaSecondary": "Try the Calculator"
+  },
+  "HeroCards": {
+    "proof1": "No consulting fees — ever",
+    "proof2": "Processor-agnostic advice",
+    "proof3": "10+ Tier-1 partners",
+    "proof4": "We answer the phone",
+    "mobileResult": "Real client result — NJ",
+    "hiddenFeesId": "in hidden fees identified — same day or less",
+    "interchangeSav": "Interchange savings",
+    "pciRemoved": "PCI fee removed",
+    "pricingSwitch": "Pricing model switch",
+    "consultFees": "Consulting Fees",
+    "auditTurn": "Audit Turnaround",
+    "bestMatch": "Best Match",
+    "optimalProc": "Optimal Processor",
+    "effRate": "Eff. Rate",
+    "monthly": "Monthly",
+    "statementAnalysis": "Statement Analysis",
+    "annSavFound": "Annual Savings Found",
+    "live": "Live",
+    "hiddenAndOver": "In hidden fees & overcharges identified",
+    "auditComplete": "Audit Complete",
+    "turnaroundTime": "24h Turnaround",
+    "sameDayTurnaround": "same-day turnaround ✓"
+  }
+}

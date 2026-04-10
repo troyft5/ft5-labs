@@ -1,0 +1,69 @@
+{
+  "Navbar": {
+    "solutions": "Soluciones",
+    "industries": "Industrias",
+    "resources": "Recursos",
+    "about": "Nosotros",
+    "getAudit": "Auditoría Gratuita",
+    "callUs": "Llámanos",
+    "solutionsDesc": {
+      "inPerson": "Pagos en Persona",
+      "mobile": "Pagos Móviles",
+      "online": "Pagos en Línea",
+      "pricing": "Modelos de Precios",
+      "terminal": "Terminal Gratuita"
+    },
+    "industriesDesc": {
+      "retail": "Venta Minorista",
+      "ecommerce": "Comercio Electrónico",
+      "healthcare": "Atención Médica",
+      "service": "Servicios",
+      "education": "Educación Superior",
+      "petroleum": "Gasolineras",
+      "highRisk": "Minoristas de Alto Riesgo",
+      "cbd": "CBD y Cáñamo",
+      "b2b": "Procesamiento B2B"
+    },
+    "resourcesDesc": {
+      "calculator": "Calculadora",
+      "process": "Proceso",
+      "glossary": "Glosario",
+      "blog": "Blog",
+      "security": "Seguridad de Datos",
+      "contact": "Contacto"
+    }
+  },
+  "Hero": {
+    "badge": "Análisis de Estado de Cuenta Gratuito",
+    "titleLine1": "Deja de perder",
+    "titleLine2": "ganancias por",
+    "titleHighlight": "tarifas ocultas.",
+    "subtitle": "Probablemente estás pagando de más entre un 30% y un 60%. Negociamos con más de 10 procesadores de nivel 1 para asegurar ahorros permanentes — sin costo alguno para ti.",
+    "ctaPrimary": "Obtén tu Auditoría Gratis",
+    "ctaSecondary": "Prueba la Calculadora"
+  },
+  "HeroCards": {
+    "proof1": "Sin tarifas de consultoría",
+    "proof2": "Asesoramiento imparcial",
+    "proof3": "Más de 10 socios Nivel 1",
+    "proof4": "Atendemos el teléfono",
+    "mobileResult": "Resultado real de cliente - NJ",
+    "hiddenFeesId": "en tarifas ocultas identificadas — el mismo día",
+    "interchangeSav": "Ahorro en intercambio",
+    "pciRemoved": "Cargo PCI eliminado",
+    "pricingSwitch": "Cambio de modelo",
+    "consultFees": "Tarifas de Asesoría",
+    "auditTurn": "Estudio Rápido",
+    "bestMatch": "Mejor Opción",
+    "optimalProc": "Procesador Óptimo",
+    "effRate": "Tasa Efec.",
+    "monthly": "Mensual",
+    "statementAnalysis": "Análisis de Estado",
+    "annSavFound": "Ahorro Anual Encontrado",
+    "live": "En Vivo",
+    "hiddenAndOver": "En tarifas ocultas y cobros excesivos identificados",
+    "auditComplete": "Auditoría Completa",
+    "turnaroundTime": "Lista en 24h",
+    "sameDayTurnaround": "lista el mismo día ✓"
+  }
+}

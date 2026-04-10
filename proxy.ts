@@ -1,14 +1,9 @@
-import { NextRequest, NextResponse } from 'next/server'
-
-export function proxy(req: NextRequest) {
-  // Block direct access to the calculator HTML — logic now lives server-side in /api/calculator
-  if (req.nextUrl.pathname.startsWith('/calculator/index.html') ||
-      req.nextUrl.pathname === '/calculator/') {
-    return NextResponse.redirect(new URL('/calculator', req.url), 301)
-  }
-  return NextResponse.next()
-}
-
+import createMiddleware from 'next-intl/middleware';
+import {routing} from './i18n/routing';
+ 
+export default createMiddleware(routing);
+ 
 export const config = {
-  matcher: ['/calculator/:path*'],
-}
+  // Match only internationalized pathnames
+  matcher: ['/', '/(en|es|fr|pt|de|zh)/:path*']
+};

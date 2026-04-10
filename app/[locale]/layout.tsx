@@ -1,4 +1,4 @@
-import './globals.css'
+import '../globals.css'
 import { Inter } from 'next/font/google'
 import Link from 'next/link'
 import { Phone, Mail, MapPin } from 'lucide-react'
@@ -42,9 +42,21 @@ export const metadata = {
   },
 }
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+import { NextIntlClientProvider } from 'next-intl'
+import { getMessages } from 'next-intl/server'
+
+export default async function RootLayout({
+  children,
+  params
+}: {
+  children: React.ReactNode
+  params: Promise<{locale: string}>
+}) {
+  const { locale } = await params
+  const messages = await getMessages()
+
   return (
-    <html lang="en" className={`${inter.variable} scroll-smooth`}>
+    <html lang={locale} className={`${inter.variable} scroll-smooth`}>
       <body className="bg-[#0f1a0f] text-slate-900 font-sans antialiased selection:bg-[#4e9000] selection:text-white min-h-screen flex flex-col">
 
         {/* ── Global film grain overlay — the Plaid premium feel ── */}
@@ -145,11 +157,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           })}}
         />
 
-        <Navbar />
+        <NextIntlClientProvider messages={messages}>
+          <Navbar />
 
-        <main className="flex-grow relative z-10">
-          {children}
-        </main>
+          <main className="flex-grow relative z-10">
+            {children}
+          </main>
+        </NextIntlClientProvider>
 
         <MobileCTA />
         <ScrollToTop />

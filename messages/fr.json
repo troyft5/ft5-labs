@@ -1,0 +1,69 @@
+{
+  "Navbar": {
+    "solutions": "Solutions",
+    "industries": "Industries",
+    "resources": "Ressources",
+    "about": "À propos",
+    "getAudit": "Audit Gratuit",
+    "callUs": "Appelez-nous",
+    "solutionsDesc": {
+      "inPerson": "Paiements en Personne",
+      "mobile": "Paiements Mobiles",
+      "online": "Paiements en Ligne",
+      "pricing": "Modèles de Tarification",
+      "terminal": "Terminal Gratuit"
+    },
+    "industriesDesc": {
+      "retail": "Vente au Détail",
+      "ecommerce": "Commerce Électronique",
+      "healthcare": "Soins de Santé",
+      "service": "Services",
+      "education": "Enseignement Supérieur",
+      "petroleum": "Stations-Service",
+      "highRisk": "Détaillants à Haut Risque",
+      "cbd": "CBD et Chanvre",
+      "b2b": "Traitement B2B"
+    },
+    "resourcesDesc": {
+      "calculator": "Calculatrice",
+      "process": "Processus",
+      "glossary": "Glossaire",
+      "blog": "Blog",
+      "security": "Sécurité des Données",
+      "contact": "Contact"
+    }
+  },
+  "Hero": {
+    "badge": "Analyse de Relevé Gratuite",
+    "titleLine1": "Cessez de perdre",
+    "titleLine2": "vos profits en",
+    "titleHighlight": "frais cachés.",
+    "subtitle": "Vous payez probablement 30 à 60 % de trop. Nous négocions avec plus de 10 processeurs de niveau 1 pour garantir des économies permanentes — sans aucun coût pour vous.",
+    "ctaPrimary": "Obtenez votre Audit Gratuit",
+    "ctaSecondary": "Essayez la Calculatrice"
+  },
+  "HeroCards": {
+    "proof1": "Aucun frais de consultation",
+    "proof2": "Conseils impartiaux",
+    "proof3": "Plus de 10 partenaires",
+    "proof4": "Nous répondons au téléphone",
+    "mobileResult": "Résultat réel d'un client",
+    "hiddenFeesId": "en frais cachés identifiés — le jour même",
+    "interchangeSav": "Économies d'interchange",
+    "pciRemoved": "Frais PCI supprimés",
+    "pricingSwitch": "Changement de modèle",
+    "consultFees": "Frais de Consultation",
+    "auditTurn": "Délai de l'Audit",
+    "bestMatch": "Meilleur Choix",
+    "optimalProc": "Processeur Optimal",
+    "effRate": "Taux Eff.",
+    "monthly": "Mensuel",
+    "statementAnalysis": "Analyse de Relevé",
+    "annSavFound": "Économies Annuelles Trouvées",
+    "live": "En Direct",
+    "hiddenAndOver": "En frais cachés et surfacturations identifiés",
+    "auditComplete": "Audit Terminé",
+    "turnaroundTime": "Délai de 24h",
+    "sameDayTurnaround": "retour le jour même ✓"
+  }
+}

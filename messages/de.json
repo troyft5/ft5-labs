@@ -1,0 +1,68 @@
+{
+  "Navbar": {
+    "solutions": "Lösungen",
+    "industries": "Branchen",
+    "resources": "Ressourcen",
+    "getAudit": "Kostenloses Audit",
+    "solutionsDesc": {
+      "inPerson": "Zahlungen vor Ort",
+      "mobile": "Mobile Zahlungen",
+      "online": "Online-Zahlungen",
+      "pricing": "Transparente Preise",
+      "terminal": "Kostenloses Terminal"
+    },
+    "industriesDesc": {
+      "retail": "Einzelhandel",
+      "ecommerce": "E-Commerce",
+      "healthcare": "Gesundheitswesen",
+      "service": "Dienstleistungen",
+      "education": "Hochschulbildung",
+      "petroleum": "Tankstellen",
+      "highRisk": "Hochrisiko",
+      "cbd": "CBD & Hanf",
+      "b2b": "B2B-Verarbeitung"
+    },
+    "resourcesDesc": {
+      "calculator": "Rechner",
+      "process": "Prozess",
+      "glossary": "Glossar",
+      "blog": "Blog",
+      "security": "Datensicherheit",
+      "about": "Über uns",
+      "contact": "Kontakt"
+    }
+  },
+  "Hero": {
+    "badge": "Lokale Experten — NY & NJ",
+    "titleLine1": "Wir verhandeln",
+    "titleLine2": "Ihre Gebühren.",
+    "titleHighlight": "Sie behalten das Geld.",
+    "subtitle": "Sie zahlen wahrscheinlich 30-60% zu viel. Wir verhandeln mit über 10 erstklassigen Zahlungsabwicklern, um dauerhafte Einsparungen zu sichern – umsonst.",
+    "ctaPrimary": "Kostenloses Audit",
+    "ctaSecondary": "Rechner nutzen"
+  },
+  "HeroCards": {
+    "proof1": "Keine Beratungsgebühren - jemals",
+    "proof2": "Unabhängige Beratung",
+    "proof3": "Über 10 Tier-1-Partner",
+    "proof4": "Wir gehen ans Telefon",
+    "mobileResult": "Reales Ergebnis - NJ",
+    "hiddenFeesId": "versteckte Gebühren gefunden - heute noch",
+    "interchangeSav": "Interchange gefunden",
+    "pciRemoved": "PCI-Gebühr entfernt",
+    "pricingSwitch": "Preismodellwechsel",
+    "consultFees": "Beratungskosten",
+    "auditTurn": "Bearbeitungszeit",
+    "bestMatch": "Bester Treffer",
+    "optimalProc": "Optimaler Abwickler",
+    "effRate": "Effektivzins",
+    "monthly": "Monatlich",
+    "statementAnalysis": "Abrechnung",
+    "annSavFound": "Jährliche Ersparnis",
+    "live": "Live",
+    "hiddenAndOver": "An versteckten Gebühren identifiziert",
+    "auditComplete": "Abgeschlossen",
+    "turnaroundTime": "24h Bearbeitung",
+    "sameDayTurnaround": "am selben Tag ✓"
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "Navbar": {
+    "solutions": "解决方案",
+    "industries": "应用行业",
+    "resources": "学习资源",
+    "getAudit": "免费财务审计",
+    "solutionsDesc": {
+      "inPerson": "实体店支付",
+      "mobile": "移动设备支付",
+      "online": "互联网收单",
+      "pricing": "透明定价分析",
+      "terminal": "免费设备部署"
+    },
+    "industriesDesc": {
+      "retail": "零售百货",
+      "ecommerce": "跨境电商",
+      "healthcare": "医疗健康",
+      "service": "服务业",
+      "education": "高等教育",
+      "petroleum": "加油站与便利店",
+      "highRisk": "高风险业务",
+      "cbd": "CBD产品",
+      "b2b": "B2B大宗交易"
+    },
+    "resourcesDesc": {
+      "calculator": "费率计算器",
+      "process": "服务流程",
+      "glossary": "术语词典",
+      "blog": "行业博客",
+      "security": "隐私保护",
+      "about": "团队介绍",
+      "contact": "联系我们"
+    }
+  },
+  "Hero": {
+    "badge": "顶尖咨询团队 — 纽约与新泽西",
+    "titleLine1": "我们出面谈判",
+    "titleLine2": "为您压低费率，",
+    "titleHighlight": "您将利润落袋为安。",
+    "subtitle": "您可能多花了 30-60% 的冤枉钱。我们代表您与 10 多家顶级支付机构斡旋，终身锁定低费率 — 咨询费全免。",
+    "ctaPrimary": "申请免费账单审计",
+    "ctaSecondary": "测算省钱金额"
+  },
+  "HeroCards": {
+    "proof1": "终身免收咨询费",
+    "proof2": "绝对客观的中立建议",
+    "proof3": "10+ 顶尖合作渠道",
+    "proof4": "有问必答不失联",
+    "mobileResult": "真实案例 — NJ州",
+    "hiddenFeesId": "当日揪出隐性乱收费",
+    "interchangeSav": "交换费节省",
+    "pciRemoved": "免除 PCI 合规费",
+    "pricingSwitch": "定价模式优化",
+    "consultFees": "咨询服务费",
+    "auditTurn": "审计反馈周期",
+    "bestMatch": "最佳匹配",
+    "optimalProc": "推荐支付机构",
+    "effRate": "实际费率",
+    "monthly": "每月固定费",
+    "statementAnalysis": "月度账单分析",
+    "annSavFound": "每年预估节省",
+    "live": "实时分析",
+    "hiddenAndOver": "已查明潜藏的溢价与欺诈收费",
+    "auditComplete": "审计已完成",
+    "turnaroundTime": "24小时交付",
+    "sameDayTurnaround": "当天即可出具结果 ✓"
+  }
+}

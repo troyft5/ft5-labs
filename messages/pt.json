@@ -1,0 +1,68 @@
+{
+  "Navbar": {
+    "solutions": "Soluções",
+    "industries": "Indústrias",
+    "resources": "Recursos",
+    "getAudit": "Auditoria Gratuita",
+    "solutionsDesc": {
+      "inPerson": "Pagamentos Presenciais",
+      "mobile": "Pagamentos Móveis",
+      "online": "Pagamentos Online",
+      "pricing": "Preços Transparentes",
+      "terminal": "Terminal Gratuito"
+    },
+    "industriesDesc": {
+      "retail": "Varejo",
+      "ecommerce": "E-Commerce",
+      "healthcare": "Saúde",
+      "service": "Serviços",
+      "education": "Ensino Superior",
+      "petroleum": "Petróleo e Conven.",
+      "highRisk": "Alto Risco",
+      "cbd": "CBD & Cânhamo",
+      "b2b": "Pagamentos B2B"
+    },
+    "resourcesDesc": {
+      "calculator": "Calculadora",
+      "process": "Processo",
+      "glossary": "Glossário",
+      "blog": "Blog",
+      "security": "Segurança de Dados",
+      "about": "Sobre Nós",
+      "contact": "Contato"
+    }
+  },
+  "Hero": {
+    "badge": "Consultoria Pessoal — NY e NJ",
+    "titleLine1": "Nós negociamos",
+    "titleLine2": "suas taxas.",
+    "titleHighlight": "Você fica com a economia.",
+    "subtitle": "Você provavelmente está pagando 30-60% a mais. Negociamos com mais de 10 processadores de nível 1 para garantir economia permanente, com custo zero.",
+    "ctaPrimary": "Sua Auditoria Grátis",
+    "ctaSecondary": "Calculadora"
+  },
+  "HeroCards": {
+    "proof1": "Sem taxas de consultoria",
+    "proof2": "Conselhos imparciais",
+    "proof3": "Parceiros Nível 1",
+    "proof4": "Nós atendemos o telefone",
+    "mobileResult": "Resultado real - NJ",
+    "hiddenFeesId": "em taxas ocultas identificadas - no mesmo dia",
+    "interchangeSav": "Economia de intercâmbio",
+    "pciRemoved": "Taxa PCI removida",
+    "pricingSwitch": "Mudança de modelo",
+    "consultFees": "Taxas de Consultoria",
+    "auditTurn": "Prazo da Auditoria",
+    "bestMatch": "Melhor Escolha",
+    "optimalProc": "Processador Ideal",
+    "effRate": "Taxa Efetiva",
+    "monthly": "Mensal",
+    "statementAnalysis": "Análise de Extrato",
+    "annSavFound": "Retorno Anual",
+    "live": "Ao Vivo",
+    "hiddenAndOver": "Em taxas ocultas e cobranças a maior identificadas",
+    "auditComplete": "Auditoria Completa",
+    "turnaroundTime": "Em até 24h",
+    "sameDayTurnaround": "no mesmo dia ✓"
+  }
+}
