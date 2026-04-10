@@ -253,10 +253,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 <h4 className="text-white font-bold text-xs uppercase tracking-widest mb-4">Resources</h4>
                 <ul className="flex flex-col gap-2.5 text-sm">
                   {[
-                    ['Insights Blog', '/blog'],
+                    ['Our Process', '/process'],
                     ['Fee Calculator', '/calculator'],
+                    ['Insights Blog', '/blog'],
                     ['Glossary', '/glossary'],
                     ['Get Your Free Audit', '/get-your-savings-estimate'],
+                    ['Data Security', '/security'],
                     ['Contact Us', '/contact-us'],
                     ['Privacy Policy', '/privacy-policy'],
                     ['Terms of Service', '/terms-of-service'],

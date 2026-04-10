@@ -1,6 +1,7 @@
 import { ShieldCheck, TrendingDown, Clock, ArrowRight } from 'lucide-react'
 import Link from 'next/link'
 import CalculatorWidget from '@/components/CalculatorWidget'
+import CostOfWaitingWidget from '@/components/CostOfWaitingWidget'
 
 const BG  = '#0f1a0f'
 const BG2 = '#0a1208'
@@ -60,8 +61,9 @@ export default function Calculator() {
       {/* ── CALCULATOR (server-side logic, React UI) ── */}
       <section className="px-6 py-12 relative" style={{ background: BG }}>
         <div className="absolute top-0 left-0 right-0 h-px" style={{ background: 'linear-gradient(90deg,transparent,rgba(78,144,0,0.2),transparent)' }} />
-        <div className="max-w-5xl mx-auto">
+        <div className="max-w-5xl mx-auto flex flex-col gap-10">
           <CalculatorWidget />
+          <CostOfWaitingWidget />
         </div>
       </section>
 

@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import { ArrowRight, ShieldCheck, CheckCircle2, Upload, Clock, Phone, FileText, Star } from 'lucide-react'
+import ExitIntentModal from '@/components/ExitIntentModal'
 
 const BG  = '#0f1a0f'
 const BG2 = '#0a1208'
@@ -370,6 +371,8 @@ export default function Estimate() {
         </div>
       </section>
 
+      {/* ── EXIT INTENT MODAL ── */}
+      <ExitIntentModal />
     </div>
   )
 }

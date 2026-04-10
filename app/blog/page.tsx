@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { Calendar, Clock, ArrowRight, BookOpen } from 'lucide-react'
 import Reveal from '@/components/Reveal'
 import ScrollDepth3D from '@/components/ScrollDepth3D'
+import BlogLeadMagnetTrigger from '@/components/BlogLeadMagnetTrigger'
 
 const BG  = '#0f1a0f'
 const BG2 = '#0a1208'
@@ -129,13 +130,11 @@ export default function BlogIndex() {
                   <BookOpen className="w-6 h-6" />
                 </div>
                 <div>
-                  <div className="font-black text-white mb-1">Ready to see your numbers?</div>
-                  <div className="text-sm text-slate-400">Run a free analysis — get your actual savings estimate same day or less.</div>
+                  <div className="font-black text-white mb-1">Not ready for a full audit?</div>
+                  <div className="text-sm text-slate-400">Download our 2026 Interchange Cheat Sheet to see exactly what Visa & Mastercard actually charge.</div>
                 </div>
               </div>
-              <Link href="/get-your-savings-estimate" className="shrink-0 inline-flex items-center gap-2 px-6 py-3.5 text-sm font-black text-white rounded-xl transition-all hover:-translate-y-0.5" style={{ background: '#4e9000', boxShadow: '0 8px 20px rgba(78,144,0,0.3)' }}>
-                Get Free Estimate <ArrowRight className="w-4 h-4" />
-              </Link>
+              <BlogLeadMagnetTrigger />
             </div>
           </Reveal>
 

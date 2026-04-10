@@ -28,8 +28,10 @@ const industries = [
 
 const resources = [
   { label: 'Calculator',        href: '/calculator',  desc: 'Estimate your savings instantly' },
+  { label: 'Process',           href: '/process',     desc: 'How our audit works, step-by-step' },
   { label: 'Glossary',          href: '/glossary',    desc: 'Every payment term, clearly defined' },
-  { label: 'Blog',              href: '/blog',         desc: 'Payment industry insights' },
+  { label: 'Blog',              href: '/blog',        desc: 'Payment industry insights' },
+  { label: 'Data Security',     href: '/security',    desc: 'How we protect your statements' },
   { label: 'About Us',          href: '/about-us',    desc: 'Our team and mission' },
   { label: 'Contact',           href: '/contact-us',  desc: 'Get in touch with us' },
 ]
