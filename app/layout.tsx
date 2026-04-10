@@ -255,6 +255,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                   {[
                     ['Insights Blog', '/blog'],
                     ['Fee Calculator', '/calculator'],
+                    ['Glossary', '/glossary'],
                     ['Get Your Free Audit', '/get-your-savings-estimate'],
                     ['Contact Us', '/contact-us'],
                     ['Privacy Policy', '/privacy-policy'],

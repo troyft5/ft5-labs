@@ -27,10 +27,11 @@ const industries = [
 ]
 
 const resources = [
-  { label: 'Calculator', href: '/calculator', desc: 'Estimate your savings instantly' },
-  { label: 'Blog',       href: '/blog',        desc: 'Payment industry insights' },
-  { label: 'About Us',  href: '/about-us',    desc: 'Our team and mission' },
-  { label: 'Contact',   href: '/contact-us',  desc: 'Get in touch with us' },
+  { label: 'Calculator',        href: '/calculator',  desc: 'Estimate your savings instantly' },
+  { label: 'Glossary',          href: '/glossary',    desc: 'Every payment term, clearly defined' },
+  { label: 'Blog',              href: '/blog',         desc: 'Payment industry insights' },
+  { label: 'About Us',          href: '/about-us',    desc: 'Our team and mission' },
+  { label: 'Contact',           href: '/contact-us',  desc: 'Get in touch with us' },
 ]
 
 function Dropdown({ label, href, width = 280, active = false, children }: {
