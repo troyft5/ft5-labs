@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { useTranslations } from 'next-intl'
 
 const BG  = '#0f1a0f'
 const BG2 = '#131f13'
@@ -18,6 +19,8 @@ function Section({ title, children }: { title: string; children: React.ReactNode
 }
 
 export default function TermsOfService() {
+  const t = useTranslations('Terms')
+
   return (
     <div className="min-h-screen" style={{ background: BG }}>
 
@@ -27,10 +30,10 @@ export default function TermsOfService() {
         <div className="max-w-3xl mx-auto">
           <div className="flex items-center gap-3 mb-5">
             <div className="h-px w-8" style={{ background: '#4e9000' }} />
-            <span className="text-[11px] font-bold uppercase tracking-[0.2em]" style={{ color: '#6fc200' }}>Legal</span>
+            <span className="text-[11px] font-bold uppercase tracking-[0.2em]" style={{ color: '#6fc200' }}>{t('badge')}</span>
           </div>
-          <h1 className="text-4xl font-black text-white mb-2">Terms of Service</h1>
-          <p className="text-slate-500 text-sm">Last Updated: February 1, 2026</p>
+          <h1 className="text-4xl font-black text-white mb-2">{t('title')}</h1>
+          <p className="text-slate-500 text-sm">{t('date')}</p>
         </div>
       </div>
 
@@ -122,7 +125,7 @@ export default function TermsOfService() {
 
           <div className="pt-4" style={{ borderTop: '1px solid rgba(255,255,255,0.07)' }}>
             <Link href="/privacy-policy" className="text-sm font-bold hover:opacity-80 transition-opacity" style={{ color: '#6fc200' }}>
-              View Privacy Policy →
+              {t('link')}
             </Link>
           </div>
 

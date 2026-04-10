@@ -1,11 +1,11 @@
 import Link from 'next/link'
 import { solutionsData } from '@/lib/data'
 import { ArrowRight, Monitor, Smartphone, Globe, BarChart3, Gift } from 'lucide-react'
-import { Metadata } from 'next'
 import Reveal from '@/components/Reveal'
 import ScrollDepth3D from '@/components/ScrollDepth3D'
+import { useTranslations } from 'next-intl'
 
-export const metadata: Metadata = {
+export const metadata = {
   title: 'Payment Solutions | In-Person, Mobile, Online & More',
   description: 'FinTech 5 delivers end-to-end payment solutions — in-person terminals, mobile payments, online checkout, transparent pricing, and free hardware placement. Zero cost to you.',
 }
@@ -23,6 +23,7 @@ const meta: Record<string, SolutionMeta> = {
 }
 
 export default function SolutionsPage() {
+  const t = useTranslations('Solutions')
   const entries = Object.entries(solutionsData).filter(([slug]) => slug in meta)
 
   return (
@@ -49,31 +50,31 @@ export default function SolutionsPage() {
           <Reveal>
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-8" style={{ background: 'rgba(78,144,0,0.12)', border: '1px solid rgba(78,144,0,0.25)' }}>
               <div className="w-1.5 h-1.5 rounded-full" style={{ background: '#6fc200' }} />
-              <span className="text-[11px] font-bold uppercase tracking-[0.2em]" style={{ color: '#6fc200' }}>Payment Solutions</span>
+              <span className="text-[11px] font-bold uppercase tracking-[0.2em]" style={{ color: '#6fc200' }}>{t('badge')}</span>
             </div>
           </Reveal>
           <Reveal delay={80}>
             <ScrollDepth3D delay={80} intensity={0.8}>
               <h1 className="text-5xl md:text-7xl font-black tracking-tight text-white leading-none mb-6 max-w-3xl">
-                How you take<br />payments is how<br />
+                {t('title1')}<br />{t('title2')}<br />
                 <span style={{ background: 'linear-gradient(135deg,#9de84a,#4e9000)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
-                  you grow.
+                  {t('title3')}
                 </span>
               </h1>
             </ScrollDepth3D>
           </Reveal>
           <Reveal delay={160}>
             <p className="text-xl text-slate-400 max-w-xl leading-relaxed mb-10">
-              From free hardware placement to transparent interchange-plus pricing — each solution is designed to reduce your cost, not just move it around.
+              {t('subtitle')}
             </p>
           </Reveal>
           <Reveal delay={220}>
             <div className="flex flex-wrap gap-4">
               <Link href="/get-your-savings-estimate" className="inline-flex items-center gap-2 px-6 py-3.5 text-sm font-black text-white rounded-xl transition-all hover:-translate-y-0.5" style={{ background: '#4e9000', boxShadow: '0 8px 24px rgba(78,144,0,0.35)' }}>
-                Get Your Free Estimate <ArrowRight className="w-4 h-4" />
+                {t('cta1')} <ArrowRight className="w-4 h-4" />
               </Link>
               <Link href="/calculator" className="inline-flex items-center gap-2 px-6 py-3.5 text-sm font-bold text-slate-400 hover:text-white border border-white/10 hover:border-white/25 rounded-xl transition-all">
-                Fee Calculator <ArrowRight className="w-4 h-4" />
+                {t('cta2')} <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
           </Reveal>
@@ -88,7 +89,7 @@ export default function SolutionsPage() {
             <div className="flex items-center gap-3 mb-14">
               <div className="h-px w-8" style={{ background: '#4e9000' }} />
               <span className="text-[11px] font-bold uppercase tracking-[0.2em]" style={{ color: '#6fc200' }}>
-                {entries.length} Solutions
+                {entries.length} {t('solsBadge')}
               </span>
             </div>
           </Reveal>
@@ -152,17 +153,17 @@ export default function SolutionsPage() {
           <Reveal>
             <div className="flex items-center gap-3 mb-5">
               <div className="h-px w-8" style={{ background: '#4e9000' }} />
-              <span className="text-[11px] font-bold uppercase tracking-[0.2em]" style={{ color: '#6fc200' }}>Our Process</span>
+              <span className="text-[11px] font-bold uppercase tracking-[0.2em]" style={{ color: '#6fc200' }}>{t('prcBadge')}</span>
             </div>
             <h2 className="text-3xl md:text-4xl font-black text-white mb-14 leading-tight max-w-2xl">
-              We don&apos;t push you toward a product. We find what actually fits.
+              {t('prcTitle')}
             </h2>
           </Reveal>
           <div className="grid md:grid-cols-3 gap-5">
             {[
-              { n: '01', title: 'Audit your current setup', body: 'We review your existing processor, pricing model, hardware, and effective rate. Most merchants don\'t know what they\'re actually paying.' },
-              { n: '02', title: 'Map your business needs', body: 'Do you need mobile capability? Are you primarily card-present or CNP? Do you want free hardware? We build a requirements picture before recommending anything.' },
-              { n: '03', title: 'Present the right stack', body: 'We recommend the combination of solution(s) that lowers your total cost, fits your workflow, and gives you room to grow — with the processor bids to back it up.' },
+              { n: t('pr1N'), title: t('pr1Title'), body: t('pr1Body') },
+              { n: t('pr2N'), title: t('pr2Title'), body: t('pr2Body') },
+              { n: t('pr3N'), title: t('pr3Title'), body: t('pr3Body') },
             ].map((step, i) => (
               <Reveal key={step.n} delay={i * 80}>
                 <div className="p-7 rounded-2xl h-full" style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)' }}>
@@ -183,24 +184,24 @@ export default function SolutionsPage() {
           <Reveal>
             <div className="flex items-center gap-3 mb-10">
               <div className="h-px w-8" style={{ background: '#4e9000' }} />
-              <span className="text-[11px] font-bold uppercase tracking-[0.2em]" style={{ color: '#6fc200' }}>Quick Compare</span>
+              <span className="text-[11px] font-bold uppercase tracking-[0.2em]" style={{ color: '#6fc200' }}>{t('cmpBadge')}</span>
             </div>
           </Reveal>
           {/* Table */}
           <div className="rounded-2xl overflow-hidden" style={{ border: '1px solid rgba(255,255,255,0.07)' }}>
             {/* Header */}
             <div className="grid grid-cols-[1fr_auto_auto_auto] px-6 py-3" style={{ background: 'rgba(78,144,0,0.08)', borderBottom: '1px solid rgba(255,255,255,0.07)' }}>
-              <span className="text-xs font-bold text-slate-500 uppercase tracking-wider">Solution</span>
-              <span className="text-xs font-bold text-slate-500 uppercase tracking-wider text-center px-4">Hardware</span>
-              <span className="text-xs font-bold text-slate-500 uppercase tracking-wider text-center px-4">Online</span>
-              <span className="text-xs font-bold text-slate-500 uppercase tracking-wider text-center px-4">Mobile</span>
+              <span className="text-xs font-bold text-slate-500 uppercase tracking-wider">{t('cmpSol')}</span>
+              <span className="text-xs font-bold text-slate-500 uppercase tracking-wider text-center px-4">{t('cmpHw')}</span>
+              <span className="text-xs font-bold text-slate-500 uppercase tracking-wider text-center px-4">{t('cmpOl')}</span>
+              <span className="text-xs font-bold text-slate-500 uppercase tracking-wider text-center px-4">{t('cmpMob')}</span>
             </div>
             {[
-              { slug: 'in-person-payments',   label: 'In-Person Payments',     hw: true,  ol: false, mob: false },
-              { slug: 'mobile-payments',       label: 'Mobile Payments',        hw: true,  ol: false, mob: true  },
-              { slug: 'online-payments',       label: 'Online Payments',        hw: false, ol: true,  mob: false },
-              { slug: 'pricing-models',        label: 'Transparent Pricing',    hw: true,  ol: true,  mob: true  },
-              { slug: 'free-placement',        label: 'Free Terminal Placement', hw: true,  ol: false, mob: false },
+              { slug: 'in-person-payments',    label: t('r1'),     hw: true,  ol: false, mob: false },
+              { slug: 'mobile-payments',       label: t('r2'),        hw: true,  ol: false, mob: true  },
+              { slug: 'online-payments',       label: t('r3'),        hw: false, ol: true,  mob: false },
+              { slug: 'pricing-models',        label: t('r4'),    hw: true,  ol: true,  mob: true  },
+              { slug: 'free-placement',        label: t('r5'), hw: true,  ol: false, mob: false },
             ].map((row, i) => (
               <Reveal key={row.slug} delay={i * 40}>
                 <Link href={`/solutions/${row.slug}`} className="group grid grid-cols-[1fr_auto_auto_auto] px-6 py-4 items-center transition-colors hover:bg-white/[0.02]" style={{ borderBottom: i < 4 ? '1px solid rgba(255,255,255,0.05)' : 'none' }}>
@@ -219,17 +220,17 @@ export default function SolutionsPage() {
       <section className="px-6 py-16 relative overflow-hidden" style={{ background: '#4e9000' }}>
         <div className="absolute inset-0 pointer-events-none" style={{ backgroundImage: 'linear-gradient(rgba(255,255,255,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.04) 1px,transparent 1px)', backgroundSize: '48px 48px' }} />
         <div className="relative max-w-4xl mx-auto text-center">
-          <div className="text-[10px] font-bold uppercase tracking-widest mb-4" style={{ color: 'rgba(255,255,255,0.6)' }}>Not sure which solution fits?</div>
-          <h2 className="text-4xl font-black text-white mb-4 leading-tight">We&apos;ll figure it out together — in one call.</h2>
+          <div className="text-[10px] font-bold uppercase tracking-widest mb-4" style={{ color: 'rgba(255,255,255,0.6)' }}>{t('btmBadge')}</div>
+          <h2 className="text-4xl font-black text-white mb-4 leading-tight">{t('btmTitle')}</h2>
           <p style={{ color: 'rgba(255,255,255,0.75)' }} className="text-lg mb-8 max-w-xl mx-auto">
-            Submit your statement or just your contact info. We&apos;ll map out the right solution stack and return your savings analysis within 24 hours or less.
+            {t('btmBody')}
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
             <Link href="/get-your-savings-estimate" className="inline-flex items-center gap-2 px-10 py-4 font-black rounded-xl transition-all hover:-translate-y-1" style={{ background: '#0a1208', color: '#6fc200', boxShadow: '0 8px 40px rgba(0,0,0,0.4)' }}>
-              Get My Free Audit <ArrowRight className="w-5 h-5" />
+              {t('ctaAudit')} <ArrowRight className="w-5 h-5" />
             </Link>
             <Link href="/contact-us" className="inline-flex items-center gap-2 px-8 py-4 font-bold text-white border border-white/30 hover:border-white/60 rounded-xl transition-all">
-              Talk to a Specialist
+              {t('ctaTalk')}
             </Link>
           </div>
         </div>

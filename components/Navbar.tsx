@@ -231,8 +231,18 @@ export default function Navbar() {
 
         {/* ── Desktop CTAs — right edge ── */}
         <div className="hidden md:flex items-center justify-end gap-2.5">
+          <a href="tel:6469417853" className="flex items-center gap-1.5 text-[12px] font-semibold text-slate-500 hover:text-slate-300 transition-colors whitespace-nowrap">
+            <Phone className="w-3.5 h-3.5 shrink-0" /> (646) 941-7853
+          </a>
+          <a
+            href="https://app.fintech5group.com" target="_blank" rel="noopener noreferrer"
+            className="px-4 py-2.5 text-sm font-bold text-slate-400 hover:text-white border border-white/10 hover:border-white/25 rounded-xl transition-all whitespace-nowrap mr-2"
+          >
+            Client Portal
+          </a>
+
           <select
-            className="bg-transparent text-slate-500 text-[11px] font-bold outline-none cursor-pointer hover:text-white transition-colors"
+            className="bg-transparent text-slate-300 text-[12px] font-bold outline-none cursor-pointer hover:text-white transition-colors"
             onChange={(e) => {
               const newLocale = e.target.value
               const currentPath = window.location.pathname.replace(/^\/(en|es|fr|pt|de|zh)/, '')
@@ -240,17 +250,13 @@ export default function Navbar() {
             }}
             defaultValue={pathname.split('/')[1] || 'en'}
           >
-            <option value="en" className="bg-[#0f1a0f]">EN</option>
-            <option value="es" className="bg-[#0f1a0f]">ES</option>
-            <option value="fr" className="bg-[#0f1a0f]">FR</option>
-            <option value="pt" className="bg-[#0f1a0f]">PT</option>
-            <option value="de" className="bg-[#0f1a0f]">DE</option>
-            <option value="zh" className="bg-[#0f1a0f]">ZH</option>
+            <option value="en" className="bg-[#0f1a0f]">🇺🇸 EN</option>
+            <option value="es" className="bg-[#0f1a0f]">🇪🇸 ES</option>
+            <option value="fr" className="bg-[#0f1a0f]">🇨🇦 FR</option>
+            <option value="pt" className="bg-[#0f1a0f]">🇧🇷 PT</option>
+            <option value="de" className="bg-[#0f1a0f]">🇩🇪 DE</option>
+            <option value="zh" className="bg-[#0f1a0f]">🇨🇳 ZH</option>
           </select>
-
-          <a href="tel:6469417853" className="flex items-center gap-1.5 text-[12px] font-semibold text-slate-500 hover:text-slate-300 transition-colors whitespace-nowrap">
-            <Phone className="w-3.5 h-3.5 shrink-0" /> (646) 941-7853
-          </a>
           <a
             href="https://app.fintech5group.com" target="_blank" rel="noopener noreferrer"
             className="px-4 py-2.5 text-sm font-bold text-slate-400 hover:text-white border border-white/10 hover:border-white/25 rounded-xl transition-all whitespace-nowrap"
@@ -311,9 +317,30 @@ export default function Navbar() {
           </Link>
 
           <Link href="/get-your-savings-estimate" className="mt-4 flex items-center justify-center gap-2 py-3.5 text-sm font-black text-white rounded-xl" style={{ background: '#4e9000' }} onClick={closeMenu}>
-            Get Your Free Audit <ArrowRight className="w-4 h-4" />
+            {t('getAudit')} <ArrowRight className="w-4 h-4" />
           </Link>
-          <a href="tel:6469417853" className="mt-2 flex items-center justify-center gap-2 py-3 text-sm font-semibold text-slate-500 hover:text-slate-300 transition-colors">
+
+          <div className="flex items-center justify-between mt-4 mb-2 px-2" style={{ borderTop: '1px solid rgba(255,255,255,0.07)', paddingTop: '16px' }}>
+            <span className="text-xs text-slate-500 font-bold uppercase tracking-wider">Language</span>
+            <select
+              className="bg-transparent text-slate-300 text-sm font-bold outline-none cursor-pointer hover:text-white transition-colors"
+              onChange={(e) => {
+                const newLocale = e.target.value
+                const currentPath = window.location.pathname.replace(/^\/(en|es|fr|pt|de|zh)/, '')
+                window.location.href = `/${newLocale}${currentPath}`
+              }}
+              defaultValue={pathname.split('/')[1] || 'en'}
+            >
+              <option value="en" className="bg-[#0f1a0f]">🇺🇸 EN</option>
+              <option value="es" className="bg-[#0f1a0f]">🇪🇸 ES</option>
+              <option value="fr" className="bg-[#0f1a0f]">🇨🇦 FR</option>
+              <option value="pt" className="bg-[#0f1a0f]">🇧🇷 PT</option>
+              <option value="de" className="bg-[#0f1a0f]">🇩🇪 DE</option>
+              <option value="zh" className="bg-[#0f1a0f]">🇨🇳 ZH</option>
+            </select>
+          </div>
+
+          <a href="tel:6469417853" className="mb-2 flex items-center justify-center gap-2 py-3 text-sm font-semibold text-slate-500 hover:text-slate-300 transition-colors">
             <Phone className="w-4 h-4" /> (646) 941-7853
           </a>
         </div>

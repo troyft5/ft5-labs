@@ -2,6 +2,7 @@ import Link from 'next/link'
 import { ArrowRight, Users, Shield, TrendingUp, Phone, Zap, CheckCircle2 } from 'lucide-react'
 import Reveal from '@/components/Reveal'
 import ScrollDepth3D from '@/components/ScrollDepth3D'
+import { useTranslations } from 'next-intl'
 
 export const metadata = {
   title: 'About Us | FinTech 5 — Payment Processing Consultants',
@@ -11,37 +12,23 @@ export const metadata = {
 const BG  = '#0f1a0f'
 const BG2 = '#0a1208'
 
-const values = [
-  {
-    n: '01', icon: <Phone className="w-5 h-5" />,
-    title: 'We Answer the Phone',
-    body: 'Every FinTech 5 client gets a named account representative. Not a ticket system or a chatbot — a real person who knows your account and picks up when you call.',
-  },
-  {
-    n: '02', icon: <Shield className="w-5 h-5" />,
-    title: 'We Represent You, Not the Processor',
-    body: "We're not owned by any processing company. We have no quota to fill for any particular partner. Our only obligation is to the merchant sitting across from us.",
-  },
-  {
-    n: '03', icon: <Zap className="w-5 h-5" />,
-    title: 'Our Revenue Comes from Processors',
-    body: "When you select a processor through FT5, that processor compensates us — not you. Our consulting is free to merchants, full stop. No retainers, no consulting fees, no hidden charges.",
-  },
-  {
-    n: '04', icon: <TrendingUp className="w-5 h-5" />,
-    title: 'We Stay With You After the Switch',
-    body: "The relationship doesn't end at signing. We review your statements, catch rate creep, escalate billing disputes, and re-bid your account if a better option emerges.",
-  },
-]
-
-const timeline = [
-  { era: '30+ Years Ago', title: 'Built from the inside out', body: 'We spent decades building and managing payment infrastructure for universities, healthcare systems, and mid-market enterprises — seeing exactly how the money moved and where it was wasted.' },
-  { era: 'The Aggregator Era', title: 'Watched merchants get left behind', body: "When flat-rate aggregators promised simplicity, we watched the fine print. Convenience disguised cost. Each transaction, each batch, each 'service fee' added up. The merchants who needed help most got it least." },
-  { era: '2021 — FinTech 5 Founded', title: 'We decided to fix it', body: "Taking the institutional knowledge we'd built over decades and deploying it exclusively for merchants — we launched FinTech 5 with one rule: zero consulting fees, ever." },
-  { era: 'Today', title: 'Serving merchants across NY, NJ and beyond', body: 'Our network of 10+ tier-1 processor partners now competes for every client we represent. The expertise that once only Fortune 500 companies could access is now available to any serious business.' },
-]
-
 export default function AboutPage() {
+  const t = useTranslations('AboutUs')
+
+  const values = [
+    { n: t('r1N'), icon: <Phone className="w-5 h-5" />, title: t('r1Title'), body: t('r1Body') },
+    { n: t('r2N'), icon: <Shield className="w-5 h-5" />, title: t('r2Title'), body: t('r2Body') },
+    { n: t('r3N'), icon: <Zap className="w-5 h-5" />, title: t('r3Title'), body: t('r3Body') },
+    { n: t('r4N'), icon: <TrendingUp className="w-5 h-5" />, title: t('r4Title'), body: t('r4Body') },
+  ]
+
+  const timeline = [
+    { era: t('h1Era'), title: t('h1Title'), body: t('h1Body') },
+    { era: t('h2Era'), title: t('h2Title'), body: t('h2Body') },
+    { era: t('h3Era'), title: t('h3Title'), body: t('h3Body') },
+    { era: t('h4Era'), title: t('h4Title'), body: t('h4Body') },
+  ]
+
   return (
     <div className="flex flex-col w-full" style={{ background: BG }}>
 
@@ -59,16 +46,16 @@ export default function AboutPage() {
           <Reveal>
             <div className="flex items-center gap-3 mb-8">
               <div className="h-px w-8" style={{ background: '#4e9000' }} />
-              <span className="text-[11px] font-bold uppercase tracking-[0.2em]" style={{ color: '#6fc200' }}>Founded 2021 · New York &amp; New Jersey</span>
+              <span className="text-[11px] font-bold uppercase tracking-[0.2em]" style={{ color: '#6fc200' }} dangerouslySetInnerHTML={{ __html: t('badge') }} />
             </div>
           </Reveal>
 
           <Reveal delay={100}>
             <ScrollDepth3D delay={100} intensity={0.8}>
               <h1 className="text-5xl md:text-7xl font-black tracking-tight text-white leading-[0.95] mb-8">
-                The expertise of<br />an institution.<br />
+                {t('title1')}<br />{t('title2')}<br />
                 <span style={{ background: 'linear-gradient(135deg,#9de84a,#6fc200)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
-                  The dedication<br />of a family.
+                  {t('title3')}<br />{t('title4')}
                 </span>
               </h1>
             </ScrollDepth3D>
@@ -76,13 +63,13 @@ export default function AboutPage() {
 
           <Reveal delay={200}>
             <p className="text-xl text-slate-400 max-w-2xl leading-relaxed mb-12">
-              We spent decades building payment infrastructure for universities and managing high-stakes merchant accounts for enterprises. We saw exactly where the money went — and where it didn&apos;t have to. Then we decided to put that knowledge to work for you.
+              {t('subtitle')}
             </p>
           </Reveal>
 
           <Reveal delay={300}>
             <div className="flex flex-wrap gap-8">
-              {[['30+', 'Years combined experience'], ['10+', 'Tier-1 processor partners'], ['$0', 'Consulting cost to you']].map(([val, label]) => (
+              {[[t('stat1Val'), t('stat1Lbl')], [t('stat2Val'), t('stat2Lbl')], [t('stat3Val'), t('stat3Lbl')]].map(([val, label]) => (
                 <div key={label}>
                   <div className="text-3xl font-black text-white">{val}</div>
                   <div className="text-sm text-slate-500 mt-0.5">{label}</div>
@@ -101,19 +88,19 @@ export default function AboutPage() {
           <Reveal direction="left">
             <div>
               <div className="text-7xl md:text-8xl font-black leading-none mb-4" style={{ background: 'linear-gradient(135deg,#ef4444,#f97316)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
-                $18B+
+                {t('probVal')}
               </div>
               <div className="text-base text-slate-400 max-w-xs leading-relaxed">
-                In unnecessary payment processing fees are paid by US merchants every year — most of them without ever knowing.
+                {t('probSubtitle')}
               </div>
             </div>
           </Reveal>
 
           <Reveal direction="right" delay={150}>
             <div className="flex flex-col gap-5 text-slate-400 leading-relaxed">
-              <p className="text-lg">The payment processing industry is intentionally complex. Tiered pricing, junk fees, regulatory markups, PCI surcharges — the model is designed to obscure the true cost of accepting a card.</p>
-              <p>Large enterprises employ internal compliance teams and payment operations staff to fight this. Small and mid-size businesses don&apos;t. That&apos;s the gap we exist to close.</p>
-              <p className="text-white font-bold text-lg">FinTech 5 brings enterprise-grade payment expertise to every business we work with — at zero cost to the merchant.</p>
+              <p className="text-lg">{t('probBody1')}</p>
+              <p>{t('probBody2')}</p>
+              <p className="text-white font-bold text-lg">{t('probBody3')}</p>
             </div>
           </Reveal>
         </div>
@@ -126,7 +113,7 @@ export default function AboutPage() {
           <Reveal>
             <div className="flex items-center gap-3 mb-16">
               <div className="h-px w-8" style={{ background: '#4e9000' }} />
-              <span className="text-[11px] font-bold uppercase tracking-[0.2em]" style={{ color: '#6fc200' }}>Our History</span>
+              <span className="text-[11px] font-bold uppercase tracking-[0.2em]" style={{ color: '#6fc200' }}>{t('histBadge')}</span>
             </div>
           </Reveal>
 
@@ -158,11 +145,11 @@ export default function AboutPage() {
             <div className="text-center mb-16">
               <div className="flex items-center justify-center gap-3 mb-5">
                 <div className="h-px w-8" style={{ background: '#4e9000' }} />
-                <span className="text-[11px] font-bold uppercase tracking-[0.2em]" style={{ color: '#6fc200' }}>Our Commitments</span>
+                <span className="text-[11px] font-bold uppercase tracking-[0.2em]" style={{ color: '#6fc200' }}>{t('ruleBadge')}</span>
                 <div className="h-px w-8" style={{ background: '#4e9000' }} />
               </div>
-              <h2 className="text-4xl md:text-5xl font-black tracking-tight text-white mb-4">Four rules we never break.</h2>
-              <p className="text-slate-400 max-w-lg mx-auto">The entire FinTech 5 model is built around these principles. They aren&apos;t values on a poster — they&apos;re the terms under which we operate.</p>
+              <h2 className="text-4xl md:text-5xl font-black tracking-tight text-white mb-4">{t('ruleTitle')}</h2>
+              <p className="text-slate-400 max-w-lg mx-auto">{t('ruleSubtitle')}</p>
             </div>
           </Reveal>
 
@@ -194,25 +181,25 @@ export default function AboutPage() {
           <Reveal>
             <div className="flex items-center gap-3 mb-10">
               <div className="h-px w-8" style={{ background: '#4e9000' }} />
-              <span className="text-[11px] font-bold uppercase tracking-[0.2em]" style={{ color: '#6fc200' }}>Our Verticals</span>
+              <span className="text-[11px] font-bold uppercase tracking-[0.2em]" style={{ color: '#6fc200' }}>{t('indBadge')}</span>
             </div>
           </Reveal>
           <Reveal delay={60}>
             <h2 className="text-3xl md:text-4xl font-black text-white mb-10 leading-tight">
-              Every industry. One playbook.<br />
-              <span style={{ color: '#6fc200' }}>Your rules.</span>
+              {t('indTitle1')}<br />
+              <span style={{ color: '#6fc200' }}>{t('indTitle2')}</span>
             </h2>
           </Reveal>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
             {[
-              { name: 'Retail', href: '/industries/retail-payments', emoji: '🛍️' },
-              { name: 'E-Commerce', href: '/industries/e-commerce', emoji: '💳' },
-              { name: 'Service Business', href: '/industries/service', emoji: '✅' },
-              { name: 'Healthcare', href: '/industries/healthcare', emoji: '🏥' },
-              { name: 'Restaurants', href: '/industries/restaurant', emoji: '🍴' },
-              { name: 'Higher Education', href: '/industries/higher-education', emoji: '🎓' },
-              { name: 'Nonprofits', href: '/industries/nonprofit', emoji: '🤝' },
-              { name: 'Specialty Retail', href: '/industries/specialty-retail', emoji: '🛒' },
+              { name: t('indRetail'), href: '/industries/retail-payments', emoji: '🛍️' },
+              { name: t('indEcom'), href: '/industries/e-commerce', emoji: '💳' },
+              { name: t('indService'), href: '/industries/service', emoji: '✅' },
+              { name: t('indHealth'), href: '/industries/healthcare', emoji: '🏥' },
+              { name: t('indRest'), href: '/industries/restaurant', emoji: '🍴' },
+              { name: t('indEdu'), href: '/industries/higher-education', emoji: '🎓' },
+              { name: t('indNon'), href: '/industries/nonprofit', emoji: '🤝' },
+              { name: t('indSpec'), href: '/industries/specialty-retail', emoji: '🛒' },
             ].map((ind, i) => (
               <Reveal key={ind.name} delay={i * 50}>
                 <Link href={ind.href} className="group flex items-center gap-3 rounded-xl p-4 transition-all hover:-translate-y-0.5" style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)' }}>
@@ -225,7 +212,7 @@ export default function AboutPage() {
           <Reveal delay={200}>
             <div className="mt-6">
               <Link href="/get-your-savings-estimate" className="inline-flex items-center gap-2 text-sm font-bold" style={{ color: '#6fc200' }}>
-                View all industries we serve <ArrowRight className="w-4 h-4" />
+                {t('indLink')} <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
           </Reveal>
@@ -240,18 +227,18 @@ export default function AboutPage() {
             <div className="text-center mb-12">
               <div className="flex items-center justify-center gap-3 mb-5">
                 <div className="h-px w-8" style={{ background: '#4e9000' }} />
-                <span className="text-[11px] font-bold uppercase tracking-[0.2em]" style={{ color: '#6fc200' }}>Common Questions</span>
+                <span className="text-[11px] font-bold uppercase tracking-[0.2em]" style={{ color: '#6fc200' }}>{t('faqBadge')}</span>
                 <div className="h-px w-8" style={{ background: '#4e9000' }} />
               </div>
-              <h2 className="text-3xl md:text-4xl font-black text-white">What merchants ask before working with us.</h2>
+              <h2 className="text-3xl md:text-4xl font-black text-white">{t('faqTitle')}</h2>
             </div>
           </Reveal>
           <div className="grid md:grid-cols-2 gap-5">
             {[
-              { q: 'How do you make money if you don\'t charge merchants?', a: 'The processor we place you with compensates us from their existing margin. Our incentive aligns with yours: we only receive compensation if we find you a deal that genuinely benefits you.' },
-              { q: 'What size businesses do you work with?', a: 'We work with merchants processing from $10,000 to several million per month. Our sweet spot is $30k–$500k, but there is no ceiling and no minimum to get started.' },
-              { q: 'What is your processor network?', a: 'We have established relationships with 10+ tier-1 processors including some of the largest acquiring banks and payment networks in the United States. We never steer you toward any single partner.' },
-              { q: 'What happens after the switch?', a: 'You get a dedicated account rep. We monitor your statements monthly, flag any rate creep, handle disputes, and renegotiate on your behalf when better options emerge. The relationship doesn\'t end at the signature.' },
+              { q: t('q1'), a: t('a1') },
+              { q: t('q2'), a: t('a2') },
+              { q: t('q3'), a: t('a3') },
+              { q: t('q4'), a: t('a4') },
             ].map((item, i) => (
               <Reveal key={i} delay={i * 70}>
                 <div className="rounded-2xl p-7" style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)' }}>
@@ -272,14 +259,14 @@ export default function AboutPage() {
             <div className="rounded-2xl p-8 md:p-12" style={{ background: 'rgba(78,144,0,0.07)', border: '1px solid rgba(78,144,0,0.2)' }}>
               <div className="grid md:grid-cols-2 gap-10 items-center">
                 <div>
-                  <h2 className="text-2xl md:text-3xl font-black text-white mb-4">Working with FT5 is<br />risk-free by design.</h2>
+                  <h2 className="text-2xl md:text-3xl font-black text-white mb-4">{t('trustTitle1')}<br />{t('trustTitle2')}</h2>
                   <div className="flex flex-col gap-3">
                     {[
-                      'No contracts required — month-to-month always',
-                      'No consulting fees charged to merchants, ever',
-                      'No pressure to switch if your current rate is competitive',
-                      'No ownership stake in any processor partner',
-                      'Full transparency on every fee, every month',
+                      t('g1'),
+                      t('g2'),
+                      t('g3'),
+                      t('g4'),
+                      t('g5'),
                     ].map(item => (
                       <div key={item} className="flex items-center gap-3 text-sm text-slate-300">
                         <CheckCircle2 className="w-4 h-4 shrink-0" style={{ color: '#4e9000' }} />
@@ -290,10 +277,10 @@ export default function AboutPage() {
                 </div>
                 <div className="flex flex-col gap-4">
                   <Link href="/get-your-savings-estimate" className="flex items-center justify-center gap-2 px-8 py-4 font-black text-white rounded-xl transition-all hover:-translate-y-0.5" style={{ background: '#4e9000', boxShadow: '0 8px 24px rgba(78,144,0,0.35)' }}>
-                    Get a Free Savings Estimate <ArrowRight className="w-5 h-5" />
+                    {t('ctaAudit')} <ArrowRight className="w-5 h-5" />
                   </Link>
                   <Link href="/contact-us" className="flex items-center justify-center gap-2 px-8 py-4 font-bold text-slate-300 border border-white/10 hover:border-white/25 rounded-xl transition-all">
-                    Talk to a Specialist
+                    {t('ctaTalk')}
                   </Link>
                 </div>
               </div>

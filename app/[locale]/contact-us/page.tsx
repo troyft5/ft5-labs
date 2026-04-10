@@ -2,6 +2,7 @@ import { Phone, Mail, MapPin, ArrowRight, Clock, CheckCircle2 } from 'lucide-rea
 import ContactForm from '@/components/ContactForm'
 import Reveal from '@/components/Reveal'
 import ScrollDepth3D from '@/components/ScrollDepth3D'
+import { useTranslations } from 'next-intl'
 
 const BG  = '#0f1a0f'
 const BG2 = '#0a1208'
@@ -11,20 +12,22 @@ export const metadata = {
   description: 'Talk to a real payment specialist. No bots, no tickets. Reach FinTech 5 by phone, email, or contact form.',
 }
 
-const contactItems = [
-  { href: 'tel:6469417853',             icon: <Phone className="w-5 h-5" />, label: 'Call Us',         lines: ['(646) 941-7853', '(732) 300-1072'] },
-  { href: 'mailto:info@fintech5group.com',icon: <Mail className="w-5 h-5" />,  label: 'Email Us',       lines: ['info@fintech5group.com', 'sales@fintech5group.com'] },
-  { href: undefined,                     icon: <MapPin className="w-5 h-5" />, label: 'Coverage',       lines: ['New York & New Jersey', 'Serving clients nationwide'] },
-  { href: undefined,                     icon: <Clock className="w-5 h-5" />,  label: 'Response Time',  lines: ['Within 1 business day', '24/7 for active clients'] },
-]
-
-const nextSteps = [
-  { n: '01', title: 'You submit the form', body: 'We receive your message instantly — no ticket queue, no auto-responder holding pattern.' },
-  { n: '02', title: 'A specialist reviews it', body: 'A dedicated payment consultant reads your message and prepares a relevant response — not a generic one.' },
-  { n: '03', title: 'We reach out within 1 business day', body: 'Expect a personal reply by phone or email, ready to answer your questions or begin the audit process.' },
-]
-
 export default function ContactPage() {
+  const t = useTranslations('ContactUs')
+
+  const contactItems = [
+    { href: 'tel:6469417853',             icon: <Phone className="w-5 h-5" />, label: t('s1Lbl'),         lines: ['(646) 941-7853', '(732) 300-1072'] },
+    { href: 'mailto:info@fintech5group.com',icon: <Mail className="w-5 h-5" />,  label: t('s2Lbl'),       lines: ['info@fintech5group.com', 'sales@fintech5group.com'] },
+    { href: undefined,                     icon: <MapPin className="w-5 h-5" />, label: t('s3Lbl'),       lines: [t('s3L1'), t('s3L2')] },
+    { href: undefined,                     icon: <Clock className="w-5 h-5" />,  label: t('s4Lbl'),  lines: [t('s4L1'), t('s4L2')] },
+  ]
+
+  const nextSteps = [
+    { n: t('n1N'), title: t('n1Title'), body: t('n1Body'), tag: t('n1Tag') },
+    { n: t('n2N'), title: t('n2Title'), body: t('n2Body') },
+    { n: t('n3N'), title: t('n3Title'), body: t('n3Body'), tag: t('n3Tag') },
+  ]
+
   return (
     <div className="flex flex-col w-full" style={{ background: BG }}>
 
@@ -38,20 +41,20 @@ export default function ContactPage() {
               <Reveal>
                 <div className="flex items-center gap-3 mb-6">
                   <div className="h-px w-8" style={{ background: '#4e9000' }} />
-                  <span className="text-[11px] font-bold uppercase tracking-[0.2em]" style={{ color: '#6fc200' }}>Get in Touch</span>
+                  <span className="text-[11px] font-bold uppercase tracking-[0.2em]" style={{ color: '#6fc200' }}>{t('badge')}</span>
                 </div>
               </Reveal>
               <Reveal delay={80}>
                 <ScrollDepth3D delay={80} intensity={0.8}>
                   <h1 className="text-5xl md:text-7xl font-black tracking-tight text-white leading-none mb-6">
-                    Talk to a<br />real person.<br />
-                    <span style={{ background: 'linear-gradient(135deg,#9de84a,#6fc200)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>No bots.</span>
+                    {t('title1')}<br />{t('title2')}<br />
+                    <span style={{ background: 'linear-gradient(135deg,#9de84a,#6fc200)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>{t('title3')}</span>
                   </h1>
                 </ScrollDepth3D>
               </Reveal>
               <Reveal delay={160}>
                 <p className="text-xl text-slate-400 max-w-lg leading-relaxed">
-                  Reach out directly or fill out the form below — a dedicated payment specialist responds within one business day.
+                  {t('subtitle')}
                 </p>
               </Reveal>
             </div>
@@ -60,21 +63,21 @@ export default function ContactPage() {
             <Reveal direction="right" delay={120}>
               <div className="flex flex-col gap-5">
                 <a href="tel:6469417853" className="group flex flex-col">
-                  <span className="text-[11px] font-bold uppercase tracking-[0.2em] mb-3" style={{ color: '#6fc200' }}>Call us directly</span>
+                  <span className="text-[11px] font-bold uppercase tracking-[0.2em] mb-3" style={{ color: '#6fc200' }}>{t('callBadge')}</span>
                   <span className="text-4xl md:text-5xl font-black text-white group-hover:text-[#8cd627] transition-colors tracking-tight">(646) 941-7853</span>
                   <span className="text-sm text-slate-600 mt-2">Mon – Fri, 9am – 6pm ET</span>
                 </a>
                 <div className="h-px" style={{ background: 'rgba(255,255,255,0.07)' }} />
                 <a href="mailto:info@fintech5group.com" className="group">
-                  <span className="text-[11px] font-bold uppercase tracking-[0.2em] mb-2 block" style={{ color: '#6fc200' }}>Email us</span>
+                  <span className="text-[11px] font-bold uppercase tracking-[0.2em] mb-2 block" style={{ color: '#6fc200' }}>{t('emailBadge')}</span>
                   <span className="text-lg font-bold text-slate-300 group-hover:text-white transition-colors">info@fintech5group.com</span>
                 </a>
                 <div className="h-px" style={{ background: 'rgba(255,255,255,0.07)' }} />
                 <div>
-                  <span className="text-[11px] font-bold uppercase tracking-[0.2em] mb-2 block" style={{ color: '#6fc200' }}>Response time</span>
+                  <span className="text-[11px] font-bold uppercase tracking-[0.2em] mb-2 block" style={{ color: '#6fc200' }}>{t('respBadge')}</span>
                   <div className="flex items-center gap-2">
                     <div className="w-2 h-2 rounded-full" style={{ background: '#6fc200' }} />
-                    <span className="text-sm font-bold text-white">Within 1 business day, always</span>
+                    <span className="text-sm font-bold text-white">{t('respText')}</span>
                   </div>
                 </div>
               </div>
@@ -91,8 +94,8 @@ export default function ContactPage() {
           {/* Form */}
           <Reveal direction="left">
             <div>
-              <h2 className="text-2xl font-black text-white mb-2">Send a message</h2>
-              <p className="text-slate-500 text-sm mb-8">We&apos;ll reply within 1 business day. For faster response, call us directly.</p>
+              <h2 className="text-2xl font-black text-white mb-2">{t('formTitle')}</h2>
+              <p className="text-slate-500 text-sm mb-8">{t('formSub')}</p>
               <ContactForm />
             </div>
           </Reveal>
@@ -100,7 +103,7 @@ export default function ContactPage() {
           {/* Info sidebar */}
           <div>
             <Reveal direction="right">
-              <h2 className="text-2xl font-black text-white mb-6">Direct contact</h2>
+              <h2 className="text-2xl font-black text-white mb-6">{t('dirTitle')}</h2>
             </Reveal>
             <div className="flex flex-col gap-3 mb-8">
               {contactItems.map((item, i) => {
@@ -128,10 +131,10 @@ export default function ContactPage() {
             {/* Faster path CTA */}
             <Reveal direction="right" delay={250}>
               <div className="rounded-2xl p-6" style={{ background: 'rgba(78,144,0,0.1)', border: '1px solid rgba(78,144,0,0.25)' }}>
-                <div className="text-[10px] font-bold uppercase tracking-widest mb-2" style={{ color: '#6fc200' }}>Prefer the fast lane?</div>
-                <p className="text-sm text-slate-400 mb-4">Upload your statement and get a full savings audit back same day or less — no form needed.</p>
+                <div className="text-[10px] font-bold uppercase tracking-widest mb-2" style={{ color: '#6fc200' }}>{t('laneBadge')}</div>
+                <p className="text-sm text-slate-400 mb-4">{t('laneText')}</p>
                 <a href="/get-your-savings-estimate" className="inline-flex items-center gap-2 text-sm font-black text-white px-5 py-2.5 rounded-xl transition-all hover:opacity-90" style={{ background: '#4e9000' }}>
-                  Get Free Savings Estimate <ArrowRight className="w-4 h-4" />
+                  {t('laneCta')} <ArrowRight className="w-4 h-4" />
                 </a>
               </div>
             </Reveal>
@@ -146,9 +149,9 @@ export default function ContactPage() {
           <Reveal>
             <div className="flex items-center gap-3 mb-4">
               <div className="h-px w-8" style={{ background: '#4e9000' }} />
-              <span className="text-[11px] font-bold uppercase tracking-[0.2em]" style={{ color: '#6fc200' }}>What Happens Next</span>
+              <span className="text-[11px] font-bold uppercase tracking-[0.2em]" style={{ color: '#6fc200' }}>{t('nextBadge')}</span>
             </div>
-            <h2 className="text-3xl md:text-4xl font-black text-white mb-16">No guessing. Here&apos;s the timeline.</h2>
+            <h2 className="text-3xl md:text-4xl font-black text-white mb-16">{t('nextTitle')}</h2>
           </Reveal>
 
           <div className="relative">
@@ -166,8 +169,7 @@ export default function ContactPage() {
                     <div className="flex-1 pt-1">
                       <div className="flex items-center gap-3 mb-2">
                         <h3 className="text-xl font-black text-white">{step.title}</h3>
-                        {i === 0 && <span className="text-[10px] font-bold uppercase tracking-widest px-2 py-1 rounded-full" style={{ background: 'rgba(78,144,0,0.15)', color: '#6fc200' }}>Starts today</span>}
-                        {i === nextSteps.length - 1 && <span className="text-[10px] font-bold uppercase tracking-widest px-2 py-1 rounded-full" style={{ background: 'rgba(78,144,0,0.15)', color: '#6fc200' }}>You decide</span>}
+                        {step.tag && <span className="text-[10px] font-bold uppercase tracking-widest px-2 py-1 rounded-full" style={{ background: 'rgba(78,144,0,0.15)', color: '#6fc200' }}>{step.tag}</span>}
                       </div>
                       <p className="text-slate-400 leading-relaxed">{step.body}</p>
                     </div>
@@ -179,7 +181,7 @@ export default function ContactPage() {
 
           <Reveal delay={300}>
             <div className="mt-12 flex items-center gap-8 flex-wrap pt-8" style={{ borderTop: '1px solid rgba(255,255,255,0.07)' }}>
-              {['No contracts required', 'No consulting fees', 'No-pressure conversation'].map(item => (
+              {[t('c1'), t('c2'), t('c3')].map(item => (
                 <div key={item} className="flex items-center gap-2 text-sm text-slate-500">
                   <CheckCircle2 className="w-4 h-4" style={{ color: '#4e9000' }} /> {item}
                 </div>
@@ -197,20 +199,20 @@ export default function ContactPage() {
             <div className="text-center mb-12">
               <div className="flex items-center justify-center gap-3 mb-5">
                 <div className="h-px w-8" style={{ background: '#4e9000' }} />
-                <span className="text-[11px] font-bold uppercase tracking-[0.2em]" style={{ color: '#6fc200' }}>Common Scenarios</span>
+                <span className="text-[11px] font-bold uppercase tracking-[0.2em]" style={{ color: '#6fc200' }}>{t('sceBadge')}</span>
                 <div className="h-px w-8" style={{ background: '#4e9000' }} />
               </div>
-              <h2 className="text-3xl md:text-4xl font-black text-white mb-3">Why merchants call us.</h2>
-              <p className="text-slate-400 max-w-lg mx-auto text-sm">You don&apos;t need to know the right questions. Just start the conversation.</p>
+              <h2 className="text-3xl md:text-4xl font-black text-white mb-3">{t('sceTitle')}</h2>
+              <p className="text-slate-400 max-w-lg mx-auto text-sm">{t('sceSub')}</p>
             </div>
           </Reveal>
           <Reveal delay={100}>
             <div className="flex flex-wrap justify-center gap-3">
               {[
-                'My rates keep going up', 'I can\'t read my statement', 'I just got a better offer from another processor',
-                'I want to know my true effective rate', 'I\'m opening a new location', 'Switching POS systems',
-                'I process over $50k/month', 'I need better support', 'I want to remove junk fees',
-                'I\'m launching an e-commerce store', 'I need interchange-plus pricing explained', 'I want a second opinion',
+                t('ss1'), t('ss2'), t('ss3'),
+                t('ss4'), t('ss5'), t('ss6'),
+                t('ss7'), t('ss8'), t('ss9'),
+                t('ss10'), t('ss11'), t('ss12'),
               ].map(s => (
                 <div key={s} className="px-4 py-2.5 rounded-full text-sm font-medium" style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.1)', color: '#94a3b8' }}>
                   {s}
@@ -228,15 +230,15 @@ export default function ContactPage() {
           <Reveal>
             <div className="flex items-center gap-3 mb-10">
               <div className="h-px w-8" style={{ background: '#4e9000' }} />
-              <span className="text-[11px] font-bold uppercase tracking-[0.2em]" style={{ color: '#6fc200' }}>Before You Reach Out</span>
+              <span className="text-[11px] font-bold uppercase tracking-[0.2em]" style={{ color: '#6fc200' }}>{t('faqBadge')}</span>
             </div>
           </Reveal>
           <div className="grid md:grid-cols-2 gap-5">
             {[
-              { q: 'Do you respond to every inquiry?', a: 'Yes. Every form submission gets a personal response within 1 business day — no auto-replies, no ticket queues, no outsourced call centers.' },
-              { q: 'What information should I have ready?', a: 'A recent merchant statement is most useful, but you can start without one. We can run a preliminary estimate from just your monthly volume and industry.' },
-              { q: 'Do you work with businesses outside of NY and NJ?', a: 'Yes. While we\'re headquartered in New York and New Jersey, we serve merchants nationwide across all 50 states.' },
-              { q: 'How do you charge for your services?', a: 'We don\'t charge you anything. Our consulting is funded by the processor that wins your business. Your cost is always zero — and we never earn more by placing you somewhere that isn\'t right for you.' },
+              { q: t('q1'), a: t('a1') },
+              { q: t('q2'), a: t('a2') },
+              { q: t('q3'), a: t('a3') },
+              { q: t('q4'), a: t('a4') },
             ].map((item, i) => (
               <Reveal key={i} delay={i * 60}>
                 <div className="rounded-2xl p-6" style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)' }}>
@@ -257,14 +259,14 @@ export default function ContactPage() {
             <div className="rounded-2xl p-8 md:p-12" style={{ background: 'rgba(78,144,0,0.07)', border: '1px solid rgba(78,144,0,0.2)' }}>
               <div className="grid md:grid-cols-2 gap-10 items-center">
                 <div>
-                  <h2 className="text-2xl md:text-3xl font-black text-white mb-6">Our commitment before you even say hello.</h2>
+                  <h2 className="text-2xl md:text-3xl font-black text-white mb-6">{t('btmTitle')}</h2>
                   <div className="flex flex-col gap-3">
                     {[
-                      'No pitch on the first call — we listen first',
-                      'No fee unless we find you real savings',
-                      'No ownership stake in any processor we recommend',
-                      'Honest analysis even if the answer is \"stay where you are\"',
-                      'Dedicated point of contact for every account',
+                      t('b1'),
+                      t('b2'),
+                      t('b3'),
+                      t('b4'),
+                      t('b5'),
                     ].map(item => (
                       <div key={item} className="flex items-center gap-3 text-sm text-slate-300">
                         <CheckCircle2 className="w-4 h-4 shrink-0" style={{ color: '#4e9000' }} />
@@ -275,10 +277,10 @@ export default function ContactPage() {
                 </div>
                 <div className="flex flex-col gap-4">
                   <a href="/get-your-savings-estimate" className="flex items-center justify-center gap-2 px-8 py-4 font-black text-white rounded-xl transition-all hover:-translate-y-0.5" style={{ background: '#4e9000', boxShadow: '0 8px 24px rgba(78,144,0,0.35)' }}>
-                    Upload My Statement <ArrowRight className="w-5 h-5" />
+                    {t('cta1')} <ArrowRight className="w-5 h-5" />
                   </a>
                   <a href="tel:6469417853" className="flex items-center justify-center gap-2 px-8 py-4 font-bold text-slate-300 border border-white/10 hover:border-white/25 rounded-xl transition-all">
-                    Call (646) 941-7853
+                    {t('cta2')}
                   </a>
                 </div>
               </div>

@@ -4,6 +4,7 @@ import { useState } from 'react'
 import Link from 'next/link'
 import { ArrowRight, ShieldCheck, CheckCircle2, Upload, Clock, Phone, FileText, Star } from 'lucide-react'
 import ExitIntentModal from '@/components/ExitIntentModal'
+import { useTranslations } from 'next-intl'
 
 const BG  = '#0f1a0f'
 const BG2 = '#0a1208'
@@ -12,22 +13,26 @@ const inputClass = "w-full rounded-xl px-4 py-3.5 text-white text-sm font-medium
 const inputStyle = { background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)' }
 const labelClass = "text-xs font-bold text-slate-400 mb-1.5 block uppercase tracking-wider"
 
-const process = [
-  { n: '01', title: 'Submit your info', body: 'Fill the form or upload a recent merchant statement. A statement gives us the most accurate analysis.', tag: 'Now' },
-  { n: '02', title: 'We analyze', body: 'Our team reviews every line item — interchange, fees, markup, and any hidden charges buried in the fine print.', tag: '24–24 hrs' },
-  { n: '03', title: 'You receive the report', body: 'We return a full report showing your true effective rate vs. what you could be paying with our processor network.', tag: 'Free' },
-  { n: '04', title: 'You make the call', body: 'No pressure. If the numbers don\'t make switching worth it, we tell you. If they do, we handle everything.', tag: 'Your choice' },
-]
 
-const guarantees = [
-  'No consulting fee — ever',
-  'No obligation to switch',
-  'No ownership stake in any processor',
-  'Response within 1 business day',
-  'Honest analysis even if staying makes sense',
-]
 
 export default function Estimate() {
+  const t = useTranslations('Estimate')
+
+  const process = [
+    { n: t('pr1N'), title: t('pr1Title'), body: t('pr1Body'), tag: t('pr1Tag') },
+    { n: t('pr2N'), title: t('pr2Title'), body: t('pr2Body'), tag: t('pr2Tag') },
+    { n: t('pr3N'), title: t('pr3Title'), body: t('pr3Body'), tag: t('pr3Tag') },
+    { n: t('pr4N'), title: t('pr4Title'), body: t('pr4Body'), tag: t('pr4Tag') },
+  ]
+  
+  const guarantees = [
+    t('g1'),
+    t('g2'),
+    t('g3'),
+    t('g4'),
+    t('g5'),
+  ]
+
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
   const [form, setForm] = useState({
     firstName: '', lastName: '', email: '', phone: '', business: '',
@@ -88,25 +93,25 @@ export default function Estimate() {
             <div>
               <div className="flex items-center gap-3 mb-6">
                 <div className="h-px w-8" style={{ background: '#4e9000' }} />
-                <span className="text-[11px] font-bold uppercase tracking-[0.2em]" style={{ color: '#6fc200' }}>Free Analysis</span>
+                <span className="text-[11px] font-bold uppercase tracking-[0.2em]" style={{ color: '#6fc200' }}>{t('badge')}</span>
               </div>
               <h1 className="text-5xl md:text-6xl font-black tracking-tight text-white leading-none mb-6">
-                Find out what<br />you&apos;re actually<br />
+                {t('title1')}<br />{t('title2')}<br />
                 <span style={{ background: 'linear-gradient(135deg,#9de84a,#4e9000)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
-                  overpaying.
+                  {t('title3')}
                 </span>
               </h1>
               <p className="text-lg text-slate-400 leading-relaxed max-w-md">
-                Upload your merchant statement — or just fill in the details. Our consultants return a full fee breakdown and competitive comparison same day or less.
+                {t('subtitle')}
               </p>
             </div>
 
             {/* Hero micro stats */}
             <div className="flex flex-col gap-5">
               {[
-                { value: '$0', label: 'cost to you', sub: 'Our consulting is completely free' },
-                { value: '48h', label: 'audit turnaround', sub: 'Most analysis done in less than 24' },
-                { value: '10+', label: 'processors compared', sub: 'We shop your business to the market' },
+                { value: t('stat1Val'), label: t('stat1Lbl'), sub: t('stat1Sub') },
+                { value: t('stat2Val'), label: t('stat2Lbl'), sub: t('stat2Sub') },
+                { value: t('stat3Val'), label: t('stat3Lbl'), sub: t('stat3Sub') },
               ].map((s, i) => (
                 <div key={i} className="flex items-center gap-5 rounded-2xl px-6 py-4" style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(78,144,0,0.15)' }}>
                   <div className="text-4xl font-black shrink-0" style={{ color: '#6fc200' }}>{s.value}</div>
@@ -135,32 +140,32 @@ export default function Estimate() {
                     <div className="inline-flex items-center justify-center w-24 h-24 rounded-full mb-6" style={{ background: 'rgba(78,144,0,0.15)', border: '1px solid rgba(78,144,0,0.3)' }}>
                       <ShieldCheck className="w-12 h-12" style={{ color: '#6fc200' }} />
                     </div>
-                    <h2 className="text-3xl font-black mb-3 text-white">Request Received</h2>
+                    <h2 className="text-3xl font-black mb-3 text-white">{t('successBanner')}</h2>
                     <p className="text-slate-400 max-w-sm mx-auto mb-8 leading-relaxed">
-                      Our consultants are reviewing your details and will reach out within one business day with your full savings analysis.
+                      {t('successMsg')}
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
                       <Link href="/blog" className="inline-flex items-center gap-2 px-6 py-3 text-sm font-bold text-slate-300 border border-white/10 rounded-xl hover:border-white/25 transition-all">
-                        Read our Insights Blog
+                        {t('btnBlog')}
                       </Link>
                       <Link href="/calculator" className="inline-flex items-center gap-2 px-6 py-3 text-sm font-black text-white rounded-xl transition-all hover:-translate-y-0.5" style={{ background: '#4e9000' }}>
-                        Try the Calculator <ArrowRight className="w-4 h-4" />
+                        {t('btnCalc')} <ArrowRight className="w-4 h-4" />
                       </Link>
                     </div>
                   </div>
                 ) : (
                   <form onSubmit={handleSubmit} className="flex flex-col gap-5">
                     <div>
-                      <h2 className="text-2xl font-black text-white mb-1">Submit your information</h2>
-                      <p className="text-slate-500 text-sm">A statement upload gets you the most precise analysis. The form alone still gets you a strong estimate.</p>
+                      <h2 className="text-2xl font-black text-white mb-1">{t('formTitle')}</h2>
+                      <p className="text-slate-500 text-sm">{t('formSub')}</p>
                     </div>
 
                     {/* Statement upload FIRST — highest conversion intent */}
                     <div>
                       <label className={labelClass}>
                         <span className="flex items-center gap-2">
-                          <Upload className="w-3 h-3" /> Merchant Statement
-                          <span className="text-slate-600 font-normal normal-case tracking-normal">— optional but recommended</span>
+                          <Upload className="w-3 h-3" /> {t('lblStatement')}
+                          <span className="text-slate-600 font-normal normal-case tracking-normal">{t('lblOptional')}</span>
                         </span>
                       </label>
                       <label
@@ -174,13 +179,13 @@ export default function Estimate() {
                               <FileText className="w-5 h-5" />
                               <span className="text-sm font-bold">{file.name}</span>
                             </div>
-                            <div className="text-xs text-slate-500">Click to change file</div>
+                            <div className="text-xs text-slate-500">{t('uploadReady')}</div>
                           </div>
                         ) : (
                           <div className="text-center">
                             <Upload className="w-8 h-8 mx-auto mb-3 text-slate-600" />
-                            <div className="text-sm font-bold text-slate-300 mb-1">Drop your statement here or click to browse</div>
-                            <div className="text-xs text-slate-600">PDF, XLS, CSV, or image — max 10MB</div>
+                            <div className="text-sm font-bold text-slate-300 mb-1">{t('uploadPrompt1')}</div>
+                            <div className="text-xs text-slate-600">{t('uploadPrompt2')}</div>
                           </div>
                         )}
                       </label>
@@ -190,23 +195,23 @@ export default function Estimate() {
 
                     {/* Primary required fields — highest visual weight */}
                     <div>
-                      <label className={labelClass}>Your Name *</label>
-                      <input type="text" required placeholder="First name" value={form.firstName} onChange={set('firstName')} className={inputClass} style={inputStyle} />
+                      <label className={labelClass}>{t('lblFName')}</label>
+                      <input type="text" required value={form.firstName} onChange={set('firstName')} className={inputClass} style={inputStyle} />
                     </div>
 
                     <div>
-                      <label className={labelClass}>Business Name *</label>
-                      <input type="text" required placeholder="Acme Corp" value={form.business} onChange={set('business')} className={inputClass} style={inputStyle} />
+                      <label className={labelClass}>{t('lblBusiness')}</label>
+                      <input type="text" required value={form.business} onChange={set('business')} className={inputClass} style={inputStyle} />
                     </div>
 
                     <div>
-                      <label className={labelClass}>Email Address *</label>
-                      <input type="email" required placeholder="you@business.com" value={form.email} onChange={set('email')} className={inputClass} style={inputStyle} />
+                      <label className={labelClass}>{t('lblEmail')}</label>
+                      <input type="email" required value={form.email} onChange={set('email')} className={inputClass} style={inputStyle} />
                     </div>
 
                     <div className="grid md:grid-cols-2 gap-5">
                       <div>
-                        <label className={labelClass}>Monthly Volume</label>
+                        <label className={labelClass}>{t('lblVol')}</label>
                         <select value={form.volume} onChange={set('volume')} className={inputClass} style={inputStyle}>
                           {['Under $10,000','$10,000 – $50,000','$50,000 – $250,000','$250,000+'].map(o => (
                             <option key={o} style={{ background: '#0f1a0f' }}>{o}</option>
@@ -214,7 +219,7 @@ export default function Estimate() {
                         </select>
                       </div>
                       <div>
-                        <label className={labelClass}>Industry</label>
+                        <label className={labelClass}>{t('lblInd')}</label>
                         <select value={form.industry} onChange={set('industry')} className={inputClass} style={inputStyle}>
                           {['Retail','E-Commerce','Healthcare','Restaurant / Food Service','B2B / Professional Services','Petroleum / Gas','High-Risk','Other'].map(o => (
                             <option key={o} style={{ background: '#0f1a0f' }}>{o}</option>
@@ -227,23 +232,23 @@ export default function Estimate() {
                     <details className="group">
                       <summary className="cursor-pointer text-xs font-bold text-slate-600 hover:text-slate-400 transition-colors select-none list-none flex items-center gap-2">
                         <span className="text-[#4e9000] group-open:rotate-90 transition-transform inline-block">›</span>
-                        Add phone or notes <span className="font-normal text-slate-700">(optional — speeds up your analysis)</span>
+                        {t('optShowMore')} <span className="font-normal text-slate-700">{t('optShowMoreSub')}</span>
                       </summary>
                       <div className="flex flex-col gap-5 mt-4">
                         <div>
-                          <label className={labelClass}>Phone Number</label>
-                          <input type="tel" placeholder="(555) 000-0000" value={form.phone} onChange={set('phone')} className={inputClass} style={inputStyle} />
+                          <label className={labelClass}>{t('lblPhone')}</label>
+                          <input type="tel" value={form.phone} onChange={set('phone')} className={inputClass} style={inputStyle} />
                         </div>
                         <div>
-                          <label className={labelClass}>Current processor / notes</label>
-                          <textarea rows={3} placeholder="E.g. 'We use Stripe at 2.9% + $0.30 and process ~$80k/month...'" value={form.notes} onChange={set('notes')} className={`${inputClass} resize-none`} style={inputStyle} />
+                          <label className={labelClass}>{t('lblNotes')}</label>
+                          <textarea rows={3} value={form.notes} onChange={set('notes')} className={`${inputClass} resize-none`} style={inputStyle} />
                         </div>
                       </div>
                     </details>
 
                     {status === 'error' && (
                       <div className="text-sm rounded-xl px-4 py-3" style={{ background: 'rgba(185,28,28,0.1)', border: '1px solid rgba(185,28,28,0.3)', color: '#fca5a5' }}>
-                        Something went wrong. Please try again or call us at (646) 941-7853.
+                        {t('errMsg')}
                       </div>
                     )}
 
@@ -256,17 +261,17 @@ export default function Estimate() {
                       {status === 'loading' ? (
                         <>
                           <div className="w-5 h-5 rounded-full border-2 border-white/30 border-t-white animate-spin" />
-                          Sending your request...
+                          {t('btnLoading')}
                         </>
                       ) : (
-                        <>Get Your Free Audit <ArrowRight className="w-5 h-5" /></>
+                        <>{t('btnSubmit')} <ArrowRight className="w-5 h-5" /></>
                       )}
                     </button>
 
                     <p className="text-center text-xs text-slate-600">
-                      By submitting, you agree to our{' '}
-                      <Link href="/privacy-policy" className="underline hover:text-slate-400 transition-colors">Privacy Policy</Link>.
-                      We never sell your data or share it with processors without your consent.
+                      {t('disclaimer1')}
+                      <Link href="/privacy-policy" className="underline hover:text-slate-400 transition-colors">{t('disclaimer2')}</Link>
+                      {t('disclaimer3')}
                     </p>
                   </form>
                 )}
@@ -280,7 +285,7 @@ export default function Estimate() {
               <div>
                 <div className="flex items-center gap-3 mb-6">
                   <div className="h-px w-8" style={{ background: '#4e9000' }} />
-                  <span className="text-[11px] font-bold uppercase tracking-[0.2em]" style={{ color: '#6fc200' }}>What Happens</span>
+                  <span className="text-[11px] font-bold uppercase tracking-[0.2em]" style={{ color: '#6fc200' }}>{t('sbTitle1')}</span>
                 </div>
                 <div className="relative">
                   <div className="absolute left-[16px] top-4 bottom-4 w-px" style={{ background: 'linear-gradient(180deg,#4e9000,rgba(78,144,0,0.1))' }} />
@@ -308,7 +313,7 @@ export default function Estimate() {
               <div className="rounded-2xl p-6" style={{ background: 'rgba(78,144,0,0.07)', border: '1px solid rgba(78,144,0,0.2)' }}>
                 <div className="flex items-center gap-2 mb-4">
                   <ShieldCheck className="w-5 h-5" style={{ color: '#6fc200' }} />
-                  <span className="text-sm font-black text-white">Our commitments to you</span>
+                  <span className="text-sm font-black text-white">{t('sbTitle2')}</span>
                 </div>
                 <div className="flex flex-col gap-3">
                   {guarantees.map(g => (
@@ -324,14 +329,14 @@ export default function Estimate() {
               <div className="rounded-2xl p-6" style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)' }}>
                 <div className="flex items-center gap-3 mb-3">
                   <Phone className="w-4 h-4 shrink-0" style={{ color: '#6fc200' }} />
-                  <span className="text-xs font-bold uppercase tracking-wider text-slate-500">Prefer to call?</span>
+                  <span className="text-xs font-bold uppercase tracking-wider text-slate-500">{t('callBadge')}</span>
                 </div>
                 <a href="tel:6469417853" className="block text-2xl font-black text-white hover:text-[#8cd627] transition-colors mb-1">
                   (646) 941-7853
                 </a>
                 <div className="flex items-center gap-2">
                   <Clock className="w-3 h-3 text-slate-600" />
-                  <span className="text-xs text-slate-600">Mon – Fri, 9am – 6pm ET</span>
+                  <span className="text-xs text-slate-600">{t('callHrs')}</span>
                 </div>
               </div>
 
@@ -341,9 +346,9 @@ export default function Estimate() {
                   {[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-current" style={{ color: '#f59e0b' }} />)}
                 </div>
                 <p className="text-sm text-slate-300 italic leading-relaxed mb-3">
-                  &ldquo;They analyzed our statement same day or less and found we were paying nearly 60 basis points above market rate. Switched in two weeks.&rdquo;
+                  &ldquo;{t('testimonial')}&rdquo;
                 </p>
-                <div className="text-xs text-slate-600 font-bold">— Retail merchant, New Jersey</div>
+                <div className="text-xs text-slate-600 font-bold">{t('testAuthor')}</div>
               </div>
             </div>
 
@@ -357,9 +362,9 @@ export default function Estimate() {
         <div className="max-w-5xl mx-auto">
           <div className="grid md:grid-cols-3 gap-8 text-center">
             {[
-              { icon: '🏦', title: '10+ Processor Network', body: 'We compare bids from major acquiring banks and payment networks — not just one or two options.' },
-              { icon: '📊', title: 'Line-by-Line Analysis', body: 'Every fee gets flagged. We identify interchange, markup, statement fees, PCI fees, batch fees, and everything buried in the rates section.' },
-              { icon: '🤝', title: 'Processor-Agnostic Always', body: 'We hold no ownership stake in any processor. Our only incentive is finding you the best deal.' },
+              { icon: '🏦', title: t('btm1Title'), body: t('btm1Body') },
+              { icon: '📊', title: t('btm2Title'), body: t('btm2Body') },
+              { icon: '🤝', title: t('btm3Title'), body: t('btm3Body') },
             ].map(item => (
               <div key={item.title} className="flex flex-col items-center">
                 <div className="text-3xl mb-3">{item.icon}</div>

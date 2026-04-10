@@ -1,11 +1,11 @@
 import Link from 'next/link'
 import { industriesData } from '@/lib/data'
 import { ArrowRight, ChevronRight } from 'lucide-react'
-import { Metadata } from 'next'
 import Reveal from '@/components/Reveal'
 import ScrollDepth3D from '@/components/ScrollDepth3D'
+import { useTranslations } from 'next-intl'
 
-export const metadata: Metadata = {
+export const metadata = {
   title: 'Industries We Serve | Payment Solutions by Vertical',
   description: 'FinTech 5 delivers specialized payment processing across 9+ industries — from retail and healthcare to high-risk merchants and B2B. Free consulting, zero cost to you.',
 }
@@ -27,6 +27,7 @@ const meta: Record<string, IndustryMeta> = {
 }
 
 export default function IndustriesPage() {
+  const t = useTranslations('Industries')
   const entries = Object.entries(industriesData).filter(([slug]) => slug in meta)
 
   return (
@@ -53,31 +54,31 @@ export default function IndustriesPage() {
           <Reveal>
             <div className="flex items-center gap-3 mb-6">
               <div className="h-px w-8" style={{ background: '#4e9000' }} />
-              <span className="text-[11px] font-bold uppercase tracking-[0.2em]" style={{ color: '#6fc200' }}>Industry Solutions</span>
+              <span className="text-[11px] font-bold uppercase tracking-[0.2em]" style={{ color: '#6fc200' }}>{t('badge')}</span>
             </div>
           </Reveal>
           <Reveal delay={80}>
             <ScrollDepth3D delay={80} intensity={0.8}>
               <h1 className="text-5xl md:text-7xl font-black tracking-tight text-white leading-none mb-6 max-w-3xl">
-                Every industry.<br />
+                {t('title1')}<br />
                 <span style={{ background: 'linear-gradient(135deg,#9de84a,#4e9000)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
-                  One network.
+                  {t('title2')}
                 </span>
               </h1>
             </ScrollDepth3D>
           </Reveal>
           <Reveal delay={160}>
             <p className="text-xl text-slate-400 max-w-xl leading-relaxed mb-10">
-              Payment processing isn&apos;t one-size-fits-all. We specialize in the unique requirements, compliance demands, and pricing dynamics of each vertical we serve.
+              {t('subtitle')}
             </p>
           </Reveal>
           <Reveal delay={220}>
             <div className="flex flex-wrap gap-4">
               <Link href="/get-your-savings-estimate" className="inline-flex items-center gap-2 px-6 py-3.5 text-sm font-black text-white rounded-xl transition-all hover:-translate-y-0.5" style={{ background: '#4e9000', boxShadow: '0 8px 24px rgba(78,144,0,0.35)' }}>
-                Get Your Free Estimate <ArrowRight className="w-4 h-4" />
+                {t('ctaEstimate')} <ArrowRight className="w-4 h-4" />
               </Link>
               <Link href="/calculator" className="inline-flex items-center gap-2 px-6 py-3.5 text-sm font-bold text-slate-400 hover:text-white border border-white/10 hover:border-white/25 rounded-xl transition-all">
-                Fee Calculator <ChevronRight className="w-4 h-4" />
+                {t('ctaCalc')} <ChevronRight className="w-4 h-4" />
               </Link>
             </div>
           </Reveal>
@@ -92,7 +93,7 @@ export default function IndustriesPage() {
             <div className="flex items-center gap-3 mb-12">
               <div className="h-px w-8" style={{ background: '#4e9000' }} />
               <span className="text-[11px] font-bold uppercase tracking-[0.2em]" style={{ color: '#6fc200' }}>
-                {entries.length} Industries
+                {entries.length} {t('gridBadge')}
               </span>
             </div>
           </Reveal>
@@ -159,29 +160,29 @@ export default function IndustriesPage() {
               <div>
                 <div className="flex items-center gap-3 mb-5">
                   <div className="h-px w-8" style={{ background: '#4e9000' }} />
-                  <span className="text-[11px] font-bold uppercase tracking-[0.2em]" style={{ color: '#6fc200' }}>Don&apos;t see your industry?</span>
+                  <span className="text-[11px] font-bold uppercase tracking-[0.2em]" style={{ color: '#6fc200' }}>{t('unknownBadge')}</span>
                 </div>
                 <h2 className="text-3xl md:text-4xl font-black text-white mb-5 leading-tight">
-                  We work with any legitimate merchant who accepts card payments.
+                  {t('unknownTitle')}
                 </h2>
                 <p className="text-slate-400 leading-relaxed mb-8">
-                  These nine verticals represent our most common specializations — but if your business accepts payments, we can help. Just start a conversation and we&apos;ll tell you exactly what we can do.
+                  {t('unknownSub')}
                 </p>
                 <div className="flex flex-wrap gap-4">
                   <Link href="/get-your-savings-estimate" className="inline-flex items-center gap-2 px-6 py-3.5 text-sm font-black text-white rounded-xl transition-all hover:-translate-y-0.5" style={{ background: '#4e9000', boxShadow: '0 8px 24px rgba(78,144,0,0.35)' }}>
-                    Start a Conversation <ArrowRight className="w-4 h-4" />
+                    {t('contactLead')} <ArrowRight className="w-4 h-4" />
                   </Link>
                   <Link href="/contact-us" className="inline-flex items-center gap-2 px-6 py-3.5 text-sm font-bold text-slate-400 hover:text-white border border-white/10 hover:border-white/25 rounded-xl transition-all">
-                    Contact Us
+                    {t('contactLink')}
                   </Link>
                 </div>
               </div>
               <div className="flex flex-col gap-3">
                 {[
-                  'We&apos;ve worked with merchants in 40+ business categories',
-                  'No industry minimum — we work with $10k/month and $1M/month',
-                  'High-risk doesn&apos;t mean unworkable — we specialize in it',
-                  'If you can accept a card, we can optimize it',
+                  t('u1'),
+                  t('u2'),
+                  t('u3'),
+                  t('u4'),
                 ].map((item, i) => (
                   <div key={i} className="flex items-start gap-3 p-5 rounded-xl" style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)' }}>
                     <div className="w-2 h-2 rounded-full shrink-0 mt-1.5" style={{ background: '#4e9000' }} />
@@ -198,11 +199,11 @@ export default function IndustriesPage() {
       <section className="px-6 py-16 relative overflow-hidden" style={{ background: '#4e9000' }}>
         <div className="absolute inset-0 pointer-events-none" style={{ backgroundImage: 'linear-gradient(rgba(255,255,255,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.04) 1px,transparent 1px)', backgroundSize: '48px 48px' }} />
         <div className="relative max-w-4xl mx-auto text-center">
-          <div className="text-[10px] font-bold uppercase tracking-widest mb-4" style={{ color: 'rgba(255,255,255,0.6)' }}>Free. Zero obligation.</div>
-          <h2 className="text-4xl font-black text-white mb-4 leading-tight">Find out what your industry&apos;s merchants actually pay.</h2>
-          <p style={{ color: 'rgba(255,255,255,0.75)' }} className="text-lg mb-8 max-w-xl mx-auto">Upload your statement and we&apos;ll return a line-by-line analysis with competitive bids same day or less — no pitch, no pressure.</p>
+          <div className="text-[10px] font-bold uppercase tracking-widest mb-4" style={{ color: 'rgba(255,255,255,0.6)' }}>{t('btmBadge')}</div>
+          <h2 className="text-4xl font-black text-white mb-4 leading-tight">{t('btmTitle')}</h2>
+          <p style={{ color: 'rgba(255,255,255,0.75)' }} className="text-lg mb-8 max-w-xl mx-auto">{t('btmSub')}</p>
           <Link href="/get-your-savings-estimate" className="inline-flex items-center gap-2 px-10 py-4 font-black rounded-xl transition-all hover:-translate-y-1" style={{ background: '#0a1208', color: '#6fc200', boxShadow: '0 8px 40px rgba(0,0,0,0.4)' }}>
-            Get My Free Statement Audit <ArrowRight className="w-5 h-5" />
+            {t('btmCta')} <ArrowRight className="w-5 h-5" />
           </Link>
         </div>
       </section>

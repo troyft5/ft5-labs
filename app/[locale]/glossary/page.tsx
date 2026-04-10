@@ -1,12 +1,12 @@
 import Link from 'next/link'
 import { ArrowRight, ChevronRight } from 'lucide-react'
-import { Metadata } from 'next'
 import { glossaryData, glossaryCategories } from '@/lib/glossary'
 import type { GlossaryTerm } from '@/lib/glossary'
 import Reveal from '@/components/Reveal'
 import ScrollDepth3D from '@/components/ScrollDepth3D'
+import { useTranslations } from 'next-intl'
 
-export const metadata: Metadata = {
+export const metadata = {
   title: 'Payment Processing Glossary | Terms Every Merchant Should Know',
   description: 'Clear definitions for every payment processing term — interchange, effective rate, chargebacks, PCI DSS, and more. Written for merchants, not processors.',
 }
@@ -28,6 +28,7 @@ const categoryColor: Record<GlossaryTerm['category'], string> = {
 }
 
 export default function GlossaryIndex() {
+  const t = useTranslations('Glossary')
   const grouped = categoryOrder.map(cat => ({
     cat,
     terms: glossaryData.filter(t => t.category === cat),
@@ -56,31 +57,31 @@ export default function GlossaryIndex() {
           <Reveal>
             <div className="flex items-center gap-3 mb-6">
               <div className="h-px w-8" style={{ background: '#4e9000' }} />
-              <span className="text-[11px] font-bold uppercase tracking-[0.2em]" style={{ color: '#6fc200' }}>Merchant Education</span>
+              <span className="text-[11px] font-bold uppercase tracking-[0.2em]" style={{ color: '#6fc200' }}>{t('badge')}</span>
             </div>
           </Reveal>
           <Reveal delay={80}>
             <ScrollDepth3D delay={80} intensity={0.8}>
               <h1 className="text-5xl md:text-7xl font-black tracking-tight text-white leading-none mb-6 max-w-3xl">
-                The terms your<br />
+                {t('title1')}<br />
                 <span style={{ background: 'linear-gradient(135deg,#9de84a,#4e9000)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
-                  processor hopes you don&apos;t know.
+                  {t('title2')}
                 </span>
               </h1>
             </ScrollDepth3D>
           </Reveal>
           <Reveal delay={160}>
             <p className="text-xl text-slate-400 max-w-xl leading-relaxed mb-10">
-              Payment processing has its own language — and when merchants don&apos;t speak it, processors profit from the gap. Every definition here is written to put you on equal footing.
+              {t('subtitle')}
             </p>
           </Reveal>
           <Reveal delay={220}>
             <div className="flex flex-wrap gap-4">
               <Link href="/get-your-savings-estimate" className="inline-flex items-center gap-2 px-6 py-3.5 text-sm font-black text-white rounded-xl transition-all hover:-translate-y-0.5" style={{ background: '#4e9000', boxShadow: '0 8px 24px rgba(78,144,0,0.35)' }}>
-                Get Your Free Audit <ArrowRight className="w-4 h-4" />
+                {t('ctaAudit')} <ArrowRight className="w-4 h-4" />
               </Link>
               <Link href="/calculator" className="inline-flex items-center gap-2 px-6 py-3.5 text-sm font-bold text-slate-400 hover:text-white border border-white/10 hover:border-white/25 rounded-xl transition-all">
-                Fee Calculator <ChevronRight className="w-4 h-4" />
+                {t('ctaCalc')} <ChevronRight className="w-4 h-4" />
               </Link>
             </div>
           </Reveal>
@@ -93,9 +94,9 @@ export default function GlossaryIndex() {
         <div className="max-w-5xl mx-auto">
           <div className="rounded-2xl p-8 grid md:grid-cols-3 gap-8" style={{ background: 'rgba(78,144,0,0.06)', border: '1px solid rgba(78,144,0,0.2)' }}>
             {[
-              { stat: `${glossaryData.length}`, label: 'Terms defined', sub: 'Covering every line of your statement' },
-              { stat: '6', label: 'Categories', sub: 'Pricing, fees, fraud, compliance, and more' },
-              { stat: '0', label: 'Industry jargon', sub: 'Written for merchants, not processors' },
+              { stat: `${glossaryData.length}`, label: t('s1'), sub: t('s1b') },
+              { stat: '6', label: t('s2'), sub: t('s2b') },
+              { stat: '0', label: t('s3'), sub: t('s3b') },
             ].map(item => (
               <div key={item.label} className="text-center md:text-left">
                 <div className="text-4xl font-black mb-1" style={{ color: '#6fc200' }}>{item.stat}</div>
@@ -152,20 +153,20 @@ export default function GlossaryIndex() {
       <section className="px-6 py-24 relative overflow-hidden" style={{ background: '#4e9000' }}>
         <div className="absolute inset-0 pointer-events-none" style={{ backgroundImage: 'linear-gradient(rgba(255,255,255,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.04) 1px,transparent 1px)', backgroundSize: '48px 48px' }} />
         <div className="relative max-w-4xl mx-auto text-center">
-          <div className="text-[10px] font-bold uppercase tracking-widest mb-4" style={{ color: 'rgba(255,255,255,0.6)' }}>Knowledge is step one</div>
+          <div className="text-[10px] font-bold uppercase tracking-widest mb-4" style={{ color: 'rgba(255,255,255,0.6)' }}>{t('btmBadge')}</div>
           <h2 className="text-4xl font-black text-white mb-6 leading-tight">
-            Now put it to work.<br />
-            <span style={{ color: 'rgba(255,255,255,0.7)' }}>See exactly what your statement says about you.</span>
+            {t('btmTitle1')}<br />
+            <span style={{ color: 'rgba(255,255,255,0.7)' }}>{t('btmTitle2')}</span>
           </h2>
           <p style={{ color: 'rgba(255,255,255,0.75)' }} className="text-lg leading-relaxed mb-10 max-w-xl mx-auto">
-            Upload your statement and we&apos;ll return a line-by-line breakdown — every fee named, every overcharge identified, competitive bids from 10+ processors — same day or less — free.
+            {t('btmSub')}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/get-your-savings-estimate" className="inline-flex items-center justify-center gap-2 px-10 py-4 font-black rounded-xl transition-all hover:-translate-y-1" style={{ background: '#0a1208', color: '#6fc200', boxShadow: '0 8px 40px rgba(0,0,0,0.4)' }}>
-              Get My Free Statement Audit <ArrowRight className="w-5 h-5" />
+              {t('btmCta')} <ArrowRight className="w-5 h-5" />
             </Link>
             <Link href="/calculator" className="inline-flex items-center justify-center gap-2 px-10 py-4 font-bold text-white border border-white/30 hover:border-white/60 rounded-xl transition-all">
-              Try the Calculator
+              {t('btmCalc')}
             </Link>
           </div>
         </div>

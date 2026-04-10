@@ -6,17 +6,19 @@ import { ArrowRight, ShieldCheck, CheckCircle2, Phone, Clock, Star, Users, Trend
 import { getPartner } from '@/lib/partners'
 import CountUp from '@/components/CountUp'
 import Reveal from '@/components/Reveal'
+import { useTranslations } from 'next-intl'
 
 const inputClass = "w-full rounded-xl px-4 py-3.5 text-white text-sm font-medium outline-none transition-all focus:ring-1 focus:ring-[#4e9000] placeholder:text-slate-600"
 const inputStyle = { background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)' }
 const labelClass = "text-xs font-bold text-slate-400 mb-1.5 block uppercase tracking-wider"
 
 export default function PartnerPage({ params }: { params: { slug: string } }) {
+  const t = useTranslations('Partners')
   const partner = getPartner(params.slug)
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
   const [form, setForm] = useState({
     firstName: '', lastName: '', email: '', phone: '', business: '',
-    volume: 'Under $10,000', industry: 'Retail', notes: '',
+    volume: t('opt1'), industry: 'Retail', notes: '',
   })
   const [file, setFile] = useState<File | null>(null)
 
@@ -68,7 +70,7 @@ export default function PartnerPage({ params }: { params: { slug: string } }) {
             {/* Partner referral badge — glassmorphism */}
             <div className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full mb-10 green-frame" style={{ background: 'rgba(78,144,0,0.08)' }}>
               <div className="w-2 h-2 rounded-full" style={{ background: '#6fc200' }} />
-              <span className="text-xs font-bold text-white">Referred by</span>
+              <span className="text-xs font-bold text-white">{t('badge')}</span>
               <span className="text-xs font-bold" style={{ color: '#6fc200' }}>{partner.company}</span>
               <span className="text-xs px-2 py-0.5 rounded-full text-slate-500" style={{ background: 'rgba(255,255,255,0.06)' }}>{partner.type}</span>
             </div>
@@ -78,9 +80,9 @@ export default function PartnerPage({ params }: { params: { slug: string } }) {
             <div>
               <Reveal delay={60}>
                 <h1 className="text-5xl md:text-7xl font-black tracking-tight text-white leading-none mb-8 display-heading">
-                  Find out what<br />you&apos;re actually<br />
+                  {t('title1')}<br />{t('title2')}<br />
                   <span style={{ background: 'linear-gradient(135deg,#9de84a,#4e9000)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
-                    overpaying.
+                    {t('title3')}
                   </span>
                 </h1>
               </Reveal>
@@ -107,10 +109,10 @@ export default function PartnerPage({ params }: { params: { slug: string } }) {
             <Reveal direction="right" delay={100}>
               <div className="flex flex-col gap-4">
                 {[
-                  { value: 0, suffix: '%', prefix: '', label: 'Consulting fee', sub: 'Free, always', display: '$0' },
-                  { value: 48, suffix: 'h', prefix: '', label: 'Audit turnaround', sub: 'Most done in 24', display: '48h' },
-                  { value: 10, suffix: '+', prefix: '', label: 'Processors in network', sub: 'Blind competitive bid', display: '10+' },
-                  { value: 18, suffix: '%', prefix: 'Up to ', label: 'Savings in year one', sub: 'For qualifying merchants', display: '' },
+                  { value: 0, suffix: '%', prefix: '', label: t('f1Label'), sub: t('f1Sub'), display: t('f1Disp') },
+                  { value: 48, suffix: 'h', prefix: '', label: t('f2Label'), sub: t('f2Sub'), display: t('f2Disp') },
+                  { value: 10, suffix: '+', prefix: '', label: t('f3Label'), sub: t('f3Sub'), display: t('f3Disp') },
+                  { value: 18, suffix: '%', prefix: 'Up to ', label: t('f4Label'), sub: t('f4Sub'), display: '' },
                 ].map((s, i) => (
                   <div key={i} className="flex items-center gap-5 rounded-2xl px-5 py-4 glass-card inset-glow-top">
                     <div className="text-3xl font-black shrink-0 display-heading" style={{ color: '#6fc200' }}>
@@ -145,64 +147,64 @@ export default function PartnerPage({ params }: { params: { slug: string } }) {
                     <div className="inline-flex items-center justify-center w-20 h-20 rounded-full mb-6 green-frame" style={{ background: 'rgba(78,144,0,0.12)' }}>
                       <ShieldCheck className="w-10 h-10" style={{ color: '#6fc200' }} />
                     </div>
-                    <h2 className="text-2xl font-black text-white mb-3 section-heading">Request Received</h2>
+                    <h2 className="text-2xl font-black text-white mb-3 section-heading">{t('successTitle')}</h2>
                     <p className="text-slate-400 text-sm max-w-sm mx-auto mb-6 leading-relaxed">
-                      Our team will reach out within 24 hours or less with your full savings analysis. {partner.company} will be notified that you connected with us.
+                      {t('successSub')} {partner.company} {t('successNotif')}
                     </p>
                     <div className="flex flex-col sm:flex-row gap-3 justify-center">
                       <Link href="/blog" className="inline-flex items-center gap-2 px-5 py-3 text-sm font-bold text-slate-400 border border-white/10 rounded-xl hover:border-white/25 transition-all">
-                        Read our Insights Blog
+                        {t('readInsights')}
                       </Link>
                       <Link href="/calculator" className="inline-flex items-center gap-2 px-5 py-3 text-sm font-black text-white rounded-xl" style={{ background: '#4e9000' }}>
-                        Try the Calculator <ArrowRight className="w-4 h-4" />
+                        {t('tryCalc')} <ArrowRight className="w-4 h-4" />
                       </Link>
                     </div>
                   </div>
                 ) : (
                   <form onSubmit={handleSubmit} className="flex flex-col gap-5">
                     <div>
-                      <h2 className="text-xl font-black text-white mb-1 section-heading">Get your free savings analysis</h2>
-                      <p className="text-slate-500 text-sm">Referred by {partner.company}. Your analysis is prioritized.</p>
+                      <h2 className="text-xl font-black text-white mb-1 section-heading">{t('formTitle')}</h2>
+                      <p className="text-slate-500 text-sm">{t('formSub1')} {partner.company}. {t('formSub2')}</p>
                     </div>
 
                     <div className="grid md:grid-cols-2 gap-4">
                       <div>
-                        <label className={labelClass}>First Name *</label>
+                        <label className={labelClass}>{t('lFn')}</label>
                         <input type="text" required placeholder="John" value={form.firstName} onChange={set('firstName')} className={inputClass} style={inputStyle} />
                       </div>
                       <div>
-                        <label className={labelClass}>Last Name</label>
+                        <label className={labelClass}>{t('lLn')}</label>
                         <input type="text" placeholder="Smith" value={form.lastName} onChange={set('lastName')} className={inputClass} style={inputStyle} />
                       </div>
                     </div>
 
                     <div>
-                      <label className={labelClass}>Business Name *</label>
+                      <label className={labelClass}>{t('lBtn')}</label>
                       <input type="text" required placeholder="Acme Corp" value={form.business} onChange={set('business')} className={inputClass} style={inputStyle} />
                     </div>
 
                     <div className="grid md:grid-cols-2 gap-4">
                       <div>
-                        <label className={labelClass}>Email *</label>
+                        <label className={labelClass}>{t('lEmail')}</label>
                         <input type="email" required placeholder="you@business.com" value={form.email} onChange={set('email')} className={inputClass} style={inputStyle} />
                       </div>
                       <div>
-                        <label className={labelClass}>Phone</label>
+                        <label className={labelClass}>{t('lPhone')}</label>
                         <input type="tel" placeholder="(555) 000-0000" value={form.phone} onChange={set('phone')} className={inputClass} style={inputStyle} />
                       </div>
                     </div>
 
                     <div className="grid md:grid-cols-2 gap-4">
                       <div>
-                        <label className={labelClass}>Monthly Volume</label>
+                        <label className={labelClass}>{t('lVol')}</label>
                         <select value={form.volume} onChange={set('volume')} className={inputClass} style={inputStyle}>
-                          {['Under $10,000','$10,000 – $50,000','$50,000 – $250,000','$250,000+'].map(o => (
+                          {[t('opt1'), t('opt2'), t('opt3'), t('opt4')].map(o => (
                             <option key={o} style={{ background: '#0f1a0f' }}>{o}</option>
                           ))}
                         </select>
                       </div>
                       <div>
-                        <label className={labelClass}>Industry</label>
+                        <label className={labelClass}>{t('lInd')}</label>
                         <select value={form.industry} onChange={set('industry')} className={inputClass} style={inputStyle}>
                           {['Retail','E-Commerce','Healthcare','Restaurant','B2B','Petroleum','High-Risk','Other'].map(o => (
                             <option key={o} style={{ background: '#0f1a0f' }}>{o}</option>
@@ -214,8 +216,8 @@ export default function PartnerPage({ params }: { params: { slug: string } }) {
                     {/* Statement upload */}
                     <div>
                       <label className={`${labelClass} flex items-center gap-2`}>
-                        <span>Merchant Statement</span>
-                        <span className="text-slate-600 font-normal normal-case tracking-normal">— optional, maximizes accuracy</span>
+                        <span>{t('stmt')}</span>
+                        <span className="text-slate-600 font-normal normal-case tracking-normal">{t('stmtOpt')}</span>
                       </label>
                       <label className="flex flex-col items-center justify-center py-8 rounded-xl cursor-pointer transition-all" style={{ background: file ? 'rgba(78,144,0,0.08)' : 'rgba(255,255,255,0.03)', border: `2px dashed ${file ? 'rgba(78,144,0,0.5)' : 'rgba(255,255,255,0.1)'}` }}>
                         <input type="file" accept=".pdf,.csv,.xls,.xlsx,.png,.jpg,.jpeg" onChange={handleFile} className="hidden" />
@@ -223,8 +225,8 @@ export default function PartnerPage({ params }: { params: { slug: string } }) {
                           <span className="text-sm font-bold" style={{ color: '#6fc200' }}>✓ {file.name}</span>
                         ) : (
                           <div className="text-center">
-                            <div className="text-sm font-bold text-slate-400 mb-1">Drop statement or click to browse</div>
-                            <div className="text-xs text-slate-600">PDF, XLS, CSV, or image</div>
+                            <div className="text-sm font-bold text-slate-400 mb-1">{t('dropDef')}</div>
+                            <div className="text-xs text-slate-600">{t('dropSub')}</div>
                           </div>
                         )}
                       </label>
@@ -232,7 +234,7 @@ export default function PartnerPage({ params }: { params: { slug: string } }) {
 
                     {status === 'error' && (
                       <div className="text-sm rounded-xl px-4 py-3" style={{ background: 'rgba(185,28,28,0.1)', border: '1px solid rgba(185,28,28,0.3)', color: '#fca5a5' }}>
-                        Something went wrong. Please try again or call (646) 941-7853.
+                        {t('err')}
                       </div>
                     )}
 
@@ -240,14 +242,14 @@ export default function PartnerPage({ params }: { params: { slug: string } }) {
                       className="w-full flex items-center justify-center gap-3 py-4 rounded-xl font-black text-white text-base transition-all hover:-translate-y-0.5 disabled:opacity-60"
                       style={{ background: '#4e9000', boxShadow: '0 8px 32px rgba(78,144,0,0.35)' }}>
                       {status === 'loading' ? (
-                        <><div className="w-5 h-5 rounded-full border-2 border-white/30 border-t-white animate-spin" /> Sending...</>
+                        <><div className="w-5 h-5 rounded-full border-2 border-white/30 border-t-white animate-spin" /> {t('sending')}</>
                       ) : (
-                        <>Get My Free Analysis <ArrowRight className="w-5 h-5" /></>
+                        <>{t('submit')} <ArrowRight className="w-5 h-5" /></>
                       )}
                     </button>
 
                     <p className="text-center text-xs text-slate-700">
-                      Referred by {partner.company} · No consulting fees · No obligation to switch
+                      {t('disclaimer1')} {partner.company} {t('disclaimer2')}
                     </p>
                   </form>
                 )}
@@ -260,15 +262,15 @@ export default function PartnerPage({ params }: { params: { slug: string } }) {
               {/* Why partner referred */}
               <Reveal direction="right">
                 <div className="rounded-2xl p-6 glass-card">
-                  <div className="section-eyebrow mb-4">Why {partner.company} sent you here</div>
+                  <div className="section-eyebrow mb-4">{t('whyEye')} {partner.company} {t('whySent')}</div>
                   <p className="text-sm text-slate-300 leading-relaxed mb-5">
-                    Your partner knows that payment processing fees are often the largest controllable cost in a business — and they&apos;re often 20–40% higher than they need to be.
+                    {t('whySub')}
                   </p>
                   <div className="flex flex-col gap-3">
                     {[
-                      'They hold no financial stake in this referral',
-                      'We\'ll tell you honestly if your current rate is fair',
-                      'Zero cost whether you switch or not',
+                      t('w1'),
+                      t('w2'),
+                      t('w3'),
                     ].map(item => (
                       <div key={item} className="flex items-start gap-3">
                         <CheckCircle2 className="w-4 h-4 shrink-0 mt-0.5" style={{ color: '#4e9000' }} />
@@ -282,13 +284,13 @@ export default function PartnerPage({ params }: { params: { slug: string } }) {
               {/* Call option */}
               <Reveal direction="right" delay={60}>
                 <div className="rounded-2xl p-6 glass-card">
-                  <div className="section-eyebrow mb-4">Prefer to talk first?</div>
+                  <div className="section-eyebrow mb-4">{t('talk')}</div>
                   <a href="tel:6469417853" className="block text-3xl font-black text-white hover:text-[#8cd627] transition-colors mb-1 display-heading">
                     (646) 941-7853
                   </a>
                   <div className="flex items-center gap-2">
                     <Clock className="w-3 h-3 text-slate-600" />
-                    <span className="text-xs text-slate-600">Mon – Fri, 9am – 6pm ET</span>
+                    <span className="text-xs text-slate-600">{t('talkHrs')}</span>
                   </div>
                 </div>
               </Reveal>
@@ -300,21 +302,21 @@ export default function PartnerPage({ params }: { params: { slug: string } }) {
                     {[...Array(5)].map((_, i) => <Star key={i} className="w-3.5 h-3.5 fill-current" style={{ color: '#f59e0b' }} />)}
                   </div>
                   <p className="text-sm text-slate-300 italic leading-relaxed mb-3">
-                    &ldquo;We were on tiered pricing for four years and had no idea. After the audit, we switched to IC+ and saved $11,200 in year one.&rdquo;
+                    &ldquo;{t('quote')}&rdquo;
                   </p>
-                  <div className="text-xs text-slate-600 font-bold">— Restaurant group, New Jersey</div>
+                  <div className="text-xs text-slate-600 font-bold">{t('quoteAt')}</div>
                 </div>
               </Reveal>
 
               {/* FT5 credentials */}
               <Reveal direction="right" delay={180}>
                 <div className="rounded-2xl p-6 glass-card">
-                  <div className="section-eyebrow mb-4">About FinTech 5</div>
+                  <div className="section-eyebrow mb-4">{t('about')}</div>
                   <div className="flex flex-col gap-4">
                     {[
-                      { Icon: Users, label: 'Processor-agnostic', sub: 'No ownership in any processor' },
-                      { Icon: TrendingDown, label: '10+ competing bids', sub: 'Blind auction, you pick the winner' },
-                      { Icon: ShieldCheck, label: 'Zero cost model', sub: 'Processors compensate us, not you' },
+                      { Icon: Users, label: t('a1L'), sub: t('a1S') },
+                      { Icon: TrendingDown, label: t('a2L'), sub: t('a2S') },
+                      { Icon: ShieldCheck, label: t('a3L'), sub: t('a3S') },
                     ].map(({ Icon, label, sub }) => (
                       <div key={label} className="flex items-center gap-3">
                         <div className="w-8 h-8 rounded-lg flex items-center justify-center shrink-0" style={{ background: 'rgba(78,144,0,0.12)' }}>
@@ -339,16 +341,16 @@ export default function PartnerPage({ params }: { params: { slug: string } }) {
         <div className="absolute inset-0 pointer-events-none" style={{ backgroundImage: 'linear-gradient(rgba(255,255,255,0.05) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.05) 1px,transparent 1px)', backgroundSize: '40px 40px' }} />
         <div className="relative max-w-4xl mx-auto text-center">
           <div className="text-[10px] font-bold uppercase tracking-widest mb-4" style={{ color: 'rgba(255,255,255,0.65)' }}>
-            Referred by {partner.company}
+            {t('disclaimer1')} {partner.company}
           </div>
           <h2 className="text-4xl font-black text-white mb-4 leading-tight section-heading">
-            Submit above — we&apos;ll get back to you in same day or less.
+            {t('btm1')}
           </h2>
           <p className="text-lg mb-8 max-w-xl mx-auto" style={{ color: 'rgba(255,255,255,0.75)' }}>
-            Questions first? Call <a href="tel:6469417853" className="font-black underline">(646) 941-7853</a> or email <a href="mailto:info@fintech5group.com" className="font-black underline">info@fintech5group.com</a>.
+            {t('btm2')} {t('btm3')} <a href="tel:6469417853" className="font-black underline">(646) 941-7853</a> {t('btm4')} <a href="mailto:info@fintech5group.com" className="font-black underline">info@fintech5group.com</a>.
           </p>
           <Link href="/" className="inline-flex items-center gap-2 px-8 py-3.5 text-sm font-bold border border-white/30 hover:border-white/60 rounded-xl text-white transition-all">
-            Learn more about FinTech 5 →
+            {t('btmLink')}
           </Link>
         </div>
       </section>
