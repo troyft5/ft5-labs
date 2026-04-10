@@ -158,7 +158,7 @@ export default function GlossaryIndex() {
             <span style={{ color: 'rgba(255,255,255,0.7)' }}>See exactly what your statement says about you.</span>
           </h2>
           <p style={{ color: 'rgba(255,255,255,0.75)' }} className="text-lg leading-relaxed mb-10 max-w-xl mx-auto">
-            Upload your statement and we&apos;ll return a line-by-line breakdown — every fee named, every overcharge identified, competitive bids from 10+ processors — in 48 hours. Free.
+            Upload your statement and we&apos;ll return a line-by-line breakdown — every fee named, every overcharge identified, competitive bids from 10+ processors — in 24 hours. Free.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/get-your-savings-estimate" className="inline-flex items-center justify-center gap-2 px-10 py-4 font-black rounded-xl transition-all hover:-translate-y-1" style={{ background: '#0a1208', color: '#6fc200', boxShadow: '0 8px 40px rgba(0,0,0,0.4)' }}>

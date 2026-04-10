@@ -342,7 +342,7 @@ export default function PartnerPage({ params }: { params: { slug: string } }) {
             Referred by {partner.company}
           </div>
           <h2 className="text-4xl font-black text-white mb-4 leading-tight section-heading">
-            Submit above — we&apos;ll get back to you in 48 hours or less.
+            Submit above — we&apos;ll get back to you in 24 hours or less.
           </h2>
           <p className="text-lg mb-8 max-w-xl mx-auto" style={{ color: 'rgba(255,255,255,0.75)' }}>
             Questions first? Call <a href="tel:6469417853" className="font-black underline">(646) 941-7853</a> or email <a href="mailto:info@fintech5group.com" className="font-black underline">info@fintech5group.com</a>.

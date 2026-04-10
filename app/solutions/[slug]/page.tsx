@@ -169,7 +169,7 @@ export default async function SolutionPage({ params }: { params: Promise<{ slug:
           <div className="grid grid-cols-2 md:grid-cols-4 gap-5">
             {[
               { val: '10–18%', label: 'Average savings in year one', detail: 'Consistently across all merchant categories' },
-              { val: '48 hrs', label: 'Audit turnaround', detail: 'From statement submission to full analysis' },
+              { val: '24 hrs', label: 'Audit turnaround', detail: 'From statement submission to full analysis' },
               { val: '10+', label: 'Processors in our network', detail: 'Tier-1 banks and payment networks' },
               { val: '$0', label: 'Cost to you', detail: 'Funded entirely by the selected processor' },
             ].map((stat, i) => (
@@ -286,7 +286,7 @@ export default async function SolutionPage({ params }: { params: Promise<{ slug:
               <span style={{ color: 'rgba(255,255,255,0.6)' }}>Free. No obligation.</span>
             </h2>
             <p className="text-lg mb-10 max-w-xl mx-auto" style={{ color: 'rgba(255,255,255,0.75)' }}>
-              Our consulting is 100% free — funded by our processor partners, not by you. Get a data-driven analysis in 48 hours.
+              Our consulting is 100% free — funded by our processor partners, not by you. Get a data-driven analysis in 24 hours.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/get-your-savings-estimate" className="inline-flex items-center justify-center gap-2 px-9 py-4 text-base font-black rounded-xl hover:-translate-y-1 transition-all" style={{ background: '#0a1208', color: '#6fc200', boxShadow: '0 8px 40px rgba(0,0,0,0.4)' }}>

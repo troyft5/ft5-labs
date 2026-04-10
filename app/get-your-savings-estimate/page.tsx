@@ -13,7 +13,7 @@ const labelClass = "text-xs font-bold text-slate-400 mb-1.5 block uppercase trac
 
 const process = [
   { n: '01', title: 'Submit your info', body: 'Fill the form or upload a recent merchant statement. A statement gives us the most accurate analysis.', tag: 'Now' },
-  { n: '02', title: 'We analyze', body: 'Our team reviews every line item — interchange, fees, markup, and any hidden charges buried in the fine print.', tag: '24–48 hrs' },
+  { n: '02', title: 'We analyze', body: 'Our team reviews every line item — interchange, fees, markup, and any hidden charges buried in the fine print.', tag: '24–24 hrs' },
   { n: '03', title: 'You receive the report', body: 'We return a full report showing your true effective rate vs. what you could be paying with our processor network.', tag: 'Free' },
   { n: '04', title: 'You make the call', body: 'No pressure. If the numbers don\'t make switching worth it, we tell you. If they do, we handle everything.', tag: 'Your choice' },
 ]
@@ -96,7 +96,7 @@ export default function Estimate() {
                 </span>
               </h1>
               <p className="text-lg text-slate-400 leading-relaxed max-w-md">
-                Upload your merchant statement — or just fill in the details. Our consultants return a full fee breakdown and competitive comparison in 48 hours.
+                Upload your merchant statement — or just fill in the details. Our consultants return a full fee breakdown and competitive comparison in 24 hours.
               </p>
             </div>
 

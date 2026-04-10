@@ -27,7 +27,7 @@ export default function MobileCTA() {
         >
           Get My Free Savings Audit <ArrowRight className="w-5 h-5" />
         </Link>
-        <p className="text-center text-[10px] text-slate-700 mt-2">No cost. No obligation. 48hr turnaround.</p>
+        <p className="text-center text-[10px] text-slate-700 mt-2">No cost. No obligation. 24hr turnaround.</p>
       </div>
     </div>
   )

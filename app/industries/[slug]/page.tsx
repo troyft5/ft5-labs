@@ -241,7 +241,7 @@ export default async function IndustryPage({ params }: { params: Promise<{ slug:
           <div className="grid md:grid-cols-3 gap-5">
             {[
               { q: 'Do we need to change our hardware or software?', a: 'Usually not. Our processor partners support all major POS systems and payment gateways. We find the best option that works with your existing infrastructure.' },
-              { q: 'How quickly can we expect to see savings?', a: 'The audit takes 48 hours. If you choose to switch, new rates are typically live within 5–10 business days — some programs are same-week.' },
+              { q: 'How quickly can we expect to see savings?', a: 'The audit takes 24 hours. If you choose to switch, new rates are typically live within 5–10 business days — some programs are same-week.' },
               { q: 'What does FinTech 5 charge for this?', a: 'Nothing. Our consulting is funded entirely by the processor you select. You pay zero for the analysis, negotiation, and ongoing account support. No hidden charges.' },
             ].map((item, i) => (
               <Reveal key={i} delay={i * 80}>
@@ -298,7 +298,7 @@ export default async function IndustryPage({ params }: { params: Promise<{ slug:
           <Reveal>
             <h2 className="text-4xl md:text-5xl font-black text-white mb-4 leading-tight">
               See what you could save.<br />
-              <span style={{ color: 'rgba(255,255,255,0.6)' }}>Free analysis in 48 hours.</span>
+              <span style={{ color: 'rgba(255,255,255,0.6)' }}>Free analysis in 24 hours.</span>
             </h2>
             <p className="text-lg mb-10 max-w-xl mx-auto" style={{ color: 'rgba(255,255,255,0.75)' }}>
               Upload your merchant statement and get a line-by-line audit with competitive bids from 10+ processors. No consulting fees — ever.

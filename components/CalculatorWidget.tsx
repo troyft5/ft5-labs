@@ -486,7 +486,7 @@ export default function CalculatorWidget() {
             style={{ background: 'rgba(78,144,0,0.1)', border: '1px solid rgba(78,144,0,0.3)' }}>
             <div>
               <div className="text-[11px] font-bold uppercase tracking-widest mb-1" style={{ color: '#6fc200' }}>Want the exact number?</div>
-              <div className="text-xl font-black text-white mb-1">Send us your statement. 48 hours. Free.</div>
+              <div className="text-xl font-black text-white mb-1">Send us your statement. 24 hours. Free.</div>
               <div className="text-sm text-slate-400">These are estimates. A real audit gives you exact figures with competitive bids from 10+ processors.</div>
             </div>
             <Link

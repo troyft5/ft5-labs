@@ -97,7 +97,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                     '@type': 'Review',
                     author: { '@type': 'Organization', name: 'Regional Retail Chain' },
                     reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5' },
-                    reviewBody: 'FinTech 5 identified $18,400 in fees we didn\'t know we were paying. The audit took 48 hours. The savings are permanent.',
+                    reviewBody: 'FinTech 5 identified $18,400 in fees we didn\'t know we were paying. The audit took 24 hours. The savings are permanent.',
                     datePublished: '2025-11-01',
                   },
                   {
@@ -132,7 +132,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                   {
                     '@type': 'Question',
                     name: 'How long does a statement audit take?',
-                    acceptedAnswer: { '@type': 'Answer', text: 'Our standard turnaround is 48 hours. We analyze your statement line by line and return a full breakdown of every fee and a competitive comparison.' },
+                    acceptedAnswer: { '@type': 'Answer', text: 'Our standard turnaround is 24 hours. We analyze your statement line by line and return a full breakdown of every fee and a competitive comparison.' },
                   },
                   {
                     '@type': 'Question',

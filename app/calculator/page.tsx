@@ -8,7 +8,7 @@ const BG2 = '#0a1208'
 const benefits = [
   { icon: <TrendingDown className="w-6 h-6" />, title: 'See your actual effective rate', body: "Most merchants don't know their true rate. This calculator shows you exactly what you're paying — and what you should be." },
   { icon: <ShieldCheck className="w-6 h-6" />, title: 'Compare IC+ vs tiered vs flat rate', body: 'Enter your volume and transaction details to see a side-by-side cost comparison across every pricing model.' },
-  { icon: <Clock className="w-6 h-6" />, title: 'Get a real audit in 48 hours', body: 'The calculator gives you an estimate. For exact numbers with competitive bids from 10+ processors, request your free audit.' },
+  { icon: <Clock className="w-6 h-6" />, title: 'Get a real audit in 24 hours', body: 'The calculator gives you an estimate. For exact numbers with competitive bids from 10+ processors, request your free audit.' },
 ]
 
 export default function Calculator() {
@@ -139,7 +139,7 @@ export default function Calculator() {
               { q: 'Is this calculator accurate?', a: "It produces a well-researched estimate based on current interchange tables and real processor markup ranges. The only way to get exact figures is a full statement analysis — which we do for free." },
               { q: 'What is a good effective rate?', a: 'For most card-present retail, below 2.1% is competitive. E-commerce and keyed-entry typically run 0.4–0.6% higher. Above 2.5% almost always indicates significant overpayment.' },
               { q: 'What is interchange, exactly?', a: 'Interchange is the per-transaction fee set by Visa and Mastercard and paid to the card-issuing bank. It varies by card type (rewards, premium, corporate). IC+ pricing passes it through at cost, making it fully transparent.' },
-              { q: 'My rate looks high. What now?', a: 'Upload your statement and request a free audit. We analyze every line, identify where the excess is going, and within 48 hours return a report with a competitive benchmark and your estimated savings.' },
+              { q: 'My rate looks high. What now?', a: 'Upload your statement and request a free audit. We analyze every line, identify where the excess is going, and within 24 hours return a report with a competitive benchmark and your estimated savings.' },
             ].map((item, i) => (
               <div key={i} className="rounded-2xl p-6" style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)' }}>
                 <div className="text-sm font-black text-white mb-3 leading-snug">{item.q}</div>
@@ -157,7 +157,7 @@ export default function Calculator() {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
               <div className="text-[10px] font-bold uppercase tracking-widest mb-4" style={{ color: 'rgba(255,255,255,0.6)' }}>From estimate to verified numbers</div>
-              <h2 className="text-4xl font-black text-white mb-6 leading-tight">The real audit takes 48 hours.<br />The cost is zero.</h2>
+              <h2 className="text-4xl font-black text-white mb-6 leading-tight">The real audit takes 24 hours.<br />The cost is zero.</h2>
               <p style={{ color: 'rgba(255,255,255,0.75)' }} className="text-lg leading-relaxed">The calculator gives you direction. The statement audit gives you proof — with line-by-line fee breakdown and competitive bids from 10+ processors.</p>
             </div>
             <div className="flex flex-col gap-4">

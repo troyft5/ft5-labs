@@ -129,7 +129,7 @@ export default function ContactPage() {
             <Reveal direction="right" delay={250}>
               <div className="rounded-2xl p-6" style={{ background: 'rgba(78,144,0,0.1)', border: '1px solid rgba(78,144,0,0.25)' }}>
                 <div className="text-[10px] font-bold uppercase tracking-widest mb-2" style={{ color: '#6fc200' }}>Prefer the fast lane?</div>
-                <p className="text-sm text-slate-400 mb-4">Upload your statement and get a full savings audit back in 48 hours — no form needed.</p>
+                <p className="text-sm text-slate-400 mb-4">Upload your statement and get a full savings audit back in 24 hours — no form needed.</p>
                 <a href="/get-your-savings-estimate" className="inline-flex items-center gap-2 text-sm font-black text-white px-5 py-2.5 rounded-xl transition-all hover:opacity-90" style={{ background: '#4e9000' }}>
                   Get Free Savings Estimate <ArrowRight className="w-4 h-4" />
                 </a>
