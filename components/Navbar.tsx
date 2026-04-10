@@ -245,7 +245,7 @@ export default function Navbar() {
             className="bg-transparent text-slate-300 text-[12px] font-bold outline-none cursor-pointer hover:text-white transition-colors"
             onChange={(e) => {
               const newLocale = e.target.value
-              const currentPath = window.location.pathname.replace(/^\/(en|es|fr|pt|de|zh)/, '')
+              const currentPath = window.location.pathname.replace(/^\/(en|es|fr|pt|de|zh|hi)/, '')
               window.location.href = `/${newLocale}${currentPath}`
             }}
             defaultValue={pathname.split('/')[1] || 'en'}
@@ -256,6 +256,7 @@ export default function Navbar() {
             <option value="pt" className="bg-[#0f1a0f]">🇧🇷 PT</option>
             <option value="de" className="bg-[#0f1a0f]">🇩🇪 DE</option>
             <option value="zh" className="bg-[#0f1a0f]">🇨🇳 ZH</option>
+            <option value="hi" className="bg-[#0f1a0f]">🇮🇳 HI</option>
           </select>
           <a
             href="https://app.fintech5group.com" target="_blank" rel="noopener noreferrer"
@@ -326,7 +327,7 @@ export default function Navbar() {
               className="bg-transparent text-slate-300 text-sm font-bold outline-none cursor-pointer hover:text-white transition-colors"
               onChange={(e) => {
                 const newLocale = e.target.value
-                const currentPath = window.location.pathname.replace(/^\/(en|es|fr|pt|de|zh)/, '')
+                const currentPath = window.location.pathname.replace(/^\/(en|es|fr|pt|de|zh|hi)/, '')
                 window.location.href = `/${newLocale}${currentPath}`
               }}
               defaultValue={pathname.split('/')[1] || 'en'}
@@ -337,6 +338,7 @@ export default function Navbar() {
               <option value="pt" className="bg-[#0f1a0f]">🇧🇷 PT</option>
               <option value="de" className="bg-[#0f1a0f]">🇩🇪 DE</option>
               <option value="zh" className="bg-[#0f1a0f]">🇨🇳 ZH</option>
+              <option value="hi" className="bg-[#0f1a0f]">🇮🇳 HI</option>
             </select>
           </div>
 
