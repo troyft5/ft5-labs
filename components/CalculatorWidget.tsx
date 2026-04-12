@@ -283,7 +283,7 @@ export default function CalculatorWidget() {
               <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-4">
                 <div>
                   <div className="text-[10px] font-bold uppercase tracking-widest mb-1" style={{ color: '#6fc200' }}>FinTech 5 Competitive Bid Estimate</div>
-                  <div className="text-lg font-black text-white">What 10+ processors competing looks like</div>
+                  <div className="text-lg font-black text-white">What 14 processors competing looks like</div>
                   <div className="text-sm text-slate-400 mt-1">
                     Market markup: ~{results.ic.markup.toFixed(2)}% → FT5 target: {results.ft5.markupLow.toFixed(2)}–{results.ft5.markupHigh.toFixed(2)}%
                   </div>
@@ -487,7 +487,7 @@ export default function CalculatorWidget() {
             <div>
               <div className="text-[11px] font-bold uppercase tracking-widest mb-1" style={{ color: '#6fc200' }}>Want the exact number?</div>
               <div className="text-xl font-black text-white mb-1">Send us your statement. Back to you same day — free.</div>
-              <div className="text-sm text-slate-400">These are estimates. A real audit gives you exact figures with competitive bids from 10+ processors.</div>
+              <div className="text-sm text-slate-400">These are estimates. A real audit gives you exact figures with competitive bids from 14 processors.</div>
             </div>
             <Link
               href={`/get-your-savings-estimate?source=calculator&industry=${industry}&volume=${vol}&avg_tx=${avgTx}&card_method=${cp}&est_rate=${results.ic.eff.toFixed(3)}&est_savings=${Math.round((results.ic.mo - results.ft5.moMid) * 12)}`}

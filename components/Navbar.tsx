@@ -6,8 +6,6 @@ import { useState, useRef, useEffect } from 'react'
 import { usePathname } from 'next/navigation'
 import { ChevronDown, Menu, X, ArrowRight, Phone } from 'lucide-react'
 
-import { useTranslations } from 'next-intl'
-
 function Dropdown({ label, href, width = 280, active = false, children }: {
   label: string; href?: string; width?: number; active?: boolean; children: React.ReactNode
 }) {
@@ -49,7 +47,6 @@ function Dropdown({ label, href, width = 280, active = false, children }: {
 }
 
 export default function Navbar() {
-  const t = useTranslations('Navbar')
   const pathname = usePathname()
   const [mobileOpen, setMobileOpen]         = useState(false)
   const [mobileSolutions, setMobileSolutions]   = useState(false)
@@ -58,36 +55,34 @@ export default function Navbar() {
   const [scrolled, setScrolled]             = useState(false)
 
   const solutions = [
-    { label: t('solutionsDesc.inPerson'),     href: '/solutions/in-person-payments', desc: 'Smart terminals & free hardware' },
-    { label: t('solutionsDesc.mobile'),        href: '/solutions/mobile-payments',     desc: 'Accept payments anywhere' },
-    { label: t('solutionsDesc.online'),        href: '/solutions/online-payments',     desc: 'Hosted checkout & gateways' },
-    { label: t('solutionsDesc.pricing'),    href: '/solutions/pricing-models',      desc: 'Interchange-plus, locked-in rates' },
-    { label: t('solutionsDesc.terminal'),href: '/solutions/free-placement',      desc: 'Clover hardware at zero cost' },
+    { label: 'In-Person Payments',      href: '/solutions/in-person-payments', desc: 'Smart terminals & free hardware' },
+    { label: 'Mobile Payments',         href: '/solutions/mobile-payments',     desc: 'Accept payments anywhere' },
+    { label: 'Online Payments',         href: '/solutions/online-payments',     desc: 'Hosted checkout & gateways' },
+    { label: 'Pricing Models',          href: '/solutions/pricing-models',      desc: 'Interchange-plus, locked-in rates' },
+    { label: 'Free Terminal Placement', href: '/solutions/free-placement',      desc: 'Clover hardware at zero cost' },
   ]
 
   const industries = [
-    { label: t('industriesDesc.retail'),               href: '/industries/retail-payments' },
-    { label: t('industriesDesc.ecommerce'),           href: '/industries/e-commerce' },
-    { label: t('industriesDesc.healthcare'),           href: '/industries/healthcare' },
-    { label: t('industriesDesc.service'),   href: '/industries/service' },
-    { label: t('industriesDesc.education'),     href: '/industries/higher-education' },
-    { label: t('industriesDesc.petroleum'), href: '/industries/petroleum' },
-    { label: t('industriesDesc.highRisk'),  href: '/industries/high-risk' },
-    { label: t('industriesDesc.cbd'),           href: '/industries/cbd' },
-    { label: t('industriesDesc.b2b'),       href: '/industries/b2b' },
+    { label: 'Retail',               href: '/industries/retail-payments' },
+    { label: 'E-Commerce',           href: '/industries/e-commerce' },
+    { label: 'Healthcare',           href: '/industries/healthcare' },
+    { label: 'Service Businesses',   href: '/industries/service' },
+    { label: 'Higher Education',     href: '/industries/higher-education' },
+    { label: 'Petroleum & C-Stores', href: '/industries/petroleum' },
+    { label: 'High-Risk Merchants',  href: '/industries/high-risk' },
+    { label: 'CBD & Hemp',           href: '/industries/cbd' },
+    { label: 'B2B Processing',       href: '/industries/b2b' },
   ]
 
   const resources = [
-    { label: t('resourcesDesc.calculator'),        href: '/calculator',  desc: 'Estimate your savings instantly' },
-    { label: t('resourcesDesc.process'),           href: '/process',     desc: 'How our audit works, step-by-step' },
-    { label: t('resourcesDesc.glossary'),          href: '/glossary',    desc: 'Every payment term, clearly defined' },
-    { label: t('resourcesDesc.blog'),              href: '/blog',        desc: 'Payment industry insights' },
-    { label: t('resourcesDesc.security'),     href: '/security',    desc: 'How we protect your statements' },
-    { label: t('resourcesDesc.about'),          href: '/about-us',    desc: 'Our team and mission' },
-    { label: t('resourcesDesc.contact'),           href: '/contact-us',  desc: 'Get in touch with us' },
+    { label: 'Fee Calculator',     href: '/calculator',                desc: 'Estimate your savings instantly' },
+    { label: 'Our Process',        href: '/process',                   desc: 'How our audit works, step-by-step' },
+    { label: 'Glossary',           href: '/glossary',                  desc: 'Every payment term, clearly defined' },
+    { label: 'Blog',               href: '/blog',                      desc: 'Payment industry insights' },
+    { label: 'Data Security',      href: '/security',                  desc: 'How we protect your statements' },
+    { label: 'About Us',           href: '/about-us',                  desc: 'Our team and mission' },
   ]
 
-  // Active nav helpers
   const isActive = (href: string) => pathname === href
   const isActivePrefix = (prefix: string) => pathname.startsWith(prefix)
 
@@ -126,22 +121,20 @@ export default function Navbar() {
         </Link>
       </div>
 
-      {/* ── Main bar: 1fr | auto | 1fr — true centering with no overlap ── */}
+      {/* ── Main bar ── */}
       <div className="max-w-7xl mx-auto px-6 py-3 grid grid-cols-[1fr_auto_1fr] items-center gap-6">
 
-        {/* Logo — left edge of the 1fr zone */}
+        {/* Logo */}
         <Link href="/" className="flex items-center shrink-0" onClick={closeMenu}>
           <Image src="/Logos/FT5_White_Green.svg" alt="FinTech 5" width={150} height={120} className="h-11 w-auto" priority />
         </Link>
 
-        {/* ── Desktop nav — auto-width, guaranteed center ── */}
+        {/* ── Desktop nav ── */}
         <div className="hidden md:flex items-center gap-1">
 
-          <Link href="/" className={navLinkClass('/')}>
-            Home
-          </Link>
+          <Link href="/" className={navLinkClass('/')}>Home</Link>
 
-          <Dropdown label={t('solutions')} href="/solutions" width={320} active={isActivePrefix('/solutions')}>
+          <Dropdown label="Solutions" href="/solutions" width={320} active={isActivePrefix('/solutions')}>
             <div className="p-2">
               {solutions.map(s => (
                 <Link
@@ -169,7 +162,6 @@ export default function Navbar() {
 
           <Dropdown label="Industries" href="/industries" width={360} active={isActivePrefix('/industries')}>
             <div className="p-2">
-              {/* 2-col grid — wide enough so nothing wraps */}
               <div className="grid grid-cols-2 gap-0.5">
                 {industries.map(i => (
                   <Link
@@ -195,7 +187,7 @@ export default function Navbar() {
             </div>
           </Dropdown>
 
-          <Dropdown label="Resources" href="/resources" width={260} active={isActivePrefix('/resources') || isActivePrefix('/blog') || isActivePrefix('/about') || isActive('/calculator') || isActive('/contact-us')}>
+          <Dropdown label="Resources" width={260} active={isActivePrefix('/resources') || isActivePrefix('/blog') || isActivePrefix('/about') || isActive('/calculator') || isActive('/contact-us')}>
             <div className="p-2">
               {resources.map(r => (
                 <Link
@@ -208,62 +200,34 @@ export default function Navbar() {
                   <span className="text-[11px] mt-0.5 text-slate-600">{r.desc}</span>
                 </Link>
               ))}
-              <div className="mt-1 pt-1 mx-1" style={{ borderTop: '1px solid rgba(255,255,255,0.07)' }}>
-                <Link href="/resources"
-                  className="flex items-center gap-2 px-3 py-2 text-xs font-bold rounded-xl transition-all whitespace-nowrap"
-                  style={{ color: '#6fc200' }}
-                  onMouseEnter={e => (e.currentTarget.style.background = 'rgba(78,144,0,0.08)')}
-                  onMouseLeave={e => (e.currentTarget.style.background = 'transparent')}
-                >
-                  View all resources <ArrowRight className="w-3 h-3" />
-                </Link>
-              </div>
             </div>
           </Dropdown>
 
-          <Link
-            href="/get-your-savings-estimate"
-            className={navLinkClass('/get-your-savings-estimate')}
-          >
+          <Link href="/about-us" className={navLinkClass('/about-us')}>About</Link>
+
+          <Link href="/get-your-savings-estimate" className={navLinkClass('/get-your-savings-estimate')}>
             Free Audit
           </Link>
         </div>
 
-        {/* ── Desktop CTAs — right edge ── */}
-        <div className="hidden md:flex items-center justify-end gap-2.5">
-          <a href="tel:6469417853" className="flex items-center gap-1.5 text-[12px] font-semibold text-slate-500 hover:text-slate-300 transition-colors whitespace-nowrap">
-            <Phone className="w-3.5 h-3.5 shrink-0" /> (646) 941-7853
+        {/* ── Desktop CTAs ── */}
+        <div className="hidden md:flex items-center justify-end gap-3">
+          <a href="tel:6469417853" className="flex items-center gap-1.5 text-[13px] font-bold text-slate-300 hover:text-white transition-colors whitespace-nowrap">
+            <Phone className="w-3.5 h-3.5 shrink-0" style={{ color: '#6fc200' }} /> (646) 941-7853
           </a>
-          <a
-            href="https://app.fintech5group.com" target="_blank" rel="noopener noreferrer"
-            className="px-4 py-2.5 text-sm font-bold text-slate-400 hover:text-white border border-white/10 hover:border-white/25 rounded-xl transition-all whitespace-nowrap mr-2"
-          >
-            Client Portal
-          </a>
-
-          <select
-            className="bg-transparent text-slate-300 text-[12px] font-bold outline-none cursor-pointer hover:text-white transition-colors"
-            onChange={(e) => {
-              const newLocale = e.target.value
-              const currentPath = window.location.pathname.replace(/^\/(en|es|fr|pt|de|zh|hi)/, '')
-              window.location.href = `/${newLocale}${currentPath}`
-            }}
-            defaultValue={pathname.split('/')[1] || 'en'}
-          >
-            <option value="en" className="bg-[#0f1a0f]">🇺🇸 EN</option>
-            <option value="es" className="bg-[#0f1a0f]">🇪🇸 ES</option>
-            <option value="fr" className="bg-[#0f1a0f]">🇨🇦 FR</option>
-            <option value="pt" className="bg-[#0f1a0f]">🇧🇷 PT</option>
-            <option value="de" className="bg-[#0f1a0f]">🇩🇪 DE</option>
-            <option value="zh" className="bg-[#0f1a0f]">🇨🇳 ZH</option>
-            <option value="hi" className="bg-[#0f1a0f]">🇮🇳 HI</option>
-          </select>
           <a
             href="https://app.fintech5group.com" target="_blank" rel="noopener noreferrer"
             className="px-4 py-2.5 text-sm font-bold text-slate-400 hover:text-white border border-white/10 hover:border-white/25 rounded-xl transition-all whitespace-nowrap"
           >
             Client Portal
           </a>
+          <Link
+            href="/get-your-savings-estimate"
+            className="px-4 py-2.5 text-sm font-black text-white rounded-xl transition-all hover:opacity-90 whitespace-nowrap"
+            style={{ background: '#4e9000' }}
+          >
+            Get Free Audit
+          </Link>
         </div>
 
         {/* Mobile toggle */}
@@ -310,6 +274,8 @@ export default function Navbar() {
               {resources.map(r => (
                 <Link key={r.href} href={r.href} className="py-2 text-sm text-slate-500 hover:text-slate-200 font-medium transition-colors" onClick={closeMenu}>{r.label}</Link>
               ))}
+              <Link href="/about-us" className="py-2 text-sm text-slate-500 hover:text-slate-200 font-medium transition-colors" onClick={closeMenu}>About Us</Link>
+              <Link href="/contact-us" className="py-2 text-sm text-slate-500 hover:text-slate-200 font-medium transition-colors" onClick={closeMenu}>Contact Us</Link>
             </div>
           )}
 
@@ -318,32 +284,15 @@ export default function Navbar() {
           </Link>
 
           <Link href="/get-your-savings-estimate" className="mt-4 flex items-center justify-center gap-2 py-3.5 text-sm font-black text-white rounded-xl" style={{ background: '#4e9000' }} onClick={closeMenu}>
-            {t('getAudit')} <ArrowRight className="w-4 h-4" />
+            Get Free Audit <ArrowRight className="w-4 h-4" />
           </Link>
 
-          <div className="flex items-center justify-between mt-4 mb-2 px-2" style={{ borderTop: '1px solid rgba(255,255,255,0.07)', paddingTop: '16px' }}>
-            <span className="text-xs text-slate-500 font-bold uppercase tracking-wider">Language</span>
-            <select
-              className="bg-transparent text-slate-300 text-sm font-bold outline-none cursor-pointer hover:text-white transition-colors"
-              onChange={(e) => {
-                const newLocale = e.target.value
-                const currentPath = window.location.pathname.replace(/^\/(en|es|fr|pt|de|zh|hi)/, '')
-                window.location.href = `/${newLocale}${currentPath}`
-              }}
-              defaultValue={pathname.split('/')[1] || 'en'}
-            >
-              <option value="en" className="bg-[#0f1a0f]">🇺🇸 EN</option>
-              <option value="es" className="bg-[#0f1a0f]">🇪🇸 ES</option>
-              <option value="fr" className="bg-[#0f1a0f]">🇨🇦 FR</option>
-              <option value="pt" className="bg-[#0f1a0f]">🇧🇷 PT</option>
-              <option value="de" className="bg-[#0f1a0f]">🇩🇪 DE</option>
-              <option value="zh" className="bg-[#0f1a0f]">🇨🇳 ZH</option>
-              <option value="hi" className="bg-[#0f1a0f]">🇮🇳 HI</option>
-            </select>
-          </div>
+          <a href="tel:6469417853" className="mt-3 mb-2 flex items-center justify-center gap-2 py-3 text-sm font-semibold text-slate-300 hover:text-white transition-colors">
+            <Phone className="w-4 h-4" style={{ color: '#6fc200' }} /> (646) 941-7853
+          </a>
 
-          <a href="tel:6469417853" className="mb-2 flex items-center justify-center gap-2 py-3 text-sm font-semibold text-slate-500 hover:text-slate-300 transition-colors">
-            <Phone className="w-4 h-4" /> (646) 941-7853
+          <a href="https://app.fintech5group.com" target="_blank" rel="noopener noreferrer" className="mb-2 flex items-center justify-center gap-2 py-3 text-sm font-semibold text-slate-500 hover:text-slate-300 border border-white/10 rounded-xl transition-colors">
+            Client Portal
           </a>
         </div>
       )}
