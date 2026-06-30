@@ -174,7 +174,8 @@ export async function submitLead(props: ContactProps & { businessName?: string; 
 
   await ensureProperties(tok)
 
-  const contactId = await upsertContactRecord(tok, props)
+  const { businessName, createDeal, ...contactProps } = props
+  const contactId = await upsertContactRecord(tok, contactProps)
   if (!contactId) return
 
   let companyId: string | null = null
