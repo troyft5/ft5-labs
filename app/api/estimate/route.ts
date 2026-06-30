@@ -6,7 +6,10 @@ const TO = 'info@fintech5group.com'
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json()
-    const { firstName, lastName, email, phone, business, volume, industry, notes, fileData } = body
+    const {
+      firstName, lastName, email, phone, business, volume, industry,
+      notes, fileData, currentProcessor, hardwareType, cardMethod,
+    } = body
 
     if (!firstName || !email) {
       return NextResponse.json({ error: 'Missing required fields.' }, { status: 400 })
@@ -15,14 +18,17 @@ export async function POST(req: NextRequest) {
     const leadSummary = `
 New Savings Estimate Request
 -----------------------------
-Name:     ${firstName} ${lastName || ''}
-Email:    ${email}
-Phone:    ${phone || '—'}
-Business: ${business || '—'}
-Volume:   ${volume || '—'}
-Industry: ${industry || '—'}
-Notes:    ${notes || '—'}
-Statement: ${fileData ? `Yes — ${fileData.name}` : 'No'}
+Name:              ${firstName} ${lastName || ''}
+Email:             ${email}
+Phone:             ${phone || '—'}
+Business:          ${business || '—'}
+Volume:            ${volume || '—'}
+Industry:          ${industry || '—'}
+Current Processor: ${currentProcessor || '—'}
+Hardware/Terminal: ${hardwareType || '—'}
+Card Method:       ${cardMethod || '—'}
+Notes:             ${notes || '—'}
+Statement:         ${fileData ? `Yes — ${fileData.name}` : 'No'}
     `.trim()
 
     console.log('[lead]', leadSummary)
@@ -34,8 +40,14 @@ Statement: ${fileData ? `Yes — ${fileData.name}` : 'No'}
         lastname: lastName || undefined,
         phone: phone || undefined,
         company: business || undefined,
+        industry: industry || undefined,
+        message: notes || undefined,
         lifecyclestage: 'lead',
         hs_lead_status: 'NEW',
+        monthly_processing_volume: volume || undefined,
+        current_processor: currentProcessor || undefined,
+        hardware_type: hardwareType || undefined,
+        card_acceptance_method: cardMethod || undefined,
       }),
     ]
 
@@ -64,14 +76,15 @@ Statement: ${fileData ? `Yes — ${fileData.name}` : 'No'}
               <tr><td><strong>Business</strong></td><td>${business || '—'}</td></tr>
               <tr><td><strong>Monthly Volume</strong></td><td>${volume || '—'}</td></tr>
               <tr><td><strong>Industry</strong></td><td>${industry || '—'}</td></tr>
+              <tr><td><strong>Current Processor</strong></td><td>${currentProcessor || '—'}</td></tr>
+              <tr><td><strong>Hardware / Terminal</strong></td><td>${hardwareType || '—'}</td></tr>
+              <tr><td><strong>Card Method</strong></td><td>${cardMethod || '—'}</td></tr>
               <tr><td><strong>Notes</strong></td><td>${notes || '—'}</td></tr>
               <tr><td><strong>Statement Attached</strong></td><td>${fileData ? `Yes — ${fileData.name}` : 'No'}</td></tr>
             </table>
           `,
         })
       )
-
-      console.log('[lead] Email sent via Resend to', TO)
     }
 
     await Promise.all(tasks)

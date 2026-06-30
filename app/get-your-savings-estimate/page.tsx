@@ -32,6 +32,7 @@ export default function Estimate() {
   const [form, setForm] = useState({
     firstName: '', lastName: '', email: '', phone: '', business: '',
     volume: 'Under $10,000', industry: 'Retail', notes: '',
+    currentProcessor: '', hardwareType: '',
   })
   const [file, setFile] = useState<File | null>(null)
 
@@ -55,7 +56,12 @@ export default function Estimate() {
       const res = await fetch('/api/estimate', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ ...form, fileData }),
+        body: JSON.stringify({
+          ...form,
+          fileData,
+          currentProcessor: form.currentProcessor || undefined,
+          hardwareType: form.hardwareType || undefined,
+        }),
       })
       setStatus(res.ok ? 'success' : 'error')
     } catch {
@@ -229,8 +235,18 @@ export default function Estimate() {
                           <label className={labelClass}>Phone Number</label>
                           <input type="tel" value={form.phone} onChange={set('phone')} className={inputClass} style={inputStyle} />
                         </div>
+                        <div className="grid md:grid-cols-2 gap-5">
+                          <div>
+                            <label className={labelClass}>Current Processor</label>
+                            <input type="text" placeholder="e.g. Square, Stripe, Heartland" value={form.currentProcessor} onChange={set('currentProcessor')} className={inputClass} style={inputStyle} />
+                          </div>
+                          <div>
+                            <label className={labelClass}>Hardware / Terminal</label>
+                            <input type="text" placeholder="e.g. Clover, Verifone, PAX" value={form.hardwareType} onChange={set('hardwareType')} className={inputClass} style={inputStyle} />
+                          </div>
+                        </div>
                         <div>
-                          <label className={labelClass}>Current processor / notes</label>
+                          <label className={labelClass}>Additional Notes</label>
                           <textarea rows={3} value={form.notes} onChange={set('notes')} className={`${inputClass} resize-none`} style={inputStyle} />
                         </div>
                       </div>
