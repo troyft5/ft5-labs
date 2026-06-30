@@ -90,9 +90,8 @@ Statement:         ${fileData ? `Yes — ${fileData.name}` : 'No'}
         ? [{ filename: fileData.name, content: fileData.content, contentType: fileData.type }]
         : []
 
-      const hsLink = contactId
-        ? `<br><br><a href="${contactUrl(contactId)}" style="color:#0f6bff">View in HubSpot →</a>`
-        : ''
+      const hsUrl = contactId ? contactUrl(contactId) : null
+      const hsLink = hsUrl ? `<br><br><a href="${hsUrl}" style="color:#0f6bff">View in HubSpot →</a>` : ''
 
       const fileName = fileData
         ? fileData.name.length > 60 ? fileData.name.slice(0, 57) + '…' : fileData.name
@@ -106,21 +105,37 @@ Statement:         ${fileData ? `Yes — ${fileData.name}` : 'No'}
           subject: `New Savings Estimate Request — ${business || firstName}`,
           attachments,
           html: `
-            <h2 style="font-family:sans-serif">New Savings Estimate Request</h2>
-            <table cellpadding="6" style="font-family:sans-serif;font-size:14px;border-collapse:collapse">
-              <tr><td><strong>Name</strong></td><td>${firstName} ${lastName || ''}</td></tr>
-              <tr><td><strong>Email</strong></td><td><a href="mailto:${email}">${email}</a></td></tr>
-              <tr><td><strong>Phone</strong></td><td>${phone || '—'}</td></tr>
-              <tr><td><strong>Business</strong></td><td>${business || '—'}</td></tr>
-              <tr><td><strong>Monthly Volume</strong></td><td>${volume || '—'}</td></tr>
-              <tr><td><strong>Industry</strong></td><td>${industry || '—'}</td></tr>
-              <tr><td><strong>Current Processor</strong></td><td>${currentProcessor || '—'}</td></tr>
-              <tr><td><strong>Hardware / Terminal</strong></td><td>${hardwareType || '—'}</td></tr>
-              <tr><td><strong>Card Method</strong></td><td>${cardMethod || '—'}</td></tr>
-              <tr><td><strong>Notes</strong></td><td>${notes || '—'}</td></tr>
-              <tr><td><strong>Statement</strong></td><td>${fileName ? `Yes — ${fileName}` : 'No'}</td></tr>
-            </table>
-            ${hsLink}
+<div style="font-family:sans-serif;max-width:600px;margin:0 auto;background:#0f1a0f;border-radius:12px;overflow:hidden;color:#ffffff">
+  <div style="height:4px;background:linear-gradient(90deg,#2d5500,#6fc200)"></div>
+  <div style="padding:32px 36px 24px">
+    <div style="margin-bottom:20px">
+      <span style="font-size:20px;font-weight:900;font-style:italic;letter-spacing:-0.5px">Fin<span style="color:#6fc200">Tech</span> 5</span>
+    </div>
+    <div style="background:rgba(78,144,0,0.15);border-left:3px solid #6fc200;padding:12px 16px;border-radius:0 8px 8px 0;margin-bottom:24px">
+      <p style="margin:0;font-size:13px;font-weight:700;color:#6fc200;text-transform:uppercase;letter-spacing:0.1em">New Savings Estimate Request</p>
+      <p style="margin:4px 0 0;font-size:22px;font-weight:900;color:#ffffff">${business || firstName}</p>
+    </div>
+    <table cellpadding="0" cellspacing="0" style="width:100%;font-size:14px;border-collapse:collapse">
+      <tr><td style="padding:10px 0;border-bottom:1px solid rgba(255,255,255,0.07);color:#94a3b8;width:40%">Name</td><td style="padding:10px 0;border-bottom:1px solid rgba(255,255,255,0.07);font-weight:600">${firstName} ${lastName || ''}</td></tr>
+      <tr><td style="padding:10px 0;border-bottom:1px solid rgba(255,255,255,0.07);color:#94a3b8">Email</td><td style="padding:10px 0;border-bottom:1px solid rgba(255,255,255,0.07)"><a href="mailto:${email}" style="color:#6fc200">${email}</a></td></tr>
+      <tr><td style="padding:10px 0;border-bottom:1px solid rgba(255,255,255,0.07);color:#94a3b8">Phone</td><td style="padding:10px 0;border-bottom:1px solid rgba(255,255,255,0.07);font-weight:600">${phone || '—'}</td></tr>
+      <tr><td style="padding:10px 0;border-bottom:1px solid rgba(255,255,255,0.07);color:#94a3b8">Business</td><td style="padding:10px 0;border-bottom:1px solid rgba(255,255,255,0.07);font-weight:600">${business || '—'}</td></tr>
+      <tr><td style="padding:10px 0;border-bottom:1px solid rgba(255,255,255,0.07);color:#94a3b8">Monthly Volume</td><td style="padding:10px 0;border-bottom:1px solid rgba(255,255,255,0.07);font-weight:600;color:#6fc200">${volume || '—'}</td></tr>
+      <tr><td style="padding:10px 0;border-bottom:1px solid rgba(255,255,255,0.07);color:#94a3b8">Industry</td><td style="padding:10px 0;border-bottom:1px solid rgba(255,255,255,0.07);font-weight:600">${industry || '—'}</td></tr>
+      <tr><td style="padding:10px 0;border-bottom:1px solid rgba(255,255,255,0.07);color:#94a3b8">Current Processor</td><td style="padding:10px 0;border-bottom:1px solid rgba(255,255,255,0.07);font-weight:600">${currentProcessor || '—'}</td></tr>
+      <tr><td style="padding:10px 0;border-bottom:1px solid rgba(255,255,255,0.07);color:#94a3b8">Hardware / Terminal</td><td style="padding:10px 0;border-bottom:1px solid rgba(255,255,255,0.07);font-weight:600">${hardwareType || '—'}</td></tr>
+      <tr><td style="padding:10px 0;border-bottom:1px solid rgba(255,255,255,0.07);color:#94a3b8">Card Method</td><td style="padding:10px 0;border-bottom:1px solid rgba(255,255,255,0.07);font-weight:600">${cardMethod || '—'}</td></tr>
+      <tr><td style="padding:10px 0;border-bottom:1px solid rgba(255,255,255,0.07);color:#94a3b8">Notes</td><td style="padding:10px 0;border-bottom:1px solid rgba(255,255,255,0.07)">${notes || '—'}</td></tr>
+      <tr><td style="padding:10px 0;color:#94a3b8">Statement</td><td style="padding:10px 0;font-weight:600">${fileName ? `✓ Attached — ${fileName}` : 'None'}</td></tr>
+    </table>
+    <div style="margin-top:24px">
+      ${hsUrl ? `<a href="${hsUrl}" style="display:inline-block;background:#4e9000;color:#ffffff;font-weight:700;font-size:13px;padding:12px 24px;border-radius:8px;text-decoration:none">View in HubSpot →</a>` : ''}
+    </div>
+  </div>
+  <div style="padding:16px 36px;border-top:1px solid rgba(255,255,255,0.06)">
+    <p style="margin:0;font-size:11px;color:#475569">FinTech 5 Group · troy@fintech5group.com · (646) 941-7853</p>
+  </div>
+</div>
           `,
         }),
         resend.emails.send({

@@ -32,7 +32,7 @@ export default function Estimate() {
   const [form, setForm] = useState({
     firstName: '', lastName: '', email: '', phone: '', business: '',
     volume: 'Under $10,000', industry: 'Retail', notes: '',
-    currentProcessor: '', hardwareType: '',
+    currentProcessor: '', hardwareType: '', cardMethod: '',
   })
   const [file, setFile] = useState<File | null>(null)
 
@@ -225,32 +225,55 @@ export default function Estimate() {
                       </div>
                     </div>
 
-                    <details className="group">
-                      <summary className="cursor-pointer text-xs font-bold text-slate-600 hover:text-slate-400 transition-colors select-none list-none flex items-center gap-2">
-                        <span className="text-[#4e9000] group-open:rotate-90 transition-transform inline-block">›</span>
-                        Add phone or notes <span className="font-normal text-slate-700">(optional, speeds up your analysis)</span>
-                      </summary>
-                      <div className="flex flex-col gap-5 mt-4">
-                        <div>
-                          <label className={labelClass}>Phone Number</label>
-                          <input type="tel" value={form.phone} onChange={set('phone')} className={inputClass} style={inputStyle} />
-                        </div>
-                        <div className="grid md:grid-cols-2 gap-5">
-                          <div>
-                            <label className={labelClass}>Current Processor</label>
-                            <input type="text" placeholder="e.g. Square, Stripe, Heartland" value={form.currentProcessor} onChange={set('currentProcessor')} className={inputClass} style={inputStyle} />
-                          </div>
-                          <div>
-                            <label className={labelClass}>Hardware / Terminal</label>
-                            <input type="text" placeholder="e.g. Clover, Verifone, PAX" value={form.hardwareType} onChange={set('hardwareType')} className={inputClass} style={inputStyle} />
-                          </div>
-                        </div>
-                        <div>
-                          <label className={labelClass}>Additional Notes</label>
-                          <textarea rows={3} value={form.notes} onChange={set('notes')} className={`${inputClass} resize-none`} style={inputStyle} />
-                        </div>
+                    <div>
+                      <label className={labelClass}>How do you accept cards?</label>
+                      <div className="grid grid-cols-3 gap-3 mt-1">
+                        {[
+                          { value: 'in-person', label: 'In-Person' },
+                          { value: 'online',    label: 'Online' },
+                          { value: 'both',      label: 'Both' },
+                        ].map(({ value, label }) => {
+                          const active = form.cardMethod === value
+                          return (
+                            <button
+                              key={value}
+                              type="button"
+                              onClick={() => setForm(prev => ({ ...prev, cardMethod: active ? '' : value }))}
+                              className="py-3 rounded-xl text-sm font-bold transition-all"
+                              style={{
+                                background: active ? '#4e9000' : 'rgba(255,255,255,0.05)',
+                                border: `1px solid ${active ? '#4e9000' : 'rgba(255,255,255,0.1)'}`,
+                                color: active ? '#ffffff' : '#94a3b8',
+                              }}
+                            >
+                              {label}
+                            </button>
+                          )
+                        })}
                       </div>
-                    </details>
+                    </div>
+
+                    <div className="grid md:grid-cols-2 gap-5">
+                      <div>
+                        <label className={labelClass}>Phone Number</label>
+                        <input type="tel" value={form.phone} onChange={set('phone')} className={inputClass} style={inputStyle} />
+                      </div>
+                      <div>
+                        <label className={labelClass}>Current Processor</label>
+                        <input type="text" placeholder="e.g. Square, Stripe, Heartland" value={form.currentProcessor} onChange={set('currentProcessor')} className={inputClass} style={inputStyle} />
+                      </div>
+                    </div>
+
+                    <div className="grid md:grid-cols-2 gap-5">
+                      <div>
+                        <label className={labelClass}>Hardware / Terminal</label>
+                        <input type="text" placeholder="e.g. Clover, Verifone, PAX" value={form.hardwareType} onChange={set('hardwareType')} className={inputClass} style={inputStyle} />
+                      </div>
+                      <div>
+                        <label className={labelClass}>Additional Notes</label>
+                        <textarea rows={1} value={form.notes} onChange={set('notes')} className={`${inputClass} resize-none`} style={inputStyle} />
+                      </div>
+                    </div>
 
                     {status === 'error' && (
                       <div className="text-sm rounded-xl px-4 py-3" style={{ background: 'rgba(185,28,28,0.1)', border: '1px solid rgba(185,28,28,0.3)', color: '#fca5a5' }}>
