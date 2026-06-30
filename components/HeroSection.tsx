@@ -190,7 +190,7 @@ export default function HeroSection() {
             <div ref={cardsRef} className="relative hidden lg:block h-[480px]" style={{ willChange: 'transform' }}>
 
               {/* Card 1 — Best Match */}
-              <div className="animate-float-1 absolute top-0 left-0 w-56 rounded-2xl p-4 shadow-2xl z-10"
+              <div className="animate-float-1 absolute -top-4 -left-12 w-56 rounded-2xl p-4 shadow-2xl z-10"
                 style={{ background: 'rgba(15,26,15,0.85)', backdropFilter: 'blur(16px)', border: '1px solid rgba(255,255,255,0.1)' }}>
                 <div className="flex items-center gap-2 mb-3">
                   <span className="w-2 h-2 rounded-full bg-[#4e9000]" />
