@@ -36,10 +36,12 @@ export function getPostData(slug: string) {
   const fullPath = path.join(postsDirectory, `${slug}.md`)
   const fileContents = fs.readFileSync(fullPath, 'utf8')
   const { data, content } = parseFrontmatter(fileContents)
+  const meta = data as { title: string; date: string; excerpt: string; category: string; readTime: string; cover?: string }
 
-  return {
-    slug,
-    content,
-    ...(data as { title: string; date: string; excerpt: string; category: string; readTime: string; cover?: string })
-  }
+  // Remove the cover image from body content so it doesn't render twice
+  const body = meta.cover
+    ? content.replace(new RegExp(`!\\[[^\\]]*\\]\\(${meta.cover.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\)`, 'g'), '').trim()
+    : content
+
+  return { slug, content: body, ...meta }
 }
