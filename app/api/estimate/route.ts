@@ -79,6 +79,7 @@ Statement:         ${fileData ? `Yes — ${fileData.name}` : 'No'}
       card_acceptance_method: cardMethod || undefined,
       businessName: business || undefined,
       createDeal: true,
+      statementFile: fileData ?? undefined,
     })
 
     const apiKey = process.env.RESEND_API_KEY

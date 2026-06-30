@@ -133,6 +133,58 @@ async function associateContactToCompany(tok: string, contactId: string, company
   })
 }
 
+async function uploadFile(tok: string, file: { name: string; content: string; type: string }): Promise<string | null> {
+  try {
+    const buffer = Buffer.from(file.content, 'base64')
+    const blob = new Blob([buffer], { type: file.type })
+    const form = new FormData()
+    form.append('file', blob, file.name)
+    form.append('options', JSON.stringify({ access: 'PRIVATE', overwrite: false, duplicateValidationStrategy: 'NONE', duplicateValidationScope: 'ENTIRE_PORTAL' }))
+    form.append('folderPath', '/ft5-statements')
+
+    const res = await fetch(`${BASE}/files/v3/files`, {
+      method: 'POST',
+      headers: { Authorization: `Bearer ${tok}` },
+      body: form,
+    })
+    if (!res.ok) {
+      const err = await res.text().catch(() => '')
+      console.error('[hubspot] file upload failed', res.status, err)
+      return null
+    }
+    const data = await res.json() as { id: string; url?: string }
+    return data.url ?? `https://app.hubspot.com/files/${PORTAL_ID}/file/${data.id}`
+  } catch (err) {
+    console.error('[hubspot] file upload error', err)
+    return null
+  }
+}
+
+async function logEmail(tok: string, contactId: string, companyId: string | null, subject: string, body: string): Promise<void> {
+  const associations = [
+    { to: { id: contactId }, types: [{ associationCategory: 'HUBSPOT_DEFINED', associationTypeId: 197 }] },
+    ...(companyId ? [{ to: { id: companyId }, types: [{ associationCategory: 'HUBSPOT_DEFINED', associationTypeId: 185 }] }] : []),
+  ]
+  const res = await fetch(`${BASE}/crm/v3/objects/emails`, {
+    method: 'POST',
+    headers: auth(tok),
+    body: JSON.stringify({
+      properties: {
+        hs_email_direction: 'EMAIL',
+        hs_email_status: 'SENT',
+        hs_email_subject: subject,
+        hs_email_body: body,
+        hs_timestamp: new Date().toISOString(),
+      },
+      associations,
+    }),
+  })
+  if (!res.ok) {
+    const err = await res.text().catch(() => '')
+    console.error('[hubspot] email log failed', res.status, err)
+  }
+}
+
 async function createNote(tok: string, contactId: string, companyId: string | null, body: string): Promise<void> {
   const associations = [
     { to: { id: contactId }, types: [{ associationCategory: 'HUBSPOT_DEFINED', associationTypeId: 202 }] },
@@ -190,13 +242,13 @@ export async function upsertContact(props: ContactProps): Promise<void> {
   await upsertContactRecord(tok, props)
 }
 
-export async function submitLead(props: ContactProps & { businessName?: string; createDeal?: boolean }): Promise<string | null> {
+export async function submitLead(props: ContactProps & { businessName?: string; createDeal?: boolean; statementFile?: { name: string; content: string; type: string } }): Promise<string | null> {
   const tok = process.env.HUBSPOT_TOKEN
   if (!tok) { console.warn('[hubspot] HUBSPOT_TOKEN not set'); return null }
 
   await ensureProperties(tok)
 
-  const { businessName, createDeal: shouldCreateDeal, ...contactProps } = props
+  const { businessName, createDeal: shouldCreateDeal, statementFile, ...contactProps } = props
   if (businessName) contactProps.company = businessName
 
   const contactId = await upsertContactRecord(tok, contactProps)
@@ -215,6 +267,8 @@ export async function submitLead(props: ContactProps & { businessName?: string; 
     await createDeal(tok, dealName, contactId, companyId, props.monthly_processing_volume)
   }
 
+  const fileUrl = statementFile ? await uploadFile(tok, statementFile) : null
+
   const noteLines = [
     `<b>Submission Details</b>`,
     `Email: ${props.email}`,
@@ -226,9 +280,17 @@ export async function submitLead(props: ContactProps & { businessName?: string; 
     props.hardware_type             ? `Hardware / Terminal: ${props.hardware_type}` : null,
     props.card_acceptance_method    ? `Card Method: ${props.card_acceptance_method}` : null,
     props.message                   ? `Message: ${props.message}` : null,
+    fileUrl                         ? `Statement: <a href="${fileUrl}">${statementFile!.name}</a>` : null,
   ].filter(Boolean).join('<br>')
 
-  await createNote(tok, contactId, companyId, noteLines)
+  const emailSubject = businessName
+    ? `New Savings Estimate Request — ${businessName}`
+    : `New Contact — ${props.firstname || props.email}`
+
+  await Promise.all([
+    createNote(tok, contactId, companyId, noteLines),
+    logEmail(tok, contactId, companyId, emailSubject, noteLines),
+  ])
 
   return contactId
 }
