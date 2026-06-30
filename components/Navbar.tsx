@@ -215,12 +215,6 @@ export default function Navbar() {
           <a href="tel:6469417853" className="flex items-center gap-1.5 text-[13px] font-bold text-slate-300 hover:text-white transition-colors whitespace-nowrap">
             <Phone className="w-3.5 h-3.5 shrink-0" style={{ color: '#6fc200' }} /> (646) 941-7853
           </a>
-          <a
-            href="https://app.fintech5group.com" target="_blank" rel="noopener noreferrer"
-            className="px-4 py-2.5 text-sm font-bold text-slate-400 hover:text-white border border-white/10 hover:border-white/25 rounded-xl transition-all whitespace-nowrap"
-          >
-            Client Portal
-          </a>
           <Link
             href="/get-your-savings-estimate"
             className="px-4 py-2.5 text-sm font-black text-white rounded-xl transition-all hover:opacity-90 whitespace-nowrap"
@@ -291,9 +285,6 @@ export default function Navbar() {
             <Phone className="w-4 h-4" style={{ color: '#6fc200' }} /> (646) 941-7853
           </a>
 
-          <a href="https://app.fintech5group.com" target="_blank" rel="noopener noreferrer" className="mb-2 flex items-center justify-center gap-2 py-3 text-sm font-semibold text-slate-500 hover:text-slate-300 border border-white/10 rounded-xl transition-colors">
-            Client Portal
-          </a>
         </div>
       )}
     </nav>
