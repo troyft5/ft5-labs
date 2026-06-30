@@ -174,11 +174,11 @@ export default function Home() {
                 <div className="flex flex-col h-full">
                   {/* Step number + icon */}
                   <div className="flex items-center gap-4 mb-6">
-                    <div className="relative">
+                    <div className="relative pt-2 pr-2">
                       <div className="w-16 h-16 rounded-2xl flex items-center justify-center text-white relative z-10" style={{ background: 'linear-gradient(135deg,#2d5500,#4e9000)', boxShadow: '0 8px 24px rgba(78,144,0,0.35)' }}>
                         {step.icon}
                       </div>
-                      <div className="absolute -top-2 -right-2 text-[10px] font-black text-white px-1.5 py-0.5 rounded-md" style={{ background: '#0a1208', border: '1px solid rgba(78,144,0,0.3)', color: '#6fc200' }}>{step.n}</div>
+                      <div className="absolute top-0 right-0 text-[10px] font-black px-1.5 py-0.5 rounded-md" style={{ background: '#0a1208', border: '1px solid rgba(78,144,0,0.3)', color: '#6fc200' }}>{step.n}</div>
                     </div>
                   </div>
 
