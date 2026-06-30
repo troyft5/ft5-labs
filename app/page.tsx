@@ -166,21 +166,19 @@ export default function Home() {
 
           {/* Steps */}
           <div className="grid md:grid-cols-3 gap-8 relative">
-            {/* Connector line */}
-            <div className="absolute top-16 left-[calc(16%+2rem)] right-[calc(16%+2rem)] h-px hidden md:block" style={{ background: 'linear-gradient(90deg,transparent,rgba(78,144,0,0.3),rgba(78,144,0,0.3),transparent)', backgroundSize: '8px 1px' }} />
+            {/* Connector line — top-8 = 32px, center of the h-16 icon */}
+            <div className="absolute top-8 left-[calc(16%+2rem)] right-[calc(16%+2rem)] h-px hidden md:block" style={{ background: 'linear-gradient(90deg,transparent,rgba(78,144,0,0.3),rgba(78,144,0,0.3),transparent)' }} />
 
             {steps.map((step, i) => (
               <ScrollDepth3D key={step.n} delay={i * 120} intensity={0.7}>
                 <div className="flex flex-col h-full">
-                  {/* Step number + icon */}
-                  <div className="flex items-center gap-4 mb-6">
-                    <div className="relative pt-2 pr-2">
-                      <div className="w-16 h-16 rounded-2xl flex items-center justify-center text-white relative z-10" style={{ background: 'linear-gradient(135deg,#2d5500,#4e9000)', boxShadow: '0 8px 24px rgba(78,144,0,0.35)' }}>
-                        {step.icon}
-                      </div>
-                      <div className="absolute top-0 right-0 text-[10px] font-black px-1.5 py-0.5 rounded-md" style={{ background: '#0a1208', border: '1px solid rgba(78,144,0,0.3)', color: '#6fc200' }}>{step.n}</div>
-                    </div>
+                  {/* Icon */}
+                  <div className="w-16 h-16 rounded-2xl flex items-center justify-center text-white mb-3" style={{ background: 'linear-gradient(135deg,#2d5500,#4e9000)', boxShadow: '0 8px 24px rgba(78,144,0,0.35)' }}>
+                    {step.icon}
                   </div>
+
+                  {/* Step number label */}
+                  <div className="text-xs font-black mb-3" style={{ color: '#6fc200' }}>{step.n}</div>
 
                   <h3 className="text-xl font-black text-white mb-3">{step.title}</h3>
                   <p className="text-slate-400 text-sm leading-relaxed flex-1 mb-5">{step.body}</p>
