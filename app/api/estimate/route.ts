@@ -92,11 +92,7 @@ Statement:         ${fileData ? `Yes — ${fileData.name}` : 'No'}
         : []
 
       const hsUrl = contactId ? contactUrl(contactId) : null
-      const hsLink = hsUrl ? `<br><br><a href="${hsUrl}" style="color:#0f6bff">View in HubSpot →</a>` : ''
-
-      const fileName = fileData
-        ? fileData.name.length > 60 ? fileData.name.slice(0, 57) + '…' : fileData.name
-        : null
+      const fileName = fileData ? fileData.name : null
 
       const results = await Promise.all([
         resend.emails.send({
@@ -106,35 +102,35 @@ Statement:         ${fileData ? `Yes — ${fileData.name}` : 'No'}
           subject: `New Savings Estimate Request — ${business || firstName}`,
           attachments,
           html: `
-<div style="font-family:sans-serif;max-width:600px;margin:0 auto;background:#0f1a0f;border-radius:12px;overflow:hidden;color:#ffffff">
-  <div style="height:4px;background:linear-gradient(90deg,#2d5500,#6fc200)"></div>
-  <div style="padding:32px 36px 24px">
-    <div style="margin-bottom:20px">
-      <span style="font-size:20px;font-weight:900;font-style:italic;letter-spacing:-0.5px">Fin<span style="color:#6fc200">Tech</span> 5</span>
-    </div>
-    <div style="background:rgba(78,144,0,0.15);border-left:3px solid #6fc200;padding:12px 16px;border-radius:0 8px 8px 0;margin-bottom:24px">
-      <p style="margin:0;font-size:13px;font-weight:700;color:#6fc200;text-transform:uppercase;letter-spacing:0.1em">New Savings Estimate Request</p>
-      <p style="margin:4px 0 0;font-size:22px;font-weight:900;color:#ffffff">${business || firstName}</p>
-    </div>
-    <table cellpadding="0" cellspacing="0" style="width:100%;font-size:14px;border-collapse:collapse">
-      <tr><td style="padding:10px 0;border-bottom:1px solid rgba(255,255,255,0.07);color:#94a3b8;width:40%">Name</td><td style="padding:10px 0;border-bottom:1px solid rgba(255,255,255,0.07);font-weight:600">${firstName} ${lastName || ''}</td></tr>
-      <tr><td style="padding:10px 0;border-bottom:1px solid rgba(255,255,255,0.07);color:#94a3b8">Email</td><td style="padding:10px 0;border-bottom:1px solid rgba(255,255,255,0.07)"><a href="mailto:${email}" style="color:#6fc200">${email}</a></td></tr>
-      <tr><td style="padding:10px 0;border-bottom:1px solid rgba(255,255,255,0.07);color:#94a3b8">Phone</td><td style="padding:10px 0;border-bottom:1px solid rgba(255,255,255,0.07);font-weight:600">${phone || '—'}</td></tr>
-      <tr><td style="padding:10px 0;border-bottom:1px solid rgba(255,255,255,0.07);color:#94a3b8">Business</td><td style="padding:10px 0;border-bottom:1px solid rgba(255,255,255,0.07);font-weight:600">${business || '—'}</td></tr>
-      <tr><td style="padding:10px 0;border-bottom:1px solid rgba(255,255,255,0.07);color:#94a3b8">Monthly Volume</td><td style="padding:10px 0;border-bottom:1px solid rgba(255,255,255,0.07);font-weight:600;color:#6fc200">${volume || '—'}</td></tr>
-      <tr><td style="padding:10px 0;border-bottom:1px solid rgba(255,255,255,0.07);color:#94a3b8">Industry</td><td style="padding:10px 0;border-bottom:1px solid rgba(255,255,255,0.07);font-weight:600">${industry || '—'}</td></tr>
-      <tr><td style="padding:10px 0;border-bottom:1px solid rgba(255,255,255,0.07);color:#94a3b8">Current Processor</td><td style="padding:10px 0;border-bottom:1px solid rgba(255,255,255,0.07);font-weight:600">${currentProcessor || '—'}</td></tr>
-      <tr><td style="padding:10px 0;border-bottom:1px solid rgba(255,255,255,0.07);color:#94a3b8">Hardware / Terminal</td><td style="padding:10px 0;border-bottom:1px solid rgba(255,255,255,0.07);font-weight:600">${hardwareType || '—'}</td></tr>
-      <tr><td style="padding:10px 0;border-bottom:1px solid rgba(255,255,255,0.07);color:#94a3b8">Card Method</td><td style="padding:10px 0;border-bottom:1px solid rgba(255,255,255,0.07);font-weight:600">${cardMethod || '—'}</td></tr>
-      <tr><td style="padding:10px 0;border-bottom:1px solid rgba(255,255,255,0.07);color:#94a3b8">Notes</td><td style="padding:10px 0;border-bottom:1px solid rgba(255,255,255,0.07)">${notes || '—'}</td></tr>
-      <tr><td style="padding:10px 0;color:#94a3b8">Statement</td><td style="padding:10px 0;font-weight:600">${fileName ? `✓ Attached — ${fileName}` : 'None'}</td></tr>
+<div style="font-family:sans-serif;max-width:600px;margin:0 auto;background:#ffffff;border-radius:12px;overflow:hidden;border:1px solid #e2e8f0">
+  <div style="background:#0f1a0f;padding:24px 32px;display:flex;align-items:center;gap:12px">
+    <span style="font-size:20px;font-weight:900;font-style:italic;letter-spacing:-0.5px;color:#ffffff">Fin<span style="color:#6fc200">Tech</span> 5</span>
+    <span style="margin-left:auto;font-size:11px;font-weight:700;color:#6fc200;text-transform:uppercase;letter-spacing:0.15em">Internal Notification</span>
+  </div>
+  <div style="background:#f0fdf0;border-bottom:1px solid #bbf7d0;padding:20px 32px">
+    <p style="margin:0;font-size:11px;font-weight:700;color:#15803d;text-transform:uppercase;letter-spacing:0.1em">New Savings Estimate Request</p>
+    <p style="margin:6px 0 0;font-size:24px;font-weight:900;color:#0f1a0f">${business || firstName}</p>
+  </div>
+  <div style="padding:0 32px 24px">
+    <table cellpadding="0" cellspacing="0" style="width:100%;font-size:14px;border-collapse:collapse;color:#0f172a">
+      <tr><td style="padding:12px 0;border-bottom:1px solid #f1f5f9;color:#64748b;width:38%;font-size:13px">Name</td><td style="padding:12px 0;border-bottom:1px solid #f1f5f9;font-weight:700;color:#0f172a">${firstName} ${lastName || ''}</td></tr>
+      <tr><td style="padding:12px 0;border-bottom:1px solid #f1f5f9;color:#64748b;font-size:13px">Email</td><td style="padding:12px 0;border-bottom:1px solid #f1f5f9"><a href="mailto:${email}" style="color:#16a34a;font-weight:600">${email}</a></td></tr>
+      <tr><td style="padding:12px 0;border-bottom:1px solid #f1f5f9;color:#64748b;font-size:13px">Phone</td><td style="padding:12px 0;border-bottom:1px solid #f1f5f9;font-weight:700;color:#0f172a">${phone || '—'}</td></tr>
+      <tr><td style="padding:12px 0;border-bottom:1px solid #f1f5f9;color:#64748b;font-size:13px">Business</td><td style="padding:12px 0;border-bottom:1px solid #f1f5f9;font-weight:700;color:#0f172a">${business || '—'}</td></tr>
+      <tr style="background:#f0fdf4"><td style="padding:12px 0;border-bottom:1px solid #f1f5f9;color:#64748b;font-size:13px;padding-left:8px">Monthly Volume</td><td style="padding:12px 0;border-bottom:1px solid #f1f5f9;font-weight:800;color:#15803d;font-size:15px">${volume || '—'}</td></tr>
+      <tr><td style="padding:12px 0;border-bottom:1px solid #f1f5f9;color:#64748b;font-size:13px">Industry</td><td style="padding:12px 0;border-bottom:1px solid #f1f5f9;font-weight:700;color:#0f172a">${industry || '—'}</td></tr>
+      <tr><td style="padding:12px 0;border-bottom:1px solid #f1f5f9;color:#64748b;font-size:13px">Current Processor</td><td style="padding:12px 0;border-bottom:1px solid #f1f5f9;font-weight:700;color:#0f172a">${currentProcessor || '—'}</td></tr>
+      <tr><td style="padding:12px 0;border-bottom:1px solid #f1f5f9;color:#64748b;font-size:13px">Hardware / Terminal</td><td style="padding:12px 0;border-bottom:1px solid #f1f5f9;font-weight:700;color:#0f172a">${hardwareType || '—'}</td></tr>
+      <tr><td style="padding:12px 0;border-bottom:1px solid #f1f5f9;color:#64748b;font-size:13px">Card Method</td><td style="padding:12px 0;border-bottom:1px solid #f1f5f9;font-weight:700;color:#0f172a">${cardMethod || '—'}</td></tr>
+      <tr><td style="padding:12px 0;border-bottom:1px solid #f1f5f9;color:#64748b;font-size:13px">Notes</td><td style="padding:12px 0;border-bottom:1px solid #f1f5f9;color:#334155">${notes || '—'}</td></tr>
+      <tr><td style="padding:12px 0;color:#64748b;font-size:13px">Statement</td><td style="padding:12px 0;font-weight:700;color:#0f172a">${fileName ? `✓ Attached` : '—'}</td></tr>
     </table>
-    <div style="margin-top:24px">
-      ${hsUrl ? `<a href="${hsUrl}" style="display:inline-block;background:#4e9000;color:#ffffff;font-weight:700;font-size:13px;padding:12px 24px;border-radius:8px;text-decoration:none">View in HubSpot →</a>` : ''}
+    <div style="margin-top:20px">
+      ${hsUrl ? `<a href="${hsUrl}" style="display:inline-block;background:#15803d;color:#ffffff;font-weight:700;font-size:13px;padding:12px 24px;border-radius:8px;text-decoration:none">View in HubSpot →</a>` : ''}
     </div>
   </div>
-  <div style="padding:16px 36px;border-top:1px solid rgba(255,255,255,0.06)">
-    <p style="margin:0;font-size:11px;color:#475569">FinTech 5 Group · troy@fintech5group.com · (646) 941-7853</p>
+  <div style="padding:16px 32px;background:#f8fafc;border-top:1px solid #e2e8f0">
+    <p style="margin:0;font-size:11px;color:#94a3b8">FinTech 5 Group · troy@fintech5group.com · (646) 941-7853</p>
   </div>
 </div>
           `,
