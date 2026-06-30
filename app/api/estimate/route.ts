@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { submitLead } from '@/lib/hubspot'
+import { submitLead, contactUrl } from '@/lib/hubspot'
 
 const TO = 'troy@fintech5group.com'
 const FROM = 'FinTech 5 <no-reply@fintech5group.com>'
@@ -62,24 +62,22 @@ Statement:         ${fileData ? `Yes — ${fileData.name}` : 'No'}
 
     console.log('[lead]', leadSummary)
 
-    const tasks: Promise<unknown>[] = [
-      submitLead({
-        email,
-        firstname: firstName,
-        lastname: lastName || undefined,
-        phone: phone || undefined,
-        industry: industry || undefined,
-        message: notes || undefined,
-        lifecyclestage: 'lead',
-        hs_lead_status: 'NEW',
-        monthly_processing_volume: volume || undefined,
-        current_processor: currentProcessor || undefined,
-        hardware_type: hardwareType || undefined,
-        card_acceptance_method: cardMethod || undefined,
-        businessName: business || undefined,
-        createDeal: true,
-      }),
-    ]
+    const contactId = await submitLead({
+      email,
+      firstname: firstName,
+      lastname: lastName || undefined,
+      phone: phone || undefined,
+      industry: industry || undefined,
+      message: notes || undefined,
+      lifecyclestage: 'lead',
+      hs_lead_status: 'NEW',
+      monthly_processing_volume: volume || undefined,
+      current_processor: currentProcessor || undefined,
+      hardware_type: hardwareType || undefined,
+      card_acceptance_method: cardMethod || undefined,
+      businessName: business || undefined,
+      createDeal: true,
+    })
 
     const apiKey = process.env.RESEND_API_KEY
     if (apiKey && apiKey !== 'missing' && apiKey.startsWith('re_')) {
@@ -90,8 +88,15 @@ Statement:         ${fileData ? `Yes — ${fileData.name}` : 'No'}
         ? [{ filename: fileData.name, content: fileData.content, contentType: fileData.type }]
         : []
 
-      tasks.push(
-        // Internal notification
+      const hsLink = contactId
+        ? `<br><br><a href="${contactUrl(contactId)}" style="color:#0f6bff">View in HubSpot →</a>`
+        : ''
+
+      const fileName = fileData
+        ? fileData.name.length > 60 ? fileData.name.slice(0, 57) + '…' : fileData.name
+        : null
+
+      const results = await Promise.all([
         resend.emails.send({
           from: FROM,
           to: TO,
@@ -111,25 +116,23 @@ Statement:         ${fileData ? `Yes — ${fileData.name}` : 'No'}
               <tr><td><strong>Hardware / Terminal</strong></td><td>${hardwareType || '—'}</td></tr>
               <tr><td><strong>Card Method</strong></td><td>${cardMethod || '—'}</td></tr>
               <tr><td><strong>Notes</strong></td><td>${notes || '—'}</td></tr>
-              <tr><td><strong>Statement Attached</strong></td><td>${fileData ? `Yes — ${fileData.name}` : 'No'}</td></tr>
+              <tr><td><strong>Statement</strong></td><td>${fileName ? `Yes — ${fileName}` : 'No'}</td></tr>
             </table>
+            ${hsLink}
           `,
         }),
-        // Client confirmation
         resend.emails.send({
           from: FROM,
           to: email,
           replyTo: TO,
           subject: `We received your request — FinTech 5`,
           html: confirmationHtml(firstName),
-        })
-      )
-    }
-
-    const results = await Promise.all(tasks)
-    for (const r of results) {
-      if (r && typeof r === 'object' && 'error' in r && (r as { error?: unknown }).error) {
-        console.error('[/api/estimate] resend error', (r as { error: unknown }).error)
+        }),
+      ])
+      for (const r of results) {
+        if (r && typeof r === 'object' && 'error' in r && (r as { error?: unknown }).error) {
+          console.error('[/api/estimate] resend error', (r as { error: unknown }).error)
+        }
       }
     }
 

@@ -1,7 +1,8 @@
-const BASE = 'https://api.hubapi.com'
-
-const PIPELINE        = 'default'        // FinTech 5 Client Acquisition pipeline
-const STAGE_LEADS     = '249977987'      // Leads (first stage)
+const BASE       = 'https://api.hubapi.com'
+const PORTAL_ID  = '47439115'
+const PIPELINE   = 'default'       // FinTech 5 Client Acquisition pipeline
+const STAGE_LEADS = '249977987'    // Leads (first stage)
+const OWNER_ID   = '1137717668'   // Troy Maceira
 
 export type ContactProps = {
   email: string
@@ -61,8 +62,12 @@ function auth(tok: string) {
   return { 'Content-Type': 'application/json', Authorization: `Bearer ${tok}` }
 }
 
+export function contactUrl(contactId: string) {
+  return `https://app.hubspot.com/contacts/${PORTAL_ID}/contact/${contactId}`
+}
+
 async function upsertContactRecord(tok: string, props: ContactProps): Promise<string | null> {
-  const properties: Record<string, string> = {}
+  const properties: Record<string, string> = { hubspot_owner_id: OWNER_ID }
   for (const [k, v] of Object.entries(props)) {
     if (v !== undefined && v !== '') properties[k] = v
   }
@@ -84,7 +89,6 @@ async function upsertContactRecord(tok: string, props: ContactProps): Promise<st
 }
 
 async function findOrCreateCompany(tok: string, name: string, phone?: string): Promise<string | null> {
-  // Search for existing company by name
   const search = await fetch(`${BASE}/crm/v3/objects/companies/search`, {
     method: 'POST',
     headers: auth(tok),
@@ -100,7 +104,6 @@ async function findOrCreateCompany(tok: string, name: string, phone?: string): P
     if (data.results && data.results.length > 0) return data.results[0].id
   }
 
-  // Create new company
   const props: Record<string, string> = { name }
   if (phone) props.phone = phone
 
@@ -187,15 +190,17 @@ export async function upsertContact(props: ContactProps): Promise<void> {
   await upsertContactRecord(tok, props)
 }
 
-export async function submitLead(props: ContactProps & { businessName?: string; createDeal?: boolean }): Promise<void> {
+export async function submitLead(props: ContactProps & { businessName?: string; createDeal?: boolean }): Promise<string | null> {
   const tok = process.env.HUBSPOT_TOKEN
-  if (!tok) { console.warn('[hubspot] HUBSPOT_TOKEN not set'); return }
+  if (!tok) { console.warn('[hubspot] HUBSPOT_TOKEN not set'); return null }
 
   await ensureProperties(tok)
 
   const { businessName, createDeal: shouldCreateDeal, ...contactProps } = props
+  if (businessName) contactProps.company = businessName
+
   const contactId = await upsertContactRecord(tok, contactProps)
-  if (!contactId) return
+  if (!contactId) return null
 
   let companyId: string | null = null
   if (businessName) {
@@ -213,15 +218,17 @@ export async function submitLead(props: ContactProps & { businessName?: string; 
   const noteLines = [
     `<b>Submission Details</b>`,
     `Email: ${props.email}`,
-    props.phone                      ? `Phone: ${props.phone}` : null,
-    businessName                     ? `Business: ${businessName}` : null,
-    props.industry                   ? `Industry: ${props.industry}` : null,
-    props.monthly_processing_volume  ? `Monthly Volume: ${props.monthly_processing_volume}` : null,
-    props.current_processor          ? `Current Processor: ${props.current_processor}` : null,
-    props.hardware_type              ? `Hardware / Terminal: ${props.hardware_type}` : null,
-    props.card_acceptance_method     ? `Card Method: ${props.card_acceptance_method}` : null,
-    props.message                    ? `Message: ${props.message}` : null,
+    props.phone                     ? `Phone: ${props.phone}` : null,
+    businessName                    ? `Business: ${businessName}` : null,
+    props.industry                  ? `Industry: ${props.industry}` : null,
+    props.monthly_processing_volume ? `Monthly Volume: ${props.monthly_processing_volume}` : null,
+    props.current_processor         ? `Current Processor: ${props.current_processor}` : null,
+    props.hardware_type             ? `Hardware / Terminal: ${props.hardware_type}` : null,
+    props.card_acceptance_method    ? `Card Method: ${props.card_acceptance_method}` : null,
+    props.message                   ? `Message: ${props.message}` : null,
   ].filter(Boolean).join('<br>')
 
   await createNote(tok, contactId, companyId, noteLines)
+
+  return contactId
 }
