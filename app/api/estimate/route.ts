@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { upsertContact } from '@/lib/hubspot'
+import { submitLead } from '@/lib/hubspot'
 
 const TO = 'info@fintech5group.com'
 
@@ -34,12 +34,11 @@ Statement:         ${fileData ? `Yes — ${fileData.name}` : 'No'}
     console.log('[lead]', leadSummary)
 
     const tasks: Promise<unknown>[] = [
-      upsertContact({
+      submitLead({
         email,
         firstname: firstName,
         lastname: lastName || undefined,
         phone: phone || undefined,
-        company: business || undefined,
         industry: industry || undefined,
         message: notes || undefined,
         lifecyclestage: 'lead',
@@ -48,6 +47,8 @@ Statement:         ${fileData ? `Yes — ${fileData.name}` : 'No'}
         current_processor: currentProcessor || undefined,
         hardware_type: hardwareType || undefined,
         card_acceptance_method: cardMethod || undefined,
+        businessName: business || undefined,
+        createDeal: true,
       }),
     ]
 

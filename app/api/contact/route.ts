@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { Resend } from 'resend'
-import { upsertContact } from '@/lib/hubspot'
+import { submitLead } from '@/lib/hubspot'
 
 const TO = 'info@fintech5group.com'
 
@@ -30,7 +30,7 @@ export async function POST(req: NextRequest) {
           </table>
         `,
       }),
-      upsertContact({
+      submitLead({
         email,
         firstname: firstName,
         lastname: lastName || undefined,
@@ -39,6 +39,7 @@ export async function POST(req: NextRequest) {
         message: message || undefined,
         lifecyclestage: 'lead',
         hs_lead_status: 'NEW',
+        createDeal: true,
       }),
     ])
 
