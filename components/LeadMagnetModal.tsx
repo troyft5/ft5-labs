@@ -35,12 +35,12 @@ export default function LeadMagnetModal({
   }
 
   return (
-    <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6" style={{ background: 'rgba(5, 10, 5, 0.85)', backdropFilter: 'blur(8px)' }}>
+    <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6 overflow-y-auto" style={{ background: 'rgba(5, 10, 5, 0.85)', backdropFilter: 'blur(8px)' }}>
       {/* Background click to close */}
       <div className="absolute inset-0" onClick={onClose} />
 
-      <div 
-        className="relative w-full max-w-lg rounded-2xl overflow-hidden shadow-2xl animate-in fade-in zoom-in-95 duration-200"
+      <div
+        className="relative w-full max-w-lg rounded-2xl overflow-hidden shadow-2xl animate-in fade-in zoom-in-95 duration-200 my-auto"
         style={{ background: '#0a1208', border: '1px solid rgba(78,144,0,0.3)' }}
       >
         {/* Header gradient bar */}
@@ -60,16 +60,24 @@ export default function LeadMagnetModal({
               <div className="inline-flex items-center justify-center w-16 h-16 rounded-full mb-5" style={{ background: 'rgba(78,144,0,0.15)', border: '1px solid rgba(78,144,0,0.3)' }}>
                 <CheckCircle2 className="w-8 h-8" style={{ color: '#6fc200' }} />
               </div>
-              <h3 className="text-2xl font-black text-white mb-2">Check your inbox!</h3>
+              <h3 className="text-2xl font-black text-white mb-2">You&apos;re all set!</h3>
               <p className="text-slate-400 mb-6">
-                We&apos;ve sent the 2026 Interchange Cheat Sheet to <span className="text-white font-bold">{email}</span>.
+                View the cheat sheet now or open it directly in your browser — print or save as PDF from there.
               </p>
-              <button 
-                onClick={onClose}
-                className="w-full py-3.5 rounded-xl font-bold text-white transition-all hover:bg-white/10"
-                style={{ border: '1px solid rgba(255,255,255,0.1)' }}
+              <a
+                href="/interchange-cheat-sheet"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full flex items-center justify-center gap-2 py-3.5 rounded-xl font-black text-white text-base transition-all hover:-translate-y-0.5 mb-3"
+                style={{ background: '#4e9000', boxShadow: '0 4px 14px rgba(78,144,0,0.3)' }}
               >
-                Close Window
+                <FileDown className="w-4 h-4" /> Open Cheat Sheet
+              </a>
+              <button
+                onClick={onClose}
+                className="w-full py-3 rounded-xl font-bold text-slate-400 hover:text-white transition-colors text-sm"
+              >
+                Close
               </button>
             </div>
           ) : (
