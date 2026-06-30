@@ -121,16 +121,6 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
                 <NewsletterForm />
               </div>
 
-              {/* Author card */}
-              <div className="my-10 rounded-2xl p-6 flex items-start gap-5" style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)' }}>
-                <div className="w-14 h-14 rounded-full shrink-0 flex items-center justify-center font-black text-xl" style={{ background: 'linear-gradient(135deg,#2d5500,#6fc200)', color: '#fff' }}>T</div>
-                <div className="flex-1 min-w-0">
-                  <div className="text-[10px] font-bold uppercase tracking-widest mb-1" style={{ color: '#6fc200' }}>Written by</div>
-                  <div className="text-white font-black text-base mb-1">Troy Maceira</div>
-                  <p className="text-slate-500 text-sm leading-relaxed">Founder of FinTech 5 Group. Former insider at major payment processors — now helping merchants fight back against hidden fees and predatory pricing.</p>
-                </div>
-              </div>
-
               {/* Share + Back nav */}
               <div className="flex flex-wrap items-center justify-between gap-4 pt-8" style={{ borderTop: '1px solid rgba(255,255,255,0.08)' }}>
                 <Link href="/blog" className="inline-flex items-center gap-2 text-sm font-bold transition-all hover:-translate-x-1" style={{ color: '#6fc200' }}>
