@@ -111,12 +111,12 @@ export default function HeroSection() {
               </h1>
 
               <p className="text-lg text-slate-400 leading-relaxed mb-6 max-w-lg">
-                You&apos;re likely overpaying by 30–60%. We negotiate across 14 Tier-1 processors to lock in permanent savings — at zero cost to you.
+                You&apos;re likely overpaying by 30–60%. We negotiate across 14 Tier-1 processors to lock in permanent savings at zero cost to you.
               </p>
 
               {/* Phone — prominent above CTAs */}
               <a href="tel:6469417853" className="inline-flex items-center gap-2 mb-8 text-base font-bold hover:text-white transition-colors" style={{ color: '#6fc200' }}>
-                <Phone className="w-4 h-4" /> (646) 941-7853 — we answer
+                <Phone className="w-4 h-4" /> (646) 941-7853, and we always answer
               </a>
 
               {/* CTAs */}
@@ -140,7 +140,7 @@ export default function HeroSection() {
               {/* Proof strip */}
               <div className="flex flex-wrap items-center gap-x-8 gap-y-3">
                 {[
-                  'No consulting fees — ever',
+                  'No consulting fees. Ever.',
                   'Processor-agnostic advice',
                   '14 Tier-1 partners',
                   'We answer the phone',
@@ -156,9 +156,9 @@ export default function HeroSection() {
             {/* ── RIGHT: Mobile impact block ── */}
             <div className="lg:hidden mt-2 mb-8">
               <div className="rounded-2xl p-6 mb-3" style={{ background: 'rgba(78,144,0,0.08)', border: '1px solid rgba(78,144,0,0.25)' }}>
-                <div className="text-[11px] font-bold uppercase tracking-[0.18em] mb-2" style={{ color: '#6fc200' }}>Real client result — NJ</div>
+                <div className="text-[11px] font-bold uppercase tracking-[0.18em] mb-2" style={{ color: '#6fc200' }}>Real client result | NJ</div>
                 <div className="text-5xl font-black text-white mb-1">$18,400</div>
-                <div className="text-sm text-slate-400">in hidden fees identified — same-day audit</div>
+                <div className="text-sm text-slate-400">in hidden fees identified on same-day audit</div>
                 <div className="mt-4 h-px" style={{ background: 'linear-gradient(90deg, rgba(78,144,0,0.5), transparent)' }} />
                 <div className="mt-3 flex flex-col gap-2">
                   {[

@@ -1,12 +1,12 @@
 ---
 title: "Interchange Plus vs. Flat Rate vs. Tiered: Which Pricing Model Is Actually Right for Your Business?"
 date: "2026-02-20"
-excerpt: "Most merchants are on the wrong pricing model for their business type. Here's the honest breakdown — with math — of what each model really costs."
+excerpt: "Most merchants are on the wrong pricing model for their business type. Here's the honest breakdown, with real numbers, of what each model really costs."
 category: "Pricing"
 readTime: "9 min read"
 ---
 
-If you've ever tried to compare two processor quotes, you've hit the same wall every merchant does: one quote is flat rate, one is interchange-plus, and a third throws tiers at you. They're structurally incomparable — which is exactly why processors use all three.
+If you've ever tried to compare two processor quotes, you've hit the same wall every merchant does: one quote is flat rate, one is interchange-plus, and a third throws tiers at you. They're structurally incomparable, which is exactly why processors use all three.
 
 Here's how each one actually works, who benefits from each, and where each model costs you money.
 
@@ -53,7 +53,7 @@ Your transactions are sorted into buckets: **Qualified**, **Mid-Qualified**, and
 
 You have zero visibility and zero control into how transactions are bucketed. Processors routinely downgrade cards to mid-qual or non-qual without explanation, increasing your cost. The "qualified" rate in the brochure isn't what most of your transactions actually get billed at.
 
-**Tiered pricing is almost universally the most expensive model for volume merchants.** It was designed to be opaque — and it is.
+**Tiered pricing is almost universally the most expensive model for volume merchants.** It was designed to be opaque, and it is.
 
 ### Who uses it
 
@@ -77,14 +77,14 @@ If a standard debit card runs (IC rate: 0.05% + $0.22), your cost is:
 
 ### Why it's better for most merchants
 
-1. **Full transparency** — Your statement shows exactly what interchange was, and what the markup is. Nothing is hidden.
+1. **Full transparency:** Your statement shows exactly what interchange was, and what the markup is. Nothing is hidden.
 2. **Lower average effective rate** for merchants processing over $15,000/month
-3. **Card-type-appropriate pricing** — debit costs what debit should cost
-4. **Negotiable** — the markup is the only variable, and it can be compressed
+3. **Card-type-appropriate pricing:** debit costs what debit should cost
+4. **Negotiable:** the markup is the only variable, and it can be compressed
 
 ### The one caveat
 
-IC+ statements are harder to read. The line items multiply quickly. That complexity is why merchants sometimes prefer tiered or flat — but it's a false trade. Confusion is not worth overpaying.
+IC+ statements are harder to read. The line items multiply quickly. That complexity is why merchants sometimes prefer tiered or flat, but it's a false trade. Confusion is not worth overpaying.
 
 ---
 

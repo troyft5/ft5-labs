@@ -63,7 +63,7 @@ export default function PrivacyPolicy() {
           </Section>
 
           <Section title="Cookies">
-            <p>Our website uses cookies — small text files stored on your device — to help our site function properly and to understand how visitors interact with our content. These cookies are primarily set by our third-party service providers (HubSpot and Cloudflare).</p>
+            <p>Our website uses cookies (small text files stored on your device) to help our site function properly and to understand how visitors interact with our content. These cookies are primarily set by our third-party service providers (HubSpot and Cloudflare).</p>
             <p className="mt-3">You can control cookies through your browser settings. Note that disabling cookies may affect your experience on our site.</p>
           </Section>
 

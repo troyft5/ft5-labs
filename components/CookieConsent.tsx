@@ -30,7 +30,7 @@ export default function CookieConsent() {
       }}
     >
       <p className="text-xs text-slate-500 leading-relaxed flex-1">
-        <span className="font-bold text-slate-300">Cookies</span> — we use them to analyse traffic and improve your experience. No personal data is ever sold.{' '}
+        <span className="font-bold text-slate-300">Cookies:</span> we use them to analyse traffic and improve your experience. No personal data is ever sold.{' '}
         <Link href="/privacy-policy" className="underline underline-offset-2 hover:text-slate-300 transition-colors">
           Privacy Policy
         </Link>

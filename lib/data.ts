@@ -3,7 +3,7 @@ export const industriesData = {
     title: "Retail Payment Solutions",
     subtitle: "Free premium hardware plus flexible POS options to streamline every sale.",
     challenge: "Retailers face razor-thin margins, long checkout lines and costly hardware upgrades. High interchange on in-store card transactions, fragmented inventory and loyalty management, and slow support during peak hours all drain your bottom line before you even open the register.",
-    content: "FinTech 5 delivers a full stack of payments and POS hardware — starting with free premium equipment and extending to all leading terminals. Whether you're running a single storefront or a multi-location chain, we sync in-store sales with your e-commerce platform, build loyalty and gift card programs into checkout, and ensure you're on the right pricing model for your transaction mix.",
+    content: "FinTech 5 delivers a full stack of payments and POS hardware, starting with free premium equipment and extending to all leading terminals. Whether you're running a single storefront or a multi-location chain, we sync in-store sales with your e-commerce platform, build loyalty and gift card programs into checkout, and ensure you're on the right pricing model for your transaction mix.",
     features: [
       "Free premium terminals on qualifying plans",
       "All leading hardware brands available",
@@ -19,7 +19,7 @@ export const industriesData = {
   },
   "e-commerce": {
     title: "E-Commerce Payment Infrastructure",
-    subtitle: "Smarter payment infrastructure for online business — reduce costs, improve approvals, get real support.",
+    subtitle: "Smarter payment infrastructure for online business: reduce costs, improve approvals, get real support.",
     challenge: "Cart abandonment is the silent killer of e-commerce. Generic processors don't understand your stack, can't explain your effective rate, and disappear when you need help. Entry-level platforms cap your growth right when you're hitting your stride.",
     content: "At FinTech 5, we help e-commerce businesses streamline how they accept payments: reducing costs, improving approvals, and giving you access to real support when it matters. We work with industry-leading processing partners to offer flexible, secure, and scalable solutions tailored to how you sell online. Whether you're just starting out or processing millions monthly, we build a payment setup that works behind the scenes to support your growth.",
     features: [
@@ -73,7 +73,7 @@ export const industriesData = {
   },
   "healthcare": {
     title: "Healthcare Payment Solutions",
-    subtitle: "Modern, compliant payment solutions that let providers focus on patients — not paperwork.",
+    subtitle: "Modern, compliant payment solutions that let providers focus on patients, not paperwork.",
     challenge: "Medical practices face HIPAA requirements that most payment systems ignore. Patients are surprised by bills weeks after visits. Manual reconciliation between practice management software and payment records creates administrative nightmares. And outstanding receivables pile up when there's no flexibility for payment plans.",
     content: "FinTech 5 brings purpose-built payment infrastructure to medical, dental and behavioral health practices. HIPAA-compliant processing protects patient data while streamlining collections. Text-to-pay and QR codes eliminate mailed checks. Branded patient portals let patients view balances and set up payment plans on their schedule. And direct sync with your practice management software means no double-entry.",
     features: [
@@ -127,9 +127,9 @@ export const industriesData = {
   },
   "cbd": {
     title: "CBD & Hemp Payment Processing",
-    subtitle: "Compliant, cost-effective payments — now classified as Medium Risk, not High Risk.",
+    subtitle: "Compliant, cost-effective payments. Now classified as Medium Risk, not High Risk.",
     challenge: "CBD businesses face evolving regulations, banking restrictions and elevated processing fees. Bank declines and account freezes due to risk misclassification, high-risk interchange rates, PCI complexity around age-gated sales, and slow settlements all strain inventory cash flow.",
-    content: "FinTech 5 now categorizes CBD as Medium Risk — not high risk — which means significantly better rates and fewer banking headaches. We deliver medium-risk interchange, compliant PCI tokenization, omni-channel support for Shopify, WooCommerce and BigCommerce, subscription billing for monthly product boxes, and a dedicated account manager who knows the evolving CBD regulatory landscape.",
+    content: "FinTech 5 now categorizes CBD as Medium Risk, not high risk, which means significantly better rates and fewer banking headaches. We deliver medium-risk interchange, compliant PCI tokenization, omni-channel support for Shopify, WooCommerce and BigCommerce, subscription billing for monthly product boxes, and a dedicated account manager who knows the evolving CBD regulatory landscape.",
     features: [
       "Medium-risk classification (not high-risk)",
       "Lower rates via reclassification",
@@ -146,7 +146,7 @@ export const industriesData = {
   "b2b": {
     title: "B2B Payment Processing",
     subtitle: "Save time, cut costs and boost security on every business-to-business transaction.",
-    challenge: "Most B2B companies lose money and productivity to manual invoicing, hidden fees and security gaps. Over-complicated invoice reconciliation, high interchange on large-ticket orders, security and compliance headaches, and slow cash flow are standard — but they don't have to be.",
+    challenge: "Most B2B companies lose money and productivity to manual invoicing, hidden fees and security gaps. Over-complicated invoice reconciliation, high interchange on large-ticket orders, security and compliance headaches, and slow cash flow are standard, but they don't have to be.",
     content: "FinTech 5 brings enterprise-grade payment capabilities to businesses of all sizes. Level 3 processing passes rich line-item data to unlock the lowest interchange rates on large purchases. Automated recurring billing handles subscriptions and service contracts. Secure tokenization minimizes your PCI scope. And flexible ACH and virtual card options give your customers lower-cost alternatives while you reconcile vendor payouts automatically.",
     features: [
       "Level 3 processing for maximum interchange savings",
@@ -166,9 +166,9 @@ export const industriesData = {
 export const solutionsData = {
   "in-person-payments": {
     title: "In-Person Payments",
-    subtitle: "Countertop, mobile or kiosk — fast-checkout experiences built for today's brick-and-mortar and pop-up retailers.",
+    subtitle: "Countertop, mobile or kiosk: fast-checkout experiences built for today's brick-and-mortar and pop-up retailers.",
     challenge: "Slow terminals, unreliable connections, and hardware rental fees eat into every transaction. Most processors sell you equipment and disappear. You're left troubleshooting on a Saturday afternoon during your busiest hour.",
-    content: "FinTech 5 delivers a complete in-person payment stack — from free smart terminal placement to mobile tablets, self-checkout kiosks and line-busting Bluetooth readers. Every device ships preconfigured, plug-and-play, with point-to-point encryption built in. One dashboard monitors all terminals, all locations, all transactions in real time.",
+    content: "FinTech 5 delivers a complete in-person payment stack, from free smart terminal placement to mobile tablets, self-checkout kiosks and line-busting Bluetooth readers. Every device ships preconfigured, plug-and-play, with point-to-point encryption built in. One dashboard monitors all terminals, all locations, all transactions in real time.",
     features: [
       "Countertop POS: EMV/NFC/contactless, P2PE encryption",
       "Mobile & Tablet POS: tap-to-pay, offline mode",
@@ -181,7 +181,7 @@ export const solutionsData = {
     ],
     howItWorks: [
       "Select the hardware that fits your footprint.",
-      "Plug-and-Play — devices work instantly, no IT required.",
+      "Plug-and-Play: devices work instantly, no IT required.",
       "Customize settings (tax, tipping, receipts) in our dashboard.",
       "Train staff in minutes via guided onboarding.",
       "Accept cards, mobile wallets and gift/loyalty cards.",
@@ -192,12 +192,12 @@ export const solutionsData = {
   "mobile-payments": {
     title: "Mobile Payment Solutions",
     subtitle: "Turn any smartphone or tablet into a secure, on-the-go checkout.",
-    challenge: "If your revenue follows you out the door — to job sites, markets, events, or client visits — your payment system has to follow too. Losing a sale because you can't take a card in the field isn't a technology problem. It's a business problem.",
-    content: "FinTech 5 mobile solutions turn any iOS or Android device into a full-featured EMV POS. Smart terminals and branded tablet apps give you receipts, tipping and loyalty on the move. Offline mode means you never miss a sale in a dead zone — transactions auto-sync when you're back online. Apple Pay, Google Pay and Samsung Pay are included standard.",
+    challenge: "If your revenue follows you out the door to job sites, markets, events, or client visits, your payment system has to follow too. Losing a sale because you can't take a card in the field isn't a technology problem. It's a business problem.",
+    content: "FinTech 5 mobile solutions turn any iOS or Android device into a full-featured EMV POS. Smart terminals and branded tablet apps give you receipts, tipping and loyalty on the move. Offline mode means you never miss a sale in a dead zone; transactions auto-sync when you're back online. Apple Pay, Google Pay and Samsung Pay are included standard.",
     features: [
       "iOS & Android card reader attachments (mag-stripe, chip & NFC)",
       "Full mobile & iPad POS apps",
-      "Offline processing mode — auto-sync when back online",
+      "Offline processing mode: auto-sync when back online",
       "Apple Pay, Google Pay, Samsung Pay",
       "Integrated loyalty & rewards scanning",
       "Fast setup: app + reader in minutes",
@@ -208,7 +208,7 @@ export const solutionsData = {
       "Download the mobile POS app.",
       "Pair your card reader via Bluetooth.",
       "Configure taxes, discounts and tip settings.",
-      "Swipe, dip or tap — take payments on the move.",
+      "Swipe, dip or tap: take payments on the move.",
       "Sync data automatically when back online."
     ],
     cta: "Take Payments Anywhere"
@@ -216,22 +216,22 @@ export const solutionsData = {
   "online-payments": {
     title: "Online Payments",
     subtitle: "Turn website visitors into paying customers with secure, seamless e-commerce checkout.",
-    challenge: "Cart abandonment is the silent killer of e-commerce. A slow, confusing or unfamiliar checkout kills conversions right at the moment a customer has already decided to buy. Generic processors don't optimize for your stack — they just take their cut.",
-    content: "FinTech 5 builds payment infrastructure that integrates cleanly with your site — whether that's a hosted checkout page, an embedded iFrame widget, or a full API-first gateway with custom fields and webhooks. Subscription billing, digital wallet acceptance, and advanced fraud controls are included. We handle the PCI compliance heavy lifting so your dev team doesn't have to.",
+    challenge: "Cart abandonment is the silent killer of e-commerce. A slow, confusing or unfamiliar checkout kills conversions right at the moment a customer has already decided to buy. Generic processors don't optimize for your stack. They just take their cut.",
+    content: "FinTech 5 builds payment infrastructure that integrates cleanly with your site, whether that's a hosted checkout page, an embedded iFrame widget, or a full API-first gateway with custom fields and webhooks. Subscription billing, digital wallet acceptance, and advanced fraud controls are included. We handle the PCI compliance heavy lifting so your dev team doesn't have to.",
     features: [
-      "Hosted checkout pages — fully branded, PCI-compliant",
-      "Embedded checkout — iFrame or JavaScript widgets",
-      "API-first gateway — full control, custom fields, webhooks",
-      "Subscription billing — recurring plans, usage-based, smart retries",
-      "Digital Wallets — Apple Pay, Google Pay, PayPal",
+      "Hosted checkout pages: fully branded and PCI-compliant",
+      "Embedded checkout: iFrame or JavaScript widgets",
+      "API-first gateway: full control, custom fields, webhooks",
+      "Subscription billing: recurring plans, usage-based, smart retries",
+      "Digital Wallets: Apple Pay, Google Pay, PayPal",
       "Real-time fraud risk scoring & dispute tools",
-      "Unlimited scalability — handle spikes without extra fees",
-      "24/7 developer support — code samples, SDKs & live help"
+      "Unlimited scalability: handle spikes without extra fees",
+      "24/7 developer support: code samples, SDKs & live help"
     ],
     howItWorks: [
       "Choose hosted or API integration.",
       "Style your payment page to match your brand.",
-      "Launch in days — no heavy dev overhead.",
+      "Launch in days, no heavy dev overhead.",
       "Automate subscriptions and email receipts.",
       "Analyze conversion, authorization and churn rates."
     ],
@@ -248,7 +248,7 @@ export const solutionsData = {
       "Tiered: simplified buckets for the right use case",
       "Custom: hybrid models tailored to your transaction mix",
       "Free statement analysis to find your optimal model",
-      "Complete fee transparency — everything disclosed upfront",
+      "Complete fee transparency: everything disclosed upfront",
       "Flexible terms: month-to-month or multi-year",
       "Real-time dashboard to track effective rates & savings"
     ],
@@ -256,14 +256,14 @@ export const solutionsData = {
       "Assess your transaction types and volumes.",
       "Compare model options side-by-side in our pricing calculator.",
       "Select the plan that maximizes your cost savings.",
-      "Lock in your rates — no annual hikes.",
+      "Lock in your rates. No annual hikes.",
       "Review periodically with your account manager for adjustments."
     ],
     cta: "Analyze My Current Rates"
   },
   "free-placement": {
     title: "Free Terminal Placement",
-    subtitle: "Get premium hardware at zero cost — shipped, programmed and ready to process.",
+    subtitle: "Get premium hardware at zero cost, shipped, programmed and ready to process.",
     challenge: "You shouldn't have to spend $500–$1,500 on a credit card terminal. And you definitely shouldn't be leasing outdated equipment for $50/month, paying more for the machine than it's worth, while your processor locks you into a multi-year contract.",
     content: "On qualifying processing agreements, FinTech 5 places free premium equipment at your location at no cost to you. Devices ship preconfigured, plug-and-play, and are covered by our hardware replacement program. If a device fails, we replace it. If you need to add locations or upgrade models, we handle it. Trade-in offers are available for legacy terminals.",
     features: [
@@ -271,7 +271,7 @@ export const solutionsData = {
       "Smart terminals for mobile & tableside payment",
       "Trade-in offers for legacy terminals",
       "Leasing & financing options available",
-      "Devices ship preconfigured — no IT required",
+      "Devices ship preconfigured: no IT required",
       "Automatic firmware updates",
       "Zero-cost hardware replacement",
       "Dedicated onboarding & setup team"
@@ -280,7 +280,7 @@ export const solutionsData = {
       "Select your free terminal model or trade-in upgrade.",
       "Get approved with any qualifying processing agreement.",
       "Receive hardware preconfigured and shipped to your location.",
-      "Activate instantly — plug-and-play with our network.",
+      "Activate instantly: plug-and-play with our network.",
       "Ongoing automatic updates and rapid swap-outs if needed."
     ],
     cta: "Get Free Terminals"

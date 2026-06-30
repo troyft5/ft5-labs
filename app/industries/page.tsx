@@ -6,7 +6,7 @@ import ScrollDepth3D from '@/components/ScrollDepth3D'
 
 export const metadata = {
   title: 'Industries We Serve | Payment Solutions by Vertical',
-  description: 'FinTech 5 delivers specialized payment processing across 9+ industries — from retail and healthcare to high-risk merchants and B2B. Free consulting, zero cost to you.',
+  description: 'FinTech 5 delivers specialized payment processing across 9+ industries: from retail and healthcare to high-risk merchants and B2B. Free consulting, zero cost to you.',
 }
 
 const BG  = '#0f1a0f'
@@ -155,7 +155,7 @@ export default function IndustriesPage() {
                   We work with any legitimate merchant who accepts card payments.
                 </h2>
                 <p className="text-slate-400 leading-relaxed mb-8">
-                  These nine verticals represent our most common specializations — but if your business accepts payments, we can help. Just start a conversation and we&apos;ll tell you exactly what we can do.
+                  These nine verticals represent our most common specializations, but if your business accepts payments, we can help. Just start a conversation and we&apos;ll tell you exactly what we can do.
                 </p>
                 <div className="flex flex-wrap gap-4">
                   <Link href="/get-your-savings-estimate" className="inline-flex items-center gap-2 px-6 py-3.5 text-sm font-black text-white rounded-xl transition-all hover:-translate-y-0.5" style={{ background: '#4e9000', boxShadow: '0 8px 24px rgba(78,144,0,0.35)' }}>
@@ -169,8 +169,8 @@ export default function IndustriesPage() {
               <div className="flex flex-col gap-3">
                 {[
                   "We've worked with merchants in 40+ business categories",
-                  'No industry minimum — we work with $10k/month and $1M/month',
-                  "High-risk doesn't mean unworkable — we specialize in it",
+                  'No industry minimum. We work with $10k/month and $1M/month.',
+                  "High-risk doesn't mean unworkable. We specialize in it.",
                   'If you can accept a card, we can optimize it',
                 ].map((item, i) => (
                   <div key={i} className="flex items-start gap-3 p-5 rounded-xl" style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)' }}>
@@ -190,7 +190,7 @@ export default function IndustriesPage() {
         <div className="relative max-w-4xl mx-auto text-center">
           <div className="text-[10px] font-bold uppercase tracking-widest mb-4" style={{ color: 'rgba(255,255,255,0.6)' }}>Free. Zero obligation.</div>
           <h2 className="text-4xl font-black text-white mb-4 leading-tight">Find out what your industry&apos;s merchants actually pay.</h2>
-          <p style={{ color: 'rgba(255,255,255,0.75)' }} className="text-lg mb-8 max-w-xl mx-auto">Upload your statement and we&apos;ll return a line-by-line analysis with competitive bids same day or less — no pitch, no pressure.</p>
+          <p style={{ color: 'rgba(255,255,255,0.75)' }} className="text-lg mb-8 max-w-xl mx-auto">Upload your statement and we&apos;ll return a line-by-line analysis with competitive bids same day or less. No pitch, no pressure.</p>
           <Link href="/get-your-savings-estimate" className="inline-flex items-center gap-2 px-10 py-4 font-black rounded-xl transition-all hover:-translate-y-1" style={{ background: '#0a1208', color: '#6fc200', boxShadow: '0 8px 40px rgba(0,0,0,0.4)' }}>
             Get My Free Statement Audit <ArrowRight className="w-5 h-5" />
           </Link>

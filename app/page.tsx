@@ -9,7 +9,7 @@ import ScrollDepth3D from '@/components/ScrollDepth3D'
 import { getSortedPostsData } from '@/lib/blog'
 
 export const metadata = {
-  title: 'FinTech 5 | Payment Processing Consultants — Stop Losing Profits',
+  title: 'FinTech 5 | Payment Processing Consultants | Stop Losing Profits',
   description: 'FinTech 5 negotiates across 14 tier-1 processors to cut your processing costs 10–18%, eliminate hidden fees, and give you a dedicated expert who actually answers the phone.',
 }
 
@@ -31,26 +31,26 @@ const industries = [
 const testimonials = [
   { quote: "FinTech 5 identified $18,400 in fees we didn't know we were paying. The audit was same day. The savings are permanent.", name: 'Regional Retail Chain', location: 'NJ', savings: '$18,400/yr' },
   { quote: "We had been on tiered pricing for 6 years. Nobody told us. One statement analysis and we were switched to IC+ within a week.", name: 'E-Commerce Founder', location: 'NY', savings: '$9,800/yr' },
-  { quote: "My rep answers the phone every single time. That alone is worth more than the rate savings — though those are real too.", name: 'Healthcare Practice', location: 'NJ', savings: '$11,400/yr' },
+  { quote: "My rep answers the phone every single time. That alone is worth more than the rate savings, and those are very real too.", name: 'Healthcare Practice', location: 'NJ', savings: '$11,400/yr' },
 ]
 
 const steps = [
   {
     n: '01', icon: <FileText className="w-6 h-6" />,
     title: 'Send Your Statement',
-    body: 'Upload your merchant statement or enter a few numbers. We analyze every line — interchange, markup, junk fees — and flag what you shouldn\'t be paying.',
+    body: 'Upload your merchant statement or enter a few numbers. We analyze every line: interchange, markup, and junk fees. We flag what you shouldn\'t be paying.',
     badge: 'Same day or less',
   },
   {
     n: '02', icon: <GitMerge className="w-6 h-6" />,
     title: 'We Go to Market for You',
-    body: 'We submit your data to 14 tier-1 processors simultaneously. They bid blind — they can\'t see each other\'s offers. You get their best number, not their opening one.',
+    body: 'We submit your data to 14 tier-1 processors simultaneously. They bid blind. They can\'t see each other\'s offers. You get their best number, not their opening one.',
     badge: '14 processors bid',
   },
   {
     n: '03', icon: <DollarSign className="w-6 h-6" />,
     title: 'You Pick. We Lock It In.',
-    body: 'Choose the winning bid. We handle the switch. Rates are contractually locked — no annual creep. Your dedicated rep stays on the account permanently.',
+    body: 'Choose the winning bid. We handle the switch. Rates are contractually locked. No annual creep. Your dedicated rep stays on the account permanently.',
     badge: 'Avg. $8,400/yr saved',
   },
 ]
@@ -99,7 +99,7 @@ export default function Home() {
             {/* Stat strip */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
               {[
-                { stat: '$0',      label: 'Consulting fees — ever' },
+                { stat: '$0',      label: 'Consulting fees. Ever.' },
                 { stat: '24 hrs',  label: 'Statement audit turnaround' },
                 { stat: '10–18%',  label: 'Average year-one savings' },
                 { stat: 'NY & NJ', label: 'Where we know the market' },
@@ -214,7 +214,7 @@ export default function Home() {
               </h2>
               <p className="text-slate-400 leading-relaxed text-sm mb-6">We submit your statement to every major tier-1 processor simultaneously. They compete. You win. No negotiation required on your end.</p>
               <div className="flex flex-col gap-2">
-                {['Blind bidding — processors don\'t see competitor rates', '100% pass-through on interchange & assessments', 'We\'re compensated by the selected processor — not you'].map(item => (
+                {['Blind bidding: processors never see competitor rates', '100% pass-through on interchange & assessments', 'We\'re compensated by the selected processor, not you'].map(item => (
                   <div key={item} className="flex items-start gap-2.5 text-sm text-slate-500">
                     <span className="text-[#4e9000] mt-0.5 shrink-0">✓</span> {item}
                   </div>
@@ -240,7 +240,7 @@ export default function Home() {
                 Not a processor.<br />Your advocate.
               </h2>
             </div>
-            <p className="text-slate-400 max-w-sm leading-relaxed text-sm md:text-base">We sit exclusively on your side of the table — with no ownership stake in any processor.</p>
+            <p className="text-slate-400 max-w-sm leading-relaxed text-sm md:text-base">We sit exclusively on your side of the table, with no ownership stake in any processor.</p>
           </div>
 
           {/* Big two feature cards */}
@@ -249,7 +249,7 @@ export default function Home() {
               {
                 icon: <Shield className="w-7 h-7" />,
                 title: 'No Ownership. No Bias.',
-                body: "We don't own a piece of any processor. That means we recommend what's actually best for your margin — not what pays us more.",
+                body: "We don't own a piece of any processor. That means we recommend what's actually best for your margin, not what pays us more.",
                 stat: '14',
                 statLabel: 'Processors Compared',
               },
@@ -283,7 +283,7 @@ export default function Home() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {[
               { icon: <TrendingUp className="w-5 h-5" />, stat: '10–18%', label: 'Savings in Year One' },
-              { icon: <Zap className="w-5 h-5" />, stat: '$0', label: 'Consulting Fees — Ever' },
+              { icon: <Zap className="w-5 h-5" />, stat: '$0', label: 'Consulting Fees. Ever.' },
               { icon: <Users className="w-5 h-5" />, stat: '30+', label: 'Years Combined Experience' },
               { icon: <CheckCircle2 className="w-5 h-5" />, stat: 'PCI + HIPAA', label: 'Compliance Built In' },
             ].map(d => (
@@ -311,7 +311,7 @@ export default function Home() {
               {[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4" style={{ fill: '#4e9000', color: '#4e9000' }} />)}
             </div>
             <h2 className="text-4xl md:text-5xl font-black tracking-tight text-white mb-4">Real Businesses.<br />Real Savings.</h2>
-            <p className="text-slate-500 text-sm mt-3">Clients are kept confidential at their request — savings figures are verified.</p>
+            <p className="text-slate-500 text-sm mt-3">Clients are kept confidential at their request. Savings figures are verified.</p>
           </div>
 
           {/* Feature quote */}

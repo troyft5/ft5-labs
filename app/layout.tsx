@@ -26,13 +26,13 @@ export const metadata = {
     url: 'https://fintech5group.com',
     siteName: 'FinTech 5',
     title: 'FinTech 5 | Payment Processing Consultants',
-    description: 'We negotiate across 14 processors to lower your rates, eliminate junk fees, and protect your cash flow. Free consulting — no cost to you.',
-    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'FinTech 5 — Payment Processing Consultants' }],
+    description: 'We negotiate across 14 processors to lower your rates, eliminate junk fees, and protect your cash flow. Free consulting, no cost to you.',
+    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'FinTech 5 | Payment Processing Consultants' }],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'FinTech 5 | Payment Processing Consultants',
-    description: 'Stop overpaying on payment processing. Free consulting — we negotiate for you.',
+    description: 'Stop overpaying on payment processing. Free consulting: we negotiate for you.',
     images: ['/og-image.png'],
   },
   robots: {
@@ -71,7 +71,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 '@id': 'https://fintech5group.com/#business',
                 name: 'FinTech 5 Group',
                 alternateName: 'FT5',
-                description: 'Payment processing consultants. We negotiate across 14 tier-1 processors to lower your rates and eliminate hidden fees — at zero cost to you.',
+                description: 'Payment processing consultants. We negotiate across 14 tier-1 processors to lower your rates and eliminate hidden fees, at zero cost to you.',
                 url: 'https://fintech5group.com',
                 telephone: '+1-646-941-7853',
                 email: 'info@fintech5group.com',
@@ -87,12 +87,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                   {
                     '@type': 'Question',
                     name: 'How does FinTech 5 make money if consulting is free?',
-                    acceptedAnswer: { '@type': 'Answer', text: 'When a merchant selects a processor through FinTech 5, that processor compensates us from their margin. There is no charge to the merchant — ever.' },
+                    acceptedAnswer: { '@type': 'Answer', text: 'When a merchant selects a processor through FinTech 5, that processor compensates us from their margin. There is no charge to the merchant. Ever.' },
                   },
                   {
                     '@type': 'Question',
                     name: 'Do I have to switch processors to work with FT5?',
-                    acceptedAnswer: { '@type': 'Answer', text: 'No. We first audit your existing relationship. If your current processor is competitive, we tell you. If they are not, we present alternatives — and you choose.' },
+                    acceptedAnswer: { '@type': 'Answer', text: 'No. We first audit your existing relationship. If your current processor is competitive, we tell you. If they are not, we present alternatives, and you choose.' },
                   },
                   {
                     '@type': 'Question',
@@ -172,7 +172,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                     <Mail className="w-4 h-4 text-[#4e9000] shrink-0" /> info@fintech5group.com
                   </a>
                   <span className="flex items-center gap-2">
-                    <MapPin className="w-4 h-4 text-[#4e9000] shrink-0" /> NY &amp; NJ — Serving clients nationwide
+                    <MapPin className="w-4 h-4 text-[#4e9000] shrink-0" /> NY &amp; NJ | Serving clients nationwide
                   </span>
                 </div>
               </div>
@@ -235,7 +235,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 {/* CTA block */}
                 <div className="mt-8 p-4 rounded-xl" style={{ background: 'rgba(78,144,0,0.12)', border: '1px solid rgba(78,144,0,0.25)' }}>
                   <p className="text-xs font-semibold uppercase tracking-wider mb-2" style={{ color: '#8cd627' }}>Free Analysis</p>
-                  <p className="text-sm text-slate-300 mb-3">See exactly what you&apos;re overpaying — no strings attached.</p>
+                  <p className="text-sm text-slate-300 mb-3">See exactly what you&apos;re overpaying, no strings attached.</p>
                   <Link
                     href="/get-your-savings-estimate"
                     className="inline-flex items-center gap-1.5 text-xs font-bold text-white px-4 py-2 rounded-lg transition-all hover:opacity-90"
@@ -264,7 +264,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                   <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
                 </a>
               </div>
-              <p className="text-center">Processor-agnostic — we work for you, not the processors.</p>
+              <p className="text-center">Processor-agnostic: we work for you, not the processors.</p>
             </div>
           </div>
         </footer>

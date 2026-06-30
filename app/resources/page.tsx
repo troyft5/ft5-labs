@@ -5,8 +5,8 @@ import Reveal from '@/components/Reveal'
 import ScrollDepth3D from '@/components/ScrollDepth3D'
 
 export const metadata: Metadata = {
-  title: 'Resources | FinTech 5 — Payment Insights, Tools & Guides',
-  description: 'Free tools, expert articles, and industry insights from FinTech 5. Access our rate calculator, blog, statement audit, and more — all at zero cost.',
+  title: 'Resources | FinTech 5 | Payment Insights, Tools & Guides',
+  description: 'Free tools, expert articles, and industry insights from FinTech 5. Access our rate calculator, blog, statement audit, and more, all at zero cost.',
 }
 
 const BG  = '#0f1a0f'
@@ -19,7 +19,7 @@ const resources = [
     tag: 'Knowledge Base',
     href: '/blog',
     color: '#6fc200',
-    desc: 'Expert breakdowns of interchange, pricing models, and how to read your merchant statement. Written by industry veterans — no jargon.',
+    desc: 'Expert breakdowns of interchange, pricing models, and how to read your merchant statement. Written by industry veterans. No jargon.',
     cta: 'Read Articles',
     stat: '8+ Articles',
   },
@@ -39,7 +39,7 @@ const resources = [
     tag: 'Most Popular',
     href: '/get-your-savings-estimate',
     color: '#f59e0b',
-    desc: 'Upload your merchant statement and get a full line-by-line analysis with competitive bids from 14 processors — returned same day or less. No cost.',
+    desc: 'Upload your merchant statement and get a full line-by-line analysis with competitive bids from 14 processors, returned same day or less. No cost.',
     cta: 'Get My Audit',
     stat: 'Same-Day Turnaround',
   },
@@ -49,7 +49,7 @@ const resources = [
     tag: 'Our Story',
     href: '/about-us',
     color: '#8b5cf6',
-    desc: '30+ years of combined payment infrastructure experience. We built the systems — now we use that knowledge to work exclusively for merchants.',
+    desc: '30+ years of combined payment infrastructure experience. We built the systems, and now we use that knowledge to work exclusively for merchants.',
     cta: 'Meet the Team',
     stat: '30+ Yrs Experience',
   },
@@ -59,7 +59,7 @@ const resources = [
     tag: 'Talk to Us',
     href: '/contact-us',
     color: '#06b6d4',
-    desc: 'A real payment specialist picks up. No ticket queues, no bots. We respond within one business day — often within hours.',
+    desc: 'A real payment specialist picks up. No ticket queues, no bots. We respond within one business day, often within hours.',
     cta: 'Get in Touch',
     stat: '< 1 Day Response',
   },
@@ -67,7 +67,7 @@ const resources = [
 
 const guides = [
   { emoji: '📊', title: 'How to Read Your Merchant Statement', href: '/blog/how-to-read-your-merchant-statement', desc: 'Most merchants never read their statement. Here\'s the line-by-line guide.' },
-  { emoji: '💳', title: 'Interchange-Plus vs Flat Rate vs Tiered', href: '/blog/interchange-plus-vs-flat-rate-vs-tiered', desc: 'The three major pricing models explained — with real math.' },
+  { emoji: '💳', title: 'Interchange-Plus vs Flat Rate vs Tiered', href: '/blog/interchange-plus-vs-flat-rate-vs-tiered', desc: 'The three major pricing models explained, with real math.' },
   { emoji: '📈', title: 'Top Payment Trends 2026', href: '/blog/top-4-payment-trends-2026', desc: 'What\'s changing in the processing landscape this year.' },
 ]
 
@@ -232,7 +232,7 @@ export default function ResourcesPage() {
                   We earn our fee from<br />the processor you choose.
                 </h2>
                 <p className="text-slate-400 leading-relaxed mb-6">
-                  Every tool, article, and analysis on this site is free because our business model requires it to be. We only get paid when we find you a better deal. That means we have every reason to give you accurate, useful information — and zero reason to hide anything.
+                  Every tool, article, and analysis on this site is free because our business model requires it to be. We only get paid when we find you a better deal. That means we have every reason to give you accurate, useful information, and zero reason to hide anything.
                 </p>
                 <Link href="/about-us" className="inline-flex items-center gap-2 text-sm font-bold" style={{ color: '#6fc200' }}>
                   How we operate <ArrowRight className="w-4 h-4" />
@@ -269,7 +269,7 @@ export default function ResourcesPage() {
           <div className="text-[10px] font-bold uppercase tracking-widest mb-4" style={{ color: 'rgba(255,255,255,0.6)' }}>Ready to see your numbers?</div>
           <h2 className="text-4xl font-black text-white mb-4 leading-tight">The audit is free.<br />The savings are permanent.</h2>
           <p style={{ color: 'rgba(255,255,255,0.75)' }} className="text-lg mb-8 max-w-xl mx-auto">
-            Upload your statement — or just your contact info — and we&apos;ll return a full savings analysis with competitive bids same day or less.
+            Upload your statement or just your contact info, and we&apos;ll return a full savings analysis with competitive bids same day or less.
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
             <Link href="/get-your-savings-estimate" className="inline-flex items-center gap-2 px-10 py-4 font-black rounded-xl transition-all hover:-translate-y-1" style={{ background: '#0a1208', color: '#6fc200', boxShadow: '0 8px 40px rgba(0,0,0,0.4)' }}>

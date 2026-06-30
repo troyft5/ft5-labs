@@ -176,13 +176,13 @@ export default async function IndustryPage({ params }: { params: Promise<{ slug:
                 <div className="h-px w-8" style={{ background: '#4e9000' }} />
               </div>
               <h2 className="text-3xl md:text-4xl font-black text-white mb-3">Three steps to better rates.</h2>
-              <p className="text-slate-400 max-w-lg mx-auto text-sm">From statement to savings — with zero disruption and zero cost to you.</p>
+              <p className="text-slate-400 max-w-lg mx-auto text-sm">From statement to savings, with zero disruption and zero cost to you.</p>
             </div>
           </Reveal>
           <div className="grid md:grid-cols-3 gap-6">
             {[
-              { n: '01', title: 'Share your statement', body: 'Upload your most recent processing statement. We analyze every line item — interchange, processor markups, monthly minimums, and every fee in between.' },
-              { n: '02', title: 'We run a competitive bid', body: 'Your profile goes to 14 tier-1 processors simultaneously in a blind bid. They compete. You don\'t negotiate — we do.' },
+              { n: '01', title: 'Share your statement', body: 'Upload your most recent processing statement. We analyze every line item: interchange, processor markups, monthly minimums, and every fee in between.' },
+              { n: '02', title: 'We run a competitive bid', body: 'Your profile goes to 14 tier-1 processors simultaneously in a blind bid. They compete. You don\'t negotiate; we do.' },
               { n: '03', title: 'Choose and lock in savings', body: 'We present the winning offer with full transparency on every rate component. You decide. New rates are live within 5–10 business days.' },
             ].map((step, i) => (
               <Reveal key={step.n} delay={i * 100}>
@@ -208,7 +208,7 @@ export default async function IndustryPage({ params }: { params: Promise<{ slug:
                 <span className="text-[11px] font-bold uppercase tracking-[0.2em]" style={{ color: '#6fc200' }}>Who This Is For</span>
               </div>
               <h2 className="text-3xl font-black text-white mb-4 leading-tight">Built for any business that takes payments seriously.</h2>
-              <p className="text-slate-400 text-sm leading-relaxed">Whether you\'re a single-location operator or a multi-site enterprise, the same hidden fees are draining your margin. We fix that — at any scale, with zero upfront cost.</p>
+              <p className="text-slate-400 text-sm leading-relaxed">Whether you\'re a single-location operator or a multi-site enterprise, the same hidden fees are draining your margin. We fix that, at any scale, with zero upfront cost.</p>
             </div>
           </Reveal>
           <Reveal direction="right" delay={100}>
@@ -241,7 +241,7 @@ export default async function IndustryPage({ params }: { params: Promise<{ slug:
           <div className="grid md:grid-cols-3 gap-5">
             {[
               { q: 'Do we need to change our hardware or software?', a: 'Usually not. Our processor partners support all major POS systems and payment gateways. We find the best option that works with your existing infrastructure.' },
-              { q: 'How quickly can we expect to see savings?', a: 'The audit is same day or less. If you choose to switch, new rates are typically live within 5–10 business days — some programs are same-week.' },
+              { q: 'How quickly can we expect to see savings?', a: 'The audit is same day or less. If you choose to switch, new rates are typically live within 5–10 business days, and some programs are same-week.' },
               { q: 'What does FinTech 5 charge for this?', a: 'Nothing. Our consulting is funded entirely by the processor you select. You pay zero for the analysis, negotiation, and ongoing account support. No hidden charges.' },
             ].map((item, i) => (
               <Reveal key={i} delay={i * 80}>
@@ -301,7 +301,7 @@ export default async function IndustryPage({ params }: { params: Promise<{ slug:
               <span style={{ color: 'rgba(255,255,255,0.6)' }}>Free analysis same day or less.</span>
             </h2>
             <p className="text-lg mb-10 max-w-xl mx-auto" style={{ color: 'rgba(255,255,255,0.75)' }}>
-              Upload your merchant statement and get a line-by-line audit with competitive bids from 14 processors. No consulting fees — ever.
+              Upload your merchant statement and get a line-by-line audit with competitive bids from 14 processors. No consulting fees. Ever.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/get-your-savings-estimate" className="inline-flex items-center justify-center gap-2 px-9 py-4.5 text-base font-black rounded-xl hover:-translate-y-1 transition-all" style={{ background: '#0a1208', color: '#6fc200', boxShadow: '0 8px 40px rgba(0,0,0,0.4)' }}>

@@ -262,7 +262,7 @@ export default function PartnerPage({ params }: { params: { slug: string } }) {
                 <div className="rounded-2xl p-6 glass-card">
                   <div className="section-eyebrow mb-4">{'Why'} {partner.company} {'sent you here'}</div>
                   <p className="text-sm text-slate-300 leading-relaxed mb-5">
-                    {'Your partner knows that payment processing fees are often the largest controllable cost in a business — and they\'re often 20–40% higher than they need to be.'}
+                    {'Your partner knows that payment processing fees are often the largest controllable cost in a business, and they\'re often 20–40% higher than they need to be.'}
                   </p>
                   <div className="flex flex-col gap-3">
                     {[
@@ -302,7 +302,7 @@ export default function PartnerPage({ params }: { params: { slug: string } }) {
                   <p className="text-sm text-slate-300 italic leading-relaxed mb-3">
                     &ldquo;{'We were on tiered pricing for four years and had no idea. After the audit, we switched to IC+ and saved $11,200 in year one.'}&rdquo;
                   </p>
-                  <div className="text-xs text-slate-600 font-bold">{'— Restaurant group, New Jersey'}</div>
+                  <div className="text-xs text-slate-600 font-bold">{'Restaurant group, New Jersey'}</div>
                 </div>
               </Reveal>
 
@@ -342,7 +342,7 @@ export default function PartnerPage({ params }: { params: { slug: string } }) {
             {'Referred by'} {partner.company}
           </div>
           <h2 className="text-4xl font-black text-white mb-4 leading-tight section-heading">
-            {'Submit above — we\'ll get back to you in same day or less.'}
+            {'Submit above: we\'ll get back to you in same day or less.'}
           </h2>
           <p className="text-lg mb-8 max-w-xl mx-auto" style={{ color: 'rgba(255,255,255,0.75)' }}>
             {'Questions first?'} {'Call'} {' '} <a href="tel:6469417853" className="font-black underline">(646) 941-7853</a> {'or email'} <a href="mailto:info@fintech5group.com" className="font-black underline">info@fintech5group.com</a>.

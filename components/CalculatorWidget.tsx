@@ -319,7 +319,7 @@ export default function CalculatorWidget() {
 
           {/* Benchmark */}
           <div className="rounded-2xl p-6" style={{ background: 'rgba(255,255,255,0.025)', border: '1px solid rgba(255,255,255,0.07)' }}>
-            <div className="text-xs font-bold uppercase tracking-wider text-slate-500 mb-4">{results.bench.name} — Industry Benchmarks</div>
+            <div className="text-xs font-bold uppercase tracking-wider text-slate-500 mb-4">{results.bench.name}: Industry Benchmarks</div>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-5">
               {[
                 { label: 'Rate Range',     val: `${results.bench.avgRate.low}%–${results.bench.avgRate.high}%` },
@@ -345,7 +345,7 @@ export default function CalculatorWidget() {
 
           {/* Profitability impact */}
           <div className="rounded-2xl p-6" style={{ background: 'rgba(255,255,255,0.025)', border: '1px solid rgba(255,255,255,0.07)' }}>
-            <div className="text-xs font-bold uppercase tracking-wider text-slate-500 mb-4">Profitability Impact — {results.bench.name} (~{results.bench.netMargin}% net margin)</div>
+            <div className="text-xs font-bold uppercase tracking-wider text-slate-500 mb-4">Profitability Impact for {results.bench.name} (~{results.bench.netMargin}% net margin)</div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               {[
                 { label: 'Processing Cost % of Revenue', val: `${((results.ic.mo * 12) / (results.vol * 12) * 100).toFixed(2)}%`, color: 'text-slate-300' },
@@ -390,7 +390,7 @@ export default function CalculatorWidget() {
           {/* B2B Level II/III */}
           {results.b2b && (
             <div className="rounded-2xl p-6" style={{ background: 'rgba(59,130,246,0.07)', border: '1px solid rgba(59,130,246,0.2)' }}>
-              <div className="text-xs font-bold uppercase tracking-wider text-blue-400 mb-4">B2B Level II / III — Additional Savings Opportunity</div>
+              <div className="text-xs font-bold uppercase tracking-wider text-blue-400 mb-4">B2B Level II / III: Additional Savings Opportunity</div>
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                 {[
                   { label: 'Level II Savings Est.',     val: `${fmt(results.b2b.l2SaveMo)}/mo`,                           sub: '~0.50–1.00% off interchange on corporate cards' },
@@ -438,7 +438,7 @@ export default function CalculatorWidget() {
                 style={{ background: 'rgba(78,144,0,0.1)', border: '1px solid rgba(78,144,0,0.3)' }}>
                 <div>
                   <div className="text-sm font-black text-white mb-0.5">You flagged {checkedFees.size} potential hidden fees</div>
-                  <div className="text-xs text-slate-400">Send us your statement — we&apos;ll identify the exact dollar amounts and what&apos;s negotiable.</div>
+                  <div className="text-xs text-slate-400">Send us your statement and we&apos;ll identify the exact dollar amounts and what&apos;s negotiable.</div>
                 </div>
                 <Link href={`/get-your-savings-estimate?source=calculator&fees_flagged=${checkedFees.size}&industry=${industry}&volume=${vol}`}
                   className="flex items-center gap-2 px-5 py-2.5 text-sm font-black text-white rounded-xl whitespace-nowrap shrink-0 transition-all hover:-translate-y-0.5"
@@ -457,7 +457,7 @@ export default function CalculatorWidget() {
                 style={{ background: 'rgba(255,255,255,0.025)' }}>
                 <div>
                   <div className="text-xs font-bold uppercase tracking-wider text-slate-500 mb-0.5">Industry Intelligence</div>
-                  <div className="text-sm font-black text-white">{results.bench.name} — Cost Reduction Opportunities</div>
+                  <div className="text-sm font-black text-white">{results.bench.name}: Cost Reduction Opportunities</div>
                 </div>
                 {showIntel ? <ChevronUp className="w-4 h-4 text-slate-500" /> : <ChevronDown className="w-4 h-4 text-slate-500" />}
               </button>
@@ -486,7 +486,7 @@ export default function CalculatorWidget() {
             style={{ background: 'rgba(78,144,0,0.1)', border: '1px solid rgba(78,144,0,0.3)' }}>
             <div>
               <div className="text-[11px] font-bold uppercase tracking-widest mb-1" style={{ color: '#6fc200' }}>Want the exact number?</div>
-              <div className="text-xl font-black text-white mb-1">Send us your statement. Back to you same day — free.</div>
+              <div className="text-xl font-black text-white mb-1">Send us your statement. Back to you same day, free.</div>
               <div className="text-sm text-slate-400">These are estimates. A real audit gives you exact figures with competitive bids from 14 processors.</div>
             </div>
             <Link

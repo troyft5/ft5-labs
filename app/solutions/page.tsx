@@ -6,7 +6,7 @@ import ScrollDepth3D from '@/components/ScrollDepth3D'
 
 export const metadata = {
   title: 'Payment Solutions | In-Person, Mobile, Online & More',
-  description: 'FinTech 5 delivers end-to-end payment solutions — in-person terminals, mobile payments, online checkout, transparent pricing, and free hardware placement. Zero cost to you.',
+  description: 'FinTech 5 delivers end-to-end payment solutions: in-person terminals, mobile payments, online checkout, transparent pricing, and free hardware placement. Zero cost to you.',
 }
 
 const BG  = '#0f1a0f'
@@ -61,7 +61,7 @@ export default function SolutionsPage() {
           </Reveal>
           <Reveal delay={160}>
             <p className="text-xl text-slate-400 max-w-xl leading-relaxed mb-10">
-              From free hardware placement to transparent interchange-plus pricing — each solution is designed to reduce your cost, not just move it around.
+              From free hardware placement to transparent interchange-plus pricing, each solution is designed to reduce your cost, not just move it around.
             </p>
           </Reveal>
           <Reveal delay={220}>
@@ -153,7 +153,7 @@ export default function SolutionsPage() {
             {[
               { n: '01', title: 'Audit your current setup', body: "We review your existing processor, pricing model, hardware, and effective rate. Most merchants don't know what they're actually paying." },
               { n: '02', title: 'Map your business needs', body: 'Do you need mobile capability? Are you primarily card-present or CNP? Do you want free hardware? We build a requirements picture before recommending anything.' },
-              { n: '03', title: 'Present the right stack', body: 'We recommend the combination of solution(s) that lowers your total cost, fits your workflow, and gives you room to grow — with the processor bids to back it up.' },
+              { n: '03', title: 'Present the right stack', body: 'We recommend the combination of solution(s) that lowers your total cost, fits your workflow, and gives you room to grow, backed by real processor bids.' },
             ].map((step, i) => (
               <Reveal key={step.n} delay={i * 80}>
                 <div className="p-7 rounded-2xl h-full" style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)' }}>
@@ -209,7 +209,7 @@ export default function SolutionsPage() {
         <div className="absolute inset-0 pointer-events-none" style={{ backgroundImage: 'linear-gradient(rgba(255,255,255,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.04) 1px,transparent 1px)', backgroundSize: '48px 48px' }} />
         <div className="relative max-w-4xl mx-auto text-center">
           <div className="text-[10px] font-bold uppercase tracking-widest mb-4" style={{ color: 'rgba(255,255,255,0.6)' }}>Not sure which solution fits?</div>
-          <h2 className="text-4xl font-black text-white mb-4 leading-tight">We&apos;ll figure it out together — in one call.</h2>
+          <h2 className="text-4xl font-black text-white mb-4 leading-tight">We&apos;ll figure it out together in one call.</h2>
           <p style={{ color: 'rgba(255,255,255,0.75)' }} className="text-lg mb-8 max-w-xl mx-auto">
             Submit your statement or just your contact info. We&apos;ll map out the right solution stack and return your savings analysis within 24 hours or less.
           </p>

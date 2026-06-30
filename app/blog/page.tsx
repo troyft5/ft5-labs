@@ -9,7 +9,7 @@ const BG  = '#0f1a0f'
 const BG2 = '#0a1208'
 
 export const metadata = {
-  title: 'Insights | FinTech 5 — Payment Processing Blog',
+  title: 'Insights | FinTech 5 | Payment Processing Blog',
   description: 'Expert strategies on payment processing, interchange pricing, and maximizing your profit margins. Written by industry veterans.',
 }
 
@@ -158,7 +158,7 @@ export default function BlogIndex() {
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
             {[
               { cat: 'Education', color: '#3b82f6', emoji: '📖', desc: 'Plain-English explanations of interchange, pricing models, and how the payment stack actually works.' },
-              { cat: 'Pricing', color: '#f59e0b', emoji: '💰', desc: 'Breakdowns of flat-rate vs tiered vs IC+ pricing — with real math on what each model costs at scale.' },
+              { cat: 'Pricing', color: '#f59e0b', emoji: '💰', desc: 'Breakdowns of flat-rate vs tiered vs IC+ pricing, with real math on what each model costs at scale.' },
               { cat: 'Analysis', color: '#8b5cf6', emoji: '📊', desc: 'Deep dives into industry trends, seasonal rate changes, and what merchants should watch for in their statements.' },
               { cat: 'Technology', color: '#06b6d4', emoji: '⚡', desc: 'Coverage of emerging payment tech: contactless, biometrics, AI fraud detection, and what\'s coming next.' },
             ].map((item, i) => (
@@ -189,7 +189,7 @@ export default function BlogIndex() {
               <Link href="/calculator" className="group flex flex-col rounded-2xl p-8 transition-all hover:-translate-y-1" style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)' }}>
                 <div className="text-3xl mb-4">🧮</div>
                 <h3 className="text-xl font-black text-white group-hover:text-[#8cd627] transition-colors mb-3">{'Processing Fee Calculator'}</h3>
-                <p className="text-slate-500 text-sm leading-relaxed flex-1 mb-5">{'Enter your monthly volume and transaction details to see your estimated effective rate, markup breakdown, and potential savings — instantly.'}</p>
+                <p className="text-slate-500 text-sm leading-relaxed flex-1 mb-5">{'Enter your monthly volume and transaction details to see your estimated effective rate, markup breakdown, and potential savings, instantly.'}</p>
                 <div className="inline-flex items-center gap-2 text-sm font-bold" style={{ color: '#4e9000' }}>{'Try the Calculator'} <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" /></div>
               </Link>
             </Reveal>
@@ -222,10 +222,10 @@ export default function BlogIndex() {
           <Reveal direction="right" delay={100}>
             <div className="flex flex-col gap-4">
               {[
-                { emoji: '🔍', point: 'We name the things processors prefer to obscure — like tiered pricing tiers, basis point markups, and junk fees.' },
+                { emoji: '🔍', point: 'We name the things processors prefer to obscure (tiered pricing tiers, basis point markups, and junk fees).' },
                 { emoji: '📐', point: 'We do the math for you. Every article includes real examples with actual numbers, not hypotheticals.' },
                 { emoji: '⚖️', point: 'We don\'t have editorial partnerships with processors. No sponsored content. No affiliate links. No agenda.' },
-                { emoji: '🆓', point: 'Every piece of content is free, always. Our business model is consulting — not selling your data or your attention.' },
+                { emoji: '🆓', point: 'Every piece of content is free, always. Our business model is consulting, not selling your data or your attention.' },
               ].map((item, i) => (
                 <div key={i} className="flex items-start gap-4 p-5 rounded-xl" style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)' }}>
                   <span className="text-xl shrink-0">{item.emoji}</span>

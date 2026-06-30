@@ -4,8 +4,8 @@ import Reveal from '@/components/Reveal'
 import ScrollDepth3D from '@/components/ScrollDepth3D'
 
 export const metadata = {
-  title: 'About Us | FinTech 5 — Payment Processing Consultants',
-  description: 'Founded by a family of financial technology veterans with 30+ years of combined experience. We built payment infrastructure for universities and enterprises — then decided to put that expertise to work for you.',
+  title: 'About Us | FinTech 5 | Payment Processing Consultants',
+  description: 'Founded by a family of financial technology veterans with 30+ years of combined experience. We built payment infrastructure for universities and enterprises, then decided to put that expertise to work for you.',
 }
 
 const BG  = '#0f1a0f'
@@ -13,16 +13,16 @@ const BG2 = '#0a1208'
 
 export default function AboutPage() {
   const values = [
-    { n: '01', icon: <Phone className="w-5 h-5" />, title: 'We Answer the Phone', body: 'Every FinTech 5 client gets a named account representative. Not a ticket system or a chatbot — a real person who knows your account and picks up when you call.' },
+    { n: '01', icon: <Phone className="w-5 h-5" />, title: 'We Answer the Phone', body: 'Every FinTech 5 client gets a named account representative. Not a ticket system or a chatbot. A real person who knows your account and picks up when you call.' },
     { n: '02', icon: <Shield className="w-5 h-5" />, title: 'We Represent You, Not the Processor', body: 'We\'re not owned by any processing company. We have no quota to fill for any particular partner. Our only obligation is to the merchant sitting across from us.' },
-    { n: '03', icon: <Zap className="w-5 h-5" />, title: 'Our Revenue Comes from Processors', body: 'When you select a processor through FT5, that processor compensates us — not you. Our consulting is free to merchants, full stop. No retainers, no consulting fees, no hidden charges.' },
+    { n: '03', icon: <Zap className="w-5 h-5" />, title: 'Our Revenue Comes from Processors', body: 'When you select a processor through FT5, that processor compensates us, not you. Our consulting is free to merchants, full stop. No retainers, no consulting fees, no hidden charges.' },
     { n: '04', icon: <TrendingUp className="w-5 h-5" />, title: 'We Stay With You After the Switch', body: 'The relationship doesn\'t end at signing. We review your statements, catch rate creep, escalate billing disputes, and re-bid your account if a better option emerges.' },
   ]
 
   const timeline = [
-    { era: '30+ Years Ago', title: 'Built from the inside out', body: 'We spent decades building and managing payment infrastructure for universities, healthcare systems, and mid-market enterprises — seeing exactly how the money moved and where it was wasted.' },
+    { era: '30+ Years Ago', title: 'Built from the inside out', body: 'We spent decades building and managing payment infrastructure for universities, healthcare systems, and mid-market enterprises. We saw exactly how the money moved and where it was wasted.' },
     { era: 'The Aggregator Era', title: 'Watched merchants get left behind', body: 'When flat-rate aggregators promised simplicity, we watched the fine print. Convenience disguised cost. Each transaction, each batch, each \'service fee\' added up. The merchants who needed help most got it least.' },
-    { era: '2021 — FinTech 5 Founded', title: 'We decided to fix it', body: 'Taking the institutional knowledge we\'d built over decades and deploying it exclusively for merchants — we launched FinTech 5 with one rule: zero consulting fees, ever.' },
+    { era: '2021: FinTech 5 Founded', title: 'We decided to fix it', body: 'Taking the institutional knowledge we\'d built over decades and deploying it exclusively for merchants. We launched FinTech 5 with one rule: zero consulting fees, ever.' },
     { era: 'Today', title: 'Serving merchants across NY, NJ and beyond', body: 'Our network of 14 tier-1 processor partners now competes for every client we represent. The expertise that once only Fortune 500 companies could access is now available to any serious business.' },
   ]
 
@@ -60,7 +60,7 @@ export default function AboutPage() {
 
           <Reveal delay={200}>
             <p className="text-xl text-slate-400 max-w-2xl leading-relaxed mb-12">
-              {'We spent decades building payment infrastructure for universities and managing high-stakes merchant accounts for enterprises. We saw exactly where the money went — and where it didn\'t have to. Then we decided to put that knowledge to work for you.'}
+              {'We spent decades building payment infrastructure for universities and managing high-stakes merchant accounts for enterprises. We saw exactly where the money went, and where it didn\'t have to. Then we decided to put that knowledge to work for you.'}
             </p>
           </Reveal>
 
@@ -88,16 +88,16 @@ export default function AboutPage() {
                 {'$18B+'}
               </div>
               <div className="text-base text-slate-400 max-w-xs leading-relaxed">
-                {'In unnecessary payment processing fees are paid by US merchants every year — most of them without ever knowing.'}
+                {'In unnecessary payment processing fees are paid by US merchants every year, most of them without ever knowing.'}
               </div>
             </div>
           </Reveal>
 
           <Reveal direction="right" delay={150}>
             <div className="flex flex-col gap-5 text-slate-400 leading-relaxed">
-              <p className="text-lg">{'The payment processing industry is intentionally complex. Tiered pricing, junk fees, regulatory markups, PCI surcharges — the model is designed to obscure the true cost of accepting a card.'}</p>
+              <p className="text-lg">{'The payment processing industry is intentionally complex. Tiered pricing, junk fees, regulatory markups, PCI surcharges: the model is designed to obscure the true cost of accepting a card.'}</p>
               <p>{'Large enterprises employ internal compliance teams and payment operations staff to fight this. Small and mid-size businesses don\'t. That\'s the gap we exist to close.'}</p>
-              <p className="text-white font-bold text-lg">{'FinTech 5 brings enterprise-grade payment expertise to every business we work with — at zero cost to the merchant.'}</p>
+              <p className="text-white font-bold text-lg">{'FinTech 5 brings enterprise-grade payment expertise to every business we work with, at zero cost to the merchant.'}</p>
             </div>
           </Reveal>
         </div>
@@ -146,7 +146,7 @@ export default function AboutPage() {
                 <div className="h-px w-8" style={{ background: '#4e9000' }} />
               </div>
               <h2 className="text-4xl md:text-5xl font-black tracking-tight text-white mb-4">{'Four rules we never break.'}</h2>
-              <p className="text-slate-400 max-w-lg mx-auto">{'The entire FinTech 5 model is built around these principles. They aren\'t values on a poster — they\'re the terms under which we operate.'}</p>
+              <p className="text-slate-400 max-w-lg mx-auto">{'The entire FinTech 5 model is built around these principles. They aren\'t values on a poster. They\'re the terms under which we operate.'}</p>
             </div>
           </Reveal>
 
@@ -259,7 +259,7 @@ export default function AboutPage() {
                   <h2 className="text-2xl md:text-3xl font-black text-white mb-4">{'Working with FT5 is'}<br />{'risk-free by design.'}</h2>
                   <div className="flex flex-col gap-3">
                     {[
-                      'No contracts required — month-to-month always',
+                      'No contracts required. Month-to-month, always.',
                       'No consulting fees charged to merchants, ever',
                       'No pressure to switch if your current rate is competitive',
                       'No ownership stake in any processor partner',

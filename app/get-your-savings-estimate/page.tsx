@@ -14,13 +14,13 @@ const labelClass = "text-xs font-bold text-slate-400 mb-1.5 block uppercase trac
 
 const processSteps = [
   { title: 'Submit your info',       body: 'Fill the form or upload a recent merchant statement. A statement gives us the most accurate analysis.',                                                               tag: 'Now' },
-  { title: 'We analyze',             body: 'Our team reviews every line item — interchange, fees, markup, and any hidden charges buried in the fine print.',                                                    tag: 'Same day or less' },
+  { title: 'We analyze',             body: 'Our team reviews every line item: interchange, fees, markup, and any hidden charges buried in the fine print.',                                                    tag: 'Same day or less' },
   { title: 'You receive the report', body: 'We return a full report showing your true effective rate vs. what you could be paying with our processor network.',                                                  tag: 'Free' },
   { title: 'You make the call',      body: "No pressure. If the numbers don't make switching worth it, we tell you. If they do, we handle everything.",                                                         tag: 'Your choice' },
 ]
 
 const guarantees = [
-  'No consulting fee — ever',
+  'No consulting fees. Ever.',
   'No obligation to switch',
   'No ownership stake in any processor',
   'Response within 1 business day',
@@ -95,7 +95,7 @@ export default function Estimate() {
                 </span>
               </h1>
               <p className="text-lg text-slate-400 leading-relaxed max-w-md">
-                Upload your merchant statement — or just fill in the details. Our consultants return a full fee breakdown and competitive comparison same day or less.
+                Upload your merchant statement or just fill in the details. Our consultants return a full fee breakdown and competitive comparison same day or less.
               </p>
             </div>
 
@@ -157,7 +157,7 @@ export default function Estimate() {
                       <label className={labelClass}>
                         <span className="flex items-center gap-2">
                           <Upload className="w-3 h-3" /> Merchant Statement
-                          <span className="text-slate-600 font-normal normal-case tracking-normal">— optional but recommended</span>
+                          <span className="text-slate-600 font-normal normal-case tracking-normal">(optional but recommended)</span>
                         </span>
                       </label>
                       <label
@@ -177,7 +177,7 @@ export default function Estimate() {
                           <div className="text-center">
                             <Upload className="w-8 h-8 mx-auto mb-3 text-slate-600" />
                             <div className="text-sm font-bold text-slate-300 mb-1">Drop your statement here or click to browse</div>
-                            <div className="text-xs text-slate-600">PDF, XLS, CSV, or image — max 10MB</div>
+                            <div className="text-xs text-slate-600">PDF, XLS, CSV, or image. Max 10MB.</div>
                           </div>
                         )}
                       </label>
@@ -222,7 +222,7 @@ export default function Estimate() {
                     <details className="group">
                       <summary className="cursor-pointer text-xs font-bold text-slate-600 hover:text-slate-400 transition-colors select-none list-none flex items-center gap-2">
                         <span className="text-[#4e9000] group-open:rotate-90 transition-transform inline-block">›</span>
-                        Add phone or notes <span className="font-normal text-slate-700">(optional — speeds up your analysis)</span>
+                        Add phone or notes <span className="font-normal text-slate-700">(optional, speeds up your analysis)</span>
                       </summary>
                       <div className="flex flex-col gap-5 mt-4">
                         <div>
@@ -334,7 +334,7 @@ export default function Estimate() {
                 <p className="text-sm text-slate-300 italic leading-relaxed mb-3">
                   &ldquo;They analyzed our statement same day or less and found we were paying nearly 60 basis points above market rate. Switched in two weeks.&rdquo;
                 </p>
-                <div className="text-xs text-slate-600 font-bold">— Retail merchant, New Jersey</div>
+                <div className="text-xs text-slate-600 font-bold">Retail merchant, New Jersey</div>
               </div>
             </div>
 
@@ -348,7 +348,7 @@ export default function Estimate() {
         <div className="max-w-5xl mx-auto">
           <div className="grid md:grid-cols-3 gap-8 text-center">
             {[
-              { icon: '🏦', title: '14 Processor Network',     body: 'We compare bids from major acquiring banks and payment networks — not just one or two options.' },
+              { icon: '🏦', title: '14 Processor Network',     body: 'We compare bids from major acquiring banks and payment networks, not just one or two options.' },
               { icon: '📊', title: 'Line-by-Line Analysis',    body: 'Every fee gets flagged. We identify interchange, markup, statement fees, PCI fees, batch fees, and everything buried in the rates section.' },
               { icon: '🤝', title: 'Processor-Agnostic Always',body: 'We hold no ownership stake in any processor. Our only incentive is finding you the best deal.' },
             ].map(item => (

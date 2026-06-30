@@ -35,7 +35,7 @@ export default function SchedulePage() {
             </span>
           </h1>
           <p className="text-lg text-slate-400 max-w-lg mx-auto leading-relaxed mb-10">
-            {'Book a free 15-minute call with a payment specialist. We\'ll review your current rates and tell you exactly how much you can save — no prep needed.'}
+            {'Book a free 15-minute call with a payment specialist. We\'ll review your current rates and tell you exactly how much you can save. No prep needed.'}
           </p>
 
           {/* Quick trust bar */}
@@ -80,7 +80,7 @@ export default function SchedulePage() {
               </p>
               <p className="text-xs text-slate-600 mb-6">Google Calendar → Appointment Schedules → Open Booking Page → Copy URL</p>
               <a href="tel:6469417853" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-black text-white" style={{ background: '#4e9000' }}>
-                {'Call Us Now — (646) 941-7853'}
+                {'Call Us Now: (646) 941-7853'}
               </a>
             </div>
           )}
@@ -99,7 +99,7 @@ export default function SchedulePage() {
             {[
               { icon: '📄', title: 'Have a statement ready', body: 'A recent merchant processing statement gives us the most to work with. Even a screenshot of your monthly totals is helpful.' },
               { icon: '💳', title: 'Know your monthly volume', body: 'Rough monthly card volume is enough. We\'ll work with whatever you have.' },
-              { icon: '🤝', title: 'No prep required', body: 'You don\'t need to know the right questions. Just show up — we\'ll guide the conversation.' },
+              { icon: '🤝', title: 'No prep required', body: 'You don\'t need to know the right questions. Just show up. We\'ll guide the conversation.' },
             ].map(item => (
               <div key={item.title} className="rounded-2xl p-6" style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)' }}>
                 <div className="text-2xl mb-3">{item.icon}</div>

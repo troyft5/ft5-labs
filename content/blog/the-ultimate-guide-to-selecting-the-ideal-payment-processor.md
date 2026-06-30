@@ -46,8 +46,8 @@ Request:
 
 ## Step 5: Work with a Consultant
 
-The most efficient path is to provide your last 3 months of statements to a processor-agnostic consultant — like FinTech 5 — who can analyze your true effective rate, identify hidden fees, and return competitive quotes from 10+ processors same day or less. At no cost to you.
+The most efficient path is to provide your last 3 months of statements to a processor-agnostic consultant (like FinTech 5) who can analyze your true effective rate, identify hidden fees, and return competitive quotes from 10+ processors same day or less. At no cost to you.
 
-The alternative is spending dozens of hours researching, requesting quotes, decoding proposals, and negotiating on your own — against people who do this daily.
+The alternative is spending dozens of hours researching, requesting quotes, decoding proposals, and negotiating on your own, against people who do this daily.
 
 The right processor for your business exists. Finding it is the work.

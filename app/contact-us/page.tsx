@@ -7,7 +7,7 @@ const BG  = '#0f1a0f'
 const BG2 = '#0a1208'
 
 export const metadata = {
-  title: 'Contact Us | FinTech 5 — Payment Processing Consultants',
+  title: 'Contact Us | FinTech 5 | Payment Processing Consultants',
   description: 'Talk to a real payment specialist. No bots, no tickets. Reach FinTech 5 by phone, email, or contact form.',
 }
 
@@ -51,7 +51,7 @@ export default function ContactPage() {
               </Reveal>
               <Reveal delay={160}>
                 <p className="text-xl text-slate-400 max-w-lg leading-relaxed">
-                  Reach out directly or fill out the form below — a dedicated payment specialist responds within one business day.
+                  Reach out directly or fill out the form below. A dedicated payment specialist responds within one business day.
                 </p>
               </Reveal>
             </div>
@@ -125,7 +125,7 @@ export default function ContactPage() {
             <Reveal direction="right" delay={250}>
               <div className="rounded-2xl p-6" style={{ background: 'rgba(78,144,0,0.1)', border: '1px solid rgba(78,144,0,0.25)' }}>
                 <div className="text-[10px] font-bold uppercase tracking-widest mb-2" style={{ color: '#6fc200' }}>Prefer the fast lane?</div>
-                <p className="text-sm text-slate-400 mb-4">Upload your statement and get a full savings audit back same day or less — no form needed.</p>
+                <p className="text-sm text-slate-400 mb-4">Upload your statement and get a full savings audit back same day or less. No form needed.</p>
                 <a href="/get-your-savings-estimate" className="inline-flex items-center gap-2 text-sm font-black text-white px-5 py-2.5 rounded-xl transition-all hover:opacity-90" style={{ background: '#4e9000' }}>
                   Get Free Savings Estimate <ArrowRight className="w-4 h-4" />
                 </a>
@@ -260,7 +260,7 @@ export default function ContactPage() {
                   <h2 className="text-2xl md:text-3xl font-black text-white mb-6">Our commitment before you even say hello.</h2>
                   <div className="flex flex-col gap-3">
                     {[
-                      'No pitch on the first call — we listen first',
+                      'No pitch on the first call. We listen first.',
                       'No fee unless we find you real savings',
                       'No ownership stake in any processor we recommend',
                       'Honest analysis even if the answer is "stay where you are"',

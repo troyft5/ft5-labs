@@ -92,9 +92,9 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
               {/* Inline CTA box */}
               <div className="my-16 rounded-2xl p-8 flex flex-col md:flex-row items-start md:items-center gap-6" style={{ background: 'rgba(78,144,0,0.08)', border: '1px solid rgba(78,144,0,0.25)' }}>
                 <div className="flex-1">
-                  <div className="text-[10px] font-bold uppercase tracking-widest mb-2" style={{ color: '#6fc200' }}>Free Analysis — Same-Day Turnaround</div>
+                  <div className="text-[10px] font-bold uppercase tracking-widest mb-2" style={{ color: '#6fc200' }}>Free Analysis | Same-Day Turnaround</div>
                   <div className="text-white font-black text-lg mb-1">See what this means for your business.</div>
-                  <p className="text-sm text-slate-400">Upload your merchant statement and we&apos;ll return a line-by-line audit with competitive bids. No consulting fees — ever.</p>
+                  <p className="text-sm text-slate-400">Upload your merchant statement and we&apos;ll return a line-by-line audit with competitive bids. No consulting fees. Ever.</p>
                 </div>
                 <Link href="/get-your-savings-estimate" className="shrink-0 inline-flex items-center gap-2 px-6 py-3.5 text-sm font-black text-white rounded-xl transition-all hover:-translate-y-0.5" style={{ background: '#4e9000', boxShadow: '0 8px 20px rgba(78,144,0,0.3)' }}>
                   Get Free Estimate <ArrowRight className="w-4 h-4" />
@@ -105,7 +105,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
               <div className="my-12 rounded-2xl p-8" style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)' }}>
                 <div className="text-[10px] font-bold uppercase tracking-widest mb-2" style={{ color: '#6fc200' }}>Monthly Rate Intelligence</div>
                 <h3 className="text-lg font-black text-white mb-2">Get notified when interchange rates change.</h3>
-                <p className="text-sm text-slate-500 mb-5">We track Visa, Mastercard, and Amex rate tables every quarter and alert our list when something shifts — free, no spam.</p>
+                <p className="text-sm text-slate-500 mb-5">We track Visa, Mastercard, and Amex rate tables every quarter and alert our list when something shifts, free and no spam.</p>
                 <NewsletterForm />
               </div>
 

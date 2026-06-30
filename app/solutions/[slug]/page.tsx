@@ -196,7 +196,7 @@ export default async function SolutionPage({ params }: { params: Promise<{ slug:
                 <span className="text-[11px] font-bold uppercase tracking-[0.2em]" style={{ color: '#6fc200' }}>Ideal For</span>
               </div>
               <h2 className="text-3xl font-black text-white mb-4 leading-tight">Who gets the most from this solution.</h2>
-              <p className="text-slate-400 text-sm leading-relaxed">Every business is different. Here&apos;s the profile of merchants who see the strongest results from this particular solution — though we customize for every situation.</p>
+              <p className="text-slate-400 text-sm leading-relaxed">Every business is different. Here&apos;s the profile of merchants who see the strongest results from this particular solution, though we customize for every situation.</p>
             </div>
           </Reveal>
           <Reveal direction="right" delay={100}>
@@ -228,8 +228,8 @@ export default async function SolutionPage({ params }: { params: Promise<{ slug:
           </Reveal>
           <div className="grid md:grid-cols-3 gap-5">
             {[
-              { q: 'Are there setup fees or minimums?', a: 'No setup fees and no volume minimums. We work with merchants at every scale, and our consulting is always free to you — funded by the selected processor.' },
-              { q: 'What if my current setup is already competitive?', a: 'We\'ll tell you. If your current processor is giving you a fair deal, we say so — and we never push a switch without clear evidence of meaningful savings.' },
+              { q: 'Are there setup fees or minimums?', a: 'No setup fees and no volume minimums. We work with merchants at every scale, and our consulting is always free to you, funded by the selected processor.' },
+              { q: 'What if my current setup is already competitive?', a: 'We\'ll tell you. If your current processor is giving you a fair deal, we say so, and we never push a switch without clear evidence of meaningful savings.' },
               { q: 'What happens if rates increase after switching?', a: 'Rate creep is common. As your ongoing account advocate, we monitor your statements monthly and address any unauthorized markups with the processor directly.' },
             ].map((item, i) => (
               <Reveal key={i} delay={i * 80}>
@@ -286,7 +286,7 @@ export default async function SolutionPage({ params }: { params: Promise<{ slug:
               <span style={{ color: 'rgba(255,255,255,0.6)' }}>Free. No obligation.</span>
             </h2>
             <p className="text-lg mb-10 max-w-xl mx-auto" style={{ color: 'rgba(255,255,255,0.75)' }}>
-              Our consulting is 100% free — funded by our processor partners, not by you. Get a data-driven analysis same day or less.
+              Our consulting is 100% free, funded by our processor partners, not by you. Get a data-driven analysis same day or less.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/get-your-savings-estimate" className="inline-flex items-center justify-center gap-2 px-9 py-4 text-base font-black rounded-xl hover:-translate-y-1 transition-all" style={{ background: '#0a1208', color: '#6fc200', boxShadow: '0 8px 40px rgba(0,0,0,0.4)' }}>

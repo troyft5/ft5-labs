@@ -16,7 +16,7 @@ export default function NewsletterForm() {
         <div className="w-5 h-5 rounded-full flex items-center justify-center shrink-0" style={{ background: 'rgba(78,144,0,0.2)' }}>
           <span style={{ color: '#6fc200' }} className="text-xs">✓</span>
         </div>
-        <span className="text-sm font-bold" style={{ color: '#6fc200' }}>You&apos;re on the list — we&apos;ll alert you when rates change.</span>
+        <span className="text-sm font-bold" style={{ color: '#6fc200' }}>You&apos;re on the list: we&apos;ll alert you when rates change.</span>
       </div>
     )
   }

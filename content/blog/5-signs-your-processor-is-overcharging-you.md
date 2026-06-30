@@ -6,7 +6,7 @@ category: "Analysis"
 readTime: "5 min read"
 ---
 
-Over 80% of businesses we audit are paying more than they should. Not by a little — by 15–40% more than a competitive rate. The frustrating part: most of them had no idea.
+Over 80% of businesses we audit are paying more than they should. Not by a little. By 15–40% more than a competitive rate. The frustrating part: most of them had no idea.
 
 Here are the five clearest signals your processor is taking more than their fair share.
 
@@ -16,7 +16,7 @@ Here are the five clearest signals your processor is taking more than their fair
 
 If your statement has "Qualified," "Mid-Qualified," and "Non-Qualified" buckets, you're on tiered pricing. This model was designed to obscure your actual cost.
 
-At low volume, the simplicity might be worth it. Above $25k/month, it consistently underperforms interchange-plus pricing — often by $200–$800 per month.
+At low volume, the simplicity might be worth it. Above $25k/month, it consistently underperforms interchange-plus pricing, often by $200–$800 per month.
 
 **The test:** Ask your processor for an interchange-plus re-quote. If they push back or can't provide one, that tells you everything.
 
@@ -37,7 +37,7 @@ A retail merchant running at 2.5%+ with mostly debit and standard credit cards i
 
 ## 3. You Have a Contract With an Early Termination Fee
 
-Month-to-month agreements are standard in competitive processor relationships. Multi-year contracts with ETFs ($250–$750 is common) are a red flag — they're designed to make switching painful even when you know you're overpaying.
+Month-to-month agreements are standard in competitive processor relationships. Multi-year contracts with ETFs ($250–$750 is common) are a red flag: they're designed to make switching painful even when you know you're overpaying.
 
 If you signed a 3-year term, you may have a window: **most contracts allow rate increases only with 30-day notice, and many state laws allow you to exit if rates are increased without consent.** Check your agreement and your state's regulations.
 
@@ -61,7 +61,7 @@ If you find two or more of these on your statement, you're likely dealing with a
 
 Interchange rates from Visa and Mastercard update twice per year (April and October). Processor competition intensifies constantly. If your rate hasn't been reviewed in three years, you're almost certainly not on the best available pricing.
 
-Processors don't proactively lower your rates — that's not their incentive. You have to either negotiate yourself or bring in someone who does it for a living.
+Processors don't proactively lower your rates; that's not their incentive. You have to either negotiate yourself or bring in someone who does it for a living.
 
 ---
 
@@ -71,7 +71,7 @@ You have two options:
 
 **Option 1:** Call your current processor and request a rate review. Be specific: ask for an interchange-plus re-pricing with your current volume. Bring data.
 
-**Option 2:** Have a third party audit your statement and bring competitive bids. This is what FinTech 5 does — at zero cost to you, funded by the processors we work with.
+**Option 2:** Have a third party audit your statement and bring competitive bids. This is what FinTech 5 does, at zero cost to you, funded by the processors we work with.
 
 The audit is same day or less. The average savings we identify: $8,400 per year.
 
