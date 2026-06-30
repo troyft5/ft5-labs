@@ -4,7 +4,10 @@ date: "2025-01-22"
 excerpt: "What is best for your business? When a business wants to accept credit card payments, it has two main choices: payment aggregators or traditional merchant accounts."
 category: "Security"
 readTime: "3 min read"
+cover: "/blog-images/image-2.jpg"
 ---
+
+![](/blog-images/image-2.jpg)
 
 #### **What is best for your business?**
 

@@ -4,7 +4,10 @@ date: "2025-01-13"
 excerpt: "The Rise of Digital Wallets In recent years, the adoption of digital wallets has gained significant traction in the world of e-commerce."
 category: "Security"
 readTime: "6 min read"
+cover: "/blog-images/jonas-leupe-0IVop5v4MMU-unsplash-1024x683.jpg"
 ---
+
+![](/blog-images/jonas-leupe-0IVop5v4MMU-unsplash-1024x683.jpg)
 
 #### **The Rise of Digital Wallets**
 

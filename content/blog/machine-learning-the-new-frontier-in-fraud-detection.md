@@ -4,7 +4,10 @@ date: "2025-01-06"
 excerpt: "Introduction to Machine Learning in Fraud Detection In today’s digital age, the prevalence of online transactions has surged, bringing with it an increased risk of fraud."
 category: "Security"
 readTime: "2 min read"
+cover: "/blog-images/image.jpg"
 ---
+
+![](/blog-images/image.jpg)
 
 #### **Introduction to Machine Learning in Fraud Detection**
 

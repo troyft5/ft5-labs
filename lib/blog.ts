@@ -25,7 +25,7 @@ export function getSortedPostsData() {
 
     return {
       slug,
-      ...(data as { title: string; date: string; excerpt: string; category: string; readTime: string })
+      ...(data as { title: string; date: string; excerpt: string; category: string; readTime: string; cover?: string })
     }
   })
 
@@ -40,6 +40,6 @@ export function getPostData(slug: string) {
   return {
     slug,
     content,
-    ...(data as { title: string; date: string; excerpt: string; category: string; readTime: string })
+    ...(data as { title: string; date: string; excerpt: string; category: string; readTime: string; cover?: string })
   }
 }

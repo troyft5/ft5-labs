@@ -1,6 +1,7 @@
 import { getPostData, getSortedPostsData } from '@/lib/blog'
 import { glossaryData } from '@/lib/glossary'
 import ReactMarkdown from 'react-markdown'
+import Image from 'next/image'
 import Link from 'next/link'
 import { ArrowLeft, Calendar, Clock, ArrowRight, BookOpen, ChevronRight } from 'lucide-react'
 import ReadingProgress from '@/components/ReadingProgress'
@@ -80,6 +81,13 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
 
             {/* ── Main content ── */}
             <div>
+              {/* Cover image */}
+              {post.cover && (
+                <div className="relative w-full aspect-[16/9] rounded-2xl overflow-hidden mb-10">
+                  <Image src={post.cover} alt={post.title} fill className="object-cover" />
+                </div>
+              )}
+
               {/* Excerpt lede */}
               <p className="text-lg md:text-xl text-slate-300 leading-relaxed mb-10 pb-10 font-medium" style={{ borderBottom: '1px solid rgba(255,255,255,0.08)' }}>
                 {post.excerpt}
