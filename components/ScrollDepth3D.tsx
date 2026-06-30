@@ -21,10 +21,10 @@ export default function ScrollDepth3D({
   useEffect(() => {
     if (typeof window === 'undefined') return
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      // Just fade in immediately, no motion
       if (ref.current) {
         ref.current.style.opacity = '1'
         ref.current.style.transform = 'none'
+        ref.current.style.willChange = 'auto'
       }
       return
     }
@@ -48,6 +48,11 @@ export default function ScrollDepth3D({
             el.style.transition = `opacity 0.7s cubic-bezier(0.16,1,0.3,1) ${delay}ms, transform 0.7s cubic-bezier(0.16,1,0.3,1) ${delay}ms`
             el.style.opacity = '1'
             el.style.transform = 'perspective(1000px) translateZ(0px) scale(1)'
+            setTimeout(() => {
+              if (!el) return
+              el.style.willChange = 'auto'
+              el.style.transition = 'none'
+            }, 700 + delay + 50)
           }, 50)
           observer.disconnect()
         }

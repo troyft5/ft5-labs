@@ -18,13 +18,14 @@ export default function ParticleCanvas() {
   useEffect(() => {
     if (typeof window === 'undefined') return
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
+    if (window.innerWidth < 1024) return
 
     const canvas = canvasRef.current
     if (!canvas) return
     const ctx = canvas.getContext('2d')
     if (!ctx) return
 
-    const COUNT = 60
+    const COUNT = 40
     const MAX_DIST = 130
     const REPEL_RADIUS = 90
     const REPEL_FORCE = 0.6

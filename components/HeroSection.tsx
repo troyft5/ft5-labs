@@ -39,6 +39,7 @@ export default function HeroSection() {
   useEffect(() => {
     const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
     if (prefersReduced) return
+    if (window.innerWidth < 1024) return
 
     const hero = heroRef.current
     if (!hero) return
