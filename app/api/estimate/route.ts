@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { submitLead } from '@/lib/hubspot'
 
-const TO = 'info@fintech5group.com'
+const TO = 'troy@fintech5group.com'
 const FROM = 'FinTech 5 <no-reply@fintech5group.com>'
 
 const confirmationHtml = (firstName: string) => `
