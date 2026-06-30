@@ -39,7 +39,7 @@ const resources = [
     tag: 'Most Popular',
     href: '/get-your-savings-estimate',
     color: '#f59e0b',
-    desc: 'Upload your merchant statement and get a full line-by-line analysis with competitive bids from 14 processors, returned same day or less. No cost.',
+    desc: 'Upload your merchant statement and get a full line-by-line analysis with competitive bids from 10+ processors, returned same day or less. No cost.',
     cta: 'Get My Audit',
     stat: 'Same-Day Turnaround',
   },
@@ -243,7 +243,7 @@ export default function ResourcesPage() {
                   { icon: <Shield className="w-5 h-5" />, stat: '$0', label: 'Consulting cost', note: 'to merchants, ever' },
                   { icon: <TrendingUp className="w-5 h-5" />, stat: '10–18%', label: 'Avg savings', note: 'year one' },
                   { icon: <FileText className="w-5 h-5" />, stat: '24hr', label: 'Audit turnaround', note: 'guaranteed' },
-                  { icon: <Users className="w-5 h-5" />, stat: '14', label: 'Processors bid', note: 'for your business' },
+                  { icon: <Users className="w-5 h-5" />, stat: '10+', label: 'Processors bid', note: 'for your business' },
                 ].map(s => (
                   <div key={s.label} className="rounded-2xl p-5 flex flex-col gap-2" style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)' }}>
                     <div className="w-9 h-9 rounded-xl flex items-center justify-center" style={{ background: 'rgba(78,144,0,0.1)', color: '#4e9000' }}>

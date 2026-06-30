@@ -109,7 +109,7 @@ export default function PartnerPage({ params }: { params: { slug: string } }) {
                 {[
                   { value: 0, suffix: '%', prefix: '', label: 'Consulting fee', sub: 'Free, always', display: '$0' },
                   { value: 24, suffix: 'h', prefix: '', label: 'Audit turnaround', sub: 'Same day or less', display: '24h' },
-                  { value: 14, suffix: '', prefix: '', label: 'Processors in network', sub: 'Blind competitive bid', display: '14' },
+                  { value: 10, suffix: '+', prefix: '', label: 'Processors in network', sub: 'Blind competitive bid', display: '10+' },
                   { value: 18, suffix: '%', prefix: 'Up to ', label: 'Savings in year one', sub: 'For qualifying merchants', display: '' },
                 ].map((s, i) => (
                   <div key={i} className="flex items-center gap-5 rounded-2xl px-5 py-4 glass-card inset-glow-top">
@@ -313,7 +313,7 @@ export default function PartnerPage({ params }: { params: { slug: string } }) {
                   <div className="flex flex-col gap-4">
                     {[
                       { Icon: Users, label: 'Processor-agnostic', sub: 'No ownership in any processor' },
-                      { Icon: TrendingDown, label: '14 competing bids', sub: 'Blind auction, you pick the winner' },
+                      { Icon: TrendingDown, label: '10+ competing bids', sub: 'Blind auction, you pick the winner' },
                       { Icon: ShieldCheck, label: 'Zero cost model', sub: 'Processors compensate us, not you' },
                     ].map(({ Icon, label, sub }) => (
                       <div key={label} className="flex items-center gap-3">

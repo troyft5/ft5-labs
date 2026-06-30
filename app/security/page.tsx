@@ -124,7 +124,7 @@ export default function SecurityPage() {
           </div>
           <h2 className="text-3xl md:text-5xl font-black text-white mb-6">We don&apos;t sell your data. Every bid is blind.</h2>
           <p className="text-lg text-slate-400 leading-relaxed mb-10 max-w-2xl mx-auto">
-            When we run a competitive bid across our 14 processor network, we anonymize your business entity. Processors see your industry, volume, and current hardware setup, but your business name and contact info are stripped out until you explicitly choose a winning bid. They bid on your volume, not your name.
+            When we run a competitive bid across our 10+ processor network, we anonymize your business entity. Processors see your industry, volume, and current hardware setup, but your business name and contact info are stripped out until you explicitly choose a winning bid. They bid on your volume, not your name.
           </p>
           <div className="grid sm:grid-cols-3 gap-6 max-w-3xl mx-auto text-left">
             {['Zero unsolicited marketing', 'Anonymized processor bidding', 'Data only shared explicitly'].map(item => (

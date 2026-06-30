@@ -182,7 +182,7 @@ export default async function IndustryPage({ params }: { params: Promise<{ slug:
           <div className="grid md:grid-cols-3 gap-6">
             {[
               { n: '01', title: 'Share your statement', body: 'Upload your most recent processing statement. We analyze every line item: interchange, processor markups, monthly minimums, and every fee in between.' },
-              { n: '02', title: 'We run a competitive bid', body: 'Your profile goes to 14 tier-1 processors simultaneously in a blind bid. They compete. You don\'t negotiate; we do.' },
+              { n: '02', title: 'We run a competitive bid', body: 'Your profile goes to 10+ tier-1 processors simultaneously in a blind bid. They compete. You don\'t negotiate; we do.' },
               { n: '03', title: 'Choose and lock in savings', body: 'We present the winning offer with full transparency on every rate component. You decide. New rates are live within 5–10 business days.' },
             ].map((step, i) => (
               <Reveal key={step.n} delay={i * 100}>
@@ -301,7 +301,7 @@ export default async function IndustryPage({ params }: { params: Promise<{ slug:
               <span style={{ color: 'rgba(255,255,255,0.6)' }}>Free analysis same day or less.</span>
             </h2>
             <p className="text-lg mb-10 max-w-xl mx-auto" style={{ color: 'rgba(255,255,255,0.75)' }}>
-              Upload your merchant statement and get a line-by-line audit with competitive bids from 14 processors. No consulting fees. Ever.
+              Upload your merchant statement and get a line-by-line audit with competitive bids from 10+ processors. No consulting fees. Ever.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/get-your-savings-estimate" className="inline-flex items-center justify-center gap-2 px-9 py-4.5 text-base font-black rounded-xl hover:-translate-y-1 transition-all" style={{ background: '#0a1208', color: '#6fc200', boxShadow: '0 8px 40px rgba(0,0,0,0.4)' }}>

@@ -23,7 +23,7 @@ export default function AboutPage() {
     { era: '30+ Years Ago', title: 'Built from the inside out', body: 'We spent decades building and managing payment infrastructure for universities, healthcare systems, and mid-market enterprises. We saw exactly how the money moved and where it was wasted.' },
     { era: 'The Aggregator Era', title: 'Watched merchants get left behind', body: 'When flat-rate aggregators promised simplicity, we watched the fine print. Convenience disguised cost. Each transaction, each batch, each \'service fee\' added up. The merchants who needed help most got it least.' },
     { era: '2021: FinTech 5 Founded', title: 'We decided to fix it', body: 'Taking the institutional knowledge we\'d built over decades and deploying it exclusively for merchants. We launched FinTech 5 with one rule: zero consulting fees, ever.' },
-    { era: 'Today', title: 'Serving merchants across NY, NJ and beyond', body: 'Our network of 14 tier-1 processor partners now competes for every client we represent. The expertise that once only Fortune 500 companies could access is now available to any serious business.' },
+    { era: 'Today', title: 'Serving merchants across NY, NJ and beyond', body: 'Our network of 10+ tier-1 processor partners now competes for every client we represent. The expertise that once only Fortune 500 companies could access is now available to any serious business.' },
   ]
 
   return (
@@ -66,7 +66,7 @@ export default function AboutPage() {
 
           <Reveal delay={300}>
             <div className="flex flex-wrap gap-8">
-              {[['30+', 'Years of experience'], ['14', 'Tier-1 processor partners'], ['$0', 'Consulting cost to you']].map(([val, label]) => (
+              {[['30+', 'Years of experience'], ['10+', 'Tier-1 processor partners'], ['$0', 'Consulting cost to you']].map(([val, label]) => (
                 <div key={label}>
                   <div className="text-3xl font-black text-white">{val}</div>
                   <div className="text-sm text-slate-500 mt-0.5">{label}</div>
@@ -234,7 +234,7 @@ export default function AboutPage() {
             {[
               { q: 'How do you make money if you don\'t charge merchants?', a: 'The processor we place you with compensates us from their existing margin. Our incentive aligns with yours: we only receive compensation if we find you a deal that genuinely benefits you.' },
               { q: 'What size businesses do you work with?', a: 'We work with merchants processing from $10,000 to several million per month. Our sweet spot is $30k–$500k, but there is no ceiling and no minimum to get started.' },
-              { q: 'What is your processor network?', a: 'We have established relationships with 14 tier-1 processors including some of the largest acquiring banks and payment networks in the United States. We never steer you toward any single partner.' },
+              { q: 'What is your processor network?', a: 'We have established relationships with 10+ tier-1 processors including some of the largest acquiring banks and payment networks in the United States. We never steer you toward any single partner.' },
               { q: 'What happens after the switch?', a: 'You get a dedicated account rep. We monitor your statements monthly, flag any rate creep, handle disputes, and renegotiate on your behalf when better options emerge. The relationship doesn\'t end at the signature.' },
             ].map((item, i) => (
               <Reveal key={i} delay={i * 70}>

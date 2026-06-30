@@ -15,7 +15,7 @@ export default function Calculator() {
   const benefits = [
     { icon: <TrendingDown className="w-6 h-6" />, title: 'See your actual effective rate', body: "Most merchants don't know their true rate. This calculator shows you exactly what you're paying and what you should be." },
     { icon: <ShieldCheck className="w-6 h-6" />, title: 'Compare IC+ vs tiered vs flat rate', body: 'Enter your volume and transaction details to see a side-by-side cost comparison across every pricing model.' },
-    { icon: <Clock className="w-6 h-6" />, title: 'Get a real audit same day or less', body: 'The calculator gives you an estimate. For exact numbers with competitive bids from 14 processors, request your free audit.' },
+    { icon: <Clock className="w-6 h-6" />, title: 'Get a real audit same day or less', body: 'The calculator gives you an estimate. For exact numbers with competitive bids from 10+ processors, request your free audit.' },
   ]
 
   return (
@@ -164,7 +164,7 @@ export default function Calculator() {
             <div>
               <div className="text-[10px] font-bold uppercase tracking-widest mb-4" style={{ color: 'rgba(255,255,255,0.6)' }}>From estimate to verified numbers</div>
               <h2 className="text-4xl font-black text-white mb-6 leading-tight">The real audit is same day or less. The cost is zero.</h2>
-              <p style={{ color: 'rgba(255,255,255,0.75)' }} className="text-lg leading-relaxed">The calculator gives you direction. The statement audit gives you proof, with a line-by-line fee breakdown and competitive bids from 14 processors.</p>
+              <p style={{ color: 'rgba(255,255,255,0.75)' }} className="text-lg leading-relaxed">The calculator gives you direction. The statement audit gives you proof, with a line-by-line fee breakdown and competitive bids from 10+ processors.</p>
             </div>
             <div className="flex flex-col gap-4">
               <Link href="/get-your-savings-estimate" className="flex items-center justify-center gap-2 px-8 py-4 font-black rounded-xl transition-all hover:-translate-y-1" style={{ background: '#0a1208', color: '#6fc200', boxShadow: '0 8px 40px rgba(0,0,0,0.4)' }}>

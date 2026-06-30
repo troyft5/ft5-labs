@@ -25,8 +25,8 @@ export default function ProcessPage() {
       day: 'Day 2',
       icon: <Gavel className="w-8 h-8" />,
       title: 'Blind Processor Bidding',
-      body: 'We take your anonymized statement parameters (volume, average ticket size, industry MCC) to our network of 14 Tier-1 processors. We force them to compete for your business through a blind bidding process, entirely on Interchange-Plus (IC+) pricing.',
-      checks: ['Anonymized bidding', '14 Tier-1 processors', 'IC+ pricing mandated'],
+      body: 'We take your anonymized statement parameters (volume, average ticket size, industry MCC) to our network of 10+ Tier-1 processors. We force them to compete for your business through a blind bidding process, entirely on Interchange-Plus (IC+) pricing.',
+      checks: ['Anonymized bidding', '10+ Tier-1 processors', 'IC+ pricing mandated'],
       color: '#f59e0b'
     },
     {

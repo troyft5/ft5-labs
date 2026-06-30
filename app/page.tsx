@@ -10,7 +10,7 @@ import { getSortedPostsData } from '@/lib/blog'
 
 export const metadata = {
   title: 'FinTech 5 | Payment Processing Consultants | Stop Losing Profits',
-  description: 'FinTech 5 negotiates across 14 tier-1 processors to cut your processing costs 10–18%, eliminate hidden fees, and give you a dedicated expert who actually answers the phone.',
+  description: 'FinTech 5 negotiates across 10+ tier-1 processors to cut your processing costs 10–18%, eliminate hidden fees, and give you a dedicated expert who actually answers the phone.',
 }
 
 const BG  = '#0f1a0f'
@@ -44,8 +44,8 @@ const steps = [
   {
     n: '02', icon: <GitMerge className="w-6 h-6" />,
     title: 'We Go to Market for You',
-    body: 'We submit your data to 14 tier-1 processors simultaneously. They bid blind. They can\'t see each other\'s offers. You get their best number, not their opening one.',
-    badge: '14 processors bid',
+    body: 'We submit your data to 10+ tier-1 processors simultaneously. They bid blind. They can\'t see each other\'s offers. You get their best number, not their opening one.',
+    badge: '10+ processors bid',
   },
   {
     n: '03', icon: <DollarSign className="w-6 h-6" />,
@@ -71,13 +71,13 @@ export default function Home() {
           <div className="flex flex-col gap-8">
             {/* Top label */}
             <div className="text-center">
-              <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-slate-600">We negotiate across 14 tier-1 processors so you don&apos;t have to</p>
+              <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-slate-600">We negotiate across 10+ tier-1 processors so you don&apos;t have to</p>
             </div>
 
             {/* Trust chips — no named processors */}
             <div className="flex flex-wrap items-center justify-center gap-3">
               {[
-                { label: '14 Tier-1 Processors',      note: 'bidding for your business' },
+                { label: '10+ Tier-1 Processors',      note: 'bidding for your business' },
                 { label: 'Interchange-Plus Pricing',  note: '100% pass-through, no markup' },
                 { label: 'Blind Competitive Bids',    note: 'processors don\'t see each other' },
                 { label: 'Zero Consulting Fees',      note: 'we\'re paid by the processor you choose' },
@@ -248,7 +248,7 @@ export default function Home() {
                 icon: <Shield className="w-7 h-7" />,
                 title: 'No Ownership. No Bias.',
                 body: "We don't own a piece of any processor. That means we recommend what's actually best for your margin, not what pays us more.",
-                stat: '14',
+                stat: '10+',
                 statLabel: 'Processors Compared',
               },
               {
@@ -452,7 +452,7 @@ export default function Home() {
             <span style={{ color: 'rgba(255,255,255,0.55)' }}>Back to you same day or less. Free.</span>
           </h2>
           <p className="text-xl mb-12 max-w-xl mx-auto leading-relaxed" style={{ color: 'rgba(255,255,255,0.7)' }}>
-            Upload your merchant statement and we&apos;ll return a line-by-line audit with every hidden fee identified and competitive bids from 14 processors.
+            Upload your merchant statement and we&apos;ll return a line-by-line audit with every hidden fee identified and competitive bids from 10+ processors.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link

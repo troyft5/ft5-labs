@@ -112,7 +112,7 @@ export default function HeroSection() {
               </h1>
 
               <p className="text-lg text-slate-400 leading-relaxed mb-6 max-w-lg">
-                You&apos;re likely overpaying by 30–60%. We negotiate across 14 Tier-1 processors to lock in permanent savings at zero cost to you.
+                You&apos;re likely overpaying by 30–60%. We negotiate across 10+ Tier-1 processors to lock in permanent savings at zero cost to you.
               </p>
 
               {/* Phone — prominent above CTAs */}
@@ -143,7 +143,7 @@ export default function HeroSection() {
                 {[
                   'No consulting fees. Ever.',
                   'Processor-agnostic advice',
-                  '14 Tier-1 partners',
+                  '10+ Tier-1 partners',
                   'We answer the phone',
                 ].map(item => (
                   <div key={item} className="flex items-center gap-2 text-[12px] text-slate-500 font-medium whitespace-nowrap">
@@ -260,10 +260,10 @@ export default function HeroSection() {
                 <div className="ml-2 w-16 h-1 rounded-full" style={{ background: 'linear-gradient(90deg,#4e9000,#6fc200)' }} />
               </div>
 
-              {/* Card 4 — 14 Partners */}
+              {/* Card 4 — 10+ Partners */}
               <div className="animate-float-4 absolute bottom-0 left-0 rounded-2xl px-5 py-4 z-30 shadow-xl"
                 style={{ background: 'rgba(15,26,15,0.88)', backdropFilter: 'blur(16px)', border: '1px solid rgba(255,255,255,0.09)' }}>
-                <div className="text-2xl font-black text-white mb-0.5">14</div>
+                <div className="text-2xl font-black text-white mb-0.5">10+</div>
                 <div className="text-[10px] text-slate-500">Processor Partners</div>
               </div>
 
@@ -273,7 +273,7 @@ export default function HeroSection() {
           {/* ── STATS ROW ── */}
           <div className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-px bg-white/5 rounded-2xl overflow-hidden border border-white/8">
             {[
-              { n: 14, s: '',  p: '',  label: 'Processor Partners' },
+              { n: 10, s: '+', p: '',  label: 'Processor Partners' },
               { n: 30, s: '+', p: '',  label: 'Years of Experience' },
               { n: 18, s: '%', p: '',  label: 'Max Rate Reduction' },
               { n: 0,  s: '',  p: '$', label: 'Consulting Cost to You' },

@@ -17,7 +17,7 @@ export const metadata = {
     default: 'FinTech 5 | Payment Processing Consultants',
     template: '%s | FinTech 5',
   },
-  description: 'Stop overpaying on payment processing. FinTech 5 negotiates on your behalf across 14 processors to lower your rates and eliminate hidden fees.',
+  description: 'Stop overpaying on payment processing. FinTech 5 negotiates on your behalf across 10+ processors to lower your rates and eliminate hidden fees.',
   keywords: ['payment processing consultant', 'merchant services', 'lower processing fees', 'interchange optimization', 'payment processing NY NJ', 'FinTech 5'],
   authors: [{ name: 'FinTech 5 Group' }],
   openGraph: {
@@ -26,7 +26,7 @@ export const metadata = {
     url: 'https://fintech5group.com',
     siteName: 'FinTech 5',
     title: 'FinTech 5 | Payment Processing Consultants',
-    description: 'We negotiate across 14 processors to lower your rates, eliminate junk fees, and protect your cash flow. Free consulting, no cost to you.',
+    description: 'We negotiate across 10+ processors to lower your rates, eliminate junk fees, and protect your cash flow. Free consulting, no cost to you.',
     images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'FinTech 5 | Payment Processing Consultants' }],
   },
   twitter: {
@@ -71,7 +71,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 '@id': 'https://fintech5group.com/#business',
                 name: 'FinTech 5 Group',
                 alternateName: 'FT5',
-                description: 'Payment processing consultants. We negotiate across 14 tier-1 processors to lower your rates and eliminate hidden fees, at zero cost to you.',
+                description: 'Payment processing consultants. We negotiate across 10+ tier-1 processors to lower your rates and eliminate hidden fees, at zero cost to you.',
                 url: 'https://fintech5group.com',
                 telephone: '+1-646-941-7853',
                 email: 'info@fintech5group.com',
@@ -159,7 +159,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                   <Image src="/Logos/FT5_White_Green.svg" alt="FinTech 5" width={130} height={95} className="h-10 w-auto" />
                 </Link>
                 <p className="text-sm leading-relaxed max-w-xs mb-6 text-slate-400">
-                  Payment Processing Consultants. We negotiate across 14 processors to lower your rates, eliminate junk fees, and protect your cash flow.
+                  Payment Processing Consultants. We negotiate across 10+ processors to lower your rates, eliminate junk fees, and protect your cash flow.
                 </p>
                 <div className="flex flex-col gap-2.5 text-sm">
                   <a href="tel:6469417853" className="flex items-center gap-2 hover:text-white transition-colors">

@@ -103,7 +103,7 @@ export default function Estimate() {
               {[
                 { value: '$0',  label: 'cost to you',          sub: 'Our consulting is completely free' },
                 { value: '24h', label: 'audit turnaround',     sub: 'Same day or less in most cases' },
-                { value: '14',  label: 'processors compared',  sub: 'We shop your business to the market' },
+                { value: '10+', label: 'processors compared',  sub: 'We shop your business to the market' },
               ].map((s, i) => (
                 <div key={i} className="flex items-center gap-5 rounded-2xl px-6 py-4" style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(78,144,0,0.15)' }}>
                   <div className="text-4xl font-black shrink-0" style={{ color: '#6fc200' }}>{s.value}</div>
@@ -348,7 +348,7 @@ export default function Estimate() {
         <div className="max-w-5xl mx-auto">
           <div className="grid md:grid-cols-3 gap-8 text-center">
             {[
-              { icon: '🏦', title: '14 Processor Network',     body: 'We compare bids from major acquiring banks and payment networks, not just one or two options.' },
+              { icon: '🏦', title: '10+ Processor Network',     body: 'We compare bids from major acquiring banks and payment networks, not just one or two options.' },
               { icon: '📊', title: 'Line-by-Line Analysis',    body: 'Every fee gets flagged. We identify interchange, markup, statement fees, PCI fees, batch fees, and everything buried in the rates section.' },
               { icon: '🤝', title: 'Processor-Agnostic Always',body: 'We hold no ownership stake in any processor. Our only incentive is finding you the best deal.' },
             ].map(item => (
