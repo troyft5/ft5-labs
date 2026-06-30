@@ -15,32 +15,17 @@ export default function Icon() {
           alignItems: 'center',
           justifyContent: 'center',
           borderRadius: 7,
-          border: '1px solid rgba(78,144,0,0.5)',
         }}
       >
-        {/* Chevron arrow mark — matches the FT5 logo shape */}
-        <div
-          style={{
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            justifyContent: 'center',
-            gap: 0,
-          }}
-        >
-          <div
-            style={{
-              color: '#6fc200',
-              fontSize: 15,
-              fontWeight: 900,
-              letterSpacing: '-0.06em',
-              fontFamily: 'system-ui, -apple-system, sans-serif',
-              lineHeight: 1,
-            }}
-          >
-            F5
-          </div>
-        </div>
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          width="30"
+          height="30"
+          src={`data:image/svg+xml,${encodeURIComponent(
+            '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -274 2048 2048"><path d="M 24.566742 1394 L 2022.228149 1156.592163 L 1692.278198 107 L 1689.545044 943.003296 Z" fill="#4e9000"/></svg>'
+          )}`}
+          alt=""
+        />
       </div>
     ),
     { ...size }
