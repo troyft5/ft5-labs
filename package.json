@@ -9,7 +9,6 @@
     "lint": "eslint"
   },
   "dependencies": {
-    "gray-matter": "^4.0.3",
     "lucide-react": "^1.7.0",
     "next": "^16.2.9",
     "postcss": "^8.5.16",
@@ -20,6 +19,7 @@
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
+    "@types/js-yaml": "^4.0.9",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
