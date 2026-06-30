@@ -87,7 +87,7 @@ Statement:         ${fileData ? `Yes — ${fileData.name}` : 'No'}
       const resend = new Resend(apiKey)
 
       const attachments = fileData
-        ? [{ filename: fileData.name, content: fileData.content, type: fileData.type }]
+        ? [{ filename: fileData.name, content: fileData.content, contentType: fileData.type }]
         : []
 
       tasks.push(
@@ -126,7 +126,12 @@ Statement:         ${fileData ? `Yes — ${fileData.name}` : 'No'}
       )
     }
 
-    await Promise.all(tasks)
+    const results = await Promise.all(tasks)
+    for (const r of results) {
+      if (r && typeof r === 'object' && 'error' in r && (r as { error?: unknown }).error) {
+        console.error('[/api/estimate] resend error', (r as { error: unknown }).error)
+      }
+    }
 
     return NextResponse.json({ success: true })
   } catch (err) {

@@ -42,7 +42,7 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: 'Missing required fields.' }, { status: 400 })
     }
 
-    await Promise.all([
+    const [internalResult, clientResult] = await Promise.all([
       // Internal notification
       resend.emails.send({
         from: FROM,
@@ -80,6 +80,9 @@ export async function POST(req: NextRequest) {
         createDeal: true,
       }),
     ])
+
+    if (internalResult.error) console.error('[/api/contact] internal email failed', internalResult.error)
+    if (clientResult.error) console.error('[/api/contact] client email failed', clientResult.error)
 
     return NextResponse.json({ success: true })
   } catch (err) {
