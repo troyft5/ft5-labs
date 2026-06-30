@@ -9,7 +9,9 @@ const confirmationHtml = (firstName: string) => `
 <div style="font-family:sans-serif;max-width:560px;margin:0 auto;background:#0f1a0f;color:#ffffff;border-radius:12px;overflow:hidden">
   <div style="height:4px;background:linear-gradient(90deg,#2d5500,#6fc200)"></div>
   <div style="padding:40px 36px">
-    <img src="https://fintech5group.com/Logos/FT5_White_Green.svg" alt="FinTech 5" style="height:36px;margin-bottom:32px" />
+    <div style="margin-bottom:32px;display:inline-block">
+      <span style="font-size:22px;font-weight:900;font-style:italic;color:#ffffff;letter-spacing:-0.5px">Fin<span style="color:#6fc200">Tech</span> 5</span>
+    </div>
     <h1 style="font-size:24px;font-weight:900;margin:0 0 12px;color:#ffffff">Got it, ${firstName}. We'll be in touch.</h1>
     <p style="color:#94a3b8;line-height:1.6;margin:0 0 24px">
       Thanks for reaching out. A specialist will review your message and get back to you within <strong style="color:#ffffff">one business day</strong>.
