@@ -10,7 +10,7 @@ import { getSortedPostsData } from '@/lib/blog'
 
 export const metadata = {
   title: 'FinTech 5 | Payment Processing Consultants | Stop Losing Profits',
-  description: 'FinTech 5 negotiates across 10+ tier-1 processors to cut your processing costs 10–18%, eliminate hidden fees, and give you a dedicated expert who actually answers the phone.',
+  description: 'FinTech 5 negotiates across 10+ tier-1 processors to cut your processing costs 15–30%, eliminate hidden fees, and give you a dedicated expert who actually answers the phone.',
 }
 
 const BG  = '#0f1a0f'
@@ -101,7 +101,7 @@ export default function Home() {
               {[
                 { stat: '$0',      label: 'Consulting fees. Ever.' },
                 { stat: '24 hrs',  label: 'Statement audit turnaround' },
-                { stat: '10–18%',  label: 'Average year-one savings' },
+                { stat: '15–30%',  label: 'Average year-one savings' },
                 { stat: 'NY & NJ', label: 'Where we know the market' },
               ].map((s) => (
                 <div key={s.label} className="text-center">
@@ -280,7 +280,7 @@ export default function Home() {
           {/* Four small stat cards */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {[
-              { icon: <TrendingUp className="w-5 h-5" />, stat: '10–18%', label: 'Savings in Year One' },
+              { icon: <TrendingUp className="w-5 h-5" />, stat: '15–30%', label: 'Savings in Year One' },
               { icon: <Zap className="w-5 h-5" />, stat: '$0', label: 'Consulting Fees. Ever.' },
               { icon: <Users className="w-5 h-5" />, stat: '30+', label: 'Years Combined Experience' },
               { icon: <CheckCircle2 className="w-5 h-5" />, stat: 'PCI + HIPAA', label: 'Compliance Built In' },

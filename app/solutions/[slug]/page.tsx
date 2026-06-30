@@ -168,7 +168,7 @@ export default async function SolutionPage({ params }: { params: Promise<{ slug:
           </Reveal>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-5">
             {[
-              { val: '10–18%', label: 'Average savings in year one', detail: 'Consistently across all merchant categories' },
+              { val: '15–30%', label: 'Average savings in year one', detail: 'Consistently across all merchant categories' },
               { val: '24 hrs', label: 'Audit turnaround', detail: 'From statement submission to full analysis' },
               { val: '10+', label: 'Processors in our network', detail: 'Tier-1 banks and payment networks' },
               { val: '$0', label: 'Cost to you', detail: 'Funded entirely by the selected processor' },

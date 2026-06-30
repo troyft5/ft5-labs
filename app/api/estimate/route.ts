@@ -40,6 +40,7 @@ export async function POST(req: NextRequest) {
     const {
       firstName, lastName, email, phone, business, volume, industry,
       notes, fileData, currentProcessor, hardwareType, cardMethod,
+      referralPartner, referralSource,
     } = body
 
     if (!firstName || !email) {
@@ -70,7 +71,7 @@ Statement:         ${fileData ? `Yes — ${fileData.name}` : 'No'}
       lastname: lastName || undefined,
       phone: phone || undefined,
       industry: industry || undefined,
-      message: notes || undefined,
+      message: [notes, referralSource ? `Referred by: ${referralSource}` : null].filter(Boolean).join('\n') || undefined,
       lifecyclestage: 'lead',
       hs_lead_status: 'NEW',
       monthly_processing_volume: volume || undefined,
@@ -123,7 +124,8 @@ Statement:         ${fileData ? `Yes — ${fileData.name}` : 'No'}
       <tr><td style="padding:12px 0;border-bottom:1px solid #f1f5f9;color:#64748b;font-size:13px">Hardware / Terminal</td><td style="padding:12px 0;border-bottom:1px solid #f1f5f9;font-weight:700;color:#0f172a">${hardwareType || '—'}</td></tr>
       <tr><td style="padding:12px 0;border-bottom:1px solid #f1f5f9;color:#64748b;font-size:13px">Card Method</td><td style="padding:12px 0;border-bottom:1px solid #f1f5f9;font-weight:700;color:#0f172a">${cardMethod || '—'}</td></tr>
       <tr><td style="padding:12px 0;border-bottom:1px solid #f1f5f9;color:#64748b;font-size:13px">Notes</td><td style="padding:12px 0;border-bottom:1px solid #f1f5f9;color:#334155">${notes || '—'}</td></tr>
-      <tr><td style="padding:12px 0;color:#64748b;font-size:13px">Statement</td><td style="padding:12px 0;font-weight:700;color:#0f172a">${fileName ? `✓ Attached` : '—'}</td></tr>
+      <tr><td style="padding:12px 0;border-bottom:1px solid #f1f5f9;color:#64748b;font-size:13px">Statement</td><td style="padding:12px 0;border-bottom:1px solid #f1f5f9;font-weight:700;color:#0f172a">${fileName ? `✓ Attached` : '—'}</td></tr>
+      ${referralSource ? `<tr style="background:#fefce8"><td style="padding:12px 0;color:#64748b;font-size:13px;padding-left:8px">Referred By</td><td style="padding:12px 0;font-weight:800;color:#92400e">${referralSource}</td></tr>` : `<tr><td style="padding:12px 0;color:#64748b;font-size:13px">Referred By</td><td style="padding:12px 0;font-weight:700;color:#0f172a">—</td></tr>`}
     </table>
     <div style="margin-top:20px">
       ${hsUrl ? `<a href="${hsUrl}" style="display:inline-block;background:#15803d;color:#ffffff;font-weight:700;font-size:13px;padding:12px 24px;border-radius:8px;text-decoration:none">View in HubSpot →</a>` : ''}

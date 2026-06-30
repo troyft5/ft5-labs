@@ -112,7 +112,7 @@ export default function HeroSection() {
               </h1>
 
               <p className="text-lg text-slate-400 leading-relaxed mb-6 max-w-lg">
-                You&apos;re likely overpaying by 30–60%. We negotiate across 10+ Tier-1 processors to lock in permanent savings at zero cost to you.
+                You&apos;re likely overpaying by 15–30%. We negotiate across 10+ Tier-1 processors to lock in permanent savings at zero cost to you.
               </p>
 
               {/* Phone — prominent above CTAs */}

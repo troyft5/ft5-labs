@@ -241,7 +241,7 @@ export default function ResourcesPage() {
               <div className="grid grid-cols-2 gap-4">
                 {[
                   { icon: <Shield className="w-5 h-5" />, stat: '$0', label: 'Consulting cost', note: 'to merchants, ever' },
-                  { icon: <TrendingUp className="w-5 h-5" />, stat: '10–18%', label: 'Avg savings', note: 'year one' },
+                  { icon: <TrendingUp className="w-5 h-5" />, stat: '15–30%', label: 'Avg savings', note: 'year one' },
                   { icon: <FileText className="w-5 h-5" />, stat: '24hr', label: 'Audit turnaround', note: 'guaranteed' },
                   { icon: <Users className="w-5 h-5" />, stat: '10+', label: 'Processors bid', note: 'for your business' },
                 ].map(s => (

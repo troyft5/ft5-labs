@@ -127,7 +127,7 @@ export const defaultPartner: PartnerData = {
   company: 'Our Partner Network',
   type: 'Referral Partner',
   tagline: 'You were referred to FinTech 5 by someone who knows what overpaying on processing fees really costs.',
-  heroMessage: 'Most businesses overpay on processing by 10–18%. The first step to fixing it is a free statement audit.',
+  heroMessage: 'Most businesses overpay on processing by 15–30%. The first step to fixing it is a free statement audit.',
 }
 
 // Clean aliases for future use — both old and new slugs resolve to the same partner
