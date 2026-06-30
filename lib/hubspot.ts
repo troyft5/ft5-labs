@@ -130,6 +130,25 @@ async function associateContactToCompany(tok: string, contactId: string, company
   })
 }
 
+async function createNote(tok: string, contactId: string, companyId: string | null, body: string): Promise<void> {
+  const associations = [
+    { to: { id: contactId }, types: [{ associationCategory: 'HUBSPOT_DEFINED', associationTypeId: 202 }] },
+    ...(companyId ? [{ to: { id: companyId }, types: [{ associationCategory: 'HUBSPOT_DEFINED', associationTypeId: 190 }] }] : []),
+  ]
+  const res = await fetch(`${BASE}/crm/v3/objects/notes`, {
+    method: 'POST',
+    headers: auth(tok),
+    body: JSON.stringify({
+      properties: { hs_note_body: body, hs_timestamp: new Date().toISOString() },
+      associations,
+    }),
+  })
+  if (!res.ok) {
+    const err = await res.text().catch(() => '')
+    console.error('[hubspot] note create failed', res.status, err)
+  }
+}
+
 async function createDeal(tok: string, dealName: string, contactId: string, companyId: string | null, volume?: string): Promise<void> {
   const closeDate = new Date()
   closeDate.setDate(closeDate.getDate() + 30)
@@ -190,4 +209,19 @@ export async function submitLead(props: ContactProps & { businessName?: string; 
       : `${props.firstname || props.email} — Contact`
     await createDeal(tok, dealName, contactId, companyId, props.monthly_processing_volume)
   }
+
+  const noteLines = [
+    `<b>Submission Details</b>`,
+    `Email: ${props.email}`,
+    props.phone                      ? `Phone: ${props.phone}` : null,
+    businessName                     ? `Business: ${businessName}` : null,
+    props.industry                   ? `Industry: ${props.industry}` : null,
+    props.monthly_processing_volume  ? `Monthly Volume: ${props.monthly_processing_volume}` : null,
+    props.current_processor          ? `Current Processor: ${props.current_processor}` : null,
+    props.hardware_type              ? `Hardware / Terminal: ${props.hardware_type}` : null,
+    props.card_acceptance_method     ? `Card Method: ${props.card_acceptance_method}` : null,
+    props.message                    ? `Message: ${props.message}` : null,
+  ].filter(Boolean).join('<br>')
+
+  await createNote(tok, contactId, companyId, noteLines)
 }
