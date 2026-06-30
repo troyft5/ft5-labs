@@ -19,9 +19,9 @@ Before comparing processors, get clear on your own numbers:
 
 ## Step 2: Know the Processor Types
 
-**Traditional merchant account providers** (First Data, TSYS, Heartland, Worldpay) offer direct relationships, customized pricing, and the ability to negotiate. Best for established businesses with consistent volume.
+**Traditional merchant account providers** offer direct relationships, customized pricing, and the ability to negotiate. Best for established businesses with consistent volume.
 
-**Aggregators** (Stripe, Square, PayPal) bundle merchants together under a single master account. Easy to start, but rates are non-negotiable, and account stability decreases as volume grows.
+**Aggregators** bundle merchants together under a single master account. Easy to start, but rates are non-negotiable, and account stability decreases as volume grows.
 
 **Payment facilitators** are hybrid models that combine aggregator simplicity with some direct merchant account benefits. Common in SaaS verticals.
 

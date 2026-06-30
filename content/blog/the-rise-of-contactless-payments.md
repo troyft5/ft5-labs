@@ -37,7 +37,7 @@ Adoption has been consistent and accelerating:
 If you're still running older EMV terminals that lack NFC capability, you're creating unnecessary friction at checkout. The upgrade path is simpler than most merchants expect:
 
 - **Free terminal placement** through FinTech 5 includes NFC-capable hardware at zero upfront cost
-- **Clover, Verifone, and PAX** all ship with contactless enabled by default
+- **Most modern terminals** ship with contactless enabled by default
 - **Acceptance of Apple Pay, Google Pay, and Samsung Pay** requires no separate configuration on modern terminals
 
 ## Looking Ahead: Biometrics and Beyond

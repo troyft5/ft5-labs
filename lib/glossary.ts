@@ -44,12 +44,12 @@ export const glossaryData: GlossaryTerm[] = [
     category: 'pricing',
     shortDef: 'A single fixed rate applied to every transaction regardless of card type — simple to understand, but rarely the lowest cost at meaningful volume.',
     body: [
-      'Flat-rate pricing charges a single blended percentage (and sometimes a per-transaction fee) on every card, regardless of whether the transaction is a basic debit card or a premium rewards card. Square charges 2.6% + $0.10. Stripe charges 2.9% + $0.30. The rate never changes.',
+      'Flat-rate pricing charges a single blended percentage (and sometimes a per-transaction fee) on every card, regardless of whether the transaction is a basic debit card or a premium rewards card. The rate never changes.',
       'The appeal is simplicity. You always know what you\'ll pay. There is no statement analysis required, no downgrade fees, no tiered surprises.',
       'The cost: flat-rate processors profit by averaging. Basic debit interchange is roughly 0.05–0.80% depending on the Durbin status of the card. Rewards card interchange runs 1.5–2.3%. When a processor charges you 2.6% on everything, it is covering its costs on the expensive transactions by overcharging on the cheap ones. The bigger your volume, the more you overpay.',
       'For businesses doing under $5,000/month, flat-rate pricing may be acceptable given the simplicity. Above that, the premium compounds quickly. A merchant doing $100,000/month on flat-rate vs. a competitive IC+ rate typically overpays by $800–$2,000 per month.',
     ],
-    merchantImpact: 'Flat-rate is designed for the smallest businesses. If you\'re beyond startup stage, you\'re likely subsidizing Square\'s or Stripe\'s margins. The fee calculator shows you the exact delta.',
+    merchantImpact: 'Flat-rate is designed for the smallest businesses. If you\'re beyond startup stage, you\'re likely subsidizing the aggregator\'s margins. The fee calculator shows you the exact delta.',
     relatedSlugs: ['interchange-plus-pricing', 'tiered-pricing', 'effective-rate', 'interchange'],
   },
   {
@@ -214,7 +214,7 @@ export const glossaryData: GlossaryTerm[] = [
       '3D Secure (3DS) adds an authentication step to card-not-present transactions. In the original version, cardholders were redirected to their bank\'s site to enter a password. In 3DS2 (the current standard), the bank performs risk-based authentication — most low-risk transactions pass silently without friction, while higher-risk transactions trigger a biometric or OTP challenge.',
       'The key benefit for merchants: when a transaction is successfully authenticated via 3DS, fraud liability shifts to the card issuer. If an authenticated transaction is disputed as unauthorized, the issuer — not the merchant — absorbs the loss. This makes 3DS particularly valuable for high-ticket items and merchants with elevated chargeback rates.',
       'In the European Union, 3DS2 is mandatory under PSD2 Strong Customer Authentication rules. In the US it is optional but increasingly used by e-commerce merchants in high-fraud categories.',
-      'Implementation is typically done at the gateway or payment platform level. Stripe, Adyen, Braintree, and most major gateways support 3DS2 natively. The conversion impact is minimal with 3DS2 compared to the original version, which had significant checkout abandonment.',
+      'Implementation is typically done at the gateway or payment platform level. Most major gateways support 3DS2 natively. The conversion impact is minimal with 3DS2 compared to the original version, which had significant checkout abandonment.',
     ],
     merchantImpact: 'If you\'re an e-commerce merchant with a chargeback rate above 0.3%, 3DS is worth evaluating. The liability shift alone can eliminate a significant portion of fraud-related losses.',
     relatedSlugs: ['chargeback', 'avs', 'cvv', 'card-not-present'],
@@ -337,7 +337,7 @@ export const glossaryData: GlossaryTerm[] = [
     shortDef: 'The software layer that connects your checkout — website, POS, or terminal — to the payment processing network for authorization and settlement.',
     body: [
       'A payment gateway is the technology that transmits transaction data from your point of sale (physical terminal, e-commerce checkout, or mobile app) to your acquiring processor for authorization. It is the interface between where the transaction happens and the network that processes it.',
-      'For e-commerce merchants, the gateway is typically a hosted checkout page or API integration (Authorize.Net, NMI, Stripe\'s gateway, Braintree, etc.). For in-person merchants, the gateway is either built into the terminal or managed by the POS system.',
+      'For e-commerce merchants, the gateway is typically a hosted checkout page or API integration. For in-person merchants, the gateway is either built into the terminal or managed by the POS system.',
       'Gateway selection matters for several reasons: compatibility with your shopping cart or POS, tokenization capabilities (storing cards for repeat customers without storing sensitive data), reporting features, recurring billing support, and fee structure.',
       'Most gateways charge a per-transaction fee ($0.05–$0.15) and sometimes a monthly fee. These are separate from processor interchange and markup. Some processors bundle their own gateway; others are agnostic and support multiple gateway options.',
     ],

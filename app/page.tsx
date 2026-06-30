@@ -249,7 +249,7 @@ export default function Home() {
               {
                 icon: <Shield className="w-7 h-7" />,
                 title: 'No Ownership. No Bias.',
-                body: "We don't own a piece of Square, Stripe, Heartland, or any processor. That means we recommend what's actually best for your margin — not what pays us more.",
+                body: "We don't own a piece of any processor. That means we recommend what's actually best for your margin — not what pays us more.",
                 stat: '14',
                 statLabel: 'Processors Compared',
               },

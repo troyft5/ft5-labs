@@ -13,7 +13,7 @@ const BIDS = [
   { name: 'Partner H',  rate: 2.37, mo: 2015 },
 ]
 
-const BASE = 2618 // Square/Stripe at $85k/mo
+const BASE = 2618 // Flat-rate at $85k/mo
 
 export default function BidSimulation() {
   const [visible, setVisible] = useState(0)

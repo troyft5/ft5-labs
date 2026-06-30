@@ -59,7 +59,7 @@ export default function Navbar() {
     { label: 'Mobile Payments',         href: '/solutions/mobile-payments',     desc: 'Accept payments anywhere' },
     { label: 'Online Payments',         href: '/solutions/online-payments',     desc: 'Hosted checkout & gateways' },
     { label: 'Pricing Models',          href: '/solutions/pricing-models',      desc: 'Interchange-plus, locked-in rates' },
-    { label: 'Free Terminal Placement', href: '/solutions/free-placement',      desc: 'Clover hardware at zero cost' },
+    { label: 'Free Terminal Placement', href: '/solutions/free-placement',      desc: 'Premium hardware at zero cost' },
   ]
 
   const industries = [

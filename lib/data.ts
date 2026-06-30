@@ -1,12 +1,12 @@
 export const industriesData = {
   "retail-payments": {
     title: "Retail Payment Solutions",
-    subtitle: "Free Clover hardware plus flexible POS options to streamline every sale.",
+    subtitle: "Free premium hardware plus flexible POS options to streamline every sale.",
     challenge: "Retailers face razor-thin margins, long checkout lines and costly hardware upgrades. High interchange on in-store card transactions, fragmented inventory and loyalty management, and slow support during peak hours all drain your bottom line before you even open the register.",
-    content: "FinTech 5 delivers a full stack of payments and POS hardware — starting with free Clover equipment and extending to all leading terminals. Whether you're running a single storefront or a multi-location chain, we sync in-store sales with your e-commerce platform, build loyalty and gift card programs into checkout, and ensure you're on the right pricing model for your transaction mix.",
+    content: "FinTech 5 delivers a full stack of payments and POS hardware — starting with free premium equipment and extending to all leading terminals. Whether you're running a single storefront or a multi-location chain, we sync in-store sales with your e-commerce platform, build loyalty and gift card programs into checkout, and ensure you're on the right pricing model for your transaction mix.",
     features: [
-      "Free Clover Station & Mini on qualifying plans",
-      "Clover, Verifone, Ingenico & PAX available",
+      "Free premium terminals on qualifying plans",
+      "All leading hardware brands available",
       "Mobile terminals for curbside & line busting",
       "EMV, NFC & contactless payments",
       "Omni-channel inventory sync",
@@ -24,7 +24,7 @@ export const industriesData = {
     content: "At FinTech 5, we help e-commerce businesses streamline how they accept payments: reducing costs, improving approvals, and giving you access to real support when it matters. We work with industry-leading processing partners to offer flexible, secure, and scalable solutions tailored to how you sell online. Whether you're just starting out or processing millions monthly, we build a payment setup that works behind the scenes to support your growth.",
     features: [
       "Credit/debit card acceptance",
-      "Digital wallets (Apple Pay, Google Pay, PayPal)",
+      "Digital wallets (Apple Pay, Google Pay)",
       "Buy Now, Pay Later options",
       "Recurring & subscription billing",
       "Global multi-currency acceptance",
@@ -168,10 +168,10 @@ export const solutionsData = {
     title: "In-Person Payments",
     subtitle: "Countertop, mobile or kiosk — fast-checkout experiences built for today's brick-and-mortar and pop-up retailers.",
     challenge: "Slow terminals, unreliable connections, and hardware rental fees eat into every transaction. Most processors sell you equipment and disappear. You're left troubleshooting on a Saturday afternoon during your busiest hour.",
-    content: "FinTech 5 delivers a complete in-person payment stack — from free Clover Station and Mini placement to mobile tablets, self-checkout kiosks and line-busting Bluetooth readers. Every device ships preconfigured, plug-and-play, with point-to-point encryption built in. One dashboard monitors all terminals, all locations, all transactions in real time.",
+    content: "FinTech 5 delivers a complete in-person payment stack — from free smart terminal placement to mobile tablets, self-checkout kiosks and line-busting Bluetooth readers. Every device ships preconfigured, plug-and-play, with point-to-point encryption built in. One dashboard monitors all terminals, all locations, all transactions in real time.",
     features: [
-      "Countertop POS: Clover Station, Verifone, PAX — EMV/NFC/contactless, P2PE encryption",
-      "Mobile & Tablet POS: Clover Flex, tap-to-pay, offline mode",
+      "Countertop POS: EMV/NFC/contactless, P2PE encryption",
+      "Mobile & Tablet POS: tap-to-pay, offline mode",
       "Self-Checkout Kiosks: barcode/QR scanning, tokenized security",
       "Line-Bust Devices: Bluetooth/Wi-Fi readers for curbside & events",
       "Customer-Facing Displays: tipping, loyalty prompts, digital receipts",
@@ -193,10 +193,10 @@ export const solutionsData = {
     title: "Mobile Payment Solutions",
     subtitle: "Turn any smartphone or tablet into a secure, on-the-go checkout.",
     challenge: "If your revenue follows you out the door — to job sites, markets, events, or client visits — your payment system has to follow too. Losing a sale because you can't take a card in the field isn't a technology problem. It's a business problem.",
-    content: "FinTech 5 mobile solutions turn any iOS or Android device into a full-featured EMV POS. Clover Flex and branded tablet apps give you receipts, tipping and loyalty on the move. Offline mode means you never miss a sale in a dead zone — transactions auto-sync when you're back online. Apple Pay, Google Pay and Samsung Pay are included standard.",
+    content: "FinTech 5 mobile solutions turn any iOS or Android device into a full-featured EMV POS. Smart terminals and branded tablet apps give you receipts, tipping and loyalty on the move. Offline mode means you never miss a sale in a dead zone — transactions auto-sync when you're back online. Apple Pay, Google Pay and Samsung Pay are included standard.",
     features: [
       "iOS & Android card reader attachments (mag-stripe, chip & NFC)",
-      "Full Clover Flex & iPad POS apps",
+      "Full mobile & iPad POS apps",
       "Offline processing mode — auto-sync when back online",
       "Apple Pay, Google Pay, Samsung Pay",
       "Integrated loyalty & rewards scanning",
@@ -263,13 +263,13 @@ export const solutionsData = {
   },
   "free-placement": {
     title: "Free Terminal Placement",
-    subtitle: "Get premium Clover hardware at zero cost — shipped, programmed and ready to process.",
+    subtitle: "Get premium hardware at zero cost — shipped, programmed and ready to process.",
     challenge: "You shouldn't have to spend $500–$1,500 on a credit card terminal. And you definitely shouldn't be leasing outdated equipment for $50/month, paying more for the machine than it's worth, while your processor locks you into a multi-year contract.",
-    content: "On qualifying processing agreements, FinTech 5 places free Clover equipment — Station, Mini or Flex — at your location at no cost to you. Devices ship preconfigured, plug-and-play, and are covered by our hardware replacement program. If a device fails, we replace it. If you need to add locations or upgrade models, we handle it. Trade-in offers are available for Verifone, Ingenico and PAX terminals.",
+    content: "On qualifying processing agreements, FinTech 5 places free premium equipment at your location at no cost to you. Devices ship preconfigured, plug-and-play, and are covered by our hardware replacement program. If a device fails, we replace it. If you need to add locations or upgrade models, we handle it. Trade-in offers are available for legacy terminals.",
     features: [
-      "Free Clover Station & Mini with any processing agreement",
-      "Clover Flex for mobile & tableside payment",
-      "Trade-in offers for Verifone, Ingenico & PAX",
+      "Free premium terminals with any processing agreement",
+      "Smart terminals for mobile & tableside payment",
+      "Trade-in offers for legacy terminals",
       "Leasing & financing options available",
       "Devices ship preconfigured — no IT required",
       "Automatic firmware updates",
@@ -277,7 +277,7 @@ export const solutionsData = {
       "Dedicated onboarding & setup team"
     ],
     howItWorks: [
-      "Select your free Clover model or trade-in upgrade.",
+      "Select your free terminal model or trade-in upgrade.",
       "Get approved with any qualifying processing agreement.",
       "Receive hardware preconfigured and shipped to your location.",
       "Activate instantly — plug-and-play with our network.",

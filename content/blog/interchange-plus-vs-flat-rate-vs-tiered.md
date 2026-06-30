@@ -16,7 +16,7 @@ Here's how each one actually works, who benefits from each, and where each model
 
 ### How it works
 
-You pay a single rate on every transaction, regardless of card type or entry method. Square, Stripe, and PayPal popularized this model.
+You pay a single rate on every transaction, regardless of card type or entry method. Aggregators popularized this model.
 
 **Typical rates:**
 - Card-present: 2.6% + $0.10
@@ -28,11 +28,11 @@ You pay a single rate on every transaction, regardless of card type or entry met
 Flat rate is genuinely good for:
 - Businesses processing **under $10,000/month** (predictability outweighs cost)
 - Pop-up vendors, seasonal businesses, or side projects
-- Businesses using a single platform's integrated tools (Square ecosystem, for example)
+- Businesses using a single platform's integrated tools
 
 ### The hidden cost
 
-On a debit card, the interchange is about 0.05% + $0.21. Square charges you 2.6% + $0.10. The difference goes to Square.
+On a debit card, the interchange is about 0.05% + $0.21. A flat-rate provider might charge you 2.6% + $0.10. The difference goes to the provider.
 
 At $50,000/month with a strong debit card mix, you could be paying 40–60% more than interchange-plus for the same volume. That "simplicity premium" gets expensive fast.
 

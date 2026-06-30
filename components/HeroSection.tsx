@@ -28,8 +28,6 @@ function Counter({ target, prefix = '', suffix = '', decimals = 0 }: { target: n
   return <span ref={ref}>{prefix}{count.toFixed(decimals)}{suffix}</span>
 }
 
-const processors = ['Worldpay', 'First Data', 'TSYS', 'Heartland', 'Paysafe', 'Priority', 'NMI', 'Shift4', 'Clearent', 'Payroc', 'Elavon', 'Global Payments', 'Fiserv', 'Nuvei']
-
 export default function HeroSection() {
   const heroRef = useRef<HTMLElement>(null)
   const cardsRef = useRef<HTMLDivElement>(null)
@@ -199,7 +197,7 @@ export default function HeroSection() {
                   <span className="text-[9px] font-black uppercase tracking-widest text-[#6fc200]">Best Match</span>
                 </div>
                 <div className="text-[10px] text-slate-500 mb-1">Optimal Processor</div>
-                <div className="text-base font-black text-white mb-3">Heartland</div>
+                <div className="text-base font-black text-white mb-3">Winning Bidder</div>
                 <div className="grid grid-cols-2 gap-2">
                   <div className="rounded-lg p-2" style={{ background: 'rgba(78,144,0,0.12)', border: '1px solid rgba(78,144,0,0.2)' }}>
                     <div className="text-[9px] text-slate-500 mb-1 whitespace-nowrap">Eff. Rate</div>
@@ -291,18 +289,6 @@ export default function HeroSection() {
 
         {/* Bottom fade */}
         <div className="absolute bottom-0 left-0 right-0 h-32 pointer-events-none" style={{ background: 'linear-gradient(to bottom, transparent, #080f08)', zIndex: 3 }} />
-      </section>
-
-      {/* ── PROCESSOR MARQUEE ── */}
-      <section className="bg-[#0f1a0f] border-t border-white/5 overflow-hidden py-4">
-        <div className="flex gap-0 w-max animate-marquee">
-          {[...processors, ...processors].map((p, i) => (
-            <div key={i} className="flex items-center gap-8 px-8 text-[#2a3a1a] font-bold text-[11px] uppercase tracking-widest whitespace-nowrap">
-              <span className="hover:text-slate-500 transition-colors cursor-default">{p}</span>
-              <span className="opacity-30" style={{ color: '#4e9000' }}>◆</span>
-            </div>
-          ))}
-        </div>
       </section>
     </>
   )
