@@ -1,5 +1,6 @@
 import { getSortedPostsData } from '@/lib/blog'
 import Link from 'next/link'
+import Image from 'next/image'
 import { Calendar, Clock, ArrowRight, BookOpen } from 'lucide-react'
 import Reveal from '@/components/Reveal'
 import ScrollDepth3D from '@/components/ScrollDepth3D'
@@ -70,8 +71,15 @@ export default function BlogIndex() {
                 className="group flex flex-col md:flex-row gap-0 rounded-2xl overflow-hidden mb-10 transition-all duration-300 hover:-translate-y-1"
                 style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.09)' }}
               >
-                {/* Color accent bar */}
-                <div className="md:w-1 w-full h-1.5 md:h-auto shrink-0" style={{ background: categoryColors[featured.category] || '#4e9000' }} />
+                {featured.cover && (
+                  <div className="relative md:w-2/5 w-full aspect-[16/9] md:aspect-auto overflow-hidden shrink-0">
+                    <Image src={featured.cover} alt={featured.title} fill className="object-cover group-hover:scale-105 transition-transform duration-500" />
+                    <div className="absolute inset-0" style={{ background: 'linear-gradient(to right, transparent 70%, rgba(10,18,8,0.8))' }} />
+                  </div>
+                )}
+                {!featured.cover && (
+                  <div className="md:w-1 w-full h-1.5 md:h-auto shrink-0" style={{ background: categoryColors[featured.category] || '#4e9000' }} />
+                )}
                 <div className="flex flex-col flex-1 p-8 md:p-10">
                   <div className="flex items-center gap-3 mb-5">
                     <span className="text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full" style={{ background: 'rgba(78,144,0,0.12)', color: '#6fc200', border: '1px solid rgba(78,144,0,0.2)' }}>
@@ -104,10 +112,19 @@ export default function BlogIndex() {
                   className="group flex flex-col rounded-2xl overflow-hidden h-full transition-all duration-300 hover:-translate-y-1"
                   style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)' }}
                 >
-                  <div className="flex items-center gap-3 px-6 py-4" style={{ borderBottom: '1px solid rgba(255,255,255,0.06)', background: 'rgba(78,144,0,0.05)' }}>
-                    <span className="text-[10px] font-bold uppercase tracking-widest" style={{ color: categoryColors[post.category] || '#4e9000' }}>{post.category}</span>
-                  </div>
+                  {post.cover ? (
+                    <div className="relative w-full aspect-[16/9] overflow-hidden">
+                      <Image src={post.cover} alt={post.title} fill className="object-cover group-hover:scale-105 transition-transform duration-500" />
+                    </div>
+                  ) : (
+                    <div className="flex items-center gap-3 px-6 py-4" style={{ borderBottom: '1px solid rgba(255,255,255,0.06)', background: 'rgba(78,144,0,0.05)' }}>
+                      <span className="text-[10px] font-bold uppercase tracking-widest" style={{ color: categoryColors[post.category] || '#4e9000' }}>{post.category}</span>
+                    </div>
+                  )}
                   <div className="flex flex-col flex-1 p-6">
+                    {post.cover && (
+                      <span className="text-[10px] font-bold uppercase tracking-widest mb-2 block" style={{ color: categoryColors[post.category] || '#4e9000' }}>{post.category}</span>
+                    )}
                     <h3 className="text-base font-black text-white leading-snug mb-3 group-hover:text-[#8cd627] transition-colors line-clamp-2">{post.title}</h3>
                     <p className="text-slate-500 text-sm leading-relaxed flex-1 line-clamp-2 mb-5">{post.excerpt}</p>
                     <div className="flex items-center justify-between pt-4" style={{ borderTop: '1px solid rgba(255,255,255,0.07)' }}>

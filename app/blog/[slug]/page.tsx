@@ -6,6 +6,7 @@ import Link from 'next/link'
 import { ArrowLeft, Calendar, Clock, ArrowRight, BookOpen, ChevronRight } from 'lucide-react'
 import ReadingProgress from '@/components/ReadingProgress'
 import NewsletterForm from '@/components/NewsletterForm'
+import ShareButtons from '@/components/ShareButtons'
 
 const BG  = '#0f1a0f'
 const BG2 = '#0a1208'
@@ -65,10 +66,13 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
             {post.title}
           </h1>
 
-          <div className="flex flex-wrap items-center gap-5 text-xs text-slate-600">
-            <div className="flex items-center gap-1.5"><Calendar className="w-3.5 h-3.5" /> {new Date(post.date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</div>
-            <div className="flex items-center gap-1.5"><Clock className="w-3.5 h-3.5" /> {post.readTime}</div>
-            <div className="flex items-center gap-1.5"><BookOpen className="w-3.5 h-3.5" /> FinTech 5 Editorial</div>
+          <div className="flex flex-wrap items-center justify-between gap-4">
+            <div className="flex flex-wrap items-center gap-5 text-xs text-slate-500">
+              <div className="flex items-center gap-1.5"><Calendar className="w-3.5 h-3.5" /> {new Date(post.date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</div>
+              <div className="flex items-center gap-1.5"><Clock className="w-3.5 h-3.5" /> {post.readTime}</div>
+              <div className="flex items-center gap-1.5"><BookOpen className="w-3.5 h-3.5" /> FinTech 5 Editorial</div>
+            </div>
+            <ShareButtons title={post.title} slug={post.slug} />
           </div>
         </div>
       </div>
@@ -117,11 +121,22 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
                 <NewsletterForm />
               </div>
 
-              {/* Back nav */}
-              <div className="pt-8" style={{ borderTop: '1px solid rgba(255,255,255,0.08)' }}>
+              {/* Author card */}
+              <div className="my-10 rounded-2xl p-6 flex items-start gap-5" style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)' }}>
+                <div className="w-14 h-14 rounded-full shrink-0 flex items-center justify-center font-black text-xl" style={{ background: 'linear-gradient(135deg,#2d5500,#6fc200)', color: '#fff' }}>T</div>
+                <div className="flex-1 min-w-0">
+                  <div className="text-[10px] font-bold uppercase tracking-widest mb-1" style={{ color: '#6fc200' }}>Written by</div>
+                  <div className="text-white font-black text-base mb-1">Troy Maceira</div>
+                  <p className="text-slate-500 text-sm leading-relaxed">Founder of FinTech 5 Group. Former insider at major payment processors — now helping merchants fight back against hidden fees and predatory pricing.</p>
+                </div>
+              </div>
+
+              {/* Share + Back nav */}
+              <div className="flex flex-wrap items-center justify-between gap-4 pt-8" style={{ borderTop: '1px solid rgba(255,255,255,0.08)' }}>
                 <Link href="/blog" className="inline-flex items-center gap-2 text-sm font-bold transition-all hover:-translate-x-1" style={{ color: '#6fc200' }}>
                   <ArrowLeft className="w-4 h-4" /> All Articles
                 </Link>
+                <ShareButtons title={post.title} slug={post.slug} />
               </div>
             </div>
 
@@ -183,11 +198,18 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
             <div className="text-[11px] font-bold uppercase tracking-widest mb-8" style={{ color: '#6fc200' }}>Keep Reading</div>
             <div className="grid md:grid-cols-2 gap-5">
               {otherPosts.map(p => (
-                <Link key={p.slug} href={`/blog/${p.slug}`} className="group flex flex-col rounded-2xl p-6 transition-all hover:-translate-y-0.5" style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)' }}>
-                  <div className="text-[10px] font-bold uppercase tracking-widest mb-3" style={{ color: '#4e9000' }}>{p.category}</div>
-                  <h3 className="text-base font-black text-white group-hover:text-[#8cd627] transition-colors leading-snug mb-3 line-clamp-2">{p.title}</h3>
-                  <div className="flex items-center gap-1.5 text-xs text-slate-700 mt-auto">
-                    <Clock className="w-3 h-3" /> {p.readTime}
+                <Link key={p.slug} href={`/blog/${p.slug}`} className="group flex flex-col rounded-2xl overflow-hidden transition-all hover:-translate-y-0.5" style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)' }}>
+                  {p.cover && (
+                    <div className="relative w-full aspect-[16/9] overflow-hidden">
+                      <Image src={p.cover} alt={p.title} fill className="object-cover group-hover:scale-105 transition-transform duration-500" />
+                    </div>
+                  )}
+                  <div className="p-6 flex flex-col flex-1">
+                    <div className="text-[10px] font-bold uppercase tracking-widest mb-3" style={{ color: '#4e9000' }}>{p.category}</div>
+                    <h3 className="text-base font-black text-white group-hover:text-[#8cd627] transition-colors leading-snug mb-3 line-clamp-2">{p.title}</h3>
+                    <div className="flex items-center gap-1.5 text-xs text-slate-700 mt-auto">
+                      <Clock className="w-3 h-3" /> {p.readTime}
+                    </div>
                   </div>
                 </Link>
               ))}
