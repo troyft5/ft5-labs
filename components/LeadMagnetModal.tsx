@@ -26,8 +26,11 @@ export default function LeadMagnetModal({
     if (!email) return
 
     setStatus('loading')
-    // In a real app, this posts to `/api/estimate` or HubSpot mapping to the 'Cheat Sheet' form
-    await new Promise(r => setTimeout(r, 1200))
+    await fetch('/api/newsletter', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email, source: 'lead-magnet-cheat-sheet' }),
+    }).catch(() => null)
     setStatus('success')
   }
 

@@ -133,6 +133,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           </>
         )}
 
+        {/* HubSpot tracking */}
+        <Script src="//js.hs-scripts.com/47439115.js" strategy="afterInteractive" id="hs-script" />
+
         {/* Tawk.to live chat */}
         {process.env.NEXT_PUBLIC_TAWK_ID && (
           <Script id="tawk" strategy="afterInteractive">{`

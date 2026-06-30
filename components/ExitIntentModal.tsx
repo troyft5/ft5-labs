@@ -30,8 +30,11 @@ export default function ExitIntentModal() {
     if (!email) return
 
     setStatus('loading')
-    // Simulate network
-    await new Promise(r => setTimeout(r, 1000))
+    await fetch('/api/newsletter', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email, source: 'exit-intent-checklist' }),
+    }).catch(() => null)
     setStatus('success')
   }
 
