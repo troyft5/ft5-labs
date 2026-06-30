@@ -174,19 +174,19 @@ export async function submitLead(props: ContactProps & { businessName?: string; 
 
   await ensureProperties(tok)
 
-  const { businessName, createDeal, ...contactProps } = props
+  const { businessName, createDeal: shouldCreateDeal, ...contactProps } = props
   const contactId = await upsertContactRecord(tok, contactProps)
   if (!contactId) return
 
   let companyId: string | null = null
-  if (props.businessName) {
-    companyId = await findOrCreateCompany(tok, props.businessName, props.phone)
+  if (businessName) {
+    companyId = await findOrCreateCompany(tok, businessName, props.phone)
     if (companyId) await associateContactToCompany(tok, contactId, companyId)
   }
 
-  if (props.createDeal) {
-    const dealName = props.businessName
-      ? `${props.businessName} — Savings Estimate`
+  if (shouldCreateDeal) {
+    const dealName = businessName
+      ? `${businessName} — Savings Estimate`
       : `${props.firstname || props.email} — Contact`
     await createDeal(tok, dealName, contactId, companyId, props.monthly_processing_volume)
   }
