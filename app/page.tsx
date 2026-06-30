@@ -399,7 +399,7 @@ export default function Home() {
             </Link>
           </div>
           <div className="grid md:grid-cols-3 gap-5">
-            {posts.map((post, idx) => (
+            {posts.map((post) => (
               <Link
                 key={post.slug}
                 href={`/blog/${post.slug}`}
@@ -408,13 +408,15 @@ export default function Home() {
               >
                 {/* Cover image */}
                 <div className="relative h-36 overflow-hidden">
-                  <Image
-                    src={`/blog-cover-${idx + 1}.png`}
-                    alt={post.title}
-                    fill
-                    className="object-cover transition-transform duration-500 group-hover:scale-105"
-                    style={{ opacity: 0.85 }}
-                  />
+                  {post.cover && (
+                    <Image
+                      src={post.cover}
+                      alt={post.title}
+                      fill
+                      className="object-cover transition-transform duration-500 group-hover:scale-105"
+                      style={{ opacity: 0.85 }}
+                    />
+                  )}
                   <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, transparent 40%, rgba(10,18,8,0.9) 100%)' }} />
                   <div className="absolute bottom-3 left-4">
                     <span className="text-[10px] font-bold uppercase tracking-widest" style={{ color: '#6fc200' }}>{post.category}</span>
