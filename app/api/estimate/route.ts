@@ -47,24 +47,6 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: 'Missing required fields.' }, { status: 400 })
     }
 
-    const leadSummary = `
-New Savings Estimate Request
------------------------------
-Name:              ${firstName} ${lastName || ''}
-Email:             ${email}
-Phone:             ${phone || '—'}
-Business:          ${business || '—'}
-Volume:            ${volume || '—'}
-Industry:          ${industry || '—'}
-Current Processor: ${currentProcessor || '—'}
-Hardware/Terminal: ${hardwareType || '—'}
-Card Method:       ${cardMethod || '—'}
-Notes:             ${notes || '—'}
-Statement:         ${fileData ? `Yes — ${fileData.name}` : 'No'}
-    `.trim()
-
-    console.log('[lead]', leadSummary)
-
     const contactId = await submitLead({
       email,
       firstname: firstName,
@@ -155,6 +137,6 @@ Statement:         ${fileData ? `Yes — ${fileData.name}` : 'No'}
     return NextResponse.json({ success: true })
   } catch (err) {
     console.error('[/api/estimate]', err)
-    return NextResponse.json({ success: true })
+    return NextResponse.json({ error: 'Something went wrong. Please try again.' }, { status: 500 })
   }
 }

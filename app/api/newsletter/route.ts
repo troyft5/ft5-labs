@@ -9,8 +9,6 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: 'Email is required.' }, { status: 400 })
     }
 
-    console.log('[newsletter]', email, source || '')
-
     await upsertContact({
       email,
       lifecyclestage: 'lead',
@@ -19,6 +17,6 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ success: true })
   } catch (err) {
     console.error('[/api/newsletter]', err)
-    return NextResponse.json({ success: true })
+    return NextResponse.json({ error: 'Something went wrong.' }, { status: 500 })
   }
 }
