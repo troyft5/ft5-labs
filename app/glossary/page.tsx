@@ -65,6 +65,7 @@ export default function GlossaryIndex() {
                 <span style={{ background: 'linear-gradient(135deg,#9de84a,#4e9000)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
                   {'processor hopes'}
                 </span>
+                {' you never learn.'}
               </h1>
             </ScrollDepth3D>
           </Reveal>

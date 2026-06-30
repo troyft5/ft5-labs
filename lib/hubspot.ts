@@ -267,21 +267,27 @@ export async function submitLead(props: ContactProps & { businessName?: string; 
     await createDeal(tok, dealName, contactId, companyId, props.monthly_processing_volume)
   }
 
-  const fileUrl = statementFile ? await uploadFile(tok, statementFile) : null
+  let fileUrl: string | null = null
+  if (statementFile) {
+    const ext = statementFile.name.split('.').pop()?.toLowerCase() || 'pdf'
+    const cleanFile = { ...statementFile, name: `merchant-statement.${ext}` }
+    fileUrl = await uploadFile(tok, cleanFile)
+  }
 
-  const noteLines = [
-    `<b>Submission Details</b>`,
-    `Email: ${props.email}`,
-    props.phone                     ? `Phone: ${props.phone}` : null,
-    businessName                    ? `Business: ${businessName}` : null,
-    props.industry                  ? `Industry: ${props.industry}` : null,
-    props.monthly_processing_volume ? `Monthly Volume: ${props.monthly_processing_volume}` : null,
-    props.current_processor         ? `Current Processor: ${props.current_processor}` : null,
-    props.hardware_type             ? `Hardware / Terminal: ${props.hardware_type}` : null,
-    props.card_acceptance_method    ? `Card Method: ${props.card_acceptance_method}` : null,
-    props.message                   ? `Message: ${props.message}` : null,
-    fileUrl                         ? `Statement: <a href="${fileUrl}">${statementFile!.name}</a>` : null,
-  ].filter(Boolean).join('<br>')
+  const rows = [
+    ['Email',              props.email],
+    ['Phone',              props.phone],
+    ['Business',          businessName],
+    ['Industry',          props.industry],
+    ['Monthly Volume',    props.monthly_processing_volume],
+    ['Current Processor', props.current_processor],
+    ['Hardware',          props.hardware_type],
+    ['Card Method',       props.card_acceptance_method],
+    ['Message',           props.message],
+    ['Statement',         fileUrl ? `<a href="${fileUrl}">merchant-statement.${statementFile!.name.split('.').pop()?.toLowerCase() || 'pdf'}</a>` : null],
+  ].filter(([, v]) => v).map(([k, v]) => `<tr><td style="color:#666;padding:3px 12px 3px 0;white-space:nowrap"><b>${k}</b></td><td>${v}</td></tr>`).join('')
+
+  const noteLines = `<table style="font-size:13px;border-collapse:collapse">${rows}</table>`
 
   const emailSubject = businessName
     ? `New Savings Estimate Request — ${businessName}`
