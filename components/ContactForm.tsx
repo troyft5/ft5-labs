@@ -9,7 +9,7 @@ const labelClass = "block text-[10px] font-bold uppercase tracking-widest text-s
 export default function ContactForm() {
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
   const [formData, setFormData] = useState({
-    firstName: '', lastName: '', email: '', phone: '', businessType: '', message: '',
+    firstName: '', lastName: '', email: '', phone: '', business: '', businessType: '', message: '',
   })
 
   const set = (k: string) => (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) =>
@@ -63,6 +63,10 @@ export default function ContactForm() {
       <div>
         <label className={labelClass}>Phone Number</label>
         <input type="tel" placeholder="(555) 555-5555" value={formData.phone} onChange={set('phone')} className={inputClass} style={inputStyle} />
+      </div>
+      <div>
+        <label className={labelClass}>Business Name</label>
+        <input type="text" placeholder="Acme Corp" value={formData.business} onChange={set('business')} className={inputClass} style={inputStyle} />
       </div>
       <div>
         <label className={labelClass}>Business Type</label>

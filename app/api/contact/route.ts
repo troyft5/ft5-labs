@@ -38,7 +38,7 @@ const confirmationHtml = (firstName: string) => `
 export async function POST(req: NextRequest) {
   const resend = new Resend(process.env.RESEND_API_KEY ?? 'missing')
   try {
-    const { firstName, lastName, email, phone, businessType, message } = await req.json()
+    const { firstName, lastName, email, phone, business, businessType, message } = await req.json()
 
     if (!firstName || !email || !message) {
       return NextResponse.json({ error: 'Missing required fields.' }, { status: 400 })
@@ -49,6 +49,7 @@ export async function POST(req: NextRequest) {
       firstName,
       lastName: lastName || undefined,
       phone: phone || undefined,
+      businessName: business || undefined,
       industry: businessType || undefined,
       message: message || undefined,
       createDeal: true,
@@ -71,6 +72,7 @@ export async function POST(req: NextRequest) {
             <tr><td><strong>Name</strong></td><td>${firstName} ${lastName || ''}</td></tr>
             <tr><td><strong>Email</strong></td><td><a href="mailto:${email}">${email}</a></td></tr>
             <tr><td><strong>Phone</strong></td><td>${phone || '—'}</td></tr>
+            <tr><td><strong>Business</strong></td><td>${business || '—'}</td></tr>
             <tr><td><strong>Industry</strong></td><td>${businessType || '—'}</td></tr>
             <tr><td><strong>Message</strong></td><td>${message}</td></tr>
           </table>
