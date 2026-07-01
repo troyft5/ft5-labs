@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import { createPortal } from 'react-dom'
 import { X, FileDown, CheckCircle2, ShieldCheck } from 'lucide-react'
 import { identifyVisitor, hasConverted } from '@/lib/identify'
 
@@ -39,15 +40,20 @@ export default function LeadMagnetModal({
     setStatus('success')
   }
 
-  return (
-    <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6 overflow-y-auto" style={{ background: 'rgba(5, 10, 5, 0.85)', backdropFilter: 'blur(8px)' }}>
+  // Portal to document.body — a fixed-position modal rendered inline can get
+  // trapped inside a transformed/will-change ancestor (e.g. ScrollDepth3D's
+  // reveal animation), which makes `position: fixed` relative to that
+  // ancestor instead of the viewport and squashes the modal into a tiny box.
+  return createPortal(
+    <div className="fixed inset-0 z-[100] overflow-y-auto" style={{ background: 'rgba(5, 10, 5, 0.85)', backdropFilter: 'blur(8px)' }}>
       {/* Background click to close */}
       <div className="absolute inset-0" onClick={onClose} />
 
-      <div
-        className="relative w-full max-w-lg rounded-2xl overflow-hidden shadow-2xl animate-in fade-in zoom-in-95 duration-200 my-auto"
-        style={{ background: '#0a1208', border: '1px solid rgba(78,144,0,0.3)' }}
-      >
+      <div className="relative min-h-full flex items-center justify-center p-4 sm:p-6">
+        <div
+          className="relative w-full max-w-lg rounded-2xl overflow-hidden shadow-2xl animate-in fade-in zoom-in-95 duration-200"
+          style={{ background: '#0a1208', border: '1px solid rgba(78,144,0,0.3)' }}
+        >
         {/* Header gradient bar */}
         <div className="h-1.5 w-full bg-gradient-to-r from-[#4e9000] to-[#8cd627]" />
         
@@ -136,6 +142,8 @@ export default function LeadMagnetModal({
           )}
         </div>
       </div>
-    </div>
+      </div>
+    </div>,
+    document.body
   )
 }

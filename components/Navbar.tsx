@@ -205,7 +205,7 @@ export default function Navbar() {
 
           <Link href="/about-us" className={navLinkClass('/about-us')}>About</Link>
 
-          <a href="https://app.fintech5group.com" className={navLinkClass('/client-login')}>
+          <a href="https://app.fintech5group.com" target="_blank" rel="noopener noreferrer" className={navLinkClass('/client-login')}>
             Client Login
           </a>
         </div>

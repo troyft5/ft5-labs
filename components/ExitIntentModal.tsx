@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import { createPortal } from 'react-dom'
 import { X, CheckSquare, ShieldCheck, ArrowRight } from 'lucide-react'
 import { identifyVisitor, hasConverted } from '@/lib/identify'
 
@@ -40,12 +41,17 @@ export default function ExitIntentModal() {
     setStatus('success')
   }
 
-  return (
-    <div className="fixed inset-0 z-[200] flex items-center justify-center p-4 sm:p-6" style={{ background: 'rgba(5, 10, 5, 0.85)', backdropFilter: 'blur(8px)' }}>
+  // Portal to document.body — a fixed-position modal rendered inline can get
+  // trapped inside a transformed/will-change ancestor (e.g. ScrollDepth3D's
+  // reveal animation), which makes `position: fixed` relative to that
+  // ancestor instead of the viewport and squashes the modal into a tiny box.
+  return createPortal(
+    <div className="fixed inset-0 z-[200] overflow-y-auto" style={{ background: 'rgba(5, 10, 5, 0.85)', backdropFilter: 'blur(8px)' }}>
       {/* Background click to close */}
       <div className="absolute inset-0" onClick={() => setIsOpen(false)} />
 
-      <div 
+      <div className="relative min-h-full flex items-center justify-center p-4 sm:p-6">
+      <div
         className="relative w-full max-w-lg rounded-2xl overflow-hidden shadow-2xl animate-in fade-in zoom-in-95 duration-200"
         style={{ background: '#0a1208', border: '1px solid rgba(78,144,0,0.3)' }}
       >
@@ -128,6 +134,8 @@ export default function ExitIntentModal() {
           )}
         </div>
       </div>
-    </div>
+      </div>
+    </div>,
+    document.body
   )
 }
