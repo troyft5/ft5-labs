@@ -205,9 +205,9 @@ export default function Navbar() {
 
           <Link href="/about-us" className={navLinkClass('/about-us')}>About</Link>
 
-          <Link href="/get-your-savings-estimate" className={navLinkClass('/get-your-savings-estimate')}>
-            Free Audit
-          </Link>
+          <a href="https://app.fintech5group.com" className={navLinkClass('/client-login')}>
+            Client Login
+          </a>
         </div>
 
         {/* ── Desktop CTAs ── */}
