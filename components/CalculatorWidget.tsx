@@ -32,27 +32,6 @@ const INDUSTRIES = [
 const inputClass = "w-full rounded-xl px-4 py-3 text-white text-sm font-bold outline-none focus:ring-1 focus:ring-[#4e9000]"
 const inputStyle = { background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)' }
 
-function BarRow({ label, cost, maxCost, color, chip }: { label: string; cost: number; maxCost: number; color: string; chip?: string }) {
-  const w = Math.max(14, (cost / maxCost) * 100)
-  return (
-    <div className="flex items-center gap-3">
-      <div className="w-28 text-xs text-slate-500 shrink-0 text-right">{label}</div>
-      <div className="flex-1 relative h-8 rounded-lg overflow-hidden" style={{ background: 'rgba(255,255,255,0.04)' }}>
-        <div className="h-full rounded-lg flex items-center justify-end pr-3 transition-all duration-700"
-          style={{ width: `${w}%`, background: color, opacity: 0.85 }}>
-          <span className="text-xs font-black text-white">{fmt(cost)}</span>
-        </div>
-      </div>
-      {chip && (
-        <div className="text-[10px] font-black px-2 py-0.5 rounded-full shrink-0"
-          style={{ background: 'rgba(78,144,0,0.2)', color: '#6fc200', border: '1px solid rgba(78,144,0,0.3)' }}>
-          {chip}
-        </div>
-      )}
-    </div>
-  )
-}
-
 export default function CalculatorWidget() {
   const [vol, setVol]           = useState(25000)
   const [avgTx, setAvgTx]       = useState(75)
@@ -89,6 +68,7 @@ export default function CalculatorWidget() {
   }
 
   const annualSavings = results ? Math.round((results.ic.mo - results.ft5.moMid) * 12) : 0
+  const baselineMo = results ? Math.round(results.ic.mo) : 0
 
   return (
     <div>
@@ -175,58 +155,39 @@ export default function CalculatorWidget() {
       {results && (
         <div id="calc-results" className="mt-8 flex flex-col gap-5">
 
-          {/* Overpay banner */}
-          {results.current.mo && results.current.overpayAnnual !== null && results.current.overpayAnnual > 0 && (
-            <div className="rounded-2xl p-6" style={{ background: 'rgba(239,68,68,0.08)', border: '1px solid rgba(239,68,68,0.25)' }}>
-              <div className="text-[10px] font-bold uppercase tracking-widest text-red-400 mb-1">Based on your current fees</div>
-              <div className="text-2xl font-black text-white mb-1">
-                You&apos;re overpaying ~{fmt(results.current.overpayAnnual)}/year
-              </div>
-              <div className="text-sm text-slate-400">
-                Your rate: <strong className="text-red-400">{pct(results.current.eff!)}</strong> — FT5 target: <strong className="text-green-400">{pct(results.ft5.rateLow)}–{pct(results.ft5.rateHigh)}</strong>
-              </div>
+          {/* Headline result */}
+          <div className="rounded-2xl p-6 md:p-8" style={{ background: 'rgba(78,144,0,0.08)', border: '1px solid rgba(78,144,0,0.3)' }}>
+            <div className="text-[10px] font-bold uppercase tracking-widest mb-2" style={{ color: '#6fc200' }}>
+              {results.current.mo ? 'Based on your current fees' : 'FT5 Competitive Bid Estimate'}
             </div>
-          )}
-
-          {/* Bar chart */}
-          <div className="rounded-2xl p-6" style={{ background: 'rgba(255,255,255,0.025)', border: '1px solid rgba(255,255,255,0.07)' }}>
-            <div className="text-xs font-bold uppercase tracking-wider text-slate-500 mb-5">Monthly Cost Comparison</div>
-            <div className="flex flex-col gap-3">
-              {(() => {
-                const rows = [
-                  { label: 'Flat Rate',      cost: results.flat.mo,   color: '#475569' },
-                  { label: 'Tiered',         cost: results.tiered.mo, color: '#f59e0b' },
-                  { label: 'Interchange+',   cost: results.ic.mo,     color: '#3b82f6' },
-                  { label: 'FT5 Estimate',   cost: results.ft5.moMid, color: '#4e9000', chip: 'FT5 Est.' },
-                  ...(results.current.mo ? [{ label: 'You Pay Now', cost: results.current.mo, color: '#ef4444' }] : []),
-                ].sort((a, b) => b.cost - a.cost)
-                const maxCost = Math.max(...rows.map(r => r.cost)) * 1.08
-                return rows.map(r => <BarRow key={r.label} {...r} maxCost={maxCost} />)
-              })()}
+            <div className="text-4xl font-black text-white mb-6">
+              {results.current.overpayAnnual !== null && results.current.overpayAnnual > 0
+                ? <>You could save ~{fmt(results.current.overpayAnnual)}<span className="text-lg text-slate-500 font-normal"> /year</span></>
+                : <>Save up to {fmt(annualSavings)}<span className="text-lg text-slate-500 font-normal"> /year</span></>}
             </div>
-          </div>
-
-          {/* FT5 savings card */}
-          <div className="rounded-2xl p-6" style={{ background: 'rgba(78,144,0,0.08)', border: '1px solid rgba(78,144,0,0.3)' }}>
-            <div className="text-[10px] font-bold uppercase tracking-widest mb-1" style={{ color: '#6fc200' }}>FT5 Competitive Bid Estimate</div>
-            <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mt-3">
-              <div className="flex gap-8">
-                <div>
-                  <div className="text-3xl font-black text-white">{fmt(results.ft5.moMid)}<span className="text-base text-slate-500 font-normal">/mo</span></div>
-                  <div className="text-xs text-slate-500 mt-0.5">Estimated monthly cost</div>
-                </div>
-                <div>
-                  <div className="text-3xl font-black" style={{ color: '#6fc200' }}>{fmt(annualSavings)}<span className="text-base text-slate-500 font-normal">/yr</span></div>
-                  <div className="text-xs text-slate-500 mt-0.5">Estimated annual savings</div>
-                </div>
-                <div>
-                  <div className="text-3xl font-black text-white">{pct(results.ft5.rateLow)}–{pct(results.ft5.rateHigh)}</div>
-                  <div className="text-xs text-slate-500 mt-0.5">Target effective rate</div>
-                </div>
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-6">
+              <div>
+                <div className="text-2xl font-black text-white">{fmt(results.ft5.moMid)}<span className="text-sm text-slate-500 font-normal">/mo</span></div>
+                <div className="text-xs text-slate-500 mt-0.5">FT5 estimated cost</div>
               </div>
+              <div>
+                <div className="text-2xl font-black text-white">{pct(results.ft5.rateLow)}–{pct(results.ft5.rateHigh)}</div>
+                <div className="text-xs text-slate-500 mt-0.5">Target effective rate</div>
+              </div>
+              {results.current.mo ? (
+                <div>
+                  <div className="text-2xl font-black text-red-400">{fmt(results.current.mo)}<span className="text-sm text-slate-500 font-normal">/mo</span></div>
+                  <div className="text-xs text-slate-500 mt-0.5">What you pay now</div>
+                </div>
+              ) : (
+                <div>
+                  <div className="text-2xl font-black text-slate-400">{fmt(baselineMo)}<span className="text-sm text-slate-500 font-normal">/mo</span></div>
+                  <div className="text-xs text-slate-500 mt-0.5">Typical processor cost</div>
+                </div>
+              )}
             </div>
-            <p className="text-[10px] text-slate-600 mt-4 leading-relaxed">
-              These are estimates based on published interchange tables and real partner pricing. A free statement analysis delivers exact figures.
+            <p className="text-[10px] text-slate-600 mt-6 leading-relaxed">
+              Estimate based on published interchange tables and real partner pricing. A free statement analysis gives exact figures.
             </p>
           </div>
 
