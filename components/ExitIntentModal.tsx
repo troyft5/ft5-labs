@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import { X, CheckSquare, ShieldCheck, ArrowRight } from 'lucide-react'
+import { identifyVisitor } from '@/lib/identify'
 
 export default function ExitIntentModal() {
   const [isOpen, setIsOpen] = useState(false)
@@ -35,6 +36,7 @@ export default function ExitIntentModal() {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ email, source: 'exit-intent-checklist' }),
     }).catch(() => null)
+    identifyVisitor(email)
     setStatus('success')
   }
 

@@ -2,6 +2,7 @@
 
 import { useEffect } from 'react'
 import { usePathname, useSearchParams } from 'next/navigation'
+import { hasTrackingConsent } from '@/lib/consent'
 
 const CRM_BASE = process.env.NEXT_PUBLIC_CRM_API_URL ?? 'https://app.fintech5group.com'
 const SESSION_KEY = 'ft5_visit_session'
@@ -28,6 +29,7 @@ export default function CrmTracking() {
 
   useEffect(() => {
     if (typeof window === 'undefined') return
+    if (!hasTrackingConsent()) return
 
     const sessionId = getSessionId()
     const url = window.location.href

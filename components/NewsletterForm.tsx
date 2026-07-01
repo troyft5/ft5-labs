@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import { identifyVisitor } from '@/lib/identify'
 
 export default function NewsletterForm() {
   const [email, setEmail] = useState('')
@@ -15,6 +16,7 @@ export default function NewsletterForm() {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ email, source: 'newsletter-footer' }),
     }).catch(() => null)
+    identifyVisitor(email)
     setStatus('done')
   }
 

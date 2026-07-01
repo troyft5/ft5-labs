@@ -4,6 +4,7 @@ import { useState } from 'react'
 import Link from 'next/link'
 import { ArrowRight, ShieldCheck, CheckCircle2, Upload, Clock, Phone, FileText, Star } from 'lucide-react'
 import ExitIntentModal from '@/components/ExitIntentModal'
+import { identifyVisitor } from '@/lib/identify'
 
 const BG  = '#0f1a0f'
 const BG2 = '#0a1208'
@@ -67,6 +68,7 @@ export default function Estimate() {
           hardwareType: form.hardwareType || undefined,
         }),
       })
+      if (res.ok) identifyVisitor(form.email)
       setStatus(res.ok ? 'success' : 'error')
     } catch {
       setStatus('error')

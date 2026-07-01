@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import { X, FileDown, CheckCircle2, ShieldCheck } from 'lucide-react'
+import { identifyVisitor } from '@/lib/identify'
 
 export default function LeadMagnetModal({
   isOpen,
@@ -31,6 +32,7 @@ export default function LeadMagnetModal({
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ email, source: 'lead-magnet-cheat-sheet' }),
     }).catch(() => null)
+    identifyVisitor(email)
     setStatus('success')
   }
 

@@ -1,6 +1,7 @@
 'use client'
 import { useState } from 'react'
 import { ArrowRight } from 'lucide-react'
+import { identifyVisitor } from '@/lib/identify'
 
 const inputStyle = { background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)', color: 'white' }
 const inputClass = "w-full px-4 py-3 rounded-xl text-sm focus:outline-none transition-all placeholder:text-slate-600"
@@ -25,6 +26,7 @@ export default function ContactForm() {
         body: JSON.stringify(formData),
       })
       if (res.ok) {
+        identifyVisitor(formData.email)
         setStatus('success')
       } else {
         setStatus('error')
