@@ -26,7 +26,9 @@ export type LeadProps = {
 }
 
 export function crmContactUrl(contactId: string) {
-  return `${CRM_BASE}/agent/crm/contacts/${contactId}`
+  // Role-agnostic — /crm/contacts/:id redirects to the right role-prefixed
+  // page (agent/admin/super_admin) based on whoever actually clicks it.
+  return `${CRM_BASE}/crm/contacts/${contactId}`
 }
 
 async function postLead(type: 'contact' | 'estimate' | 'newsletter', props: LeadProps): Promise<{ contactId: string | null }> {
