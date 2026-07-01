@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import { X, CheckSquare, ShieldCheck, ArrowRight } from 'lucide-react'
-import { identifyVisitor } from '@/lib/identify'
+import { identifyVisitor, hasConverted } from '@/lib/identify'
 
 export default function ExitIntentModal() {
   const [isOpen, setIsOpen] = useState(false)
@@ -14,7 +14,7 @@ export default function ExitIntentModal() {
     // Only fire on desktop. Mobile exit intent requires different heuristics (e.g. fast scrolling up).
     const handleMouseOut = (e: MouseEvent) => {
       // Fire if mouse moves up out of the viewport (clientY < 10) and leaves the document (relatedTarget is null)
-      if (e.clientY < 10 && (e.relatedTarget === null || (e.relatedTarget as HTMLElement).nodeName === 'HTML') && !hasFired) {
+      if (e.clientY < 10 && (e.relatedTarget === null || (e.relatedTarget as HTMLElement).nodeName === 'HTML') && !hasFired && !hasConverted()) {
         setIsOpen(true)
         setHasFired(true)
       }

@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import { X, FileDown, CheckCircle2, ShieldCheck } from 'lucide-react'
-import { identifyVisitor } from '@/lib/identify'
+import { identifyVisitor, hasConverted } from '@/lib/identify'
 
 export default function LeadMagnetModal({
   isOpen,
@@ -17,6 +17,9 @@ export default function LeadMagnetModal({
 
   useEffect(() => {
     setMounted(true)
+    // Already gave us their email elsewhere on the site — don't ask again,
+    // skip straight to the download state.
+    if (hasConverted()) setStatus('success')
   }, [])
 
   if (!mounted) return null
