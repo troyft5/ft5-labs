@@ -28,12 +28,9 @@ export default function Calculator() {
             Processing Fee<br />
             <span style={{ background: 'linear-gradient(135deg,#9de84a,#6fc200)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>Calculator</span>
           </h1>
-          <p className="text-lg text-slate-400 leading-relaxed mb-6 max-w-xl">
-            Enter your volume and see what you&apos;re likely paying vs. what a competitive rate looks like.
+          <p className="text-lg text-slate-400 leading-relaxed max-w-xl">
+            See what you&apos;re likely paying today, and what a competitive rate looks like. Free, no signup required.
           </p>
-          <div className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-bold" style={{ background: 'rgba(78,144,0,0.12)', border: '1px solid rgba(78,144,0,0.25)', color: '#6fc200' }}>
-            ⚡ Free. No signup required.
-          </div>
         </div>
       </section>
 
@@ -51,9 +48,9 @@ export default function Calculator() {
         <div className="relative max-w-4xl mx-auto">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
-              <div className="text-[10px] font-bold uppercase tracking-widest mb-4" style={{ color: 'rgba(255,255,255,0.6)' }}>From estimate to verified numbers</div>
-              <h2 className="text-4xl font-black text-white mb-6 leading-tight">The real audit is same day or less. The cost is zero.</h2>
-              <p style={{ color: 'rgba(255,255,255,0.75)' }} className="text-lg leading-relaxed">The calculator gives you direction. The statement audit gives you proof, with a line-by-line fee breakdown and competitive bids from 10+ processors.</p>
+              <div className="text-[10px] font-bold uppercase tracking-widest mb-4" style={{ color: 'rgba(255,255,255,0.6)' }}>From estimate to certainty</div>
+              <h2 className="text-4xl font-black text-white mb-6 leading-tight">Get the exact number, not an estimate.</h2>
+              <p style={{ color: 'rgba(255,255,255,0.75)' }} className="text-lg leading-relaxed">A free statement audit replaces this estimate with a line-by-line fee breakdown and real bids from 10+ processors — same day or less.</p>
             </div>
             <div className="flex flex-col gap-4">
               <Link href="/get-your-savings-estimate" className="flex items-center justify-center gap-2 px-8 py-4 font-black rounded-xl transition-all hover:-translate-y-1" style={{ background: '#0a1208', color: '#6fc200', boxShadow: '0 8px 40px rgba(0,0,0,0.4)' }}>

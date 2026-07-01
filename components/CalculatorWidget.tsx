@@ -162,8 +162,8 @@ export default function CalculatorWidget() {
             </div>
             <div className="text-4xl font-black text-white mb-6">
               {results.current.overpayAnnual !== null && results.current.overpayAnnual > 0
-                ? <>You could save ~{fmt(results.current.overpayAnnual)}<span className="text-lg text-slate-500 font-normal"> /year</span></>
-                : <>Save up to {fmt(annualSavings)}<span className="text-lg text-slate-500 font-normal"> /year</span></>}
+                ? <>Estimated savings: {fmt(results.current.overpayAnnual)}<span className="text-lg text-slate-500 font-normal"> /year</span></>
+                : <>Estimated savings: up to {fmt(annualSavings)}<span className="text-lg text-slate-500 font-normal"> /year</span></>}
             </div>
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-6">
               <div>
@@ -196,7 +196,7 @@ export default function CalculatorWidget() {
             style={{ background: 'rgba(78,144,0,0.1)', border: '1px solid rgba(78,144,0,0.3)' }}>
             <div>
               <div className="text-lg font-black text-white mb-1">Want the exact number?</div>
-              <div className="text-sm text-slate-400">Send us your statement. Full line-by-line audit back to you same day, free.</div>
+              <div className="text-sm text-slate-400">Send us your statement. Full line-by-line audit back to you same day or less, free.</div>
             </div>
             <Link
               href={`/get-your-savings-estimate?source=calculator&industry=${industry}&volume=${vol}&avg_tx=${avgTx}&card_method=${cp}`}
