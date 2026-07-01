@@ -10,7 +10,10 @@ export const metadata: Metadata = {
 const BG  = '#0f1a0f'
 const BG2 = '#0a1208'
 
-const SCHEDULE_URL = process.env.NEXT_PUBLIC_SCHEDULE_URL ?? ''
+// Points at a booking page created in the FT5 CRM (Settings → My Calendar →
+// New Booking Page), embedded chrome-free via ?embed=1. Falls back to the
+// general sales booking page if not overridden per-deploy.
+const SCHEDULE_URL = process.env.NEXT_PUBLIC_SCHEDULE_URL ?? 'https://app.fintech5group.com/book/sales?embed=1'
 
 export default function SchedulePage() {
   return (

@@ -50,7 +50,7 @@ export default function PrivacyPolicy() {
             <p>We use the following third-party services that may collect or process data on our behalf:</p>
             <div className="mt-4 flex flex-col gap-4">
               {[
-                { name: 'HubSpot', desc: 'We use HubSpot to manage our contact forms and customer relationships. When you submit a form, your information is stored in HubSpot\'s platform.' },
+                { name: 'FT5 CRM', desc: 'We manage our own contact forms and customer relationships on our own platform. When you submit a form, your information is stored in our CRM, not shared with a third-party marketing platform.' },
                 { name: 'Cloudflare', desc: 'We use Cloudflare for website security and performance. Cloudflare may collect technical data such as IP addresses and set cookies for security purposes.' },
                 { name: 'Google', desc: 'We use Google Search Console to understand how our site performs in search results. This involves aggregated, anonymized data about site traffic.' },
               ].map(s => (
@@ -63,7 +63,7 @@ export default function PrivacyPolicy() {
           </Section>
 
           <Section title="Cookies">
-            <p>Our website uses cookies (small text files stored on your device) to help our site function properly and to understand how visitors interact with our content. These cookies are primarily set by our third-party service providers (HubSpot and Cloudflare).</p>
+            <p>Our website uses cookies and local storage (small text files stored on your device) to help our site function properly and to understand how visitors interact with our content. This is primarily set by Cloudflare and our own first-party visit tracking.</p>
             <p className="mt-3">You can control cookies through your browser settings. Note that disabling cookies may affect your experience on our site.</p>
           </Section>
 

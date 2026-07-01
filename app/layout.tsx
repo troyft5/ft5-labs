@@ -1,4 +1,5 @@
 import './globals.css'
+import { Suspense } from 'react'
 import { Inter } from 'next/font/google'
 import Link from 'next/link'
 import { Phone, Mail, MapPin } from 'lucide-react'
@@ -8,6 +9,7 @@ import Script from 'next/script'
 import MobileCTA from '@/components/MobileCTA'
 import ScrollToTop from '@/components/ScrollToTop'
 import CookieConsent from '@/components/CookieConsent'
+import CrmTracking from '@/components/CrmTracking'
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
 
@@ -133,8 +135,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           </>
         )}
 
-        {/* HubSpot tracking */}
-        <Script src="//js.hs-scripts.com/47439115.js" strategy="afterInteractive" id="hs-script" />
+        {/* FT5 CRM visitor tracking — replaces HubSpot's tracking script */}
+        <Suspense fallback={null}>
+          <CrmTracking />
+        </Suspense>
 
         {/* Tawk.to live chat */}
         {process.env.NEXT_PUBLIC_TAWK_ID && (

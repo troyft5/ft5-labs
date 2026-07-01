@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { submitLead, contactUrl } from '@/lib/hubspot'
+import { submitLead, crmContactUrl } from '@/lib/crm'
 
 const TO = 'troy@fintech5group.com'
 const FROM = 'FinTech 5 <no-reply@fintech5group.com>'
@@ -47,22 +47,21 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: 'Missing required fields.' }, { status: 400 })
     }
 
-    const contactId = await submitLead({
+    const contactId = await submitLead('estimate', {
       email,
-      firstname: firstName,
-      lastname: lastName || undefined,
+      firstName,
+      lastName: lastName || undefined,
       phone: phone || undefined,
       industry: industry || undefined,
       message: [notes, referralSource ? `Referred by: ${referralSource}` : null].filter(Boolean).join('\n') || undefined,
-      lifecyclestage: 'lead',
-      hs_lead_status: 'NEW',
-      monthly_processing_volume: volume || undefined,
-      current_processor: currentProcessor || undefined,
-      hardware_type: hardwareType || undefined,
-      card_acceptance_method: cardMethod || undefined,
+      monthlyVolume: volume || undefined,
+      currentProcessor: currentProcessor || undefined,
+      hardwareType: hardwareType || undefined,
+      cardMethod: cardMethod || undefined,
       businessName: business || undefined,
       createDeal: true,
       statementFile: fileData ?? undefined,
+      sourceUrl: req.headers.get('referer') || undefined,
     })
 
     const apiKey = process.env.RESEND_API_KEY
@@ -74,7 +73,7 @@ export async function POST(req: NextRequest) {
         ? [{ filename: fileData.name, content: fileData.content, contentType: fileData.type }]
         : []
 
-      const hsUrl = contactId ? contactUrl(contactId) : null
+      const crmUrl = contactId ? crmContactUrl(contactId) : null
       const fileName = fileData ? fileData.name : null
 
       const results = await Promise.all([
@@ -110,7 +109,7 @@ export async function POST(req: NextRequest) {
       ${referralSource ? `<tr style="background:#fefce8"><td style="padding:12px 0;color:#64748b;font-size:13px;padding-left:8px">Referred By</td><td style="padding:12px 0;font-weight:800;color:#92400e">${referralSource}</td></tr>` : `<tr><td style="padding:12px 0;color:#64748b;font-size:13px">Referred By</td><td style="padding:12px 0;font-weight:700;color:#0f172a">—</td></tr>`}
     </table>
     <div style="margin-top:20px">
-      ${hsUrl ? `<a href="${hsUrl}" style="display:inline-block;background:#15803d;color:#ffffff;font-weight:700;font-size:13px;padding:12px 24px;border-radius:8px;text-decoration:none">View in HubSpot →</a>` : ''}
+      ${crmUrl ? `<a href="${crmUrl}" style="display:inline-block;background:#15803d;color:#ffffff;font-weight:700;font-size:13px;padding:12px 24px;border-radius:8px;text-decoration:none">View in FT5 CRM →</a>` : ''}
     </div>
   </div>
   <div style="padding:16px 32px;background:#f8fafc;border-top:1px solid #e2e8f0">

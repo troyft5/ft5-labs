@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { Resend } from 'resend'
-import { submitLead, contactUrl } from '@/lib/hubspot'
+import { submitLead, crmContactUrl } from '@/lib/crm'
 
 const TO   = 'troy@fintech5group.com'
 const FROM = 'FinTech 5 <no-reply@fintech5group.com>'
@@ -44,20 +44,19 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: 'Missing required fields.' }, { status: 400 })
     }
 
-    const contactId = await submitLead({
+    const contactId = await submitLead('contact', {
       email,
-      firstname: firstName,
-      lastname: lastName || undefined,
+      firstName,
+      lastName: lastName || undefined,
       phone: phone || undefined,
       industry: businessType || undefined,
       message: message || undefined,
-      lifecyclestage: 'lead',
-      hs_lead_status: 'NEW',
       createDeal: true,
+      sourceUrl: req.headers.get('referer') || undefined,
     })
 
-    const hsLink = contactId
-      ? `<br><br><a href="${contactUrl(contactId)}" style="color:#0f6bff">View in HubSpot →</a>`
+    const crmLink = contactId
+      ? `<br><br><a href="${crmContactUrl(contactId)}" style="color:#0f6bff">View in FT5 CRM →</a>`
       : ''
 
     const [internalResult, clientResult] = await Promise.all([
@@ -75,7 +74,7 @@ export async function POST(req: NextRequest) {
             <tr><td><strong>Industry</strong></td><td>${businessType || '—'}</td></tr>
             <tr><td><strong>Message</strong></td><td>${message}</td></tr>
           </table>
-          ${hsLink}
+          ${crmLink}
         `,
       }),
       resend.emails.send({
