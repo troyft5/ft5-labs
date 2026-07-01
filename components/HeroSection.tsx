@@ -275,7 +275,7 @@ export default function HeroSection() {
             {[
               { n: 10, s: '+', p: '',  label: 'Processor Partners' },
               { n: 30, s: '+', p: '',  label: 'Years of Experience' },
-              { n: 18, s: '%', p: '',  label: 'Max Rate Reduction' },
+              { n: 24, s: '/7', p: '', label: 'Live Client Support' },
               { n: 0,  s: '',  p: '$', label: 'Consulting Cost to You' },
             ].map((stat) => (
               <div key={stat.label} className="px-8 py-6 text-center" style={{ background: 'rgba(255,255,255,0.02)' }}>
