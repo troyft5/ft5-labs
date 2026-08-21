@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import TroyCalendarEmbed from '@/components/TroyCalendarEmbed'
 
 export const metadata = {
   title: "Troy's Calendar | Book a Call | FinTech 5",
@@ -9,28 +10,24 @@ export const metadata = {
 const BG = '#0f1a0f'
 const BG2 = '#0a1208'
 
-const TROY_CAL_URL =
-  'https://calendar.google.com/calendar/appointments/schedules/AcZssZ2uErWLpZVp1c5yyW65cJgq1ZNm2fOtnUXPuMxjOpeQn5NCxkumfScY9FnP28W_7mLaSciVIn6U?gv=true'
-
 export default function TroysCalendarPage() {
-
   return (
     <div className="flex flex-col w-full min-h-screen" style={{ background: BG }}>
-      <section className="relative px-6 pt-40 pb-12 overflow-hidden" style={{ background: BG2 }}>
+      <section className="relative px-6 pt-32 pb-8 overflow-hidden" style={{ background: BG2 }}>
         <div className="absolute top-0 left-0 right-0 h-[2px]" style={{ background: 'linear-gradient(90deg,transparent,rgba(78,144,0,0.5),transparent)' }} />
 
         <div className="relative max-w-3xl mx-auto text-center">
-          <div className="flex items-center justify-center gap-3 mb-6">
+          <div className="flex items-center justify-center gap-3 mb-4">
             <div className="h-px w-8" style={{ background: '#4e9000' }} />
             <span className="text-[11px] font-bold uppercase tracking-[0.2em]" style={{ color: '#6fc200' }}>
               Book Troy
             </span>
             <div className="h-px w-8" style={{ background: '#4e9000' }} />
           </div>
-          <h1 className="text-4xl md:text-6xl font-black tracking-tight text-white leading-none mb-6">
+          <h1 className="text-3xl md:text-5xl font-black tracking-tight text-white leading-none mb-3">
             Grab 15 minutes
-            <br />
             <span
+              className="block mt-1"
               style={{
                 background: 'linear-gradient(135deg,#9de84a,#4e9000)',
                 WebkitBackgroundClip: 'text',
@@ -41,30 +38,15 @@ export default function TroysCalendarPage() {
               on Troy&apos;s calendar.
             </span>
           </h1>
-          <p className="text-lg text-slate-400 max-w-lg mx-auto leading-relaxed mb-8">
-            Pick a slot that works. If you have a recent processing statement, bring it. If not, just show up. Most first looks take about 15 minutes.
+          <p className="text-base text-slate-400 max-w-lg mx-auto leading-relaxed">
+            Pick a slot. Bring a statement if you have one. Call (732) 300-1072 if you would rather talk now.
           </p>
-          <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-2 text-xs text-slate-500 font-semibold">
-            <span>15 minutes</span>
-            <span>Free</span>
-            <span>No pitch</span>
-            <span>You can call instead: (732) 300-1072</span>
-          </div>
         </div>
       </section>
 
-      <section className="px-6 py-10 relative" style={{ background: BG }}>
-        <div className="max-w-3xl mx-auto">
-          <div className="rounded-2xl overflow-hidden bg-white" style={{ border: '1px solid rgba(255,255,255,0.08)' }}>
-            <iframe
-              src={TROY_CAL_URL}
-              title="Book a time with Troy"
-              width="100%"
-              height="600"
-              className="block w-full"
-              style={{ border: 0, minHeight: 600 }}
-            />
-          </div>
+      <section className="px-4 md:px-6 pb-4 relative" style={{ background: BG }}>
+        <div className="max-w-4xl mx-auto">
+          <TroyCalendarEmbed />
 
           <div className="mt-10 grid md:grid-cols-3 gap-4">
             {[
