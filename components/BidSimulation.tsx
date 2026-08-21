@@ -110,7 +110,7 @@ export default function BidSimulation() {
                     ) : show ? (
                       <span className="text-slate-600">received</span>
                     ) : (
-                      <span className="text-slate-800">—</span>
+                      <span className="text-slate-800">-</span>
                     )}
                   </span>
                 </div>

@@ -14,27 +14,27 @@ const BG2 = '#0a1208'
 export default function ProcessPage() {
   const processSteps = [
     {
-      day: 'Day 1',
+      day: 'Usually 15 min',
       icon: <FileText className="w-8 h-8" />,
-      title: 'Ingestion & Normalization',
-      body: 'You upload your merchant statement securely. Our analysts break it down line-by-line using proprietary extraction tools. We identify your true interchange costs, strip out junk assessment fees, and calculate your exact processor markup.',
-      checks: ['PII auto-redacted', 'Effective rate calculated', 'Hidden fees flagged'],
+      title: 'We read your statement',
+      body: 'You upload it. We go line by line. Interchange, junk fees, and the markup your processor is keeping. Most first reads come back in about 15 minutes. A day is the longest it takes.',
+      checks: ['Personal info stripped', 'True effective rate', 'Hidden fees flagged'],
       color: '#3b82f6'
     },
     {
-      day: 'Day 2',
+      day: 'Next',
       icon: <Gavel className="w-8 h-8" />,
-      title: 'Blind Processor Bidding',
-      body: 'We take your anonymized statement parameters (volume, average ticket size, industry MCC) to our network of 10+ Tier-1 processors. We force them to compete for your business through a blind bidding process, entirely on Interchange-Plus (IC+) pricing.',
-      checks: ['Anonymized bidding', '10+ Tier-1 processors', 'IC+ pricing mandated'],
+      title: 'Processors bid without seeing each other',
+      body: 'We take your volume, average ticket, and industry to 10+ processors. They do not see each other\'s numbers. They bid on interchange-plus, which is the honest way to price.',
+      checks: ['Your name stays off it', '10+ processors', 'Interchange-plus only'],
       color: '#f59e0b'
     },
     {
-      day: 'Day 3',
+      day: 'Then',
       icon: <Calculator className="w-8 h-8" />,
-      title: 'Savings Presentation',
-      body: 'We return to you with a comprehensive audit report. We show you exactly what you are paying now, what you should be paying, and the top 3 bids from the network. We give our recommendation, but the final choice is always yours.',
-      checks: ['Side-by-side comparison', 'Zero obligation to switch', 'Permanent savings locked in'],
+      title: 'You see the numbers',
+      body: 'We show what you pay now, what you should pay, and the top three bids. We will tell you what we would pick. You decide. If staying put is the right call, we say so.',
+      checks: ['Side-by-side comparison', 'No pressure to switch', 'You pick'],
       color: '#8b5cf6'
     },
     {
@@ -85,7 +85,7 @@ export default function ProcessPage() {
           </Reveal>
           <Reveal delay={160}>
             <p className="text-xl text-slate-400 max-w-2xl mx-auto leading-relaxed mb-10">
-              We handle the heavy lifting of auditing, negotiating, and migrating your payment stack. You just review the numbers and make the call.
+              We handle the audit, the bidding, and the switch if you want one. You look at the numbers and decide.
             </p>
           </Reveal>
         </div>
@@ -138,10 +138,10 @@ export default function ProcessPage() {
         <div className="absolute inset-0 pointer-events-none" style={{ backgroundImage: 'linear-gradient(rgba(255,255,255,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.04) 1px,transparent 1px)', backgroundSize: '48px 48px' }} />
         <div className="relative max-w-4xl mx-auto text-center">
           <h2 className="text-4xl font-black text-white mb-6 leading-tight">
-            Kick off Day 1 right now.
+            Start with a statement.
           </h2>
           <p style={{ color: 'rgba(255,255,255,0.75)' }} className="text-lg leading-relaxed mb-10 max-w-xl mx-auto">
-            Upload your statement today, and you&apos;ll have competitive bids in hand by tomorrow. We don&apos;t charge a dime for the audit.
+            Upload a statement. Most first reads come back in about 15 minutes. We do not charge for the audit.
           </p>
           <div className="flex justify-center">
             <Link href="/get-your-savings-estimate" className="inline-flex items-center justify-center gap-2 px-10 py-5 text-lg font-black rounded-xl transition-all hover:-translate-y-1" style={{ background: '#0a1208', color: '#6fc200', boxShadow: '0 8px 40px rgba(0,0,0,0.4)' }}>

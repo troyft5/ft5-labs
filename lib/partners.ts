@@ -20,7 +20,7 @@ export const partnersData: Record<string, PartnerData> = {
     company: 'Black Tie Funding',
     type: 'Funding Partner',
     tagline: 'Black Tie Funding sent you here because effortless, transparent payments go hand-in-hand with smart funding.',
-    heroMessage: 'FinTech 5 and Black Tie Funding are working together to make a difference for merchants — one swipe at a time.',
+    heroMessage: 'FinTech 5 and Black Tie Funding are working together to make a difference for merchants, one swipe at a time.',
   },
   'marc-horowitz': {
     name: 'Marc Horowitz',
@@ -103,7 +103,7 @@ export const partnersData: Record<string, PartnerData> = {
     name: 'Sarris Marketing',
     company: 'Sarris Marketing',
     type: 'Marketing Partner',
-    tagline: 'Sarris Marketing sent you here because growing businesses need every dollar working for them — not going to a processor.',
+    tagline: 'Sarris Marketing sent you here because growing businesses need every dollar working for them, not going to a processor.',
     heroMessage: 'FinTech 5 is proudly working together with Sarris Marketing to make a difference for merchants one swipe at a time.',
   },
   'partner-pfg-preferredfundinggroup': {
@@ -130,7 +130,7 @@ export const defaultPartner: PartnerData = {
   heroMessage: 'Most businesses overpay on processing by 15–30%. The first step to fixing it is a free statement audit.',
 }
 
-// Clean aliases for future use — both old and new slugs resolve to the same partner
+// Clean aliases for future use: both old and new slugs resolve to the same partner
 export const slugAliases: Record<string, string> = {
   'soundcovelabs':                  'partner-soundcovelabs',
   'black-tie-funding':              'partner-black-tie-funding',

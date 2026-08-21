@@ -39,7 +39,7 @@ export default async function SolutionPage({ params }: { params: Promise<{ slug:
         {/* Circuit-board dot pattern */}
         <div className="absolute inset-0 pointer-events-none" style={{ backgroundImage: 'radial-gradient(rgba(78,144,0,0.12) 1px, transparent 1px)', backgroundSize: '28px 28px' }} />
         <div className="absolute bottom-0 left-0 right-0 h-40 pointer-events-none" style={{ background: 'linear-gradient(to top, #0a1208, transparent)' }} />
-        {/* Cascading watermark — solutions on the right */}
+        {/* Cascading watermark: solutions on the right */}
         <div className="absolute right-0 top-16 flex flex-col items-end select-none pointer-events-none leading-none" aria-hidden="true">
           {solution.title.split(' ').map((word, i) => (
             <div
@@ -169,7 +169,7 @@ export default async function SolutionPage({ params }: { params: Promise<{ slug:
           <div className="grid grid-cols-2 md:grid-cols-4 gap-5">
             {[
               { val: '15–30%', label: 'Average savings in year one', detail: 'Consistently across all merchant categories' },
-              { val: '24 hrs', label: 'Audit turnaround', detail: 'From statement submission to full analysis' },
+              { val: '15 min', label: 'Typical audit', detail: 'From statement to full analysis. A day is the max.' },
               { val: '10+', label: 'Processors in our network', detail: 'Tier-1 banks and payment networks' },
               { val: '$0', label: 'Cost to you', detail: 'Funded entirely by the selected processor' },
             ].map((stat, i) => (
@@ -286,7 +286,7 @@ export default async function SolutionPage({ params }: { params: Promise<{ slug:
               <span style={{ color: 'rgba(255,255,255,0.6)' }}>Free. No obligation.</span>
             </h2>
             <p className="text-lg mb-10 max-w-xl mx-auto" style={{ color: 'rgba(255,255,255,0.75)' }}>
-              Our consulting is 100% free, funded by our processor partners, not by you. Get a data-driven analysis same day or less.
+              Our consulting is free. The processor you pick pays us, not you. Most statement audits come back in about 15 minutes.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/get-your-savings-estimate" className="inline-flex items-center justify-center gap-2 px-9 py-4 text-base font-black rounded-xl hover:-translate-y-1 transition-all" style={{ background: '#0a1208', color: '#6fc200', boxShadow: '0 8px 40px rgba(0,0,0,0.4)' }}>

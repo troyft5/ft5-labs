@@ -194,9 +194,9 @@ export default function SolutionsPage() {
               <Reveal key={row.slug} delay={i * 40}>
                 <Link href={`/solutions/${row.slug}`} className="group grid grid-cols-[1fr_auto_auto_auto] px-6 py-4 items-center transition-colors hover:bg-white/[0.02]" style={{ borderBottom: i < 4 ? '1px solid rgba(255,255,255,0.05)' : 'none' }}>
                   <span className="text-sm font-bold text-slate-300 group-hover:text-[#8cd627] transition-colors">{row.label}</span>
-                  <span className="text-center px-4 text-base">{row.hw ? '✅' : '—'}</span>
-                  <span className="text-center px-4 text-base">{row.ol ? '✅' : '—'}</span>
-                  <span className="text-center px-4 text-base">{row.mob ? '✅' : '—'}</span>
+                  <span className="text-center px-4 text-base">{row.hw ? '✅' : '-'}</span>
+                  <span className="text-center px-4 text-base">{row.ol ? '✅' : '-'}</span>
+                  <span className="text-center px-4 text-base">{row.mob ? '✅' : '-'}</span>
                 </Link>
               </Reveal>
             ))}

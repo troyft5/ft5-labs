@@ -15,7 +15,7 @@ export function hasConverted(): boolean {
 }
 
 /**
- * Links this browser's anonymous pageview history to a real identity —
+ * Links this browser's anonymous pageview history to a real identity -
  * call on every successful form submit. The CRM backfills every prior
  * website_visits row for this session_id onto the matched contact, so an
  * agent can see "browsed pricing 3x before filling out the estimate form"
@@ -24,7 +24,7 @@ export function hasConverted(): boolean {
 export function identifyVisitor(email: string) {
   if (typeof window === 'undefined') return
   // Suppressing "give us your email" popups for someone who already did isn't
-  // tracking, it's just not being annoying — set this regardless of consent.
+  // tracking, it's just not being annoying: set this regardless of consent.
   localStorage.setItem(CONVERTED_KEY, '1')
   if (!hasTrackingConsent()) return
   const sessionId = localStorage.getItem(SESSION_KEY)

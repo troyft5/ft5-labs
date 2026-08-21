@@ -18,13 +18,13 @@ export default function ContactPage() {
     { href: 'tel:7323001072',              icon: <Phone className="w-5 h-5" />,  label: 'Call Us',       lines: ['(732) 300-1072'] },
     { href: 'mailto:info@fintech5group.com',icon: <Mail className="w-5 h-5" />,   label: 'Email Us',      lines: ['info@fintech5group.com', 'sales@fintech5group.com'] },
     { href: undefined,                      icon: <MapPin className="w-5 h-5" />, label: 'Coverage',      lines: ['New York & New Jersey', 'Serving clients nationwide'] },
-    { href: undefined,                      icon: <Clock className="w-5 h-5" />,  label: 'Response Time', lines: ['Within 1 business day', 'Named rep after you board'] },
+    { href: undefined,                      icon: <Clock className="w-5 h-5" />,  label: 'Response Time', lines: ['Usually the same day', 'Named rep after you board'] },
   ]
 
   const nextSteps = [
     { title: 'You submit the form',                   body: 'We receive your message instantly.',                            tag: 'Starts today' },
     { title: 'A specialist reviews it',               body: 'A dedicated payment consultant reads your message.',           tag: undefined },
-    { title: 'We reach out within 1 business day',    body: 'Expect a personal reply by phone or email.',                  tag: 'You decide' },
+    { title: 'We call or email you back',    body: 'A real person. Usually the same day.',                  tag: 'You decide' },
   ]
 
   return (
@@ -53,7 +53,7 @@ export default function ContactPage() {
               </Reveal>
               <Reveal delay={160}>
                 <p className="text-xl text-slate-400 max-w-lg leading-relaxed">
-                  Reach out directly or fill out the form below. A dedicated payment specialist responds within one business day.
+                  Call, email, or use the form. A real person gets back to you. If you send a statement, we can often have numbers in about 15 minutes.
                 </p>
               </Reveal>
             </div>
@@ -75,7 +75,7 @@ export default function ContactPage() {
                   <span className="text-[11px] font-bold uppercase tracking-[0.2em] mb-2 block" style={{ color: '#6fc200' }}>Response time</span>
                   <div className="flex items-center gap-2">
                     <div className="w-2 h-2 rounded-full" style={{ background: '#6fc200' }} />
-                    <span className="text-sm font-bold text-white">Within 1 business day, always</span>
+                    <span className="text-sm font-bold text-white">Usually the same day. Call if you need us now.</span>
                   </div>
                 </div>
               </div>
@@ -92,7 +92,7 @@ export default function ContactPage() {
           <Reveal direction="left">
             <div>
               <h2 className="text-2xl font-black text-white mb-2">Send a message</h2>
-              <p className="text-slate-500 text-sm mb-8">We&apos;ll reply within 1 business day. For faster response, call us directly.</p>
+              <p className="text-slate-500 text-sm mb-8">We will get back to you. Want it faster? Call (732) 300-1072.</p>
               <ContactForm />
             </div>
           </Reveal>
@@ -127,7 +127,7 @@ export default function ContactPage() {
             <Reveal direction="right" delay={250}>
               <div className="rounded-2xl p-6" style={{ background: 'rgba(78,144,0,0.1)', border: '1px solid rgba(78,144,0,0.25)' }}>
                 <div className="text-[10px] font-bold uppercase tracking-widest mb-2" style={{ color: '#6fc200' }}>Prefer the fast lane?</div>
-                <p className="text-sm text-slate-400 mb-4">Upload your statement and get a full savings audit back same day or less. No form needed.</p>
+                <p className="text-sm text-slate-400 mb-4">Upload a statement. Most audits come back in about 15 minutes. A day is the longest it takes.</p>
                 <a href="/get-your-savings-estimate" className="inline-flex items-center gap-2 text-sm font-black text-white px-5 py-2.5 rounded-xl transition-all hover:opacity-90" style={{ background: '#4e9000' }}>
                   Get Your Free Audit <ArrowRight className="w-4 h-4" />
                 </a>
@@ -235,7 +235,7 @@ export default function ContactPage() {
           </Reveal>
           <div className="grid md:grid-cols-2 gap-5">
             {[
-              { q: 'Do you respond to every inquiry?', a: 'Yes. Every form submission gets a personal response within 1 business day.' },
+              { q: 'Do you respond to every inquiry?', a: 'Yes. A real person replies. If you send a statement, we can often have an audit in about 15 minutes.' },
               { q: 'What information should I have ready?', a: 'A recent merchant statement is most useful.' },
               { q: 'Do you work with businesses outside of NY?', a: 'Yes. We serve merchants nationwide.' },
               { q: 'How do you charge?', a: "We don't charge you anything." },

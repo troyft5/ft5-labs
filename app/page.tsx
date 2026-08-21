@@ -12,7 +12,7 @@ const BidSimulation = dynamic(() => import('@/components/BidSimulation'))
 
 export const metadata = {
   title: 'FinTech 5 | Payment Processing Consultants | Stop Losing Profits',
-  description: 'Upload a merchant statement. Get a line-by-line audit and real processor bids the same day. Free consulting. No obligation to switch. Call (732) 300-1072.',
+  description: 'Upload a merchant statement. Get a line-by-line audit and real processor bids, often in about 15 minutes. A day is the longest it takes. Free consulting. You don\'t have to switch. Call (732) 300-1072.',
 }
 
 const BG  = '#0f1a0f'
@@ -41,7 +41,7 @@ const steps = [
     n: '01', icon: <FileText className="w-6 h-6" />,
     title: 'Send Your Statement',
     body: 'Upload your merchant statement or enter a few numbers. We analyze every line: interchange, markup, and junk fees. We flag what you shouldn\'t be paying.',
-    badge: 'Same day or less',
+    badge: 'Usually about 15 minutes',
   },
   {
     n: '02', icon: <GitMerge className="w-6 h-6" />,
@@ -66,7 +66,7 @@ export default function Home() {
       <HeroSection />
 
       {/* ─────────────────────────────────────────
-          TRUST BAR — processor network + proof
+          TRUST BAR: processor network + proof
       ───────────────────────────────────────── */}
       <section className="px-6 py-12 relative" style={{ background: '#070e07', borderTop: '1px solid rgba(255,255,255,0.06)', borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
         <div className="max-w-5xl mx-auto">
@@ -76,7 +76,7 @@ export default function Home() {
               <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-slate-600">We negotiate across 10+ tier-1 processors so you don&apos;t have to</p>
             </div>
 
-            {/* Trust chips — no named processors */}
+            {/* Trust chips: no named processors */}
             <div className="flex flex-wrap items-center justify-center gap-3">
               {[
                 { label: '10+ Tier-1 Processors',      note: 'bidding for your business' },
@@ -101,8 +101,8 @@ export default function Home() {
             {/* Stat strip */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
               {[
-                { stat: '$0',      label: 'Consulting fees. Ever.' },
-                { stat: '24 hrs',  label: 'Statement audit turnaround' },
+                { stat: '$0',      label: 'What you pay us' },
+                { stat: '15 min',  label: 'Typical statement audit' },
                 { stat: '15–30%',  label: 'Average year-one savings' },
                 { stat: 'NY & NJ', label: 'Where we know the market' },
               ].map((s) => (
@@ -168,7 +168,7 @@ export default function Home() {
 
           {/* Steps */}
           <div className="grid md:grid-cols-3 gap-8 relative">
-            {/* Connector line — top-8 = 32px, center of the h-16 icon */}
+            {/* Connector line: top-8 = 32px, center of the h-16 icon */}
             <div className="absolute top-8 left-[calc(16%+2rem)] right-[calc(16%+2rem)] h-px hidden md:block" style={{ background: 'linear-gradient(90deg,transparent,rgba(78,144,0,0.3),rgba(78,144,0,0.3),transparent)' }} />
 
             {steps.map((step, i) => (
@@ -197,7 +197,7 @@ export default function Home() {
       </section>
 
       {/* ─────────────────────────────────────────
-          BID SIMULATION — what step 02 looks like
+          BID SIMULATION: what step 02 looks like
       ───────────────────────────────────────── */}
       <section className="px-6 py-28 relative" style={{ background: BG2 }}>
         <div className="absolute top-0 left-0 right-0 h-px" style={{ background: 'linear-gradient(90deg,transparent,rgba(78,144,0,0.3),transparent)' }} />
@@ -300,7 +300,7 @@ export default function Home() {
       </section>
 
       {/* ─────────────────────────────────────────
-          TESTIMONIALS — feature quote + cards
+          TESTIMONIALS: feature quote + cards
       ───────────────────────────────────────── */}
       <section className="px-6 py-28 relative" style={{ background: BG }}>
         <div className="absolute top-0 left-0 right-0 h-px" style={{ background: 'linear-gradient(90deg,transparent,rgba(78,144,0,0.2),transparent)' }} />
@@ -454,7 +454,7 @@ export default function Home() {
           </div>
           <h2 className="text-5xl md:text-7xl font-black tracking-tight mb-6 leading-[0.95]">
             Find out what<br />you&apos;re overpaying.<br />
-            <span style={{ color: 'rgba(255,255,255,0.55)' }}>Back to you same day or less. Free.</span>
+            <span style={{ color: 'rgba(255,255,255,0.55)' }}>Often 15 minutes. A day is the max. Free.</span>
           </h2>
           <p className="text-xl mb-12 max-w-xl mx-auto leading-relaxed" style={{ color: 'rgba(255,255,255,0.7)' }}>
             Upload your merchant statement and we&apos;ll return a line-by-line audit with every hidden fee identified and competitive bids from 10+ processors.

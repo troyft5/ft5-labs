@@ -64,7 +64,7 @@ export default function HeroSection() {
 
         <ParticleCanvas />
 
-        {/* Blob glow layer — desktop only (blur + morph is expensive on phones) */}
+        {/* Blob glow layer: desktop only (blur + morph is expensive on phones) */}
         <div ref={blobsRef} className="absolute inset-0 overflow-hidden pointer-events-none hidden lg:block" style={{ filter: 'blur(70px)', transition: 'transform 0s', willChange: 'transform' }}>
           <div className="absolute animate-morph-1" style={{ width: '650px', height: '600px', top: '-10%', left: '-8%', background: 'radial-gradient(ellipse, rgba(78,144,0,0.55) 0%, rgba(78,144,0,0.2) 50%, transparent 75%)' }} />
           <div className="absolute animate-morph-2" style={{ width: '550px', height: '580px', bottom: '-15%', right: '-10%', background: 'radial-gradient(ellipse, rgba(111,194,0,0.45) 0%, rgba(78,144,0,0.18) 50%, transparent 75%)', animationDelay: '7s' }} />
@@ -90,10 +90,10 @@ export default function HeroSection() {
               </h1>
 
               <p className="text-lg text-slate-400 leading-relaxed mb-6 max-w-lg">
-                Upload one statement. We send back a line-by-line audit and real bids from 10+ processors — same day, no consulting fee, no obligation to switch.
+                Upload one statement. We send back a line-by-line audit and real bids from 10+ processors. Most come back in about 15 minutes. A day is the longest it ever takes. No consulting fee, and you don't have to switch.
               </p>
 
-              {/* Phone — prominent above CTAs */}
+              {/* Phone: prominent above CTAs */}
               <a href="tel:7323001072" className="inline-flex items-center gap-2 mb-8 text-base font-bold hover:text-white transition-colors" style={{ color: '#6fc200' }}>
                 <Phone className="w-4 h-4" /> (732) 300-1072, and we always answer
               </a>
@@ -137,7 +137,7 @@ export default function HeroSection() {
               <div className="rounded-2xl p-6 mb-3" style={{ background: 'rgba(78,144,0,0.08)', border: '1px solid rgba(78,144,0,0.25)' }}>
                 <div className="text-[11px] font-bold uppercase tracking-[0.18em] mb-2" style={{ color: '#6fc200' }}>Real client result | NJ</div>
                 <div className="text-5xl font-black text-white mb-1">$18,400</div>
-                <div className="text-sm text-slate-400">in hidden fees identified on same-day audit</div>
+                <div className="text-sm text-slate-400">in hidden fees found on one statement</div>
                 <div className="mt-4 h-px" style={{ background: 'linear-gradient(90deg, rgba(78,144,0,0.5), transparent)' }} />
                 <div className="mt-3 flex flex-col gap-2">
                   {[
@@ -168,7 +168,7 @@ export default function HeroSection() {
             {/* ── RIGHT: Floating UI cards (desktop only) ── */}
             <div ref={cardsRef} className="relative hidden lg:block h-[480px]" style={{ willChange: 'transform' }}>
 
-              {/* Card 1 — Best Match */}
+              {/* Card 1: Best Match */}
               <div className="animate-float-1 absolute -top-4 -left-12 w-56 rounded-2xl p-4 shadow-2xl z-10"
                 style={{ background: 'rgba(15,26,15,0.85)', backdropFilter: 'blur(16px)', border: '1px solid rgba(255,255,255,0.1)' }}>
                 <div className="flex items-center gap-2 mb-3">
@@ -189,7 +189,7 @@ export default function HeroSection() {
                 </div>
               </div>
 
-              {/* Card 2 — main savings card */}
+              {/* Card 2: main savings card */}
               <div className="animate-float-2 absolute top-12 left-16 right-0 rounded-2xl shadow-2xl z-20"
                 style={{ background: 'rgba(15,26,15,0.92)', backdropFilter: 'blur(20px)', border: '1px solid rgba(78,144,0,0.25)' }}>
                 <div className="px-5 py-4 flex items-center justify-between" style={{ borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
@@ -225,7 +225,7 @@ export default function HeroSection() {
                 </div>
               </div>
 
-              {/* Card 3 — Audit Complete */}
+              {/* Card 3: Audit Complete */}
               <div className="animate-float-3 absolute bottom-8 right-0 rounded-xl px-4 py-3 flex items-center gap-3 z-30 shadow-xl"
                 style={{ background: 'rgba(15,26,15,0.9)', backdropFilter: 'blur(16px)', border: '1px solid rgba(78,144,0,0.2)' }}>
                 <div className="w-7 h-7 rounded-lg flex items-center justify-center shrink-0" style={{ background: 'rgba(78,144,0,0.2)' }}>
@@ -233,12 +233,12 @@ export default function HeroSection() {
                 </div>
                 <div>
                   <div className="text-xs font-black text-white">Audit Complete</div>
-                  <div className="text-[9px] text-slate-500">same-day turnaround ✓</div>
+                  <div className="text-[9px] text-slate-500">often about 15 minutes</div>
                 </div>
                 <div className="ml-2 w-16 h-1 rounded-full" style={{ background: 'linear-gradient(90deg,#4e9000,#6fc200)' }} />
               </div>
 
-              {/* Card 4 — 10+ Partners */}
+              {/* Card 4: 10+ Partners */}
               <div className="animate-float-4 absolute bottom-0 left-0 rounded-2xl px-5 py-4 z-30 shadow-xl"
                 style={{ background: 'rgba(15,26,15,0.88)', backdropFilter: 'blur(16px)', border: '1px solid rgba(255,255,255,0.09)' }}>
                 <div className="text-2xl font-black text-white mb-0.5">10+</div>
@@ -253,7 +253,7 @@ export default function HeroSection() {
             {[
               { value: '10+', label: 'Processor Partners' },
               { value: '30+', label: 'Years Combined Experience' },
-              { value: '1-day', label: 'Typical Audit Turnaround' },
+              { value: '15 min', label: 'Typical Audit Turnaround' },
               { value: '$0', label: 'Consulting Cost to You' },
             ].map((stat) => (
               <div key={stat.label} className="px-8 py-6 text-center" style={{ background: 'rgba(255,255,255,0.02)' }}>

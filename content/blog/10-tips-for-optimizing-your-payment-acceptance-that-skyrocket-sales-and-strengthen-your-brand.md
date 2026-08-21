@@ -13,7 +13,7 @@ In today’s competitive marketplace, a streamlined checkout process is crucial 
 
 #### **Minimize Form Fields**
 
-One of the most effective ways to optimize your checkout process is by minimizing the number of form fields. Customers often abandon their carts when faced with lengthy or complicated forms. By asking only for essential information—such as name, shipping address, and payment details—you can significantly speed up the checkout process. This simplification reduces friction and encourages customers to complete their purchases.
+One of the most effective ways to optimize your checkout process is by minimizing the number of form fields. Customers often abandon their carts when faced with lengthy or complicated forms. By asking only for essential information-such as name, shipping address, and payment details-you can significantly speed up the checkout process. This simplification reduces friction and encourages customers to complete their purchases.
 
 #### **Offer Guest Checkout Options**
 

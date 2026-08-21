@@ -37,7 +37,7 @@ const labelClass = "text-xs font-bold text-slate-400 mb-1.5 block uppercase trac
 
 const processSteps = [
   { title: 'Submit your info',       body: 'Fill the form or upload a recent merchant statement. A statement gives us the most accurate analysis.',                                                               tag: 'Now' },
-  { title: 'We analyze',             body: 'Our team reviews every line item: interchange, fees, markup, and any hidden charges buried in the fine print.',                                                    tag: 'Same day or less' },
+  { title: 'We analyze',             body: 'We go through every line: interchange, fees, markup, and anything buried in the fine print.',                                                    tag: 'Usually ~15 min' },
   { title: 'You receive the report', body: 'We return a full report showing your true effective rate vs. what you could be paying with our processor network.',                                                  tag: 'Free' },
   { title: 'You make the call',      body: "No pressure. If the numbers don't make switching worth it, we tell you. If they do, we handle everything.",                                                         tag: 'Your choice' },
 ]
@@ -46,7 +46,7 @@ const guarantees = [
   'No consulting fees. Ever.',
   'No obligation to switch',
   'No ownership stake in any processor',
-  'Response within 1 business day',
+  'Most audits back in about 15 minutes',
   'Honest analysis even if staying makes sense',
 ]
 
@@ -155,14 +155,14 @@ export default function Estimate() {
                 </span>
               </h1>
               <p className="text-lg text-slate-400 leading-relaxed max-w-md">
-                Upload your merchant statement or just fill in the details. Our consultants return a full fee breakdown and competitive comparison same day or less.
+                Upload a statement or just fill in the details. We send a full fee breakdown and a side-by-side comparison. Most come back in about 15 minutes. A day is the longest it takes.
               </p>
             </div>
 
             <div className="flex flex-col gap-5">
               {[
                 { value: '$0',  label: 'cost to you',          sub: 'Our consulting is completely free' },
-                { value: '24h', label: 'audit turnaround',     sub: 'Same day or less in most cases' },
+                { value: '15m', label: 'typical turnaround',     sub: 'A day is the longest it takes' },
                 { value: '10+', label: 'processors compared',  sub: 'We shop your business to the market' },
               ].map((s, i) => (
                 <div key={i} className="flex items-center gap-5 rounded-2xl px-6 py-4" style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(78,144,0,0.15)' }}>
@@ -194,7 +194,7 @@ export default function Estimate() {
                     </div>
                     <h2 className="text-3xl font-black mb-3 text-white">Request Received</h2>
                     <p className="text-slate-400 max-w-sm mx-auto mb-8 leading-relaxed">
-                      Our consultants are reviewing your details and will reach out within one business day with your full savings analysis.
+                      We have your details. Most audits come back in about 15 minutes. A day is the longest it takes. We will call or email you with the numbers.
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
                       <Link href="/blog" className="inline-flex items-center gap-2 px-6 py-3 text-sm font-bold text-slate-300 border border-white/10 rounded-xl hover:border-white/25 transition-all">

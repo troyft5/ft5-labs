@@ -2,10 +2,10 @@ export type GlossaryTerm = {
   term: string
   slug: string
   category: 'pricing' | 'fees' | 'processing' | 'fraud' | 'compliance' | 'infrastructure'
-  shortDef: string   // one sentence — used in index cards and meta description
+  shortDef: string   // one sentence: used in index cards and meta description
   body: string[]     // paragraphs
   relatedSlugs?: string[]
-  merchantImpact?: string  // "Why this matters to you" — optional callout
+  merchantImpact?: string  // "Why this matters to you": optional callout
 }
 
 export const glossaryData: GlossaryTerm[] = [

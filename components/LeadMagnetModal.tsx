@@ -18,7 +18,7 @@ export default function LeadMagnetModal({
 
   useEffect(() => {
     setMounted(true)
-    // Already gave us their email elsewhere on the site — don't ask again,
+    // Already gave us their email elsewhere on the site: don't ask again,
     // skip straight to the download state.
     if (hasConverted()) setStatus('success')
   }, [])
@@ -40,7 +40,7 @@ export default function LeadMagnetModal({
     setStatus('success')
   }
 
-  // Portal to document.body — a fixed-position modal rendered inline can get
+  // Portal to document.body: a fixed-position modal rendered inline can get
   // trapped inside a transformed/will-change ancestor (e.g. ScrollDepth3D's
   // reveal animation), which makes `position: fixed` relative to that
   // ancestor instead of the viewport and squashes the modal into a tiny box.
@@ -73,7 +73,7 @@ export default function LeadMagnetModal({
               </div>
               <h3 className="text-2xl font-black text-white mb-2">You&apos;re all set!</h3>
               <p className="text-slate-400 mb-6">
-                View the cheat sheet now or open it directly in your browser — print or save as PDF from there.
+                View the cheat sheet now, or open it in your browser and print or save as PDF from there.
               </p>
               <a
                 href="/interchange-cheat-sheet"

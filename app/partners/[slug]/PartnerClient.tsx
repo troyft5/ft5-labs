@@ -109,7 +109,7 @@ export default function PartnerClient({ slug }: { slug: string }) {
               <div className="flex flex-col gap-4">
                 {[
                   { value: 0, suffix: '%', prefix: '', label: 'Consulting fee', sub: 'Free, always', display: '$0' },
-                  { value: 24, suffix: 'h', prefix: '', label: 'Audit turnaround', sub: 'Same day or less', display: '24h' },
+                  { value: 15, suffix: 'm', prefix: '', label: 'Typical audit', sub: 'A day is the max', display: '15m' },
                   { value: 10, suffix: '+', prefix: '', label: 'Processors in network', sub: 'Blind competitive bid', display: '10+' },
                   { value: 30, suffix: '%', prefix: 'Up to ', label: 'Savings in year one', sub: 'For qualifying merchants', display: '' },
                 ].map((s, i) => (
@@ -214,7 +214,7 @@ export default function PartnerClient({ slug }: { slug: string }) {
                     <div>
                       <label className={`${labelClass} flex items-center gap-2`}>
                         <span>{'Merchant Statement'}</span>
-                        <span className="text-slate-600 font-normal normal-case tracking-normal">{'— optional, maximizes accuracy'}</span>
+                        <span className="text-slate-600 font-normal normal-case tracking-normal">{'(optional, helps us get it right)'}</span>
                       </label>
                       <label className="flex flex-col items-center justify-center py-8 rounded-xl cursor-pointer transition-all" style={{ background: file ? 'rgba(78,144,0,0.08)' : 'rgba(255,255,255,0.03)', border: `2px dashed ${file ? 'rgba(78,144,0,0.5)' : 'rgba(255,255,255,0.1)'}` }}>
                         <input type="file" accept=".pdf,.csv,.xls,.xlsx,.png,.jpg,.jpeg" onChange={handleFile} className="hidden" />
@@ -337,7 +337,7 @@ export default function PartnerClient({ slug }: { slug: string }) {
             {'Referred by'} {partner.company}
           </div>
           <h2 className="text-4xl font-black text-white mb-4 leading-tight section-heading">
-            {'Submit above: we\'ll get back to you same day or less.'}
+            {'Submit above. We usually have numbers in about 15 minutes.'}
           </h2>
           <p className="text-lg mb-8 max-w-xl mx-auto" style={{ color: 'rgba(255,255,255,0.75)' }}>
             {'Questions first? Call'} <a href="tel:7323001072" className="font-black underline">(732) 300-1072</a> {' or email'} <a href="mailto:info@fintech5group.com" className="font-black underline">info@fintech5group.com</a>.

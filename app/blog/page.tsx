@@ -63,7 +63,7 @@ export default function BlogIndex() {
         <div className="absolute top-0 left-0 right-0 h-px" style={{ background: 'linear-gradient(90deg,transparent,rgba(78,144,0,0.2),transparent)' }} />
         <div className="max-w-5xl mx-auto">
 
-          {/* Featured post — hero card */}
+          {/* Featured post: hero card */}
           {featured && (
             <Reveal>
               <Link
@@ -214,7 +214,7 @@ export default function BlogIndex() {
               <Link href="/get-your-savings-estimate" className="group flex flex-col rounded-2xl p-8 transition-all hover:-translate-y-1" style={{ background: 'rgba(78,144,0,0.08)', border: '1px solid rgba(78,144,0,0.2)' }}>
                 <div className="text-3xl mb-4">📋</div>
                 <h3 className="text-xl font-black text-white group-hover:text-[#8cd627] transition-colors mb-3">{'Free Statement Audit'}</h3>
-                <p className="text-slate-500 text-sm leading-relaxed flex-1 mb-5">{'Upload your merchant statement and get a full line-by-line analysis with competitive bids from 10+ processors same day or less. No consulting fee. Ever.'}</p>
+                <p className="text-slate-500 text-sm leading-relaxed flex-1 mb-5">{'Upload a statement. We send a line-by-line analysis and bids from 10+ processors. Most take about 15 minutes. No consulting fee.'}</p>
                 <div className="inline-flex items-center gap-2 text-sm font-bold" style={{ color: '#4e9000' }}>{'Get Your Free Audit'} <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" /></div>
               </Link>
             </Reveal>

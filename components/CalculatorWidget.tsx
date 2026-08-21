@@ -123,7 +123,7 @@ export default function CalculatorWidget() {
           {/* Current fees (optional) */}
           <div className="md:col-span-2">
             <label className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-1.5 block">
-              Current Monthly Processing Fees <span className="text-slate-600 normal-case font-normal">(optional — shows your exact overpayment)</span>
+              Current Monthly Processing Fees <span className="text-slate-600 normal-case font-normal">(optional, shows your exact overpayment)</span>
             </label>
             <div className="relative">
               <span className="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-500 text-sm font-bold">$</span>
@@ -196,7 +196,7 @@ export default function CalculatorWidget() {
             style={{ background: 'rgba(78,144,0,0.1)', border: '1px solid rgba(78,144,0,0.3)' }}>
             <div>
               <div className="text-lg font-black text-white mb-1">Want the exact number?</div>
-              <div className="text-sm text-slate-400">Send us your statement. Full line-by-line audit back to you same day or less, free.</div>
+              <div className="text-sm text-slate-400">Send us your statement. Full line-by-line audit, usually in about 15 minutes. Free.</div>
             </div>
             <Link
               href={`/get-your-savings-estimate?source=calculator&industry=${industry}&volume=${vol}&avg_tx=${avgTx}&card_method=${cp}`}

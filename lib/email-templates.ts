@@ -1,5 +1,5 @@
 /**
- * Shared HTML email templates — table/inline-style only (Outlook-safe, no
+ * Shared HTML email templates: table/inline-style only (Outlook-safe, no
  * flexbox/grid). Two shapes: confirmationEmail (visitor-facing, dark/brand
  * theme) and internalNotificationEmail (agent-facing, light "document" theme
  * for fast scanning). Both routes through here so contact/estimate/future
@@ -73,11 +73,11 @@ export function confirmationEmail(opts: {
   <table width="100%" cellpadding="0" cellspacing="0" style="background:#f8fafc;border-top:1px solid #e2e8f0">
     <tr><td style="padding:16px 30px">
       <p style="margin:0;font-size:10.5px;color:#94a3b8;letter-spacing:0.02em">
-        No consulting fees ever &nbsp;·&nbsp; No obligation to switch &nbsp;·&nbsp; Response within 1 business day
+        No consulting fees &nbsp;·&nbsp; No obligation to switch &nbsp;·&nbsp; Most audits in about 15 minutes
       </p>
       <p style="margin:8px 0 0;font-size:10.5px;color:#94a3b8">
         FinTech 5 Group · info@fintech5group.com · (732) 300-1072<br>
-        Hi ${esc(firstName)} — you're receiving this because you reached out through fintech5group.com.
+        Hi ${esc(firstName)}, you are getting this because you reached out through fintech5group.com.
       </p>
     </td></tr>
   </table>

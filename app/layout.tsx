@@ -19,7 +19,7 @@ export const metadata = {
     default: 'FinTech 5 | Payment Processing Consultants',
     template: '%s | FinTech 5',
   },
-  description: 'Upload a merchant statement. FinTech 5 returns a line-by-line audit and competitive bids from 10+ processors — same day, free, no obligation to switch.',
+  description: 'Upload a merchant statement. FinTech 5 sends back a line-by-line audit and competitive bids from 10+ processors. Most take about 15 minutes. A day is the max. Free, and you don\'t have to switch.',
   keywords: ['payment processing consultant', 'merchant services', 'lower processing fees', 'interchange optimization', 'payment processing NY NJ', 'FinTech 5'],
   authors: [{ name: 'FinTech 5 Group' }],
   openGraph: {
@@ -89,7 +89,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                   {
                     '@type': 'Question',
                     name: 'How long does a statement audit take?',
-                    acceptedAnswer: { '@type': 'Answer', text: 'Our standard turnaround is same day or less. We analyze your statement line by line and return a full breakdown of every fee and a competitive comparison.' },
+                    acceptedAnswer: { '@type': 'Answer', text: 'Most statement audits come back in about 15 minutes. A day is the longest it takes. We go line by line and send a full breakdown of every fee, plus a competitive comparison.' },
                   },
                   {
                     '@type': 'Question',

@@ -1,5 +1,5 @@
 /**
- * FT5 CRM client — replaces lib/hubspot.ts.
+ * FT5 CRM client: replaces lib/hubspot.ts.
  * Calls the FT5 CRM (app.fintech5group.com), a Cloudflare Pages Function,
  * via a shared-secret server-to-server endpoint. Never called from the browser.
  */
@@ -26,7 +26,7 @@ export type LeadProps = {
 }
 
 export function crmContactUrl(contactId: string) {
-  // Role-agnostic — /crm/contacts/:id redirects to the right role-prefixed
+  // Role-agnostic: /crm/contacts/:id redirects to the right role-prefixed
   // page (agent/admin/super_admin) based on whoever actually clicks it.
   return `${CRM_BASE}/crm/contacts/${contactId}`
 }
@@ -72,12 +72,12 @@ async function postLead(type: 'contact' | 'estimate' | 'newsletter', props: Lead
   }
 }
 
-/** Newsletter signup — no deal, just a contact record. */
+/** Newsletter signup: no deal, just a contact record. */
 export async function upsertContact(props: Pick<LeadProps, 'email' | 'firstName' | 'lastName'>): Promise<void> {
   await postLead('newsletter', props)
 }
 
-/** Contact form / savings estimate — creates contact (+ company, + deal). */
+/** Contact form / savings estimate: creates contact (+ company, + deal). */
 export async function submitLead(type: 'contact' | 'estimate', props: LeadProps): Promise<string | null> {
   const { contactId } = await postLead(type, props)
   return contactId

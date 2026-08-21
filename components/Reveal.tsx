@@ -18,7 +18,7 @@ export default function Reveal({ children, delay = 0, className = '', direction 
 
     const show = () => setRevealed(true)
 
-    // Already in / near viewport on mount — reveal immediately (accounts for page load scroll pos)
+    // Already in / near viewport on mount: reveal immediately (accounts for page load scroll pos)
     const rect = el.getBoundingClientRect()
     if (rect.top < window.innerHeight + 200) {
       const t = setTimeout(show, 40)
@@ -32,7 +32,7 @@ export default function Reveal({ children, delay = 0, className = '', direction 
     )
     io.observe(el)
 
-    // Safety net — never leave content invisible after 2.5 s
+    // Safety net: never leave content invisible after 2.5 s
     const fallback = setTimeout(show, 2500)
 
     return () => { io.disconnect(); clearTimeout(fallback) }

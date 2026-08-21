@@ -39,7 +39,7 @@ const resources = [
     tag: 'Most Popular',
     href: '/get-your-savings-estimate',
     color: '#f59e0b',
-    desc: 'Upload your merchant statement and get a full line-by-line analysis with competitive bids from 10+ processors, returned same day or less. No cost.',
+    desc: 'Upload a statement. We send a line-by-line analysis and bids from 10+ processors. Most take about 15 minutes. A day is the longest it takes. No cost.',
     cta: 'Get Your Free Audit',
     stat: 'Same-Day Turnaround',
   },
@@ -59,7 +59,7 @@ const resources = [
     tag: 'Talk to Us',
     href: '/contact-us',
     color: '#06b6d4',
-    desc: 'A real payment specialist picks up. No ticket queues, no bots. We respond within one business day, often within hours.',
+    desc: 'A real person picks up. No ticket queue. No bot. If you send a statement, we can often have numbers in about 15 minutes.',
     cta: 'Get in Touch',
     stat: '< 1 Day Response',
   },
@@ -115,7 +115,7 @@ export default function ResourcesPage() {
               {[
                 { label: '5 Free Resources', color: '#6fc200' },
                 { label: 'No Login Required', color: '#6fc200' },
-                { label: '24hr Audit Turnaround', color: '#6fc200' },
+                { label: '15 min typical audit', color: '#6fc200' },
               ].map(item => (
                 <div key={item.label} className="flex items-center gap-2 text-[12px] font-bold" style={{ color: item.color }}>
                   <div className="w-1 h-1 rounded-full" style={{ background: item.color }} />
@@ -242,7 +242,7 @@ export default function ResourcesPage() {
                 {[
                   { icon: <Shield className="w-5 h-5" />, stat: '$0', label: 'Consulting cost', note: 'to merchants, ever' },
                   { icon: <TrendingUp className="w-5 h-5" />, stat: '15–30%', label: 'Avg savings', note: 'year one' },
-                  { icon: <FileText className="w-5 h-5" />, stat: '24hr', label: 'Audit turnaround', note: 'typical' },
+                  { icon: <FileText className="w-5 h-5" />, stat: '15m', label: 'Audit turnaround', note: 'typical. 1 day max' },
                   { icon: <Users className="w-5 h-5" />, stat: '10+', label: 'Processors bid', note: 'for your business' },
                 ].map(s => (
                   <div key={s.label} className="rounded-2xl p-5 flex flex-col gap-2" style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)' }}>
@@ -269,7 +269,7 @@ export default function ResourcesPage() {
           <div className="text-[10px] font-bold uppercase tracking-widest mb-4" style={{ color: 'rgba(255,255,255,0.6)' }}>Ready to see your numbers?</div>
           <h2 className="text-4xl font-black text-white mb-4 leading-tight">The audit is free.<br />The savings are permanent.</h2>
           <p style={{ color: 'rgba(255,255,255,0.75)' }} className="text-lg mb-8 max-w-xl mx-auto">
-            Upload your statement or just your contact info, and we&apos;ll return a full savings analysis with competitive bids same day or less.
+            Upload a statement or just your contact info. We send a full savings analysis with competitive bids. Most take about 15 minutes.
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
             <Link href="/get-your-savings-estimate" className="inline-flex items-center gap-2 px-10 py-4 font-black rounded-xl transition-all hover:-translate-y-1" style={{ background: '#0a1208', color: '#6fc200', boxShadow: '0 8px 40px rgba(0,0,0,0.4)' }}>

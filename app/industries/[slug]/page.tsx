@@ -36,7 +36,7 @@ export default async function IndustryPage({ params }: { params: Promise<{ slug:
       {/* ── HERO ── */}
       <section className="relative px-6 pt-44 pb-0 overflow-hidden" style={{ background: BG2 }}>
         <div className="absolute top-0 left-0 right-0 h-[2px]" style={{ background: 'linear-gradient(90deg,transparent,rgba(78,144,0,0.5),transparent)' }} />
-        {/* Giant watermark — all title words cascading down */}
+        {/* Giant watermark: all title words cascading down */}
         <div className="absolute right-0 top-16 flex flex-col items-end select-none pointer-events-none leading-none" aria-hidden="true">
           {industry.title.split(' ').map((word, i) => (
             <div
@@ -99,7 +99,7 @@ export default async function IndustryPage({ params }: { params: Promise<{ slug:
         <div className="absolute bottom-0 left-0 right-0 h-px" style={{ background: 'linear-gradient(90deg,transparent,rgba(78,144,0,0.2),transparent)' }} />
       </section>
 
-      {/* ── CHALLENGE ── — full-bleed pull-quote style */}
+      {/* ── CHALLENGE ──: full-bleed pull-quote style */}
       {challenge && (
         <section className="relative overflow-hidden" style={{ background: BG }}>
           <div className="absolute top-0 left-0 right-0 h-px" style={{ background: 'linear-gradient(90deg,transparent,rgba(78,144,0,0.15),transparent)' }} />
@@ -146,7 +146,7 @@ export default async function IndustryPage({ params }: { params: Promise<{ slug:
               </div>
             </Reveal>
 
-            {/* Features — numbered ribbons */}
+            {/* Features: numbered ribbons */}
             <Reveal direction="right" delay={100}>
               <div>
                 <div className="text-[11px] font-bold uppercase tracking-[0.2em] mb-6" style={{ color: '#6fc200' }}>What&apos;s Included</div>
@@ -241,7 +241,7 @@ export default async function IndustryPage({ params }: { params: Promise<{ slug:
           <div className="grid md:grid-cols-3 gap-5">
             {[
               { q: 'Do we need to change our hardware or software?', a: 'Usually not. Our processor partners support all major POS systems and payment gateways. We find the best option that works with your existing infrastructure.' },
-              { q: 'How quickly can we expect to see savings?', a: 'The audit is same day or less. If you choose to switch, new rates are typically live within 5–10 business days, and some programs are same-week.' },
+              { q: 'How quickly can we expect to see savings?', a: 'The audit is usually about 15 minutes. A day is the longest it takes. If you choose to switch, new rates are typically live within 5 to 10 business days, and some programs are same-week.' },
               { q: 'What does FinTech 5 charge for this?', a: 'Nothing. Our consulting is funded entirely by the processor you select. You pay zero for the analysis, negotiation, and ongoing account support. No hidden charges.' },
             ].map((item, i) => (
               <Reveal key={i} delay={i * 80}>
@@ -298,7 +298,7 @@ export default async function IndustryPage({ params }: { params: Promise<{ slug:
           <Reveal>
             <h2 className="text-4xl md:text-5xl font-black text-white mb-4 leading-tight">
               See what you could save.<br />
-              <span style={{ color: 'rgba(255,255,255,0.6)' }}>Free analysis same day or less.</span>
+              <span style={{ color: 'rgba(255,255,255,0.6)' }}>Free analysis. Often 15 minutes.</span>
             </h2>
             <p className="text-lg mb-10 max-w-xl mx-auto" style={{ color: 'rgba(255,255,255,0.75)' }}>
               Upload your merchant statement and get a line-by-line audit with competitive bids from 10+ processors. No consulting fees. Ever.

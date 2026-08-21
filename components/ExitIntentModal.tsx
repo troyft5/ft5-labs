@@ -41,7 +41,7 @@ export default function ExitIntentModal() {
     setStatus('success')
   }
 
-  // Portal to document.body — a fixed-position modal rendered inline can get
+  // Portal to document.body: a fixed-position modal rendered inline can get
   // trapped inside a transformed/will-change ancestor (e.g. ScrollDepth3D's
   // reveal animation), which makes `position: fixed` relative to that
   // ancestor instead of the viewport and squashes the modal into a tiny box.

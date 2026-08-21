@@ -66,7 +66,7 @@ export default function AboutPage() {
 
           <Reveal delay={300}>
             <div className="flex flex-wrap gap-8">
-              {[['30+', 'Years of experience'], ['10+', 'Tier-1 processor partners'], ['$0', 'Consulting cost to you']].map(([val, label]) => (
+              {[['30+', 'Years combined'], ['10+', 'Processor partners'], ['$0', 'What you pay us']].map(([val, label]) => (
                 <div key={label}>
                   <div className="text-3xl font-black text-white">{val}</div>
                   <div className="text-sm text-slate-500 mt-0.5">{label}</div>

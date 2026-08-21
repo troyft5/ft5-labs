@@ -50,7 +50,7 @@ export default function Calculator() {
             <div>
               <div className="text-[10px] font-bold uppercase tracking-widest mb-4" style={{ color: 'rgba(255,255,255,0.6)' }}>From estimate to certainty</div>
               <h2 className="text-4xl font-black text-white mb-6 leading-tight">Get the exact number, not an estimate.</h2>
-              <p style={{ color: 'rgba(255,255,255,0.75)' }} className="text-lg leading-relaxed">A free statement audit replaces this estimate with a line-by-line fee breakdown and real bids from 10+ processors — same day or less.</p>
+              <p style={{ color: 'rgba(255,255,255,0.75)' }} className="text-lg leading-relaxed">A free statement audit replaces this estimate with a line-by-line fee breakdown and real bids from 10+ processors. Most take about 15 minutes. A day is the max.</p>
             </div>
             <div className="flex flex-col gap-4">
               <Link href="/get-your-savings-estimate" className="flex items-center justify-center gap-2 px-8 py-4 font-black rounded-xl transition-all hover:-translate-y-1" style={{ background: '#0a1208', color: '#6fc200', boxShadow: '0 8px 40px rgba(0,0,0,0.4)' }}>

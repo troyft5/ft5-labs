@@ -19,17 +19,17 @@ This is a plain-English breakdown of how to read your merchant statement and the
 
 Merchant statements vary slightly by processor, but they all contain the same core sections:
 
-- **Monthly Processing Volume** — the total dollar amount of transactions processed
+- **Monthly Processing Volume**: the total dollar amount of transactions processed
 
-- **Transaction Count** — how many individual sales were processed
+- **Transaction Count**: how many individual sales were processed
 
-- **Interchange Fees** — what Visa, Mastercard, Discover, and Amex charged *(these are set by the card networks, not your processor)*
+- **Interchange Fees**: what Visa, Mastercard, Discover, and Amex charged *(these are set by the card networks, not your processor)*
 
-- **Processor Markup** — the fees your actual processor adds on top of interchange
+- **Processor Markup**: the fees your actual processor adds on top of interchange
 
-- **Monthly Fees** — statement fees, gateway fees, PCI fees, batch fees, and others
+- **Monthly Fees**: statement fees, gateway fees, PCI fees, batch fees, and others
 
-- **Effective Rate** — your total fees divided by your total volume. **This is the number that tells the real story.**
+- **Effective Rate**: your total fees divided by your total volume. **This is the number that tells the real story.**
 
 ## How to Calculate Your True Effective Rate
 
@@ -45,19 +45,19 @@ For most low-to-medium risk businesses, a healthy effective rate sits somewhere 
 
 ## The 7 Red Flags to Look for on Your Statement
 
-### 🚩 Red Flag #1 — PCI Non-Compliance Fees
+### 🚩 Red Flag #1: PCI Non-Compliance Fees
 
 This is one of the most common ways merchants get quietly drained month after month. If you haven’t completed your annual PCI self-assessment questionnaire, most processors hit you with a monthly non-compliance fee that can range anywhere from $20 to $50 or more.
 
 The fix is usually free. The fee isn’t.
 
-### 🚩 Red Flag #2 — Vague Monthly Fees With No Explanation
+### 🚩 Red Flag #2: Vague Monthly Fees With No Explanation
 
 Any line item that doesn’t have a clear explanation is worth questioning. Fees labeled “service fee,” “support fee,” or “maintenance fee” with no breakdown are often pure margin for the processor.
 
 If you can’t identify what a fee is for, ask. If they can’t explain it, that’s your answer.
 
-### 🚩 Red Flag #3 — Downgraded Transactions *(Tiered Pricing)*
+### 🚩 Red Flag #3: Downgraded Transactions *(Tiered Pricing)*
 
 If you’re on a tiered pricing model, watch for transactions landing in “mid-qualified” or “non-qualified” buckets. This happens when a transaction doesn’t meet the processor’s criteria for their base rate.
 
@@ -73,21 +73,21 @@ Common triggers include:
 
 You end up paying a significantly higher rate, often without understanding why. On a tiered statement, excessive downgrades are one of the fastest ways to bleed margin.
 
-### 🚩 Red Flag #4 — High-Cost Card Categories *(Interchange-Plus)*
+### 🚩 Red Flag #4: High-Cost Card Categories *(Interchange-Plus)*
 
 If you’re on interchange-plus pricing, you won’t see “mid-qualified” or “non-qualified” labels, but you’ll still feel the impact of premium cards.
 
 When a customer pays with a high-rewards card, corporate card, or purchasing card, the interchange rate on that transaction is simply higher by nature. It shows up as a specific card category on your statement with a higher rate attached.
 
-This isn’t your processor padding the bill — it’s set by Visa and Mastercard. But understanding your card mix and whether certain transaction types are triggering higher categories is exactly where a good consultant adds value.
+This isn’t your processor padding the bill: it’s set by Visa and Mastercard. But understanding your card mix and whether certain transaction types are triggering higher categories is exactly where a good consultant adds value.
 
-### 🚩 Red Flag #5 — Monthly Minimum Fees
+### 🚩 Red Flag #5: Monthly Minimum Fees
 
 Some processors charge a monthly minimum, meaning if your interchange and markup don’t hit a certain threshold, they charge you the difference to make up for it.
 
 This punishes your slower months and is something that should always be negotiated out before you sign anything.
 
-### 🚩 Red Flag #6 — Early Termination Fees Hidden in Your Agreement
+### 🚩 Red Flag #6: Early Termination Fees Hidden in Your Agreement
 
 This one doesn’t show up on your monthly statement, but it belongs here because it directly affects your ability to act on everything else you find.
 
@@ -95,7 +95,7 @@ If you signed a multi-year contract, check for the early termination fee. Some p
 
 Before you do anything else, know what it costs to walk away.
 
-### 🚩 Red Flag #7 — Bundled or Tiered Pricing That Hides the Real Cost
+### 🚩 Red Flag #7: Bundled or Tiered Pricing That Hides the Real Cost
 
 If your statement shows a single flat rate or buckets your transactions into vague tiers without breaking out interchange separately, you have zero visibility into what the card networks are actually charging versus what your processor is keeping.
 

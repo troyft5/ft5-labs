@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: '2026 Interchange Rate Cheat Sheet | FinTech 5',
-  description: 'The exact rates Visa and Mastercard charge — before your processor marks them up.',
+  description: 'The exact rates Visa and Mastercard charge, before your processor marks them up.',
   robots: { index: false },
 }
 
@@ -40,11 +40,11 @@ const mastercardRates = [
 ]
 
 const redFlags = [
-  { flag: 'Effective rate > 3%',           why: 'Anything above 2.8% for a mixed card volume is being padded — either tiered buckets or a fat processor margin.' },
+  { flag: 'Effective rate > 3%',           why: 'Anything above 2.8% for a mixed card volume is being padded, either with tiered buckets or a fat processor margin.' },
   { flag: 'Flat-rate pricing',             why: '"2.6% + $0.10 on everything" sounds simple but costs you on debit and cheap consumer cards where true interchange is under 1.6%.' },
   { flag: 'Tiered pricing (Qual/Mid/Non)', why: 'Processors classify cards into buckets and profit on the spread. Rewards and CNP cards get dumped in the expensive Non-Qual tier.' },
   { flag: 'Monthly minimum fees',          why: 'A processor charging a "monthly minimum" is penalizing low-volume months. IC+ has no minimums.' },
-  { flag: 'PCI non-compliance fee',        why: 'Legitimate processors charge PCI compliance — not non-compliance. Non-compliance fees are manufactured revenue.' },
+  { flag: 'PCI non-compliance fee',        why: 'A real processor charges for PCI compliance, not for being out of compliance. Non-compliance fees are made-up revenue.' },
   { flag: 'Equipment lease / rental',      why: 'A $49/month terminal lease over 4 years = $2,352 for a $300 machine. FinTech 5 provides hardware free.' },
   { flag: 'Early termination fee',         why: 'No reputable IC+ processor needs to trap you with a contract penalty. Exit clauses signal a bad deal.' },
 ]
@@ -254,7 +254,7 @@ export default function InterchangeCheatSheet() {
           </div>
           <div className="header-title">
             <h1>2026 Interchange Rate Cheat Sheet</h1>
-            <p>The exact rates Visa &amp; Mastercard charge — before your processor marks them up.</p>
+            <p>The exact rates Visa and Mastercard charge, before your processor marks them up.</p>
           </div>
           <div className="badge">Free Guide</div>
         </div>
@@ -263,16 +263,16 @@ export default function InterchangeCheatSheet() {
         <div className="explainer">
           <h4>What is interchange?</h4>
           <p>
-            Interchange is the fee paid to the card-issuing bank every time a card is used. It is set by Visa and Mastercard — not your processor.
+            Interchange is the fee paid to the card-issuing bank every time a card is used. Visa and Mastercard set it. Your processor does not.
             Your processor pays interchange and then charges <em>you</em> interchange plus their own markup. On Interchange+ (IC+) pricing,
-            those two numbers are disclosed separately. On flat-rate or tiered pricing, they are blended — and the processor profits on the spread.
+            those two numbers are shown separately. On flat-rate or tiered pricing, they are blended, and the processor keeps the spread.
             The rates below are the <strong>baseline costs</strong>. If your effective rate is materially higher, your processor is keeping the difference.
           </p>
         </div>
 
         {/* Visa Table */}
         <div className="section">
-          <div className="section-label">Visa — Key Interchange Categories</div>
+          <div className="section-label">Visa: key interchange categories</div>
           <table>
             <thead>
               <tr>
@@ -295,7 +295,7 @@ export default function InterchangeCheatSheet() {
 
         {/* Mastercard Table */}
         <div className="section">
-          <div className="section-label">Mastercard — Key Interchange Categories</div>
+          <div className="section-label">Mastercard: key interchange categories</div>
           <table>
             <thead>
               <tr>
@@ -333,7 +333,7 @@ export default function InterchangeCheatSheet() {
         <div className="cta-box no-print">
           <div>
             <h4>Ready to see your actual effective rate?</h4>
-            <p>Upload your merchant statement — we return a full audit with competitive bids in the same day. Free.</p>
+            <p>Upload a statement. We send a full audit with competitive bids. Most take about 15 minutes. Free.</p>
           </div>
           <a href="/get-your-savings-estimate">Get Your Free Audit →</a>
         </div>

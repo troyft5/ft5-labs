@@ -39,9 +39,9 @@ export async function POST(req: NextRequest) {
           rows: [
             { label: 'Name', value: `${firstName} ${lastName || ''}`.trim() },
             { label: 'Email', value: `<a href="mailto:${email}" style="color:#16a34a;font-weight:700;text-decoration:none">${email}</a>` },
-            { label: 'Phone', value: phone || '—' },
-            { label: 'Business', value: business || '—' },
-            { label: 'Industry', value: businessType || '—' },
+            { label: 'Phone', value: phone || '-' },
+            { label: 'Business', value: business || '-' },
+            { label: 'Industry', value: businessType || '-' },
             { label: 'Message', value: message },
           ],
           crmUrl: contactId ? crmContactUrl(contactId) : null,
@@ -52,11 +52,11 @@ export async function POST(req: NextRequest) {
         from: FROM,
         to: email,
         replyTo: TO,
-        subject: `We got your message — FinTech 5`,
+        subject: `We got your message, FinTech 5`,
         html: confirmationEmail({
           firstName,
           heading: `Got it, ${firstName}. We'll be in touch.`,
-          body: `Thanks for reaching out. A specialist will review your message and get back to you within <strong style="color:#ffffff">one business day</strong>.`,
+          body: `Thanks for reaching out. A real person will review this and get back to you. If you sent a statement, most audits come back in about <strong style="color:#ffffff">15 minutes</strong>. A day is the longest it takes.`,
           stepsTitle: 'While you wait',
           steps: [
             'Try our <a href="https://fintech5group.com/calculator" style="color:#6fc200;text-decoration:none">free fee calculator</a> to estimate your savings',

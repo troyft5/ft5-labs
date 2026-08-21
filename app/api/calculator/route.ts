@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 
-// ─── DATA TABLES (server-only — never sent to client) ───────────────────────
+// ─── DATA TABLES (server-only: never sent to client) ───────────────────────
 
 const INDUSTRIES: Record<string, {
   name: string

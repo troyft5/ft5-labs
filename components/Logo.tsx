@@ -19,7 +19,7 @@ export default function LogoMark({
       className={className}
       aria-label="FinTech 5 logo"
     >
-      {/* Chevron mark — concave 5-point polygon matching brand asset */}
+      {/* Chevron mark: concave 5-point polygon matching brand asset */}
       {/* Points: top-peak → inner-notch-top → far-left-tip → bottom-right → inner-notch-bottom */}
       <polygon
         points="248,4  218,78  6,108  330,108  330,52"

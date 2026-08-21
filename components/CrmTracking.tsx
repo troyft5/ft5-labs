@@ -17,7 +17,7 @@ function getSessionId(): string {
 }
 
 /**
- * Replaces the HubSpot tracking script — pageviews + UTM capture flow into
+ * Replaces the HubSpot tracking script: pageviews + UTM capture flow into
  * the FT5 CRM's `website_visits` table and get matched to a contact the
  * moment that visitor's email shows up anywhere (contact form, newsletter,
  * booking). No third-party tracker, no cookie consent complexity beyond

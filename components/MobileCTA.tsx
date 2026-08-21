@@ -38,7 +38,7 @@ export default function MobileCTA() {
         >
           Get Your Free Audit <ArrowRight className="w-5 h-5" />
         </Link>
-        <p className="text-center text-[10px] text-slate-700 mt-2">No cost. No obligation. same-day turnaround.</p>
+        <p className="text-center text-[10px] text-slate-700 mt-2">No cost. No obligation. Usually about 15 minutes.</p>
       </div>
     </div>
   )
