@@ -4,7 +4,7 @@ import { submitLead, crmContactUrl } from '@/lib/crm'
 import { confirmationEmail, internalNotificationEmail } from '@/lib/email-templates'
 
 const TO   = 'troy@fintech5group.com'
-const FROM = 'FinTech 5 <no-reply@fintech5group.com>'
+const FROM = 'FinTech 5 <info@fintech5group.com>'
 
 export async function POST(req: NextRequest) {
   const resend = new Resend(process.env.RESEND_API_KEY ?? 'missing')
