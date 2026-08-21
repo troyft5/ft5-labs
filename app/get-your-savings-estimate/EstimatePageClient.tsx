@@ -283,7 +283,7 @@ export default function Estimate() {
 
                     {status === 'error' && (
                       <div className="text-sm rounded-xl px-4 py-3" style={{ background: 'rgba(185,28,28,0.1)', border: '1px solid rgba(185,28,28,0.3)', color: '#fca5a5' }}>
-                        Something went wrong. Please try again or call us at (646) 941-7853.
+                        Something went wrong. Please try again or call us at (732) 300-1072.
                       </div>
                     )}
 
@@ -363,8 +363,8 @@ export default function Estimate() {
                   <Phone className="w-4 h-4 shrink-0" style={{ color: '#6fc200' }} />
                   <span className="text-xs font-bold uppercase tracking-wider text-slate-500">Prefer to call?</span>
                 </div>
-                <a href="tel:6469417853" className="block text-2xl font-black text-white hover:text-[#8cd627] transition-colors mb-1">
-                  (646) 941-7853
+                <a href="tel:7323001072" className="block text-2xl font-black text-white hover:text-[#8cd627] transition-colors mb-1">
+                  (732) 300-1072
                 </a>
                 <div className="flex items-center gap-2">
                   <Clock className="w-3 h-3 text-slate-600" />

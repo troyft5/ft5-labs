@@ -163,7 +163,7 @@ const contactData = {
       b4: 'Honest analysis even if the answer is "stay where you are"',
       b5: 'Dedicated point of contact for every account',
       cta1: 'Upload My Statement',
-      cta2: 'Call (646) 941-7853'
+      cta2: 'Call (732) 300-1072'
     }
   },
   es: {
@@ -238,7 +238,7 @@ const contactData = {
       b4: 'Te decimos si quedarte',
       b5: 'Punto de contacto 1v1',
       cta1: 'Sube una Forma',
-      cta2: 'Llama: (646) 941-7853'
+      cta2: 'Llama: (732) 300-1072'
     }
   },
   fr: { ContactUs: { title1: 'Parlez avec', title2: 'un humain.', title3: 'Pas de bot.', badge: 'Contact' } },

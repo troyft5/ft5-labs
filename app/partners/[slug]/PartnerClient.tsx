@@ -231,7 +231,7 @@ export default function PartnerClient({ slug }: { slug: string }) {
 
                     {status === 'error' && (
                       <div className="text-sm rounded-xl px-4 py-3" style={{ background: 'rgba(185,28,28,0.1)', border: '1px solid rgba(185,28,28,0.3)', color: '#fca5a5' }}>
-                        {'Something went wrong. Please try again or call (646) 941-7853.'}
+                        {'Something went wrong. Please try again or call (732) 300-1072.'}
                       </div>
                     )}
 
@@ -280,8 +280,8 @@ export default function PartnerClient({ slug }: { slug: string }) {
               <Reveal direction="right" delay={60}>
                 <div className="rounded-2xl p-6 glass-card">
                   <div className="section-eyebrow mb-4">{'Prefer to talk first?'}</div>
-                  <a href="tel:6469417853" className="block text-3xl font-black text-white hover:text-[#8cd627] transition-colors mb-1 display-heading">
-                    (646) 941-7853
+                  <a href="tel:7323001072" className="block text-3xl font-black text-white hover:text-[#8cd627] transition-colors mb-1 display-heading">
+                    (732) 300-1072
                   </a>
                   <div className="flex items-center gap-2">
                     <Clock className="w-3 h-3 text-slate-600" />
@@ -340,7 +340,7 @@ export default function PartnerClient({ slug }: { slug: string }) {
             {'Submit above: we\'ll get back to you same day or less.'}
           </h2>
           <p className="text-lg mb-8 max-w-xl mx-auto" style={{ color: 'rgba(255,255,255,0.75)' }}>
-            {'Questions first? Call'} <a href="tel:6469417853" className="font-black underline">(646) 941-7853</a> {' or email'} <a href="mailto:info@fintech5group.com" className="font-black underline">info@fintech5group.com</a>.
+            {'Questions first? Call'} <a href="tel:7323001072" className="font-black underline">(732) 300-1072</a> {' or email'} <a href="mailto:info@fintech5group.com" className="font-black underline">info@fintech5group.com</a>.
           </p>
           <Link href="/" className="inline-flex items-center gap-2 px-8 py-3.5 text-sm font-bold border border-white/30 hover:border-white/60 rounded-xl text-white transition-all">
             {'Learn more about FinTech 5 →'}

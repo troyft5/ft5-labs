@@ -212,8 +212,8 @@ export default function Navbar() {
 
         {/* ── Desktop CTAs ── */}
         <div className="hidden md:flex items-center justify-end gap-3">
-          <a href="tel:6469417853" className="flex items-center gap-1.5 text-[13px] font-bold text-slate-300 hover:text-white transition-colors whitespace-nowrap">
-            <Phone className="w-3.5 h-3.5 shrink-0" style={{ color: '#6fc200' }} /> (646) 941-7853
+          <a href="tel:7323001072" className="flex items-center gap-1.5 text-[13px] font-bold text-slate-300 hover:text-white transition-colors whitespace-nowrap">
+            <Phone className="w-3.5 h-3.5 shrink-0" style={{ color: '#6fc200' }} /> (732) 300-1072
           </a>
           <Link
             href="/get-your-savings-estimate"
@@ -281,8 +281,8 @@ export default function Navbar() {
             Get Free Audit <ArrowRight className="w-4 h-4" />
           </Link>
 
-          <a href="tel:6469417853" className="mt-3 mb-2 flex items-center justify-center gap-2 py-3 text-sm font-semibold text-slate-300 hover:text-white transition-colors">
-            <Phone className="w-4 h-4" style={{ color: '#6fc200' }} /> (646) 941-7853
+          <a href="tel:7323001072" className="mt-3 mb-2 flex items-center justify-center gap-2 py-3 text-sm font-semibold text-slate-300 hover:text-white transition-colors">
+            <Phone className="w-4 h-4" style={{ color: '#6fc200' }} /> (732) 300-1072
           </a>
 
         </div>

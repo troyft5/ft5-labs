@@ -116,8 +116,8 @@ export default function HeroSection() {
               </p>
 
               {/* Phone — prominent above CTAs */}
-              <a href="tel:6469417853" className="inline-flex items-center gap-2 mb-8 text-base font-bold hover:text-white transition-colors" style={{ color: '#6fc200' }}>
-                <Phone className="w-4 h-4" /> (646) 941-7853, and we always answer
+              <a href="tel:7323001072" className="inline-flex items-center gap-2 mb-8 text-base font-bold hover:text-white transition-colors" style={{ color: '#6fc200' }}>
+                <Phone className="w-4 h-4" /> (732) 300-1072, and we always answer
               </a>
 
               {/* CTAs */}

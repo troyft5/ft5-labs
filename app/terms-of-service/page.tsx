@@ -113,7 +113,7 @@ export default function TermsOfService() {
             <p>If you have questions about these Terms of Service, contact us at:</p>
             <div className="mt-4 rounded-xl p-5 flex flex-col gap-1.5 text-sm" style={{ background: 'rgba(78,144,0,0.08)', border: '1px solid rgba(78,144,0,0.2)' }}>
               <div className="font-bold text-white">FinTech 5 Group</div>
-              <div>Phone: <a href="tel:6469417853" className="hover:text-white transition-colors" style={{ color: '#6fc200' }}>(646) 941-7853</a></div>
+              <div>Phone: <a href="tel:7323001072" className="hover:text-white transition-colors" style={{ color: '#6fc200' }}>(732) 300-1072</a></div>
               <div>Email: <a href="mailto:info@fintech5group.com" className="hover:text-white transition-colors" style={{ color: '#6fc200' }}>info@fintech5group.com</a></div>
               <div>Location: NY / NJ</div>
             </div>

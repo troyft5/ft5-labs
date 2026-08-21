@@ -33,7 +33,7 @@ content.Navbar = {
   co3: "पार्टनर बनें",
   resources: "संसाधन (Resources)",
   login: "लॉग इन करें",
-  callBtn: "कॉल: (646) 941-7853",
+  callBtn: "कॉल: (732) 300-1072",
   getAnalysisBtn: "निःशुल्क विश्लेषण प्राप्त करें"
 }
 

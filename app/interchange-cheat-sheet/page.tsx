@@ -340,7 +340,7 @@ export default function InterchangeCheatSheet() {
 
         {/* Footer */}
         <div className="footer">
-          <div>© 2026 FinTech 5 Group · <strong>fintech5group.com</strong> · (646) 941-7853</div>
+          <div>© 2026 FinTech 5 Group · <strong>fintech5group.com</strong> · (732) 300-1072</div>
           <div>Rates are approximate. Actual interchange varies by card type, industry, and transaction data quality.</div>
         </div>
 

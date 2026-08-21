@@ -17,7 +17,7 @@ export const dynamic = 'force-dynamic'
 
 export default function ContactPage() {
   const contactItems = [
-    { href: 'tel:6469417853',              icon: <Phone className="w-5 h-5" />,  label: 'Call Us',       lines: ['(646) 941-7853', '(732) 300-1072'] },
+    { href: 'tel:7323001072',              icon: <Phone className="w-5 h-5" />,  label: 'Call Us',       lines: ['(732) 300-1072'] },
     { href: 'mailto:info@fintech5group.com',icon: <Mail className="w-5 h-5" />,   label: 'Email Us',      lines: ['info@fintech5group.com', 'sales@fintech5group.com'] },
     { href: undefined,                      icon: <MapPin className="w-5 h-5" />, label: 'Coverage',      lines: ['New York & New Jersey', 'Serving clients nationwide'] },
     { href: undefined,                      icon: <Clock className="w-5 h-5" />,  label: 'Response Time', lines: ['Within 1 business day', '24/7 for active clients'] },
@@ -62,9 +62,9 @@ export default function ContactPage() {
 
             <Reveal direction="right" delay={120}>
               <div className="flex flex-col gap-5">
-                <a href="tel:6469417853" className="group flex flex-col">
+                <a href="tel:7323001072" className="group flex flex-col">
                   <span className="text-[11px] font-bold uppercase tracking-[0.2em] mb-3" style={{ color: '#6fc200' }}>Call us directly</span>
-                  <span className="text-4xl md:text-5xl font-black text-white group-hover:text-[#8cd627] transition-colors tracking-tight">(646) 941-7853</span>
+                  <span className="text-4xl md:text-5xl font-black text-white group-hover:text-[#8cd627] transition-colors tracking-tight">(732) 300-1072</span>
                   <span className="text-sm text-slate-600 mt-2">Mon – Fri, 9am – 6pm ET</span>
                 </a>
                 <div className="h-px" style={{ background: 'rgba(255,255,255,0.07)' }} />
@@ -281,8 +281,8 @@ export default function ContactPage() {
                   <a href="/get-your-savings-estimate" className="flex items-center justify-center gap-2 px-8 py-4 font-black text-white rounded-xl transition-all hover:-translate-y-0.5" style={{ background: '#4e9000', boxShadow: '0 8px 24px rgba(78,144,0,0.35)' }}>
                     Upload My Statement <ArrowRight className="w-5 h-5" />
                   </a>
-                  <a href="tel:6469417853" className="flex items-center justify-center gap-2 px-8 py-4 font-bold text-slate-300 border border-white/10 hover:border-white/25 rounded-xl transition-all">
-                    Call (646) 941-7853
+                  <a href="tel:7323001072" className="flex items-center justify-center gap-2 px-8 py-4 font-bold text-slate-300 border border-white/10 hover:border-white/25 rounded-xl transition-all">
+                    Call (732) 300-1072
                   </a>
                 </div>
               </div>

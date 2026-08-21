@@ -75,7 +75,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 alternateName: 'FT5',
                 description: 'Payment processing consultants. We negotiate across 10+ tier-1 processors to lower your rates and eliminate hidden fees, at zero cost to you.',
                 url: 'https://fintech5group.com',
-                telephone: '+1-646-941-7853',
+                telephone: '+1-732-300-1072',
                 email: 'info@fintech5group.com',
                 foundingDate: '2021',
                 areaServed: ['New York', 'New Jersey', 'United States'],
@@ -169,11 +169,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                   Payment Processing Consultants. We negotiate across 10+ processors to lower your rates, eliminate junk fees, and protect your cash flow.
                 </p>
                 <div className="flex flex-col gap-2.5 text-sm">
-                  <a href="tel:6469417853" className="flex items-center gap-2 hover:text-white transition-colors">
-                    <Phone className="w-4 h-4 text-[#4e9000] shrink-0" /> (646)-941-7853
-                  </a>
                   <a href="tel:7323001072" className="flex items-center gap-2 hover:text-white transition-colors">
-                    <Phone className="w-4 h-4 text-[#4e9000] shrink-0" /> (732)-300-1072
+                    <Phone className="w-4 h-4 text-[#4e9000] shrink-0" /> (732) 300-1072
                   </a>
                   <a href="mailto:info@fintech5group.com" className="flex items-center gap-2 hover:text-white transition-colors">
                     <Mail className="w-4 h-4 text-[#4e9000] shrink-0" /> info@fintech5group.com

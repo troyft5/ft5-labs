@@ -118,7 +118,7 @@ const translations = {
       stmtOpt: '— optional, maximizes accuracy',
       dropDef: 'Drop statement or click to browse',
       dropSub: 'PDF, XLS, CSV, or image',
-      err: 'Something went wrong. Please try again or call (646) 941-7853.',
+      err: 'Something went wrong. Please try again or call (732) 300-1072.',
       sending: 'Sending...',
       submit: 'Get My Free Analysis',
       disclaimer1: 'Referred by',

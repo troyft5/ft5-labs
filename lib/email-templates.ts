@@ -26,6 +26,7 @@ export function confirmationEmail(opts: {
   steps: string[]
 }) {
   const { firstName, heading, body, stepsTitle, steps } = opts
+  // Steps are authored HTML (links); do not escape.
   const stepsHtml = steps.map((s, i) => `
     <tr>
       <td width="28" valign="top" style="padding:0 10px 14px 0">
@@ -33,7 +34,7 @@ export function confirmationEmail(opts: {
           <tr><td align="center" style="font-size:11px;font-weight:900;color:${GREEN_BRIGHT}">${i + 1}</td></tr>
         </table>
       </td>
-      <td style="padding:0 0 14px;font-size:13px;color:#475569;line-height:1.5">${esc(s)}</td>
+      <td style="padding:0 0 14px;font-size:13px;color:#475569;line-height:1.5">${s}</td>
     </tr>
   `).join('')
 
@@ -65,7 +66,7 @@ export function confirmationEmail(opts: {
         <a href="https://fintech5group.com" style="display:inline-block;background:${GREEN};color:#ffffff;font-weight:800;font-size:13.5px;padding:13px 26px;border-radius:9px;text-decoration:none">Visit FinTech 5</a>
       </td>
       <td>
-        <a href="tel:6469417853" style="display:inline-block;background:#f1f5f9;border:1px solid #e2e8f0;color:#334155;font-weight:700;font-size:13.5px;padding:13px 22px;border-radius:9px;text-decoration:none">Call (646) 941-7853</a>
+        <a href="tel:7323001072" style="display:inline-block;background:#f1f5f9;border:1px solid #e2e8f0;color:#334155;font-weight:700;font-size:13.5px;padding:13px 22px;border-radius:9px;text-decoration:none">Call (732) 300-1072</a>
       </td>
     </tr></table>
   </div>
@@ -75,7 +76,7 @@ export function confirmationEmail(opts: {
         No consulting fees ever &nbsp;·&nbsp; No obligation to switch &nbsp;·&nbsp; Response within 1 business day
       </p>
       <p style="margin:8px 0 0;font-size:10.5px;color:#94a3b8">
-        FinTech 5 Group · info@fintech5group.com · (646) 941-7853<br>
+        FinTech 5 Group · info@fintech5group.com · (732) 300-1072<br>
         Hi ${esc(firstName)} — you're receiving this because you reached out through fintech5group.com.
       </p>
     </td></tr>

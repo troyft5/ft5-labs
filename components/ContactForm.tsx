@@ -41,7 +41,7 @@ export default function ContactForm() {
       <div className="rounded-2xl p-10 text-center" style={{ background: 'rgba(78,144,0,0.1)', border: '1px solid rgba(78,144,0,0.25)' }}>
         <div className="text-4xl mb-4" style={{ color: '#6fc200' }}>✓</div>
         <h3 className="text-xl font-black text-white mb-2">Message Received</h3>
-        <p className="text-slate-400 text-sm">A specialist will be in touch within one business day. For urgent inquiries, call (646) 941-7853.</p>
+        <p className="text-slate-400 text-sm">A specialist will be in touch within one business day. For urgent inquiries, call (732) 300-1072.</p>
       </div>
     )
   }
@@ -85,7 +85,7 @@ export default function ContactForm() {
       </div>
       {status === 'error' && (
         <div className="text-sm rounded-xl px-4 py-3" style={{ background: 'rgba(185,28,28,0.1)', border: '1px solid rgba(185,28,28,0.3)', color: '#fca5a5' }}>
-          Something went wrong. Please try again or call us at (646) 941-7853.
+          Something went wrong. Please try again or call us at (732) 300-1072.
         </div>
       )}
       <button

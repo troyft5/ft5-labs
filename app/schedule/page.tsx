@@ -82,8 +82,8 @@ export default function SchedulePage() {
                 Set your Google Calendar Appointment Schedule URL in <code className="text-[#6fc200] text-xs">NEXT_PUBLIC_SCHEDULE_URL</code> to activate booking.
               </p>
               <p className="text-xs text-slate-600 mb-6">Google Calendar → Appointment Schedules → Open Booking Page → Copy URL</p>
-              <a href="tel:6469417853" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-black text-white" style={{ background: '#4e9000' }}>
-                {'Call Us Now: (646) 941-7853'}
+              <a href="tel:7323001072" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-black text-white" style={{ background: '#4e9000' }}>
+                {'Call Us Now: (732) 300-1072'}
               </a>
             </div>
           )}
