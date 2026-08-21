@@ -12,6 +12,9 @@
     "enabled": true
   },
   "workers_dev": true,
+  "routes": [
+    { "pattern": "www.fintech5group.com/*", "zone_name": "fintech5group.com" }
+  ],
   "r2_buckets": [
     {
       "binding": "NEXT_INC_CACHE_R2_BUCKET",
