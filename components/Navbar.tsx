@@ -115,9 +115,9 @@ export default function Navbar() {
       {/* ── Slim announcement bar ── */}
       <div className="w-full py-1 px-4 text-center text-[10.5px] font-semibold" style={{ background: 'rgba(78,144,0,0.12)', borderBottom: '1px solid rgba(78,144,0,0.18)', color: '#8cd627' }}>
         <span className="mr-2 opacity-50">◆</span>
-        April 2026 interchange rates are live.{' '}
+        Free statement audit. Back same day. $0 to you.{' '}
         <Link href="/get-your-savings-estimate" className="underline underline-offset-2 hover:text-white transition-colors font-bold">
-          See if yours changed →
+          Upload yours →
         </Link>
       </div>
 

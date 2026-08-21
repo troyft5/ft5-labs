@@ -1,8 +1,10 @@
 'use client'
 import { useEffect, useRef } from 'react'
+import dynamic from 'next/dynamic'
 import Link from 'next/link'
 import { ArrowRight, Phone } from 'lucide-react'
-import ParticleCanvas from '@/components/ParticleCanvas'
+
+const ParticleCanvas = dynamic(() => import('@/components/ParticleCanvas'), { ssr: false })
 
 export default function HeroSection() {
   const heroRef = useRef<HTMLElement>(null)
@@ -58,12 +60,12 @@ export default function HeroSection() {
       {/* ─────────────────────────────────────────
           HERO
       ───────────────────────────────────────── */}
-      <section ref={heroRef} className="relative bg-[#0f1a0f] min-h-screen flex flex-col justify-center overflow-hidden" style={{ cursor: 'default' }}>
+      <section ref={heroRef} className="relative bg-[#0f1a0f] flex flex-col justify-center overflow-hidden pt-28 pb-16 lg:min-h-screen lg:pt-32 lg:pb-20" style={{ cursor: 'default' }}>
 
         <ParticleCanvas />
 
-        {/* Blob glow layer */}
-        <div ref={blobsRef} className="absolute inset-0 overflow-hidden pointer-events-none" style={{ filter: 'blur(70px)', transition: 'transform 0s', willChange: 'transform' }}>
+        {/* Blob glow layer — desktop only (blur + morph is expensive on phones) */}
+        <div ref={blobsRef} className="absolute inset-0 overflow-hidden pointer-events-none hidden lg:block" style={{ filter: 'blur(70px)', transition: 'transform 0s', willChange: 'transform' }}>
           <div className="absolute animate-morph-1" style={{ width: '650px', height: '600px', top: '-10%', left: '-8%', background: 'radial-gradient(ellipse, rgba(78,144,0,0.55) 0%, rgba(78,144,0,0.2) 50%, transparent 75%)' }} />
           <div className="absolute animate-morph-2" style={{ width: '550px', height: '580px', bottom: '-15%', right: '-10%', background: 'radial-gradient(ellipse, rgba(111,194,0,0.45) 0%, rgba(78,144,0,0.18) 50%, transparent 75%)', animationDelay: '7s' }} />
           <div className="absolute animate-morph-3" style={{ width: '380px', height: '400px', top: '30%', left: '50%', background: 'radial-gradient(ellipse, rgba(163,230,53,0.25) 0%, rgba(78,144,0,0.1) 50%, transparent 75%)', animationDelay: '3s' }} />
@@ -71,7 +73,7 @@ export default function HeroSection() {
 
         <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#4e9000] to-transparent opacity-60" style={{ zIndex: 2 }} />
 
-        <div className="relative max-w-7xl mx-auto px-6 lg:px-12 pt-32 pb-20 w-full" style={{ zIndex: 3 }}>
+        <div className="relative max-w-7xl mx-auto px-6 lg:px-12 w-full" style={{ zIndex: 3 }}>
           <div className="grid lg:grid-cols-[1fr_420px] gap-16 items-center">
 
             {/* ── LEFT: headline ── */}
@@ -88,7 +90,7 @@ export default function HeroSection() {
               </h1>
 
               <p className="text-lg text-slate-400 leading-relaxed mb-6 max-w-lg">
-                You&apos;re likely overpaying by 15–30%. We negotiate across 10+ Tier-1 processors to lock in permanent savings at zero cost to you.
+                Upload one statement. We send back a line-by-line audit and real bids from 10+ processors — same day, no consulting fee, no obligation to switch.
               </p>
 
               {/* Phone — prominent above CTAs */}

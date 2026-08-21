@@ -152,6 +152,13 @@
   .animate-morph-3 { animation: morph3 18s ease-in-out infinite; }
 }
 
+@media (prefers-reduced-motion: reduce) {
+  .animate-morph-1, .animate-morph-2, .animate-morph-3,
+  .animate-float-1, .animate-float-2, .animate-float-3, .animate-float-4 {
+    animation: none !important;
+  }
+}
+
 /* ── Blob / mesh gradient animations (legacy) ── */
 @keyframes blob1 {
   0%, 100% { transform: translate(0px, 0px) scale(1); }

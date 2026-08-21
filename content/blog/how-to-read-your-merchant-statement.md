@@ -4,7 +4,7 @@ date: "2026-02-27"
 excerpt: "Most merchants get their processing statement every month, glance at the total, and move on. It’s dense, it’s confusing, and most processors aren’t exactly motivated to make it easy to understand."
 category: "Security"
 readTime: "5 min read"
-cover: "/blog-images/Merchant-Processing-Statement-1024x559.png"
+cover: "/blog-images/Merchant-Processing-Statement-1024x559.jpg"
 ---
 
 ![Merchant Processing Statement](/blog-images/Merchant-Processing-Statement-1024x559.png)

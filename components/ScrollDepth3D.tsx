@@ -20,7 +20,10 @@ export default function ScrollDepth3D({
 
   useEffect(() => {
     if (typeof window === 'undefined') return
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    const reduce =
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches ||
+      window.innerWidth < 1024
+    if (reduce) {
       if (ref.current) {
         ref.current.style.opacity = '1'
         ref.current.style.transform = 'none'

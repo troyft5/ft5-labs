@@ -24,6 +24,7 @@ export default function Tilt3DCard({
 
   function handleMouseMove(e: React.MouseEvent<HTMLDivElement>) {
     if (prefersReduced) return
+    if (typeof window !== 'undefined' && window.matchMedia('(pointer: coarse)').matches) return
     const card = cardRef.current
     if (!card) return
 

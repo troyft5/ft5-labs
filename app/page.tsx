@@ -1,16 +1,18 @@
 import { ArrowRight, ChevronRight, Shield, Phone, TrendingUp, Zap, Users, CheckCircle2, Star, Quote, FileText, GitMerge, DollarSign, Clock } from 'lucide-react'
 import Link from 'next/link'
 import Image from 'next/image'
+import dynamic from 'next/dynamic'
 import HeroSection from '@/components/HeroSection'
 import CostComparison from '@/components/CostComparison'
-import BidSimulation from '@/components/BidSimulation'
 import Tilt3DCard from '@/components/Tilt3DCard'
 import ScrollDepth3D from '@/components/ScrollDepth3D'
 import { getSortedPostsData } from '@/lib/blog'
 
+const BidSimulation = dynamic(() => import('@/components/BidSimulation'))
+
 export const metadata = {
   title: 'FinTech 5 | Payment Processing Consultants | Stop Losing Profits',
-  description: 'FinTech 5 negotiates across 10+ tier-1 processors to cut your processing costs 15–30%, eliminate hidden fees, and give you a dedicated expert who actually answers the phone.',
+  description: 'Upload a merchant statement. Get a line-by-line audit and real processor bids the same day. Free consulting. No obligation to switch. Call (732) 300-1072.',
 }
 
 const BG  = '#0f1a0f'
@@ -413,6 +415,7 @@ export default function Home() {
                       src={post.cover}
                       alt={post.title}
                       fill
+                      sizes="(max-width: 768px) 100vw, 33vw"
                       className="object-cover transition-transform duration-500 group-hover:scale-105"
                       style={{ opacity: 0.85 }}
                     />

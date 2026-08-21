@@ -4,7 +4,7 @@ date: "2024-12-30"
 excerpt: "Introduction to Payment Processing Fees Payment processing fees are the charges that businesses incur when they accept payments from customers through credit ca"
 category: "Security"
 readTime: "10 min read"
-cover: "/blog-images/Screenshot-2025-08-04-at-7.28.44-PM-1024x755.png"
+cover: "/blog-images/Screenshot-2025-08-04-at-7.28.44-PM-1024x755.jpg"
 ---
 
 ![](/blog-images/Screenshot-2025-08-04-at-7.28.44-PM-1024x755.png)

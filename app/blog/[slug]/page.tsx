@@ -88,7 +88,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
               {/* Cover image */}
               {post.cover && (
                 <div className="relative w-full aspect-[16/9] rounded-2xl overflow-hidden mb-10">
-                  <Image src={post.cover} alt={post.title} fill className="object-cover" />
+                  <Image src={post.cover} alt={post.title} fill sizes="(max-width: 1024px) 100vw, 720px" className="object-cover" priority />
                 </div>
               )}
 
@@ -191,7 +191,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
                 <Link key={p.slug} href={`/blog/${p.slug}`} className="group flex flex-col rounded-2xl overflow-hidden transition-all hover:-translate-y-0.5" style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)' }}>
                   {p.cover && (
                     <div className="relative w-full aspect-[16/9] overflow-hidden">
-                      <Image src={p.cover} alt={p.title} fill className="object-cover group-hover:scale-105 transition-transform duration-500" />
+                      <Image src={p.cover} alt={p.title} fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover group-hover:scale-105 transition-transform duration-500" />
                     </div>
                   )}
                   <div className="p-6 flex flex-col flex-1">

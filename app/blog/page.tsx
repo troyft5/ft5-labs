@@ -73,7 +73,7 @@ export default function BlogIndex() {
               >
                 {featured.cover && (
                   <div className="relative md:w-2/5 w-full aspect-[16/9] md:aspect-auto overflow-hidden shrink-0">
-                    <Image src={featured.cover} alt={featured.title} fill className="object-cover group-hover:scale-105 transition-transform duration-500" />
+                    <Image src={featured.cover} alt={featured.title} fill sizes="(max-width: 768px) 100vw, 40vw" className="object-cover group-hover:scale-105 transition-transform duration-500" />
                     <div className="absolute inset-0" style={{ background: 'linear-gradient(to right, transparent 70%, rgba(10,18,8,0.8))' }} />
                   </div>
                 )}
@@ -114,7 +114,7 @@ export default function BlogIndex() {
                 >
                   {post.cover ? (
                     <div className="relative w-full aspect-[16/9] overflow-hidden">
-                      <Image src={post.cover} alt={post.title} fill className="object-cover group-hover:scale-105 transition-transform duration-500" />
+                      <Image src={post.cover} alt={post.title} fill sizes="(max-width: 768px) 100vw, 33vw" className="object-cover group-hover:scale-105 transition-transform duration-500" />
                     </div>
                   ) : (
                     <div className="flex items-center gap-3 px-6 py-4" style={{ borderBottom: '1px solid rgba(255,255,255,0.06)', background: 'rgba(78,144,0,0.05)' }}>

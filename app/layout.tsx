@@ -5,13 +5,13 @@ import Link from 'next/link'
 import { Phone, Mail, MapPin } from 'lucide-react'
 import Navbar from '@/components/Navbar'
 import Image from 'next/image'
-import Script from 'next/script'
 import MobileCTA from '@/components/MobileCTA'
 import ScrollToTop from '@/components/ScrollToTop'
 import CookieConsent from '@/components/CookieConsent'
 import CrmTracking from '@/components/CrmTracking'
+import ThirdPartyScripts from '@/components/ThirdPartyScripts'
 
-const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
+const inter = Inter({ subsets: ['latin'], display: 'swap', variable: '--font-inter' })
 
 export const metadata = {
   metadataBase: new URL('https://fintech5group.com'),
@@ -19,7 +19,7 @@ export const metadata = {
     default: 'FinTech 5 | Payment Processing Consultants',
     template: '%s | FinTech 5',
   },
-  description: 'Stop overpaying on payment processing. FinTech 5 negotiates on your behalf across 10+ processors to lower your rates and eliminate hidden fees.',
+  description: 'Upload a merchant statement. FinTech 5 returns a line-by-line audit and competitive bids from 10+ processors — same day, free, no obligation to switch.',
   keywords: ['payment processing consultant', 'merchant services', 'lower processing fees', 'interchange optimization', 'payment processing NY NJ', 'FinTech 5'],
   authors: [{ name: 'FinTech 5 Group' }],
   openGraph: {
@@ -29,13 +29,16 @@ export const metadata = {
     siteName: 'FinTech 5',
     title: 'FinTech 5 | Payment Processing Consultants',
     description: 'We negotiate across 10+ processors to lower your rates, eliminate junk fees, and protect your cash flow. Free consulting, no cost to you.',
-    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'FinTech 5 | Payment Processing Consultants' }],
+    images: [{ url: '/og-image.jpg', width: 1200, height: 630, alt: 'FinTech 5 | Payment Processing Consultants' }],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'FinTech 5 | Payment Processing Consultants',
     description: 'Stop overpaying on payment processing. Free consulting: we negotiate for you.',
-    images: ['/og-image.png'],
+    images: ['/og-image.jpg'],
+  },
+  alternates: {
+    canonical: './',
   },
   robots: {
     index: true,
@@ -48,19 +51,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={`${inter.variable} scroll-smooth`}>
       <body className="bg-[#0f1a0f] text-slate-900 font-sans antialiased selection:bg-[#4e9000] selection:text-white min-h-screen flex flex-col">
-
-        {/* ── Global film grain overlay ── */}
-        <div
-          aria-hidden="true"
-          className="pointer-events-none fixed inset-0 z-[999]"
-          style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E")`,
-            backgroundRepeat: 'repeat',
-            backgroundSize: '192px 192px',
-            opacity: 0.028,
-            mixBlendMode: 'overlay',
-          }}
-        />
 
         {/* JSON-LD Structured Data */}
         <script
@@ -122,38 +112,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <ScrollToTop />
         <CookieConsent />
 
-        {/* Google Analytics 4 */}
-        {process.env.NEXT_PUBLIC_GA_ID && (
-          <>
-            <Script src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_ID}`} strategy="afterInteractive" />
-            <Script id="ga4" strategy="afterInteractive">{`
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', '${process.env.NEXT_PUBLIC_GA_ID}', { page_path: window.location.pathname });
-            `}</Script>
-          </>
-        )}
-
-        {/* FT5 CRM visitor tracking — replaces HubSpot's tracking script */}
         <Suspense fallback={null}>
           <CrmTracking />
         </Suspense>
-
-        {/* Tawk.to live chat */}
-        {process.env.NEXT_PUBLIC_TAWK_ID && (
-          <Script id="tawk" strategy="afterInteractive">{`
-            var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-            (function(){
-              var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-              s1.async=true;
-              s1.src='https://embed.tawk.to/${process.env.NEXT_PUBLIC_TAWK_ID}';
-              s1.charset='UTF-8';
-              s1.setAttribute('crossorigin','*');
-              s0.parentNode.insertBefore(s1,s0);
-            })();
-          `}</Script>
-        )}
+        <ThirdPartyScripts />
 
         {/* Footer */}
         <footer className="bg-[#0f1c0a] text-slate-400 pt-16 pb-8 px-6">

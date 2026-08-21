@@ -15,8 +15,16 @@ export default function CookieConsent() {
     return () => clearTimeout(t)
   }, [])
 
-  const accept = () => { localStorage.setItem(STORAGE_KEY, 'accepted'); setVisible(false) }
-  const decline = () => { localStorage.setItem(STORAGE_KEY, 'declined'); setVisible(false) }
+  const accept = () => {
+    localStorage.setItem(STORAGE_KEY, 'accepted')
+    setVisible(false)
+    window.dispatchEvent(new Event('ft5-consent'))
+  }
+  const decline = () => {
+    localStorage.setItem(STORAGE_KEY, 'declined')
+    setVisible(false)
+    window.dispatchEvent(new Event('ft5-consent'))
+  }
 
   if (!visible) return null
 

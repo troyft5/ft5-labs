@@ -11,9 +11,7 @@ export const metadata = {
   description: 'Talk to a real payment specialist. No bots, no tickets. Reach FinTech 5 by phone, email, or contact form.',
 }
 
-// Has a lead-capture form hitting a live external CRM — same reasoning as
-// get-your-savings-estimate/page.tsx: never serve this as a stale snapshot.
-export const dynamic = 'force-dynamic'
+export const revalidate = 120
 
 export default function ContactPage() {
   const contactItems = [
