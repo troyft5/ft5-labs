@@ -51,11 +51,11 @@ export default function BidSimulation() {
               <div className="w-3 h-3 rounded-full" style={{ background: 'rgba(255,189,46,0.7)' }} />
               <div className="w-3 h-3 rounded-full" style={{ background: 'rgba(39,201,63,0.7)' }} />
             </div>
-            <span className="text-[11px] text-slate-600">ft5-bid-engine · live-request-2026</span>
+            <span className="text-[11px] text-slate-600">ft5-bid-engine · sample-request</span>
           </div>
           <div className="flex items-center gap-1.5">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#4e9000] animate-pulse inline-block" />
-            <span className="text-[10px] font-bold uppercase tracking-widest" style={{ color: '#4e9000' }}>Live</span>
+            <span className="w-1.5 h-1.5 rounded-full bg-[#4e9000] inline-block" />
+            <span className="text-[10px] font-bold uppercase tracking-widest" style={{ color: '#4e9000' }}>Example</span>
           </div>
         </div>
 

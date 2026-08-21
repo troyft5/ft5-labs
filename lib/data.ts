@@ -12,7 +12,7 @@ export const industriesData = {
       "Omni-channel inventory sync",
       "Gift card & loyalty program integration",
       "Rich reporting by location, product & employee",
-      "24/7 dedicated support during peak traffic"
+      "Priority support during peak traffic"
     ],
     stats: [{ value: "10–15%", label: "Faster checkout speed" }, { value: "12%", label: "Boost in add-on sales" }, { value: "$0", label: "Hardware cost on qualifying plans" }],
     cta: "Get Free Hardware"
@@ -68,7 +68,7 @@ export const industriesData = {
       "Grant & scholarship disbursements",
       "DSO, refund & dispute rate dashboards"
     ],
-    stats: [{ value: "15–20%", label: "Cost reduction in year one" }, { value: "Real-time", label: "Student account data sync" }, { value: "24/7", label: "Support through peak periods" }],
+    stats: [{ value: "15–20%", label: "Cost reduction in year one" }, { value: "Real-time", label: "Student account data sync" }, { value: "Peak", label: "Support through registration & tuition" }],
     cta: "Modernize Campus Payments"
   },
   "healthcare": {
@@ -122,7 +122,7 @@ export const industriesData = {
       "PCI-compliant tokenization",
       "ACH, virtual cards & alternative payment methods"
     ],
-    stats: [{ value: "10–20%", label: "Fee reduction in year one" }, { value: "Faster", label: "Approvals via partner bank network" }, { value: "24/7", label: "Monitoring to keep accounts active" }],
+    stats: [{ value: "10–20%", label: "Fee reduction in year one" }, { value: "Faster", label: "Approvals via partner bank network" }, { value: "Ongoing", label: "Monitoring to keep accounts active" }],
     cta: "Get a High-Risk Merchant Account"
   },
   "cbd": {
@@ -138,7 +138,7 @@ export const industriesData = {
       "B2B invoicing for wholesale partners",
       "Subscription billing for product boxes",
       "Smart retry logic for authorization rates",
-      "24/7 CBD payment specialist support"
+      "Dedicated CBD payment specialist"
     ],
     stats: [{ value: "20%+", label: "Processing cost reduction in year one" }, { value: "Medium Risk", label: "Classification for better rates" }, { value: "Omni", label: "Channel retail + wholesale support" }],
     cta: "Unlock CBD-Friendly Processing"
@@ -177,7 +177,7 @@ export const solutionsData = {
       "Customer-Facing Displays: tipping, loyalty prompts, digital receipts",
       "Free Hardware on qualifying plans",
       "Unified Reporting across in-person, online & mobile",
-      "24/7 Support & rapid hardware replacement"
+      "Named-rep support & rapid hardware replacement"
     ],
     howItWorks: [
       "Select the hardware that fits your footprint.",
@@ -226,7 +226,7 @@ export const solutionsData = {
       "Digital Wallets: Apple Pay, Google Pay, PayPal",
       "Real-time fraud risk scoring & dispute tools",
       "Unlimited scalability: handle spikes without extra fees",
-      "24/7 developer support: code samples, SDKs & live help"
+      "Developer support: code samples, SDKs & live help"
     ],
     howItWorks: [
       "Choose hosted or API integration.",

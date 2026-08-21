@@ -109,7 +109,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
                   <p className="text-sm text-slate-400">Upload your merchant statement and we&apos;ll return a line-by-line audit with competitive bids. No consulting fees. Ever.</p>
                 </div>
                 <Link href="/get-your-savings-estimate" className="shrink-0 inline-flex items-center gap-2 px-6 py-3.5 text-sm font-black text-white rounded-xl transition-all hover:-translate-y-0.5" style={{ background: '#4e9000', boxShadow: '0 8px 20px rgba(78,144,0,0.3)' }}>
-                  Get Free Estimate <ArrowRight className="w-4 h-4" />
+                  Get Your Free Audit <ArrowRight className="w-4 h-4" />
                 </Link>
               </div>
 

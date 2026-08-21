@@ -241,7 +241,7 @@ export default function PartnerClient({ slug }: { slug: string }) {
                       {status === 'loading' ? (
                         <><div className="w-5 h-5 rounded-full border-2 border-white/30 border-t-white animate-spin" /> {'Sending...'}</>
                       ) : (
-                        <>{'Get My Free Analysis'} <ArrowRight className="w-5 h-5" /></>
+                        <>{'Get Your Free Audit'} <ArrowRight className="w-5 h-5" /></>
                       )}
                     </button>
 

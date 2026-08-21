@@ -162,7 +162,7 @@ export default function GlossaryIndex() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/get-your-savings-estimate" className="inline-flex items-center justify-center gap-2 px-10 py-4 font-black rounded-xl transition-all hover:-translate-y-1" style={{ background: '#0a1208', color: '#6fc200', boxShadow: '0 8px 40px rgba(0,0,0,0.4)' }}>
-              {'Get My Free Statement Audit'} <ArrowRight className="w-5 h-5" />
+              {'Get Your Free Audit'} <ArrowRight className="w-5 h-5" />
             </Link>
             <Link href="/calculator" className="inline-flex items-center justify-center gap-2 px-10 py-4 font-bold text-white border border-white/30 hover:border-white/60 rounded-xl transition-all">
               {'Try the Calculator'}

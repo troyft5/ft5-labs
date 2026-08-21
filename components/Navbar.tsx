@@ -220,7 +220,7 @@ export default function Navbar() {
             className="px-4 py-2.5 text-sm font-black text-white rounded-xl transition-all hover:opacity-90 whitespace-nowrap"
             style={{ background: '#4e9000' }}
           >
-            Get Free Audit
+            Get Your Free Audit
           </Link>
         </div>
 
@@ -273,12 +273,8 @@ export default function Navbar() {
             </div>
           )}
 
-          <Link href="/get-your-savings-estimate" className="py-3 text-sm font-bold transition-colors" style={{ borderBottom: '1px solid rgba(255,255,255,0.07)', color: '#6fc200' }} onClick={closeMenu}>
-            Get Your Free Audit →
-          </Link>
-
           <Link href="/get-your-savings-estimate" className="mt-4 flex items-center justify-center gap-2 py-3.5 text-sm font-black text-white rounded-xl" style={{ background: '#4e9000' }} onClick={closeMenu}>
-            Get Free Audit <ArrowRight className="w-4 h-4" />
+            Get Your Free Audit <ArrowRight className="w-4 h-4" />
           </Link>
 
           <a href="tel:7323001072" className="mt-3 mb-2 flex items-center justify-center gap-2 py-3 text-sm font-semibold text-slate-300 hover:text-white transition-colors">

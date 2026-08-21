@@ -28,7 +28,7 @@ export default async function IndustryPage({ params }: { params: Promise<{ slug:
 
   const stats = 'stats' in industry ? (industry as typeof industry & { stats: {value:string;label:string}[] }).stats : []
   const challenge = 'challenge' in industry ? (industry as typeof industry & { challenge: string }).challenge : ''
-  const cta = 'cta' in industry ? (industry as typeof industry & { cta: string }).cta : 'Get Your Free Analysis'
+  const cta = 'cta' in industry ? (industry as typeof industry & { cta: string }).cta : 'Get Your Free Audit'
 
   return (
     <div className="flex flex-col w-full" style={{ background: BG }}>
@@ -269,7 +269,7 @@ export default async function IndustryPage({ params }: { params: Promise<{ slug:
                 <h2 className="text-3xl font-black text-white">Adjacent verticals we serve.</h2>
               </div>
               <Link href="/get-your-savings-estimate" className="hidden md:flex items-center gap-2 text-sm font-bold text-slate-500 hover:text-white transition-colors">
-                Get Estimate <ArrowRight className="w-4 h-4" />
+                Get Your Free Audit <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
           </Reveal>

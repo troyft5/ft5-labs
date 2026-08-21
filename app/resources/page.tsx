@@ -40,7 +40,7 @@ const resources = [
     href: '/get-your-savings-estimate',
     color: '#f59e0b',
     desc: 'Upload your merchant statement and get a full line-by-line analysis with competitive bids from 10+ processors, returned same day or less. No cost.',
-    cta: 'Get My Audit',
+    cta: 'Get Your Free Audit',
     stat: 'Same-Day Turnaround',
   },
   {
@@ -242,7 +242,7 @@ export default function ResourcesPage() {
                 {[
                   { icon: <Shield className="w-5 h-5" />, stat: '$0', label: 'Consulting cost', note: 'to merchants, ever' },
                   { icon: <TrendingUp className="w-5 h-5" />, stat: '15–30%', label: 'Avg savings', note: 'year one' },
-                  { icon: <FileText className="w-5 h-5" />, stat: '24hr', label: 'Audit turnaround', note: 'guaranteed' },
+                  { icon: <FileText className="w-5 h-5" />, stat: '24hr', label: 'Audit turnaround', note: 'typical' },
                   { icon: <Users className="w-5 h-5" />, stat: '10+', label: 'Processors bid', note: 'for your business' },
                 ].map(s => (
                   <div key={s.label} className="rounded-2xl p-5 flex flex-col gap-2" style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)' }}>
@@ -273,7 +273,7 @@ export default function ResourcesPage() {
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
             <Link href="/get-your-savings-estimate" className="inline-flex items-center gap-2 px-10 py-4 font-black rounded-xl transition-all hover:-translate-y-1" style={{ background: '#0a1208', color: '#6fc200', boxShadow: '0 8px 40px rgba(0,0,0,0.4)' }}>
-              Get My Free Audit <ArrowRight className="w-5 h-5" />
+              Get Your Free Audit <ArrowRight className="w-5 h-5" />
             </Link>
             <Link href="/contact-us" className="inline-flex items-center gap-2 px-8 py-4 font-bold text-white border border-white/30 hover:border-white/60 rounded-xl transition-all">
               Talk to a Specialist

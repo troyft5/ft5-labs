@@ -335,7 +335,7 @@ export default function InterchangeCheatSheet() {
             <h4>Ready to see your actual effective rate?</h4>
             <p>Upload your merchant statement — we return a full audit with competitive bids in the same day. Free.</p>
           </div>
-          <a href="/get-your-savings-estimate">Get Free Audit →</a>
+          <a href="/get-your-savings-estimate">Get Your Free Audit →</a>
         </div>
 
         {/* Footer */}

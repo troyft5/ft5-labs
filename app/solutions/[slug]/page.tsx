@@ -28,7 +28,7 @@ export default async function SolutionPage({ params }: { params: Promise<{ slug:
 
   const howItWorks = 'howItWorks' in solution ? (solution as typeof solution & { howItWorks: string[] }).howItWorks : []
   const challenge   = 'challenge' in solution ? (solution as typeof solution & { challenge: string }).challenge : ''
-  const cta         = 'cta' in solution ? (solution as typeof solution & { cta: string }).cta : 'Get Your Free Estimate'
+  const cta         = 'cta' in solution ? (solution as typeof solution & { cta: string }).cta : 'Get Your Free Audit'
 
   return (
     <div className="flex flex-col w-full" style={{ background: BG }}>

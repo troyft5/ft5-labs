@@ -2,9 +2,18 @@
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 import { ArrowRight } from 'lucide-react'
 
+const HIDE_ON = new Set([
+  '/get-your-savings-estimate',
+  '/contact-us',
+  '/calculator',
+  '/schedule',
+])
+
 export default function MobileCTA() {
+  const pathname = usePathname()
   const [visible, setVisible] = useState(false)
 
   useEffect(() => {
@@ -13,6 +22,8 @@ export default function MobileCTA() {
     fn()
     return () => window.removeEventListener('scroll', fn)
   }, [])
+
+  if (HIDE_ON.has(pathname)) return null
 
   return (
     <div
@@ -25,7 +36,7 @@ export default function MobileCTA() {
           className="flex items-center justify-center gap-3 w-full py-4 rounded-2xl font-black text-white text-base"
           style={{ background: '#4e9000', boxShadow: '0 -2px 32px rgba(78,144,0,0.5)' }}
         >
-          Get My Free Savings Audit <ArrowRight className="w-5 h-5" />
+          Get Your Free Audit <ArrowRight className="w-5 h-5" />
         </Link>
         <p className="text-center text-[10px] text-slate-700 mt-2">No cost. No obligation. same-day turnaround.</p>
       </div>

@@ -31,7 +31,7 @@ export default function NotFound() {
           href="/get-your-savings-estimate"
           className="inline-flex items-center gap-2 px-8 py-4 text-sm font-bold text-slate-300 border border-white/10 hover:border-white/25 rounded-xl transition-all"
         >
-          Get Savings Estimate <ArrowRight className="w-4 h-4" />
+          Get Your Free Audit <ArrowRight className="w-4 h-4" />
         </Link>
       </div>
     </div>

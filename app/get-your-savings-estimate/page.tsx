@@ -4,8 +4,13 @@
 // an outdated deploy while direct API tests always hit the current server).
 export const dynamic = 'force-dynamic'
 
+import { Suspense } from 'react'
 import EstimatePageClient from './EstimatePageClient'
 
 export default function Page() {
-  return <EstimatePageClient />
+  return (
+    <Suspense fallback={null}>
+      <EstimatePageClient />
+    </Suspense>
+  )
 }

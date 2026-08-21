@@ -1,32 +1,8 @@
 'use client'
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef } from 'react'
 import Link from 'next/link'
 import { ArrowRight, Phone } from 'lucide-react'
 import ParticleCanvas from '@/components/ParticleCanvas'
-
-function Counter({ target, prefix = '', suffix = '', decimals = 0 }: { target: number; prefix?: string; suffix?: string; decimals?: number }) {
-  const [count, setCount] = useState(0)
-  const ref = useRef<HTMLSpanElement>(null)
-  const started = useRef(false)
-  useEffect(() => {
-    const observer = new IntersectionObserver(([entry]) => {
-      if (entry.isIntersecting && !started.current) {
-        started.current = true
-        const steps = 60
-        const increment = target / steps
-        let current = 0
-        const timer = setInterval(() => {
-          current += increment
-          if (current >= target) { setCount(target); clearInterval(timer) }
-          else setCount(parseFloat(current.toFixed(decimals)))
-        }, 2000 / steps)
-      }
-    }, { threshold: 0.5 })
-    if (ref.current) observer.observe(ref.current)
-    return () => observer.disconnect()
-  }, [target, decimals])
-  return <span ref={ref}>{prefix}{count.toFixed(decimals)}{suffix}</span>
-}
 
 export default function HeroSection() {
   const heroRef = useRef<HTMLElement>(null)
@@ -222,7 +198,7 @@ export default function HeroSection() {
                       <div className="text-xs font-black text-white">Annual Savings Found</div>
                     </div>
                   </div>
-                  <div className="px-2 py-0.5 rounded-full text-[9px] font-black uppercase" style={{ background: 'rgba(78,144,0,0.15)', color: '#6fc200', border: '1px solid rgba(78,144,0,0.3)' }}>Live</div>
+                  <div className="px-2 py-0.5 rounded-full text-[9px] font-black uppercase" style={{ background: 'rgba(78,144,0,0.15)', color: '#6fc200', border: '1px solid rgba(78,144,0,0.3)' }}>Sample</div>
                 </div>
                 <div className="px-5 py-5" style={{ borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
                   <div className="text-4xl font-black text-white mb-1">$18,420</div>
@@ -273,15 +249,13 @@ export default function HeroSection() {
           {/* ── STATS ROW ── */}
           <div className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-px bg-white/5 rounded-2xl overflow-hidden border border-white/8">
             {[
-              { n: 10, s: '+', p: '',  label: 'Processor Partners' },
-              { n: 30, s: '+', p: '',  label: 'Years of Experience' },
-              { n: 24, s: '/7', p: '', label: 'Live Client Support' },
-              { n: 0,  s: '',  p: '$', label: 'Consulting Cost to You' },
+              { value: '10+', label: 'Processor Partners' },
+              { value: '30+', label: 'Years Combined Experience' },
+              { value: '1-day', label: 'Typical Audit Turnaround' },
+              { value: '$0', label: 'Consulting Cost to You' },
             ].map((stat) => (
               <div key={stat.label} className="px-8 py-6 text-center" style={{ background: 'rgba(255,255,255,0.02)' }}>
-                <div className="text-3xl font-black mb-1 text-white">
-                  <Counter target={stat.n} prefix={stat.p} suffix={stat.s} />
-                </div>
+                <div className="text-3xl font-black mb-1 text-white">{stat.value}</div>
                 <div className="text-[10px] text-slate-500 uppercase tracking-wider font-semibold">{stat.label}</div>
               </div>
             ))}

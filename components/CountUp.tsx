@@ -19,7 +19,7 @@ export default function CountUp({
   decimals = 0,
   className = '',
 }: CountUpProps) {
-  const [value, setValue] = useState(0)
+  const [value, setValue] = useState(to)
   const ref = useRef<HTMLSpanElement>(null)
   const hasRun = useRef(false)
 

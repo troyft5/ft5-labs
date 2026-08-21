@@ -71,7 +71,7 @@ export default function IndustriesPage() {
           <Reveal delay={220}>
             <div className="flex flex-wrap gap-4">
               <Link href="/get-your-savings-estimate" className="inline-flex items-center gap-2 px-6 py-3.5 text-sm font-black text-white rounded-xl transition-all hover:-translate-y-0.5" style={{ background: '#4e9000', boxShadow: '0 8px 24px rgba(78,144,0,0.35)' }}>
-                Get Your Free Estimate <ArrowRight className="w-4 h-4" />
+                Get Your Free Audit <ArrowRight className="w-4 h-4" />
               </Link>
               <Link href="/calculator" className="inline-flex items-center gap-2 px-6 py-3.5 text-sm font-bold text-slate-400 hover:text-white border border-white/10 hover:border-white/25 rounded-xl transition-all">
                 Fee Calculator <ChevronRight className="w-4 h-4" />
@@ -192,7 +192,7 @@ export default function IndustriesPage() {
           <h2 className="text-4xl font-black text-white mb-4 leading-tight">Find out what your industry&apos;s merchants actually pay.</h2>
           <p style={{ color: 'rgba(255,255,255,0.75)' }} className="text-lg mb-8 max-w-xl mx-auto">Upload your statement and we&apos;ll return a line-by-line analysis with competitive bids same day or less. No pitch, no pressure.</p>
           <Link href="/get-your-savings-estimate" className="inline-flex items-center gap-2 px-10 py-4 font-black rounded-xl transition-all hover:-translate-y-1" style={{ background: '#0a1208', color: '#6fc200', boxShadow: '0 8px 40px rgba(0,0,0,0.4)' }}>
-            Get My Free Statement Audit <ArrowRight className="w-5 h-5" />
+            Get Your Free Audit <ArrowRight className="w-5 h-5" />
           </Link>
         </div>
       </section>

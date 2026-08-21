@@ -41,8 +41,8 @@ export default function ProcessPage() {
       day: 'Week 2',
       icon: <Cog className="w-8 h-8" />,
       title: 'Implementation & Swap',
-      body: 'If you choose to switch, we handle the entire migration. We work with the winning processor to ship pre-programmed terminals, integrate with your existing POS or e-commerce gateway, and ensure zero downtime during the transition.',
-      checks: ['Zero downtime guaranteed', 'Free terminal placement', 'Existing POS integration'],
+      body: 'If you choose to switch, we handle the entire migration. We work with the winning processor to ship pre-programmed terminals, integrate with your existing POS or e-commerce gateway, and coordinate the cutover so you are not running two processors longer than needed.',
+      checks: ['Coordinated cutover', 'Free terminal placement', 'Existing POS integration'],
       color: '#6fc200'
     }
   ]
@@ -145,7 +145,7 @@ export default function ProcessPage() {
           </p>
           <div className="flex justify-center">
             <Link href="/get-your-savings-estimate" className="inline-flex items-center justify-center gap-2 px-10 py-5 text-lg font-black rounded-xl transition-all hover:-translate-y-1" style={{ background: '#0a1208', color: '#6fc200', boxShadow: '0 8px 40px rgba(0,0,0,0.4)' }}>
-              Start My Free Audit <ArrowRight className="w-5 h-5" />
+              Get Your Free Audit <ArrowRight className="w-5 h-5" />
             </Link>
           </div>
         </div>

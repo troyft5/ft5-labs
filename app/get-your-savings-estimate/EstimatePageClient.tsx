@@ -1,10 +1,32 @@
 'use client'
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Link from 'next/link'
+import { useSearchParams } from 'next/navigation'
 import { ArrowRight, ShieldCheck, CheckCircle2, Upload, Clock, Phone, FileText, Star } from 'lucide-react'
 import ExitIntentModal from '@/components/ExitIntentModal'
 import { identifyVisitor } from '@/lib/identify'
+
+const INDUSTRY_FROM_CALC: Record<string, string> = {
+  retail: 'Retail',
+  restaurant: 'Restaurant / Food Service',
+  ecommerce: 'E-Commerce',
+  service: 'B2B / Professional Services',
+  healthcare: 'Healthcare',
+  b2b: 'B2B / Professional Services',
+  gas: 'Petroleum / Gas',
+  education: 'Other',
+  other: 'Other',
+}
+
+function volumeBucket(raw: string) {
+  const n = Number(String(raw).replace(/[^0-9.]/g, ''))
+  if (!Number.isFinite(n) || n <= 0) return ''
+  if (n < 10000) return 'Under $10,000'
+  if (n < 50000) return '$10,000 – $50,000'
+  if (n < 250000) return '$50,000 – $250,000'
+  return '$250,000+'
+}
 
 const BG  = '#0f1a0f'
 const BG2 = '#0a1208'
@@ -29,6 +51,7 @@ const guarantees = [
 ]
 
 export default function Estimate() {
+  const searchParams = useSearchParams()
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
   const [form, setForm] = useState({
     firstName: '', lastName: '', email: '', phone: '', business: '',
@@ -36,12 +59,37 @@ export default function Estimate() {
     currentProcessor: '', hardwareType: '', cardMethod: '',
   })
   const [file, setFile] = useState<File | null>(null)
+  const [fileError, setFileError] = useState('')
+
+  useEffect(() => {
+    const industryParam = searchParams.get('industry')
+    const volumeParam = searchParams.get('volume')
+    const cardParam = searchParams.get('card_method')
+    const mappedIndustry = industryParam ? INDUSTRY_FROM_CALC[industryParam] : ''
+    const mappedVolume = volumeParam ? volumeBucket(volumeParam) : ''
+    const mappedCard = cardParam === 'mixed' ? 'both' : cardParam === 'in-person' || cardParam === 'online' || cardParam === 'both' ? cardParam : ''
+    if (!mappedIndustry && !mappedVolume && !mappedCard) return
+    setForm(prev => ({
+      ...prev,
+      ...(mappedIndustry ? { industry: mappedIndustry } : {}),
+      ...(mappedVolume ? { volume: mappedVolume } : {}),
+      ...(mappedCard ? { cardMethod: mappedCard } : {}),
+    }))
+  }, [searchParams])
 
   const set = (k: string) => (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) =>
     setForm(prev => ({ ...prev, [k]: e.target.value }))
 
   const handleFile = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setFile(e.target.files?.[0] ?? null)
+    const next = e.target.files?.[0] ?? null
+    if (next && next.size > 10 * 1024 * 1024) {
+      setFile(null)
+      setFileError('File is over 10MB. Please upload a smaller PDF or image.')
+      e.target.value = ''
+      return
+    }
+    setFileError('')
+    setFile(next)
   }
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -280,6 +328,12 @@ export default function Estimate() {
                         <textarea rows={1} value={form.notes} onChange={set('notes')} className={`${inputClass} resize-none`} style={inputStyle} />
                       </div>
                     </div>
+
+                    {fileError && (
+                      <div className="text-sm rounded-xl px-4 py-3" style={{ background: 'rgba(185,28,28,0.1)', border: '1px solid rgba(185,28,28,0.3)', color: '#fca5a5' }}>
+                        {fileError}
+                      </div>
+                    )}
 
                     {status === 'error' && (
                       <div className="text-sm rounded-xl px-4 py-3" style={{ background: 'rgba(185,28,28,0.1)', border: '1px solid rgba(185,28,28,0.3)', color: '#fca5a5' }}>

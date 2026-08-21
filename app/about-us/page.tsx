@@ -193,10 +193,10 @@ export default function AboutPage() {
               { name: 'E-Commerce', href: '/industries/e-commerce', emoji: '💳' },
               { name: 'Service Business', href: '/industries/service', emoji: '✅' },
               { name: 'Healthcare', href: '/industries/healthcare', emoji: '🏥' },
-              { name: 'Restaurants', href: '/industries/restaurant', emoji: '🍴' },
+              { name: 'B2B', href: '/industries/b2b', emoji: '🤝' },
               { name: 'Higher Education', href: '/industries/higher-education', emoji: '🎓' },
-              { name: 'Nonprofits', href: '/industries/nonprofit', emoji: '🤝' },
-              { name: 'Specialty Retail', href: '/industries/specialty-retail', emoji: '🛒' },
+              { name: 'Petroleum', href: '/industries/petroleum', emoji: '⛽' },
+              { name: 'High-Risk', href: '/industries/high-risk', emoji: '⚡' },
             ].map((ind, i) => (
               <Reveal key={ind.name} delay={i * 50}>
                 <Link href={ind.href} className="group flex items-center gap-3 rounded-xl p-4 transition-all hover:-translate-y-0.5" style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)' }}>
@@ -208,7 +208,7 @@ export default function AboutPage() {
           </div>
           <Reveal delay={200}>
             <div className="mt-6">
-              <Link href="/get-your-savings-estimate" className="inline-flex items-center gap-2 text-sm font-bold" style={{ color: '#6fc200' }}>
+              <Link href="/industries" className="inline-flex items-center gap-2 text-sm font-bold" style={{ color: '#6fc200' }}>
                 {'View all industries we serve'} <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
@@ -274,7 +274,7 @@ export default function AboutPage() {
                 </div>
                 <div className="flex flex-col gap-4">
                   <Link href="/get-your-savings-estimate" className="flex items-center justify-center gap-2 px-8 py-4 font-black text-white rounded-xl transition-all hover:-translate-y-0.5" style={{ background: '#4e9000', boxShadow: '0 8px 24px rgba(78,144,0,0.35)' }}>
-                    {'Get a Free Savings Estimate'} <ArrowRight className="w-5 h-5" />
+                    {'Get Your Free Audit'} <ArrowRight className="w-5 h-5" />
                   </Link>
                   <Link href="/contact-us" className="flex items-center justify-center gap-2 px-8 py-4 font-bold text-slate-300 border border-white/10 hover:border-white/25 rounded-xl transition-all">
                     {'Talk to a Specialist'}

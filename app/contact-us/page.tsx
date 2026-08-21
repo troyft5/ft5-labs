@@ -20,7 +20,7 @@ export default function ContactPage() {
     { href: 'tel:7323001072',              icon: <Phone className="w-5 h-5" />,  label: 'Call Us',       lines: ['(732) 300-1072'] },
     { href: 'mailto:info@fintech5group.com',icon: <Mail className="w-5 h-5" />,   label: 'Email Us',      lines: ['info@fintech5group.com', 'sales@fintech5group.com'] },
     { href: undefined,                      icon: <MapPin className="w-5 h-5" />, label: 'Coverage',      lines: ['New York & New Jersey', 'Serving clients nationwide'] },
-    { href: undefined,                      icon: <Clock className="w-5 h-5" />,  label: 'Response Time', lines: ['Within 1 business day', '24/7 for active clients'] },
+    { href: undefined,                      icon: <Clock className="w-5 h-5" />,  label: 'Response Time', lines: ['Within 1 business day', 'Named rep after you board'] },
   ]
 
   const nextSteps = [
@@ -131,7 +131,7 @@ export default function ContactPage() {
                 <div className="text-[10px] font-bold uppercase tracking-widest mb-2" style={{ color: '#6fc200' }}>Prefer the fast lane?</div>
                 <p className="text-sm text-slate-400 mb-4">Upload your statement and get a full savings audit back same day or less. No form needed.</p>
                 <a href="/get-your-savings-estimate" className="inline-flex items-center gap-2 text-sm font-black text-white px-5 py-2.5 rounded-xl transition-all hover:opacity-90" style={{ background: '#4e9000' }}>
-                  Get Free Savings Estimate <ArrowRight className="w-4 h-4" />
+                  Get Your Free Audit <ArrowRight className="w-4 h-4" />
                 </a>
               </div>
             </Reveal>
