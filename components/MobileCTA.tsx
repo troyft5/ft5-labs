@@ -10,6 +10,7 @@ const HIDE_ON = new Set([
   '/contact-us',
   '/calculator',
   '/schedule',
+  '/troys-calendar',
 ])
 
 export default function MobileCTA() {
