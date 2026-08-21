@@ -1,5 +1,4 @@
 import Link from 'next/link'
-import { Phone } from 'lucide-react'
 
 export const metadata = {
   title: "Troy's Calendar | Book a Call | FinTech 5",
@@ -10,23 +9,10 @@ export const metadata = {
 const BG = '#0f1a0f'
 const BG2 = '#0a1208'
 
-// Google Calendar → Create → Appointment schedule → Share booking page.
-// Paste that URL here via NEXT_PUBLIC_TROY_CALENDAR_URL (calendar.app.google/... or the full appointments URL).
-const TROY_CAL_URL = process.env.NEXT_PUBLIC_TROY_CALENDAR_URL || ''
-
-function bookingSrc(url: string) {
-  if (!url) return ''
-  try {
-    const u = new URL(url)
-    if (!u.searchParams.has('gv')) u.searchParams.set('gv', 'true')
-    return u.toString()
-  } catch {
-    return url
-  }
-}
+const TROY_CAL_URL =
+  'https://calendar.google.com/calendar/appointments/schedules/AcZssZ2uErWLpZVp1c5yyW65cJgq1ZNm2fOtnUXPuMxjOpeQn5NCxkumfScY9FnP28W_7mLaSciVIn6U?gv=true'
 
 export default function TroysCalendarPage() {
-  const src = bookingSrc(TROY_CAL_URL)
 
   return (
     <div className="flex flex-col w-full min-h-screen" style={{ background: BG }}>
@@ -69,30 +55,16 @@ export default function TroysCalendarPage() {
 
       <section className="px-6 py-10 relative" style={{ background: BG }}>
         <div className="max-w-3xl mx-auto">
-          {src ? (
-            <div className="rounded-2xl overflow-hidden" style={{ border: '1px solid rgba(255,255,255,0.08)', background: '#0a1208' }}>
-              <iframe
-                src={src}
-                title="Book a time with Troy"
-                className="block w-full"
-                style={{ minHeight: '720px', height: '720px', border: 0, background: '#fff' }}
-              />
-            </div>
-          ) : (
-            <div className="rounded-2xl p-10 md:p-14 text-center" style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)' }}>
-              <h2 className="text-2xl font-black text-white mb-3">Calendar goes here in a minute</h2>
-              <p className="text-sm text-slate-400 leading-relaxed max-w-md mx-auto mb-8">
-                Until the Google booking link is plugged in, call Troy directly. He actually answers.
-              </p>
-              <a
-                href="tel:7323001072"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-black text-white"
-                style={{ background: '#4e9000' }}
-              >
-                <Phone className="w-4 h-4" /> Call (732) 300-1072
-              </a>
-            </div>
-          )}
+          <div className="rounded-2xl overflow-hidden bg-white" style={{ border: '1px solid rgba(255,255,255,0.08)' }}>
+            <iframe
+              src={TROY_CAL_URL}
+              title="Book a time with Troy"
+              width="100%"
+              height="600"
+              className="block w-full"
+              style={{ border: 0, minHeight: 600 }}
+            />
+          </div>
 
           <div className="mt-10 grid md:grid-cols-3 gap-4">
             {[

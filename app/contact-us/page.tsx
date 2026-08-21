@@ -1,4 +1,3 @@
-import Link from 'next/link'
 import { Phone, Mail, MapPin, ArrowRight, Clock, CheckCircle2 } from 'lucide-react'
 import ContactForm from '@/components/ContactForm'
 import Reveal from '@/components/Reveal'
@@ -71,11 +70,6 @@ export default function ContactPage() {
                   <span className="text-[11px] font-bold uppercase tracking-[0.2em] mb-2 block" style={{ color: '#6fc200' }}>Email us</span>
                   <span className="text-lg font-bold text-slate-300 group-hover:text-white transition-colors">info@fintech5group.com</span>
                 </a>
-                <div className="h-px" style={{ background: 'rgba(255,255,255,0.07)' }} />
-                <Link href="/troys-calendar" className="group">
-                  <span className="text-[11px] font-bold uppercase tracking-[0.2em] mb-2 block" style={{ color: '#6fc200' }}>Book Troy</span>
-                  <span className="text-lg font-bold text-slate-300 group-hover:text-white transition-colors">Pick a time on his calendar</span>
-                </Link>
                 <div className="h-px" style={{ background: 'rgba(255,255,255,0.07)' }} />
                 <div>
                   <span className="text-[11px] font-bold uppercase tracking-[0.2em] mb-2 block" style={{ color: '#6fc200' }}>Response time</span>
