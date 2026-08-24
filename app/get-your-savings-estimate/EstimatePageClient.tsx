@@ -1,11 +1,12 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
 import { useSearchParams } from 'next/navigation'
 import { ArrowRight, ShieldCheck, CheckCircle2, Upload, Clock, Phone, FileText, Star } from 'lucide-react'
 import ExitIntentModal from '@/components/ExitIntentModal'
 import { identifyVisitor } from '@/lib/identify'
+import Turnstile, { type TurnstileHandle } from '@/components/Turnstile'
 
 const INDUSTRY_FROM_CALC: Record<string, string> = {
   retail: 'Retail',
@@ -56,10 +57,12 @@ export default function Estimate() {
   const [form, setForm] = useState({
     firstName: '', lastName: '', email: '', phone: '', business: '',
     volume: 'Under $10,000', industry: 'Retail', notes: '',
-    currentProcessor: '', hardwareType: '', cardMethod: '',
+    currentProcessor: '', hardwareType: '', cardMethod: '', hp: '',
   })
   const [file, setFile] = useState<File | null>(null)
   const [fileError, setFileError] = useState('')
+  const [turnstileToken, setTurnstileToken] = useState('')
+  const turnstileRef = useRef<TurnstileHandle>(null)
 
   useEffect(() => {
     const industryParam = searchParams.get('industry')
@@ -114,12 +117,16 @@ export default function Estimate() {
           fileData,
           currentProcessor: form.currentProcessor || undefined,
           hardwareType: form.hardwareType || undefined,
+          turnstileToken,
         }),
       })
       if (res.ok) identifyVisitor(form.email)
       setStatus(res.ok ? 'success' : 'error')
     } catch {
       setStatus('error')
+    } finally {
+      setTurnstileToken('')
+      turnstileRef.current?.reset()
     }
   }
 
@@ -207,6 +214,16 @@ export default function Estimate() {
                   </div>
                 ) : (
                   <form onSubmit={handleSubmit} className="flex flex-col gap-5">
+                    <input
+                      type="text"
+                      name="website"
+                      value={form.hp}
+                      onChange={set('hp')}
+                      tabIndex={-1}
+                      autoComplete="off"
+                      aria-hidden="true"
+                      style={{ position: 'absolute', left: '-9999px', top: '-9999px' }}
+                    />
                     <div>
                       <h2 className="text-2xl font-black text-white mb-1">Submit your information</h2>
                       <p className="text-slate-500 text-sm">A statement upload gets you the most precise analysis. The form alone still gets you a strong estimate.</p>
@@ -341,9 +358,11 @@ export default function Estimate() {
                       </div>
                     )}
 
+                    <Turnstile ref={turnstileRef} action="estimate" onVerify={setTurnstileToken} />
+
                     <button
                       type="submit"
-                      disabled={status === 'loading'}
+                      disabled={status === 'loading' || !turnstileToken}
                       className="w-full flex items-center justify-center gap-3 py-4 rounded-xl font-black text-white text-base transition-all hover:-translate-y-0.5 disabled:opacity-60 disabled:translate-y-0"
                       style={{ background: '#4e9000', boxShadow: '0 8px 32px rgba(78,144,0,0.35)' }}
                     >

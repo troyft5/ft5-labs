@@ -1,11 +1,12 @@
 'use client'
 
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 import Link from 'next/link'
 import { ArrowRight, ShieldCheck, CheckCircle2, Clock, Star, Users, TrendingDown } from 'lucide-react'
 import { getPartner } from '@/lib/partners'
 import CountUp from '@/components/CountUp'
 import Reveal from '@/components/Reveal'
+import Turnstile, { type TurnstileHandle } from '@/components/Turnstile'
 
 const inputClass = "w-full rounded-xl px-4 py-3.5 text-white text-sm font-medium outline-none transition-all focus:ring-1 focus:ring-[#4e9000] placeholder:text-slate-600"
 const inputStyle = { background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)' }
@@ -16,9 +17,11 @@ export default function PartnerClient({ slug }: { slug: string }) {
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
   const [form, setForm] = useState({
     firstName: '', lastName: '', email: '', phone: '', business: '',
-    volume: 'Under $10,000', industry: 'Retail', notes: '',
+    volume: 'Under $10,000', industry: 'Retail', notes: '', hp: '',
   })
   const [file, setFile] = useState<File | null>(null)
+  const [turnstileToken, setTurnstileToken] = useState('')
+  const turnstileRef = useRef<TurnstileHandle>(null)
 
   const set = (k: string) => (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) =>
     setForm(prev => ({ ...prev, [k]: e.target.value }))
@@ -44,11 +47,14 @@ export default function PartnerClient({ slug }: { slug: string }) {
       const res = await fetch('/api/estimate', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ ...form, fileData, referralPartner: slug, referralSource: partner.company }),
+        body: JSON.stringify({ ...form, fileData, referralPartner: slug, referralSource: partner.company, turnstileToken }),
       })
       setStatus(res.ok ? 'success' : 'error')
     } catch {
       setStatus('error')
+    } finally {
+      setTurnstileToken('')
+      turnstileRef.current?.reset()
     }
   }
 
@@ -160,6 +166,16 @@ export default function PartnerClient({ slug }: { slug: string }) {
                   </div>
                 ) : (
                   <form onSubmit={handleSubmit} className="flex flex-col gap-5">
+                    <input
+                      type="text"
+                      name="website"
+                      value={form.hp}
+                      onChange={set('hp')}
+                      tabIndex={-1}
+                      autoComplete="off"
+                      aria-hidden="true"
+                      style={{ position: 'absolute', left: '-9999px', top: '-9999px' }}
+                    />
                     <div>
                       <h2 className="text-xl font-black text-white mb-1 section-heading">{'Get your free savings analysis'}</h2>
                       <p className="text-slate-500 text-sm">{'Referred by'} {partner.company}. {'Your analysis is prioritized.'}</p>
@@ -235,7 +251,9 @@ export default function PartnerClient({ slug }: { slug: string }) {
                       </div>
                     )}
 
-                    <button type="submit" disabled={status === 'loading'}
+                    <Turnstile ref={turnstileRef} action="estimate" onVerify={setTurnstileToken} />
+
+                    <button type="submit" disabled={status === 'loading' || !turnstileToken}
                       className="w-full flex items-center justify-center gap-3 py-4 rounded-xl font-black text-white text-base transition-all hover:-translate-y-0.5 disabled:opacity-60"
                       style={{ background: '#4e9000', boxShadow: '0 8px 32px rgba(78,144,0,0.35)' }}>
                       {status === 'loading' ? (

@@ -2,17 +2,32 @@ import { NextRequest, NextResponse } from 'next/server'
 import { Resend } from 'resend'
 import { submitLead, crmContactUrl } from '@/lib/crm'
 import { confirmationEmail, internalNotificationEmail } from '@/lib/email-templates'
+import { verifyTurnstile } from '@/lib/turnstile'
+import { isRateLimited } from '@/lib/rate-limit'
 
 const TO   = 'troy@fintech5group.com'
-const FROM = 'FinTech 5 <info@fintech5group.com>'
+const FROM = 'FinTech 5 <info@mail.fintech5group.com>'
 
 export async function POST(req: NextRequest) {
   const resend = new Resend(process.env.RESEND_API_KEY ?? 'missing')
   try {
-    const { firstName, lastName, email, phone, business, businessType, message } = await req.json()
+    const { firstName, lastName, email, phone, business, businessType, message, hp, turnstileToken } = await req.json()
+
+    // Honeypot — bots fill every field, including this hidden one. Pretend success.
+    if (hp) return NextResponse.json({ success: true })
 
     if (!firstName || !email || !message) {
       return NextResponse.json({ error: 'Missing required fields.' }, { status: 400 })
+    }
+
+    const ip = req.headers.get('cf-connecting-ip') ?? req.headers.get('x-forwarded-for')?.split(',')[0]?.trim() ?? 'unknown'
+
+    if (isRateLimited(`contact:${ip}`, 5, 10 * 60_000)) {
+      return NextResponse.json({ error: 'Too many submissions. Please try again later.' }, { status: 429 })
+    }
+
+    if (!(await verifyTurnstile(turnstileToken, 'contact', ip))) {
+      return NextResponse.json({ error: 'Verification failed. Please try again.' }, { status: 403 })
     }
 
     const contactId = await submitLead('contact', {

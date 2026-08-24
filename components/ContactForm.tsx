@@ -1,7 +1,8 @@
 'use client'
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 import { ArrowRight } from 'lucide-react'
 import { identifyVisitor } from '@/lib/identify'
+import Turnstile, { type TurnstileHandle } from './Turnstile'
 
 const inputStyle = { background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)', color: 'white' }
 const inputClass = "w-full px-4 py-3 rounded-xl text-sm focus:outline-none transition-all placeholder:text-slate-600"
@@ -10,8 +11,10 @@ const labelClass = "block text-[10px] font-bold uppercase tracking-widest text-s
 export default function ContactForm() {
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
   const [formData, setFormData] = useState({
-    firstName: '', lastName: '', email: '', phone: '', business: '', businessType: '', message: '',
+    firstName: '', lastName: '', email: '', phone: '', business: '', businessType: '', message: '', hp: '',
   })
+  const [turnstileToken, setTurnstileToken] = useState('')
+  const turnstileRef = useRef<TurnstileHandle>(null)
 
   const set = (k: string) => (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) =>
     setFormData(prev => ({ ...prev, [k]: e.target.value }))
@@ -23,7 +26,7 @@ export default function ContactForm() {
       const res = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({ ...formData, turnstileToken }),
       })
       if (res.ok) {
         identifyVisitor(formData.email)
@@ -33,6 +36,9 @@ export default function ContactForm() {
       }
     } catch {
       setStatus('error')
+    } finally {
+      setTurnstileToken('')
+      turnstileRef.current?.reset()
     }
   }
 
@@ -48,6 +54,16 @@ export default function ContactForm() {
 
   return (
     <form onSubmit={handleSubmit} className="flex flex-col gap-5">
+      <input
+        type="text"
+        name="website"
+        value={formData.hp}
+        onChange={set('hp')}
+        tabIndex={-1}
+        autoComplete="off"
+        aria-hidden="true"
+        style={{ position: 'absolute', left: '-9999px', top: '-9999px' }}
+      />
       <div className="grid grid-cols-2 gap-4">
         <div>
           <label className={labelClass}>First Name *</label>
@@ -88,9 +104,10 @@ export default function ContactForm() {
           Something went wrong. Please try again or call us at (732) 300-1072.
         </div>
       )}
+      <Turnstile ref={turnstileRef} action="contact" onVerify={setTurnstileToken} />
       <button
         type="submit"
-        disabled={status === 'loading'}
+        disabled={status === 'loading' || !turnstileToken}
         className="w-full py-4 text-base font-bold text-white disabled:opacity-60 rounded-xl transition-all flex items-center justify-center gap-2 hover:-translate-y-0.5"
         style={{ background: '#4e9000', boxShadow: '0 8px 24px rgba(78,144,0,0.3)' }}
       >
