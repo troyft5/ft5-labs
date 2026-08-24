@@ -1,6 +1,5 @@
 import './globals.css'
 import { Suspense } from 'react'
-import { Inter } from 'next/font/google'
 import Link from 'next/link'
 import { Phone, Mail, MapPin } from 'lucide-react'
 import Navbar from '@/components/Navbar'
@@ -10,8 +9,6 @@ import ScrollToTop from '@/components/ScrollToTop'
 import CookieConsent from '@/components/CookieConsent'
 import CrmTracking from '@/components/CrmTracking'
 import ThirdPartyScripts from '@/components/ThirdPartyScripts'
-
-const inter = Inter({ subsets: ['latin'], display: 'swap', variable: '--font-inter' })
 
 export const metadata = {
   metadataBase: new URL('https://fintech5group.com'),
@@ -49,7 +46,7 @@ export const metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${inter.variable} scroll-smooth`}>
+    <html lang="en" className="scroll-smooth">
       <body className="bg-[#0f1a0f] text-slate-900 font-sans antialiased selection:bg-[#4e9000] selection:text-white min-h-screen flex flex-col">
 
         {/* JSON-LD Structured Data */}
