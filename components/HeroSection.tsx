@@ -90,7 +90,7 @@ export default function HeroSection() {
               </h1>
 
               <p className="text-lg text-slate-400 leading-relaxed mb-6 max-w-lg">
-                Upload one statement. We send back a line-by-line audit and real bids from 10+ processors. Most come back in about 15 minutes. A day is the longest it ever takes. No consulting fee, and you don't have to switch.
+                Upload one statement. We send back a line-by-line audit and real bids from 10+ processors. Most come back in about 15 minutes. A day is the longest it ever takes. No consulting fee, and you don&apos;t have to switch.
               </p>
 
               {/* Phone: prominent above CTAs */}

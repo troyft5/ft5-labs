@@ -226,7 +226,7 @@ export default function ResourcesPage() {
               <div>
                 <div className="flex items-center gap-3 mb-5">
                   <div className="h-px w-8" style={{ background: '#4e9000' }} />
-                  <span className="text-[11px] font-bold uppercase tracking-[0.2em]" style={{ color: '#6fc200' }}>Why It's Free</span>
+                  <span className="text-[11px] font-bold uppercase tracking-[0.2em]" style={{ color: '#6fc200' }}>Why It&apos;s Free</span>
                 </div>
                 <h2 className="text-3xl md:text-4xl font-black text-white mb-5 leading-tight">
                   We earn our fee from<br />the processor you choose.

@@ -17,6 +17,20 @@ const categoryColor: Record<GlossaryTerm['category'], string> = {
   infrastructure: '#06b6d4',
 }
 
+function stringHash(s: string): number {
+  let h = 0
+  for (let i = 0; i < s.length; i++) h = (h * 31 + s.charCodeAt(i)) | 0
+  return h
+}
+
+// Deterministic per-term "shuffle" — Math.random() here would either freeze
+// at build time (this page is statically generated) or, in a client
+// component, risk a hydration mismatch. Seeding by the current term gives
+// each glossary page a stable, distinct related-terms order instead.
+function relatedTerms(items: GlossaryTerm[], seed: string): GlossaryTerm[] {
+  return [...items].sort((a, b) => stringHash(seed + a.slug) - stringHash(seed + b.slug))
+}
+
 export async function generateStaticParams() {
   return glossaryData.map(t => ({ slug: t.slug }))
 }
@@ -224,9 +238,7 @@ export default async function GlossaryTermPage({ params }: { params: Promise<{ s
             </div>
           </Reveal>
           <div className="grid md:grid-cols-3 gap-4">
-            {glossaryData
-              .filter(t => t.slug !== slug)
-              .sort(() => Math.random() - 0.5)
+            {relatedTerms(glossaryData.filter(t => t.slug !== slug), slug)
               .slice(0, 3)
               .map((t, i) => (
                 <Reveal key={t.slug} delay={i * 60}>
