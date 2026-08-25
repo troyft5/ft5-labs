@@ -1,15 +1,19 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { createPortal } from 'react-dom'
 import { X, CheckSquare, ShieldCheck, ArrowRight } from 'lucide-react'
 import { identifyVisitor, hasConverted } from '@/lib/identify'
+import Turnstile, { type TurnstileHandle } from './Turnstile'
 
 export default function ExitIntentModal() {
   const [isOpen, setIsOpen] = useState(false)
   const [email, setEmail] = useState('')
+  const [hp, setHp] = useState('')
   const [status, setStatus] = useState<'idle' | 'loading' | 'success'>('idle')
   const [hasFired, setHasFired] = useState(false)
+  const [turnstileToken, setTurnstileToken] = useState('')
+  const turnstileRef = useRef<TurnstileHandle>(null)
 
   useEffect(() => {
     // Only fire on desktop. Mobile exit intent requires different heuristics (e.g. fast scrolling up).
@@ -35,9 +39,11 @@ export default function ExitIntentModal() {
     await fetch('/api/newsletter', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ email, source: 'exit-intent-checklist' }),
+      body: JSON.stringify({ email, hp, turnstileToken, source: 'exit-intent-checklist' }),
     }).catch(() => null)
     identifyVisitor(email)
+    setTurnstileToken('')
+    turnstileRef.current?.reset()
     setStatus('success')
   }
 
@@ -97,19 +103,31 @@ export default function ExitIntentModal() {
               </div>
 
               <form onSubmit={handleSubmit} className="flex flex-col gap-4">
-                <input 
-                  type="email" 
-                  required 
-                  placeholder="your@email.com" 
+                <input
+                  type="text"
+                  name="website"
+                  value={hp}
+                  onChange={(e) => setHp(e.target.value)}
+                  tabIndex={-1}
+                  autoComplete="off"
+                  aria-hidden="true"
+                  style={{ position: 'absolute', left: '-9999px', top: '-9999px' }}
+                />
+                <input
+                  type="email"
+                  required
+                  placeholder="your@email.com"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="w-full rounded-xl px-4 py-3.5 text-white text-sm font-medium outline-none transition-all placeholder:text-slate-600 focus:ring-1 focus:ring-[#06b6d4]" 
+                  className="w-full rounded-xl px-4 py-3.5 text-white text-sm font-medium outline-none transition-all placeholder:text-slate-600 focus:ring-1 focus:ring-[#06b6d4]"
                   style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)' }}
                 />
 
+                <Turnstile ref={turnstileRef} action="newsletter" onVerify={setTurnstileToken} />
+
                 <button
                   type="submit"
-                  disabled={status === 'loading'}
+                  disabled={status === 'loading' || !turnstileToken}
                   className="w-full flex items-center justify-center gap-2 py-3.5 rounded-xl font-black text-white text-base transition-all hover:-translate-y-0.5 disabled:opacity-70 disabled:translate-y-0"
                   style={{ background: 'linear-gradient(135deg, #8b5cf6, #06b6d4)', boxShadow: '0 4px 14px rgba(6,182,212,0.3)' }}
                 >

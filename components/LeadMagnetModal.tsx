@@ -1,9 +1,10 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { createPortal } from 'react-dom'
 import { X, FileDown, CheckCircle2, ShieldCheck } from 'lucide-react'
 import { identifyVisitor, hasConverted } from '@/lib/identify'
+import Turnstile, { type TurnstileHandle } from './Turnstile'
 
 export default function LeadMagnetModal({
   isOpen,
@@ -13,8 +14,11 @@ export default function LeadMagnetModal({
   onClose: () => void
 }) {
   const [email, setEmail] = useState('')
+  const [hp, setHp] = useState('')
   const [status, setStatus] = useState<'idle' | 'loading' | 'success'>('idle')
   const [mounted, setMounted] = useState(false)
+  const [turnstileToken, setTurnstileToken] = useState('')
+  const turnstileRef = useRef<TurnstileHandle>(null)
 
   useEffect(() => {
     setMounted(true)
@@ -34,9 +38,11 @@ export default function LeadMagnetModal({
     await fetch('/api/newsletter', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ email, source: 'lead-magnet-cheat-sheet' }),
+      body: JSON.stringify({ email, hp, turnstileToken, source: 'lead-magnet-cheat-sheet' }),
     }).catch(() => null)
     identifyVisitor(email)
+    setTurnstileToken('')
+    turnstileRef.current?.reset()
     setStatus('success')
   }
 
@@ -109,24 +115,36 @@ export default function LeadMagnetModal({
               </div>
 
               <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+                <input
+                  type="text"
+                  name="website"
+                  value={hp}
+                  onChange={(e) => setHp(e.target.value)}
+                  tabIndex={-1}
+                  autoComplete="off"
+                  aria-hidden="true"
+                  style={{ position: 'absolute', left: '-9999px', top: '-9999px' }}
+                />
                 <div>
                   <label className="text-[11px] font-bold text-slate-400 uppercase tracking-widest mb-1.5 block">
                     Where should we send it?
                   </label>
-                  <input 
-                    type="email" 
-                    required 
-                    placeholder="you@business.com" 
+                  <input
+                    type="email"
+                    required
+                    placeholder="you@business.com"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    className="w-full rounded-xl px-4 py-3.5 text-white text-sm font-medium outline-none transition-all placeholder:text-slate-600 focus:ring-1 focus:ring-[#4e9000]" 
+                    className="w-full rounded-xl px-4 py-3.5 text-white text-sm font-medium outline-none transition-all placeholder:text-slate-600 focus:ring-1 focus:ring-[#4e9000]"
                     style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)' }}
                   />
                 </div>
 
+                <Turnstile ref={turnstileRef} action="newsletter" onVerify={setTurnstileToken} />
+
                 <button
                   type="submit"
-                  disabled={status === 'loading'}
+                  disabled={status === 'loading' || !turnstileToken}
                   className="w-full flex items-center justify-center gap-2 py-3.5 rounded-xl font-black text-white text-base transition-all hover:-translate-y-0.5 disabled:opacity-70 disabled:translate-y-0 mt-2"
                   style={{ background: '#4e9000', boxShadow: '0 4px 14px rgba(78,144,0,0.3)' }}
                 >
