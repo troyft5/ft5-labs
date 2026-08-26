@@ -5,7 +5,7 @@ import Reveal from '@/components/Reveal'
 import ScrollDepth3D from '@/components/ScrollDepth3D'
 
 export const metadata: Metadata = {
-  title: 'Resources | FinTech 5 | Payment Insights, Tools & Guides',
+  title: 'Resources | Payment Insights, Tools & Guides',
   description: 'Free tools, expert articles, and industry insights from FinTech 5. Access our rate calculator, blog, statement audit, and more, all at zero cost.',
 }
 

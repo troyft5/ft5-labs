@@ -4,7 +4,7 @@ import Reveal from '@/components/Reveal'
 import ScrollDepth3D from '@/components/ScrollDepth3D'
 
 export const metadata = {
-  title: 'About Us | FinTech 5 | Payment Processing Consultants',
+  title: 'About Us | Payment Processing Consultants',
   description: 'Founded by a family of financial technology veterans with 30+ years of combined experience. We built payment infrastructure for universities and enterprises, then decided to put that expertise to work for you.',
 }
 

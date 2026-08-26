@@ -3,7 +3,7 @@ import { ShieldCheck, Lock, FileKey2, FileX, Server, CheckCircle2, ArrowRight } 
 import Reveal from '@/components/Reveal'
 
 export const metadata = {
-  title: 'Data Security | FinTech 5 | Payment Processing Consultants',
+  title: 'Data Security | Payment Processing Consultants',
   description: 'How we protect your financial data and merchant statements. Bank-level encryption, PII redaction, and Mutual NDAs available.',
 }
 

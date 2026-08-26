@@ -4,7 +4,7 @@ import Reveal from '@/components/Reveal'
 import ScrollDepth3D from '@/components/ScrollDepth3D'
 
 export const metadata = {
-  title: 'Our Process | FinTech 5 | Payment Processing Consultants',
+  title: 'Our Process | Payment Processing Consultants',
   description: 'How FinTech 5 negotiates lower payment processing rates. Step-by-step from statement analysis to processor bidding to final implementation.',
 }
 

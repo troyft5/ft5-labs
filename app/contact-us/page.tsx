@@ -7,7 +7,7 @@ const BG  = '#0f1a0f'
 const BG2 = '#0a1208'
 
 export const metadata = {
-  title: 'Contact Us | FinTech 5 | Payment Processing Consultants',
+  title: 'Contact Us | Payment Processing Consultants',
   description: 'Talk to a real payment specialist. No bots, no tickets. Reach FinTech 5 by phone, email, or contact form.',
 }
 

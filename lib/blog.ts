@@ -34,6 +34,8 @@ export function getSortedPostsData() {
 
 export function getPostData(slug: string) {
   const fullPath = path.join(postsDirectory, `${slug}.md`)
+  if (!fs.existsSync(fullPath)) return null
+
   const fileContents = fs.readFileSync(fullPath, 'utf8')
   const { data, content } = parseFrontmatter(fileContents)
   const meta = data as { title: string; date: string; excerpt: string; category: string; readTime: string; cover?: string }

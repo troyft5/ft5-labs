@@ -10,7 +10,7 @@ const BG  = '#0f1a0f'
 const BG2 = '#0a1208'
 
 export const metadata = {
-  title: 'Insights | FinTech 5 | Payment Processing Blog',
+  title: 'Insights | Payment Processing Blog',
   description: 'Expert strategies on payment processing, interchange pricing, and maximizing your profit margins. Written by industry veterans.',
 }
 

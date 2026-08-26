@@ -16,7 +16,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const solution = solutionsData[slug as keyof typeof solutionsData]
   if (!solution) return {}
   return {
-    title: `${solution.title} | FinTech 5`,
+    title: solution.title,
     description: solution.subtitle,
   }
 }

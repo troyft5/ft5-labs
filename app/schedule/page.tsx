@@ -3,7 +3,7 @@ import { ArrowRight } from 'lucide-react'
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Schedule a Free Rate Review | FinTech 5',
+  title: 'Schedule a Free Rate Review',
   description: 'Book a free 15-minute call with a FinTech 5 payment specialist. We\'ll review your current rates, answer your questions, and tell you exactly how much you can save.',
 }
 

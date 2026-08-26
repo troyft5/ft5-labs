@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: '2026 Interchange Rate Cheat Sheet | FinTech 5',
+  title: '2026 Interchange Rate Cheat Sheet',
   description: 'The exact rates Visa and Mastercard charge, before your processor marks them up.',
   robots: { index: false },
 }

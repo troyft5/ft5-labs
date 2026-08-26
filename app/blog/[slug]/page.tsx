@@ -3,6 +3,7 @@ import { glossaryData } from '@/lib/glossary'
 import ReactMarkdown from 'react-markdown'
 import Image from 'next/image'
 import Link from 'next/link'
+import { notFound } from 'next/navigation'
 import { ArrowLeft, Calendar, Clock, ArrowRight, BookOpen, ChevronRight } from 'lucide-react'
 import ReadingProgress from '@/components/ReadingProgress'
 import NewsletterForm from '@/components/NewsletterForm'
@@ -27,8 +28,9 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params
   const post = getPostData(slug)
+  if (!post) return {}
   return {
-    title: `${post.title} | FinTech 5`,
+    title: post.title,
     description: post.excerpt,
   }
 }
@@ -36,6 +38,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 export default async function BlogPost({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params
   const post = getPostData(slug)
+  if (!post) notFound()
   const allPosts = getSortedPostsData()
   const related = allPosts.filter(p => p.slug !== slug && p.category === post.category).slice(0, 2)
   const otherPosts = related.length < 2

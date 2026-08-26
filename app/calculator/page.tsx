@@ -6,7 +6,7 @@ const BG  = '#0f1a0f'
 const BG2 = '#0a1208'
 
 export const metadata = {
-  title: 'Processing Fee Calculator | FinTech 5 | Payment Processing Consultants',
+  title: 'Processing Fee Calculator | Payment Processing Consultants',
   description: 'Free payment processing fee calculator. See your true effective rate, compare IC+ vs tiered vs flat rate, and estimate potential savings.',
 }
 

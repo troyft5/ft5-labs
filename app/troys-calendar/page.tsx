@@ -1,7 +1,7 @@
 import Link from 'next/link'
 
 export const metadata = {
-  title: "Troy's Calendar | Book a Call | FinTech 5",
+  title: "Troy's Calendar | Book a Call",
   description: 'Pick a time with Troy at FinTech 5. 15 minutes. Free. Bring a statement if you have one.',
   robots: { index: false, follow: false },
 }
